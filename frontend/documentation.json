@@ -120,13 +120,13 @@
     "modules": [
         {
             "name": "AppButtonModule",
-            "id": "module-AppButtonModule-9144a882cc6d60c861686db2db3b4c50582c86f28fb6e8f98d0c267ac4be45952ca1a0f97ae31281b2536c7d2f5314ab4ec4a028aa8fd9dbd3d6f7a3adaa0146",
+            "id": "module-AppButtonModule-ca2a90473b312d7f49fa8ccb5aae89d8e6234bde8cc197173a0adf40432f2fc39f368d0185673d5a93642093b5398b30ef9bc33f5f1ae9374f6fdd04702733b7",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/stories/components/button/button.module.ts",
             "methods": [],
-            "sourceCode": "import { CUSTOM_ELEMENTS_SCHEMA, NgModule,NO_ERRORS_SCHEMA } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ButtonComponent } from './button.component';\nimport {ButtonModule} from 'primeng/button';\n\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\n@NgModule({\n  declarations: [\n    ButtonComponent\n  ],\n  imports: [\n    CommonModule,\n    ButtonModule,\n    BrowserAnimationsModule\n  ],\n  schemas: [\n    CUSTOM_ELEMENTS_SCHEMA,\n    NO_ERRORS_SCHEMA\n  ],\n\n})\nexport class AppButtonModule { }\n",
+            "sourceCode": "import { CUSTOM_ELEMENTS_SCHEMA, NgModule,NO_ERRORS_SCHEMA } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ButtonComponent } from './button.component';\nimport {ButtonModule} from 'primeng/button';\n\n@NgModule({\n  declarations: [\n    ButtonComponent\n  ],\n  exports: [\n    ButtonComponent\n  ],\n  imports: [\n    CommonModule,\n    ButtonModule,\n  ],\n})\nexport class AppButtonModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -146,7 +146,11 @@
                 },
                 {
                     "type": "exports",
-                    "elements": []
+                    "elements": [
+                        {
+                            "name": "ButtonComponent"
+                        }
+                    ]
                 },
                 {
                     "type": "bootstrap",
@@ -253,7 +257,27 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "() => ({\r\n  props: {\r\n    label: \"Button\",\r\n  },\r\n})"
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Secondary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
             }
         ],
         "functions": [],
@@ -269,7 +293,27 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "() => ({\r\n  props: {\r\n    label: \"Button\",\r\n  },\r\n})"
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Secondary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
                 }
             ]
         },
@@ -310,6 +354,26 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Secondary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
