@@ -118,7 +118,7 @@
         },
         {
             "name": "CheckeredBackgroundComponent",
-            "id": "component-CheckeredBackgroundComponent-0298870da08c6fd1c573f0d97f53f9c832c39b9c1dd3552acb23bbf81cab29230da07f5d7db7458f2b8edcdbbe50621a871153c5268a11117b5b04ab8d6650d9",
+            "id": "component-CheckeredBackgroundComponent-e8cc2e26adddd073662f21bfd5567a287137750f9c339b7b0d3dfc62ba9c979c5333b402d9bb3c7ad15787b291a27942b94afe8a9d84f559b3ad1e81ade26615",
             "file": "src/stories/components/checkered-background/checkered-background.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -145,7 +145,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-checkered-background',\n  templateUrl: './checkered-background.component.html',\n  styleUrls: ['./checkered-background.component.scss']\n})\nexport class CheckeredBackgroundComponent {\n\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-checkered-background',\r\n  templateUrl: './checkered-background.component.html',\r\n  styleUrls: ['./checkered-background.component.scss']\r\n})\r\nexport class CheckeredBackgroundComponent {\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -154,19 +154,19 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<section></section>\n"
+            "templateData": "<section></section>\r\n"
         }
     ],
     "modules": [
         {
             "name": "AppButtonModule",
-            "id": "module-AppButtonModule-ca2a90473b312d7f49fa8ccb5aae89d8e6234bde8cc197173a0adf40432f2fc39f368d0185673d5a93642093b5398b30ef9bc33f5f1ae9374f6fdd04702733b7",
+            "id": "module-AppButtonModule-ebeabe48ec9d8adb7208c2afb239ca2bfd5f63d2571bc55a3d8c0cda1d4ebce7e3e4aa59b0b4f86b69c7f0890a9d95bf69cd9cb2d4113ec96fccc21a18f82c7f",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/stories/components/button/button.module.ts",
             "methods": [],
-            "sourceCode": "import { CUSTOM_ELEMENTS_SCHEMA, NgModule,NO_ERRORS_SCHEMA } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ButtonComponent } from './button.component';\nimport {ButtonModule} from 'primeng/button';\n\n@NgModule({\n  declarations: [\n    ButtonComponent\n  ],\n  exports: [\n    ButtonComponent\n  ],\n  imports: [\n    CommonModule,\n    ButtonModule,\n  ],\n})\nexport class AppButtonModule { }\n",
+            "sourceCode": "import {  NgModule} from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { ButtonComponent } from './button.component';\r\nimport {ButtonModule} from 'primeng/button';\r\n\r\n@NgModule({\r\n  declarations: [\r\n    ButtonComponent\r\n  ],\r\n  exports: [\r\n    ButtonComponent\r\n  ],\r\n  imports: [\r\n    CommonModule,\r\n    ButtonModule,\r\n  ],\r\n})\r\nexport class AppButtonModule { }\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -288,13 +288,13 @@
         },
         {
             "name": "CheckeredBackgroundModule",
-            "id": "module-CheckeredBackgroundModule-2f6ae4816cf72ab308a9dacb13095548467755b9c392b84c24b27e6a597a75245f440f35b151b25876d8cf3741e333cffe2174a0f8952f86f2a695e38176fb43",
+            "id": "module-CheckeredBackgroundModule-fe8f0e62d293c5d0808d114419964478bfdf5324e376f62bf767b4f46bd8e326dafcb0f44d388a61911c335e5685adc55e1098961aa99b96a092e6e2805c7398",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/stories/components/checkered-background/checkered-background.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n\n\n@NgModule({\n  declarations: [],\n  imports: [\n    CommonModule\n  ]\n})\nexport class CheckeredBackgroundModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\n\r\n\r\n\r\n@NgModule({\r\n  declarations: [],\r\n  imports: [\r\n    CommonModule\r\n  ]\r\n})\r\nexport class CheckeredBackgroundModule { }\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -329,7 +329,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/button/button.component.stories.ts",
+                "file": "src/stories/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -349,7 +349,7 @@
                 "name": "Secondary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/button/button.component.stories.ts",
+                "file": "src/stories/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -359,7 +359,7 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/button/button.component.stories.ts",
+                "file": "src/stories/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -380,12 +380,12 @@
         "typealiases": [],
         "enumerations": [],
         "groupedVariables": {
-            "src/stories/components/button/button.component.stories.ts": [
+            "src/stories/components/button/button.stories.ts": [
                 {
                     "name": "Primary",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/button/button.component.stories.ts",
+                    "file": "src/stories/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -395,7 +395,7 @@
                     "name": "Secondary",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/button/button.component.stories.ts",
+                    "file": "src/stories/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -405,7 +405,7 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/button/button.component.stories.ts",
+                    "file": "src/stories/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -467,7 +467,16 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/components/button/button.component.stories.ts",
+                "filePath": "src/stories/components/button/button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ButtonComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/button/button.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -477,7 +486,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/components/button/button.component.stories.ts",
+                "filePath": "src/stories/components/button/button.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -487,22 +496,13 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/components/button/button.component.stories.ts",
+                "filePath": "src/stories/components/button/button.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/components/button/button.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "ButtonComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/3",
                 "status": "low"
             },
             {
