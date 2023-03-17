@@ -1,7 +1,0 @@
-section{
-    //tło w kratkę przykładowe kolory
-    height: 70vh;
-    background-color: #0e0e0e; /* kolor tła, kolor się powtarza w background-image */
-    background-image: linear-gradient(0deg, #000 5%, transparent 5%, transparent 99%, #000 99%, #000), linear-gradient(90deg, #000 5%, #0e0e0e 5%, #0e0e0e 99%, #000 99%, #000); /* gradienty powtarzające się w kwadratach */
-    background-size: 50px 50px; /* rozmiar kwadratów */
-}
