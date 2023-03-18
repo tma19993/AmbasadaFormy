@@ -6,7 +6,7 @@ import { CheckeredBackgroundModule } from './checkered-background.module';
 import { CheckeredBackgroundComponent } from './checkered-background.component';
 
 export default {
-  title: 'Core/checkered background',
+  title: 'Backgorunds/checkered',
   decorators:[
     moduleMetadata({
       imports: [
