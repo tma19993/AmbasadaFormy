@@ -1,0 +1,31 @@
+<section class="autocomplete-container">
+    <!-- <p-autoComplete 
+    [suggestions]="filteredValues" 
+    [dropdown]="dropdown"
+    [formControlName]="controlName"
+    [field]="filedName" 
+    [minLength]="minLength"
+    [maxlength]="maxLength"
+    [multiple]="multiple"
+    (completeMethod)="filter($event)"
+    [(ngModel)]="selectedData"
+    ></p-autoComplete>
+    <ng-template let-item pTemplate="item">
+    <div class="country-item">
+      <div>{{item.name}}</div>
+    </div>
+  </ng-template> -->
+
+  <p-autoComplete [(ngModel)]="selectedValue" 
+  [suggestions]="filteredValues" 
+  [dropdown]="dropdown"
+  [field]="filedName"
+  [multiple]="multiple"
+  [minLength]="minLength"
+  [maxlength]="maxLength"
+  (completeMethod)="filter($event)"
+  ></p-autoComplete>
+  <ng-template let-object pTemplate="item">
+    {{ object.name }}
+  </ng-template>
+</section>
