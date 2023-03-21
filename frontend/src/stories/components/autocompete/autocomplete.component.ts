@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 import { examplePersonalTrainerModel } from './autocomplete.model';
 
 @Component({
-  selector: 'app-autocomplete',
+  selector: 'af-autocomplete',
   templateUrl: './autocomplete.component.html',
   styleUrls: ['./autocomplete.component.scss']
 })
