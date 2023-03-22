@@ -120,14 +120,14 @@
         },
         {
             "name": "AutocompleteComponent",
-            "id": "component-AutocompleteComponent-326b4c7d1f59eb7e64e7b4b0c1f9729b5bb3024b988a103cc490a43604e1604eec75af798c02bafe5233ef26aad724f28256cb20610bebc340380e42b08804a9",
+            "id": "component-AutocompleteComponent-bf480867cc90cd9d470eabfc2ec56a23a6551dd47af31f3254b6a1e3333f6a7b3128007c1425f5dc675b896fa58d0943f5af95bbed0f4c8a45b471c7b0a835c0",
             "file": "src/stories/components/autocompete/autocomplete.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "app-autocomplete",
+            "selector": "af-autocomplete",
             "styleUrls": [
                 "./autocomplete.component.scss"
             ],
@@ -137,15 +137,6 @@
             ],
             "viewProviders": [],
             "inputsClass": [
-                {
-                    "name": "controlName",
-                    "defaultValue": "\"\"",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 14,
-                    "type": "string",
-                    "decorators": []
-                },
                 {
                     "name": "dropdown",
                     "defaultValue": "false",
@@ -157,10 +148,10 @@
                 },
                 {
                     "name": "filedName",
-                    "defaultValue": "\"\"",
+                    "defaultValue": "\"name\"",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 15,
+                    "line": 14,
                     "type": "string",
                     "decorators": []
                 },
@@ -169,7 +160,7 @@
                     "defaultValue": "255",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 17,
+                    "line": 16,
                     "type": "number",
                     "decorators": []
                 },
@@ -178,7 +169,7 @@
                     "defaultValue": "1",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 16,
+                    "line": 15,
                     "type": "number",
                     "decorators": []
                 },
@@ -187,7 +178,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 18,
+                    "line": 17,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -211,7 +202,7 @@
                     "type": "examplePersonalTrainerModel[]",
                     "optional": false,
                     "description": "",
-                    "line": 20,
+                    "line": 19,
                     "modifierKind": [
                         123
                     ]
@@ -224,7 +215,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 21,
+                    "line": 20,
                     "modifierKind": [
                         123
                     ]
@@ -244,7 +235,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 28,
+                    "line": 27,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -270,7 +261,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { NgStyle } from '@angular/common';\nimport { Component, Input } from '@angular/core';\nimport { examplePersonalTrainerModel } from './autocomplete.model';\n\n@Component({\n  selector: 'app-autocomplete',\n  templateUrl: './autocomplete.component.html',\n  styleUrls: ['./autocomplete.component.scss']\n})\nexport class AutocompleteComponent {\n\n@Input() public suggestions: examplePersonalTrainerModel[] = [];\n@Input() public dropdown: boolean = false;\n@Input() public controlName: string = \"\";\n@Input() public filedName: string = \"\";\n@Input() public minLength: number = 1;\n@Input() public maxLength: number = 255;\n@Input() public multiple: boolean = false; \n\npublic filteredValues: examplePersonalTrainerModel[] = [];\npublic selectedValue: string = \"\";\nconstructor() {\n}\n\n\n\n\npublic filter(event: any) {\n  this.filteredValues = this.suggestions.filter(value => {\n    return value.name?.toLowerCase().indexOf(event.query.toLowerCase()) !== -1;\n  });\n}\n}\n",
+            "sourceCode": "import { NgStyle } from '@angular/common';\r\nimport { Component, Input } from '@angular/core';\r\nimport { examplePersonalTrainerModel } from './autocomplete.model';\r\n\r\n@Component({\r\n  selector: 'af-autocomplete',\r\n  templateUrl: './autocomplete.component.html',\r\n  styleUrls: ['./autocomplete.component.scss']\r\n})\r\nexport class AutocompleteComponent {\r\n\r\n@Input() public suggestions: examplePersonalTrainerModel[] = [];\r\n@Input() public dropdown: boolean = false;\r\n@Input() public filedName: string = \"name\";\r\n@Input() public minLength: number = 1;\r\n@Input() public maxLength: number = 255;\r\n@Input() public multiple: boolean = false; \r\n\r\npublic filteredValues: examplePersonalTrainerModel[] = [];\r\npublic selectedValue: string = \"\";\r\nconstructor() {\r\n}\r\n\r\n\r\n\r\n\r\npublic filter(event: any) {\r\n  this.filteredValues = this.suggestions.filter(value => {\r\n    return value.name?.toLowerCase().indexOf(event.query.toLowerCase()) !== -1;\r\n  });\r\n}\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -285,20 +276,20 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 21
+                "line": 20
             },
-            "templateData": "<section class=\"autocomplete-container\">\n    <!-- <p-autoComplete \n    [suggestions]=\"filteredValues\" \n    [dropdown]=\"dropdown\"\n    [formControlName]=\"controlName\"\n    [field]=\"filedName\" \n    [minLength]=\"minLength\"\n    [maxlength]=\"maxLength\"\n    [multiple]=\"multiple\"\n    (completeMethod)=\"filter($event)\"\n    [(ngModel)]=\"selectedData\"\n    ></p-autoComplete>\n    <ng-template let-item pTemplate=\"item\">\n    <div class=\"country-item\">\n      <div>{{item.name}}</div>\n    </div>\n  </ng-template> -->\n\n  <p-autoComplete [(ngModel)]=\"selectedValue\" \n  [suggestions]=\"filteredValues\" \n  [dropdown]=\"dropdown\"\n  (completeMethod)=\"filter($event)\"\n  ></p-autoComplete>\n  <ng-template let-object pTemplate=\"item\">\n    {{ object.name }}\n  </ng-template>\n</section>"
+            "templateData": "<section class=\"autocomplete-container\">\r\n    <!-- <p-autoComplete \r\n    [suggestions]=\"filteredValues\" \r\n    [dropdown]=\"dropdown\"\r\n    [formControlName]=\"controlName\"\r\n    [field]=\"filedName\" \r\n    [minLength]=\"minLength\"\r\n    [maxlength]=\"maxLength\"\r\n    [multiple]=\"multiple\"\r\n    (completeMethod)=\"filter($event)\"\r\n    [(ngModel)]=\"selectedData\"\r\n    ></p-autoComplete>\r\n    <ng-template let-item pTemplate=\"item\">\r\n    <div class=\"country-item\">\r\n      <div>{{item.name}}</div>\r\n    </div>\r\n  </ng-template> -->\r\n\r\n  <p-autoComplete [(ngModel)]=\"selectedValue\" \r\n  [suggestions]=\"filteredValues\" \r\n  [dropdown]=\"dropdown\"\r\n  [field]=\"filedName\"\r\n  [multiple]=\"multiple\"\r\n  [minLength]=\"minLength\"\r\n  [maxlength]=\"maxLength\"\r\n  (completeMethod)=\"filter($event)\"\r\n  ></p-autoComplete>\r\n  <ng-template let-object pTemplate=\"item\">\r\n    {{ object.name }}\r\n  </ng-template>\r\n</section>"
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-f9ecacc168ed4e10fcdf0de52ddb0d0f01149800d455f5b840049acceb6b639341096f5917870cc4e02cbbabe83a24f667845b24f0dfc42bbde1e56594ec3c7a",
+            "id": "component-ButtonComponent-1526b06853649b74de7de90271de7ad7510a9165dd8c29bd9f4aa9033ce6805dddabd85d9a87be3efda71eb0ee1ee750befe44be2469999f39a609cef9b67b4f",
             "file": "src/stories/components/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "app-button",
+            "selector": "af-button",
             "styleUrls": [
                 "./button.component.scss"
             ],
@@ -328,7 +319,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss']\n})\nexport class ButtonComponent {\n@Input() public label: string = \"\";\nconstructor(){\n\n}\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'af-button',\r\n  templateUrl: './button.component.html',\r\n  styleUrls: ['./button.component.scss']\r\n})\r\nexport class ButtonComponent {\r\n@Input() public label: string = \"\";\r\nconstructor(){\r\n\r\n}\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -349,14 +340,14 @@
         },
         {
             "name": "CheckeredBackgroundComponent",
-            "id": "component-CheckeredBackgroundComponent-e8cc2e26adddd073662f21bfd5567a287137750f9c339b7b0d3dfc62ba9c979c5333b402d9bb3c7ad15787b291a27942b94afe8a9d84f559b3ad1e81ade26615",
-            "file": "src/stories/components/checkered-background/checkered-background.component.ts",
+            "id": "component-CheckeredBackgroundComponent-df6fd2de376dfd066a1cbcd14175e9f12432976dfb1907c1becfee5d01422c509c844b5e00722818fe83ec84fab3af2808956e295a68341de80850628f25edb8",
+            "file": "src/stories/backgrounds/checkered-background/checkered-background.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "app-checkered-background",
+            "selector": "af-checkered-background",
             "styleUrls": [
                 "./checkered-background.component.scss"
             ],
@@ -376,7 +367,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-checkered-background',\r\n  templateUrl: './checkered-background.component.html',\r\n  styleUrls: ['./checkered-background.component.scss']\r\n})\r\nexport class CheckeredBackgroundComponent {\r\n\r\n}\r\n",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'af-checkered-background',\r\n  templateUrl: './checkered-background.component.html',\r\n  styleUrls: ['./checkered-background.component.scss']\r\n})\r\nexport class CheckeredBackgroundComponent {\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -386,6 +377,46 @@
             ],
             "stylesData": "",
             "templateData": "<h2>Tło napisane w css</h2>\r\n<section></section>\r\n"
+        },
+        {
+            "name": "InputComponent",
+            "id": "component-InputComponent-2749e5946967df863150fb1dadf6adf9780fe9c76d1b03c4adaa272e2d6d5b22611a5225b790d8b295264db51ca6611df82ba80b3f6d82b79482bc8cf1d37a37",
+            "file": "src/stories/components/input/input.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "af-input",
+            "styleUrls": [
+                "./input.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./input.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'af-input',\n  templateUrl: './input.component.html',\n  styleUrls: ['./input.component.scss']\n})\nexport class InputComponent {\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./input.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<p>input works!</p>\n"
         }
     ],
     "modules": [
@@ -519,13 +550,13 @@
         },
         {
             "name": "AutocompeteModule",
-            "id": "module-AutocompeteModule-ab8c64720c31450661e13a4ab3b086e726c86a86a9c655b5c42a5a40de28c928aa12b4aa13bb84b06838d31df88277cd9a774463d2416d969703e67044b0094b",
+            "id": "module-AutocompeteModule-9b49f3ca594a0e8ca823d81dccbc75ad9e00b78fcc0299ecd6624aaa237113bca03d530596f0b0f1e6e7e59bd2f51a208391057ad2eb3b246d5eeded62b86575",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/stories/components/autocompete/autocomplete.module.ts",
             "methods": [],
-            "sourceCode": "import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { AutoCompleteModule } from 'primeng/autocomplete';\nimport { AutocompleteComponent } from './autocomplete.component';\nimport { FormsModule, ReactiveFormsModule } from '@angular/forms';\n\n\n@NgModule({\n  declarations: [ AutocompleteComponent ],\n  imports: [\n    CommonModule,\n    AutoCompleteModule,\n    FormsModule,\n    ReactiveFormsModule\n  ],\n  exports: [ AutocompleteComponent ],\n  schemas: [\n    CUSTOM_ELEMENTS_SCHEMA,\n    NO_ERRORS_SCHEMA\n  ],\n})\nexport class AutocompeteModule { }",
+            "sourceCode": "import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { AutoCompleteModule } from 'primeng/autocomplete';\r\nimport { AutocompleteComponent } from './autocomplete.component';\r\nimport { FormsModule, ReactiveFormsModule } from '@angular/forms';\r\n\r\n\r\n@NgModule({\r\n  declarations: [ AutocompleteComponent ],\r\n  imports: [\r\n    CommonModule,\r\n    AutoCompleteModule,\r\n    FormsModule,\r\n    ReactiveFormsModule\r\n  ],\r\n  exports: [ AutocompleteComponent ],\r\n  schemas: [\r\n    CUSTOM_ELEMENTS_SCHEMA,\r\n    NO_ERRORS_SCHEMA\r\n  ],\r\n})\r\nexport class AutocompeteModule { }",
             "children": [
                 {
                     "type": "providers",
@@ -567,7 +598,7 @@
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
-            "file": "src/stories/components/checkered-background/checkered-background.module.ts",
+            "file": "src/stories/backgrounds/checkered-background/checkered-background.module.ts",
             "methods": [],
             "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\n\r\n\r\n\r\n@NgModule({\r\n  declarations: [],\r\n  imports: [\r\n    CommonModule\r\n  ]\r\n})\r\nexport class CheckeredBackgroundModule { }\r\n",
             "children": [
@@ -586,6 +617,50 @@
                 {
                     "type": "exports",
                     "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "InputModule",
+            "id": "module-InputModule-5de1a28664253dfbbd17d937c10fa3796e053fc8cb220b58558c5b9f45dc1259c7533088755c5cf679df8ea5a1456a89555f58349950fd62608d9db07546fd2e",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/stories/components/input/input.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { InputComponent } from './input.component';\n\n@NgModule({\n  declarations: [\n    InputComponent\n  ],\n  imports: [\n    CommonModule\n  ],\n  exports: [\n    InputComponent\n  ]\n})\n\nexport class InputModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "InputComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "InputComponent"
+                        }
+                    ]
                 },
                 {
                     "type": "bootstrap",
@@ -624,6 +699,16 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/button/button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -634,7 +719,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/checkered-background/checkered-background.component.stories.ts",
+                "file": "src/stories/components/input/input.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -664,6 +749,16 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/button/button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -674,11 +769,11 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/checkered-background/checkered-background.component.stories.ts",
+                "file": "src/stories/components/input/input.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+                "defaultValue": "args => ({\n  props:{\n    ...args\n  }\n})"
             }
         ],
         "functions": [],
@@ -747,6 +842,28 @@
                     "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
                 }
             ],
+            "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts": [
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+                }
+            ],
             "src/stories/components/button/button.component.stories.ts": [
                 {
                     "name": "Primary",
@@ -779,12 +896,12 @@
                     "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
                 }
             ],
-            "src/stories/components/checkered-background/checkered-background.component.stories.ts": [
+            "src/stories/components/input/input.component.stories.ts": [
                 {
                     "name": "Primary",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/checkered-background/checkered-background.component.stories.ts",
+                    "file": "src/stories/components/input/input.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -794,11 +911,11 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/checkered-background/checkered-background.component.stories.ts",
+                    "file": "src/stories/components/input/input.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+                    "defaultValue": "args => ({\n  props:{\n    ...args\n  }\n})"
                 }
             ]
         },
@@ -866,6 +983,35 @@
                 "status": "low"
             },
             {
+                "filePath": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/backgrounds/checkered-background/checkered-background.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CheckeredBackgroundComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/stories/components/autocompete/autocomplete.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -901,7 +1047,7 @@
                 "linktype": "component",
                 "name": "AutocompleteComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/12",
+                "coverageCount": "0/11",
                 "status": "low"
             },
             {
@@ -953,7 +1099,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/components/checkered-background/checkered-background.component.stories.ts",
+                "filePath": "src/stories/components/input/input.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -963,7 +1109,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/components/checkered-background/checkered-background.component.stories.ts",
+                "filePath": "src/stories/components/input/input.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -973,10 +1119,10 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/components/checkered-background/checkered-background.component.ts",
+                "filePath": "src/stories/components/input/input.component.ts",
                 "type": "component",
                 "linktype": "component",
-                "name": "CheckeredBackgroundComponent",
+                "name": "InputComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

@@ -4,7 +4,7 @@ import { AutocompleteComponent } from './autocomplete.component';
 import { AutocompeteModule } from './autocomplete.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
-import { examplePersonalTrainerModel } from './autocomplete.model';
+import { examplePersonalTrainerModel } from '../../interfaces/autocomplete.model';
 
 const exampleData: examplePersonalTrainerModel[] = [
   {

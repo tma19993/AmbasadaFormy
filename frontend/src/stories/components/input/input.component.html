@@ -1,0 +1,13 @@
+<div *ngIf="!floatLabel">
+    <span class="{{iconConfig?.iconFloat}}">
+        <i class="{{iconClassName}}"></i>
+    <input id="float-input" type="text" pInputText [(ngModel)]="property"/>
+</span>
+</div>
+<div *ngIf="floatLabel">
+    <span class="p-float-label" [class]="iconConfig?.iconFloat">
+        <i [class]="iconClassName"></i>
+        <input id="float-input" type="text" pInputText [(ngModel)]="property"/>
+        <label for="float-input">{{floatLabelText}}</label>
+    </span>
+</div>
