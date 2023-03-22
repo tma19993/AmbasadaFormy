@@ -1,6 +1,6 @@
 import { NgStyle } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { examplePersonalTrainerModel } from './autocomplete.model';
+import { examplePersonalTrainerModel } from '../../interfaces/autocomplete.model';
 
 @Component({
   selector: 'af-autocomplete',
