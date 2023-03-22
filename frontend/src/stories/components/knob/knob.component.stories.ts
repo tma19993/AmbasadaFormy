@@ -6,7 +6,7 @@ import { AFKnobModule } from './knob.module';
 import { KnobComponent } from './knob.component';
 
 export default {
-  title: 'Core/FloatLabel',
+  title: 'Core/Knob',
   decorators: [
     moduleMetadata({
       imports: [AFKnobModule, BrowserAnimationsModule],
