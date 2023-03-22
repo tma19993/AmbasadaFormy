@@ -4,7 +4,7 @@
         {
             "name": "examplePersonalTrainerModel",
             "id": "interface-examplePersonalTrainerModel-76536f75268b615226548061fc3f6a7d3e95f0a7f85c09ca6e9eaab84f24ebecd7114e44c4b05f668d51d9e7e2e83a528d28c37a5fb03ae20f6a4634841a1ca3",
-            "file": "src/stories/components/autocompete/autocomplete.model.ts",
+            "file": "src/stories/interfaces/autocomplete.model.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
@@ -54,6 +54,38 @@
                     "optional": true,
                     "description": "",
                     "line": 5
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 165,
+            "methods": []
+        },
+        {
+            "name": "inputIconConfig",
+            "id": "interface-inputIconConfig-68c9604def755393d961a6a42aa7d32ab97ec978e7ef10f215f8b06399ecaf1217d59a60ebde0ef23a4d910cd505a74377483a7ec199f033e53879416bcd2960",
+            "file": "src/stories/interfaces/input.model.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface inputIconConfig {\r\n    iconClassName?:string,\r\n    iconFloat?: enumIconFloat\r\n}\r\nexport enum enumIconFloat {\r\n left =  \"p-input-icon-left\",\r\n right = \"p-input-icon-right\"\r\n}",
+            "properties": [
+                {
+                    "name": "iconClassName",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": true,
+                    "description": "",
+                    "line": 2
+                },
+                {
+                    "name": "iconFloat",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "enumIconFloat",
+                    "optional": true,
+                    "description": "",
+                    "line": 3
                 }
             ],
             "indexSignatures": [],
@@ -120,7 +152,7 @@
         },
         {
             "name": "AutocompleteComponent",
-            "id": "component-AutocompleteComponent-bf480867cc90cd9d470eabfc2ec56a23a6551dd47af31f3254b6a1e3333f6a7b3128007c1425f5dc675b896fa58d0943f5af95bbed0f4c8a45b471c7b0a835c0",
+            "id": "component-AutocompleteComponent-d5eda871235c11389f0ed37d8892427db73c7425b5f1a901ebd30166400d8d95d4a60e44ef0810059627b9ca4bbcb1634522a06f4edfa1c76eb642384cf35120",
             "file": "src/stories/components/autocompete/autocomplete.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -261,7 +293,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { NgStyle } from '@angular/common';\r\nimport { Component, Input } from '@angular/core';\r\nimport { examplePersonalTrainerModel } from './autocomplete.model';\r\n\r\n@Component({\r\n  selector: 'af-autocomplete',\r\n  templateUrl: './autocomplete.component.html',\r\n  styleUrls: ['./autocomplete.component.scss']\r\n})\r\nexport class AutocompleteComponent {\r\n\r\n@Input() public suggestions: examplePersonalTrainerModel[] = [];\r\n@Input() public dropdown: boolean = false;\r\n@Input() public filedName: string = \"name\";\r\n@Input() public minLength: number = 1;\r\n@Input() public maxLength: number = 255;\r\n@Input() public multiple: boolean = false; \r\n\r\npublic filteredValues: examplePersonalTrainerModel[] = [];\r\npublic selectedValue: string = \"\";\r\nconstructor() {\r\n}\r\n\r\n\r\n\r\n\r\npublic filter(event: any) {\r\n  this.filteredValues = this.suggestions.filter(value => {\r\n    return value.name?.toLowerCase().indexOf(event.query.toLowerCase()) !== -1;\r\n  });\r\n}\r\n}\r\n",
+            "sourceCode": "import { NgStyle } from '@angular/common';\r\nimport { Component, Input } from '@angular/core';\r\nimport { examplePersonalTrainerModel } from '../../interfaces/autocomplete.model';\r\n\r\n@Component({\r\n  selector: 'af-autocomplete',\r\n  templateUrl: './autocomplete.component.html',\r\n  styleUrls: ['./autocomplete.component.scss']\r\n})\r\nexport class AutocompleteComponent {\r\n\r\n@Input() public suggestions: examplePersonalTrainerModel[] = [];\r\n@Input() public dropdown: boolean = false;\r\n@Input() public filedName: string = \"name\";\r\n@Input() public minLength: number = 1;\r\n@Input() public maxLength: number = 255;\r\n@Input() public multiple: boolean = false; \r\n\r\npublic filteredValues: examplePersonalTrainerModel[] = [];\r\npublic selectedValue: string = \"\";\r\nconstructor() {\r\n}\r\n\r\n\r\n\r\n\r\npublic filter(event: any) {\r\n  this.filteredValues = this.suggestions.filter(value => {\r\n    return value.name?.toLowerCase().indexOf(event.query.toLowerCase()) !== -1;\r\n  });\r\n}\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -380,7 +412,7 @@
         },
         {
             "name": "InputComponent",
-            "id": "component-InputComponent-2749e5946967df863150fb1dadf6adf9780fe9c76d1b03c4adaa272e2d6d5b22611a5225b790d8b295264db51ca6611df82ba80b3f6d82b79482bc8cf1d37a37",
+            "id": "component-InputComponent-84f208a75ed8678da5a3a4ed4d4b508c2a838c47da0cbddd68d277626d4d4957ca81d67bb1fb50e3ca1b7fe8bee51146c845405f974fb5402da7fb9c131bf628",
             "file": "src/stories/components/input/input.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -396,7 +428,181 @@
                 "./input.component.html"
             ],
             "viewProviders": [],
-            "inputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "floatLabel",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "floatLabelText",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "iconConfig",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "inputIconConfig | undefined",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "iconClassName",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 15,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "property",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 19,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\r\nimport { inputIconConfig } from 'src/stories/interfaces/input.model';\r\n\r\n@Component({\r\n  selector: 'af-input',\r\n  templateUrl: './input.component.html',\r\n  styleUrls: ['./input.component.scss'],\r\n})\r\nexport class InputComponent implements OnInit {\r\n  @Input() public floatLabelText: string = '';\r\n  @Input() public floatLabel: boolean = false;\r\n  @Input() public iconConfig: inputIconConfig | undefined;\r\n\r\n  public property: string = '';\r\n  public iconClassName: string = '';\r\n\r\n  constructor() {}\r\n\r\n public ngOnInit(): void {\r\n    if (!!this.iconConfig) {\r\n      this.iconClassName = `pi ${this.iconConfig.iconClassName}`;\r\n    }\r\n  }\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./input.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 15
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div *ngIf=\"!floatLabel\">\r\n    <span class=\"{{iconConfig?.iconFloat}}\">\r\n        <i class=\"{{iconClassName}}\"></i>\r\n    <input id=\"float-input\" type=\"text\" pInputText [(ngModel)]=\"property\"/>\r\n</span>\r\n</div>\r\n<div *ngIf=\"floatLabel\">\r\n    <span class=\"p-float-label\" [class]=\"iconConfig?.iconFloat\">\r\n        <i [class]=\"iconClassName\"></i>\r\n        <input id=\"float-input\" type=\"text\" pInputText [(ngModel)]=\"property\"/>\r\n        <label for=\"float-input\">{{floatLabelText}}</label>\r\n    </span>\r\n</div>\r\n"
+        },
+        {
+            "name": "KnobComponent",
+            "id": "component-KnobComponent-d182fea0e8f9406f332a702fc31443ca03f9fe72d15d3bae0905a90acbc3428f8a467d65dd53142da53b57799f5558858fd725e21f2a7ea07c88b02cad5f0513",
+            "file": "src/stories/components/knob/knob.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-floatlabel",
+            "styleUrls": [
+                "./knob.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./knob.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "maxValue",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "minValue",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "rangeColor",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "value",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "valueColor",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
             "outputsClass": [],
             "propertiesClass": [],
             "methodsClass": [],
@@ -407,19 +613,223 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'af-input',\n  templateUrl: './input.component.html',\n  styleUrls: ['./input.component.scss']\n})\nexport class InputComponent {\n\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-floatlabel',\r\n  templateUrl: './knob.component.html',\r\n  styleUrls: ['./knob.component.scss'],\r\n})\r\nexport class KnobComponent {\r\n  @Input() public value: number = 0;\r\n  @Input() public minValue: number = 0;\r\n  @Input() public maxValue: number = 0;\r\n  @Input() public size: number = 0;\r\n  @Input() public valueColor: string = '';\r\n  @Input() public rangeColor: string = '';\r\n  constructor() {}\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
                     "data": "",
-                    "styleUrl": "./input.component.scss"
+                    "styleUrl": "./knob.component.scss"
                 }
             ],
             "stylesData": "",
-            "templateData": "<p>input works!</p>\n"
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 14
+            },
+            "templateData": "<p-knob\r\n  [(ngModel)]=\"value\"\r\n  [min]=\"minValue\"\r\n  [max]=\"maxValue\"\r\n  [size]=\"size\"\r\n  [valueColor]=\"valueColor\"\r\n  [rangeColor]=\"rangeColor\"\r\n></p-knob>\r\n"
+        },
+        {
+            "name": "RatingComponent",
+            "id": "component-RatingComponent-31af81b59edb5adccd3c79fb2fe6a1646a7c3194e3411f9b8438a5aba7fd2d90d7a53cb4450904ad03867a911e52d9d43bdb38b3ec7704a5ad401f91af9a7e59",
+            "file": "src/stories/components/rating/rating.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "af-rating",
+            "styleUrls": [
+                "./rating.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./rating.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "disable",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "\"\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "readonly",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "stars",
+                    "defaultValue": "5",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "number",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "ss",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                },
+                {
+                    "name": "val",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 13,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'af-rating',\r\n  templateUrl: './rating.component.html',\r\n  styleUrls: ['./rating.component.scss']\r\n})\r\nexport class RatingComponent {\r\n@Input() public label: string = \"\";\r\n@Input() public disable: boolean = false;\r\n@Input() public readonly: boolean = false;\r\n@Input() public stars: number = 5;\r\npublic val: number = 0;\r\nss: any;\r\nconstructor(){\r\n\r\n}\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./rating.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 14
+            },
+            "templateData": "    <p-rating [(ngModel)]=\"val\"\r\n    [stars]=\"stars\"\r\n    ></p-rating>\r\n"
         }
     ],
     "modules": [
+        {
+            "name": "AFKnobModule",
+            "id": "module-AFKnobModule-4f6c0aaa63858c834ec668892d57c6c9ff01d3accece5d115f3f70a9ae5a6f5b436afacb8b2f9ee01e33900b5f50ae9d0fe039e0dcc4eac35eed0be2156cea4c",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/stories/components/knob/knob.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { KnobComponent } from './knob.component';\r\nimport { KnobModule } from 'primeng/knob';\r\nimport { FormsModule } from '@angular/forms';\r\n@NgModule({\r\n  declarations: [KnobComponent],\r\n  imports: [CommonModule, KnobModule, FormsModule],\r\n  exports: [KnobComponent],\r\n})\r\nexport class AFKnobModule {}\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "KnobComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "KnobComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "AFRatingModule",
+            "id": "module-AFRatingModule-3d810d63d4ffb254afcb56227450ca2e24e687e43ca2b09bbb84f17e8c1fd42688f840451bf077dc17acd0b978319aac850112e1fe401d036957859bb7ce565c",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/stories/components/rating/rating.module.ts",
+            "methods": [],
+            "sourceCode": "import {  NgModule} from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { RatingComponent } from './rating.component';\r\nimport {RatingModule} from 'primeng/rating';\r\nimport { FormsModule } from '@angular/forms';\r\n\r\n@NgModule({\r\n  declarations: [\r\n    RatingComponent\r\n  ],\r\n  exports: [\r\n    RatingComponent\r\n  ],\r\n  imports: [\r\n    CommonModule,\r\n    RatingModule,\r\n    FormsModule\r\n  ],\r\n})\r\nexport class AFRatingModule { }\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "RatingComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "RatingComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
         {
             "name": "AppButtonModule",
             "id": "module-AppButtonModule-ebeabe48ec9d8adb7208c2afb239ca2bfd5f63d2571bc55a3d8c0cda1d4ebce7e3e4aa59b0b4f86b69c7f0890a9d95bf69cd9cb2d4113ec96fccc21a18f82c7f",
@@ -630,13 +1040,13 @@
         },
         {
             "name": "InputModule",
-            "id": "module-InputModule-5de1a28664253dfbbd17d937c10fa3796e053fc8cb220b58558c5b9f45dc1259c7533088755c5cf679df8ea5a1456a89555f58349950fd62608d9db07546fd2e",
+            "id": "module-InputModule-054b2c2b5c460606bd9bb84b32c20c1a0db97c8602b532d3a0aff56353468713a56ddef946d0f356247a82b3ce65716828dd2f8672c7467abd17bb2649e010d9",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/stories/components/input/input.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { InputComponent } from './input.component';\n\n@NgModule({\n  declarations: [\n    InputComponent\n  ],\n  imports: [\n    CommonModule\n  ],\n  exports: [\n    InputComponent\n  ]\n})\n\nexport class InputModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { InputComponent } from './input.component';\r\nimport {InputTextModule} from 'primeng/inputtext';\r\nimport { FormsModule } from '@angular/forms';\r\nimport { BrowserModule } from '@angular/platform-browser';\r\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\r\n\r\n@NgModule({\r\n  declarations: [\r\n    InputComponent\r\n  ],\r\n  imports: [\r\n    CommonModule,\r\n    InputTextModule,\r\n    FormsModule,\r\n    BrowserModule,\r\n    BrowserAnimationsModule,\r\n  ],\r\n  exports: [\r\n    InputComponent\r\n  ]\r\n})\r\n\r\nexport class InputModule { }\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -676,6 +1086,16 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "defaultData",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/input/input.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "inputIconConfig",
+                "defaultValue": "{\r\n  iconClassName: \"pi-search\",\r\n  iconFloat: enumIconFloat.left\r\n}"
+            },
+            {
                 "name": "exampleData",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -699,16 +1119,6 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/button/button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -726,10 +1136,50 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/rating/rating.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/knob/knob.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Secondary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/components/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Secondary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/input/input.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -749,16 +1199,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/button/button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -773,12 +1213,65 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "args => ({\n  props:{\n    ...args\n  }\n})"
+                "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/rating/rating.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/knob/knob.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
             }
         ],
         "functions": [],
         "typealiases": [],
         "enumerations": [
+            {
+                "name": "enumIconFloat",
+                "childs": [
+                    {
+                        "name": "left",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "p-input-icon-left"
+                    },
+                    {
+                        "name": "right",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "p-input-icon-right"
+                    }
+                ],
+                "ctype": "miscellaneous",
+                "subtype": "enum",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "file": "src/stories/interfaces/input.model.ts"
+            },
             {
                 "name": "trainerSkillsModel",
                 "childs": [
@@ -806,10 +1299,52 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
-                "file": "src/stories/components/autocompete/autocomplete.model.ts"
+                "file": "src/stories/interfaces/autocomplete.model.ts"
             }
         ],
         "groupedVariables": {
+            "src/stories/components/input/input.component.stories.ts": [
+                {
+                    "name": "defaultData",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/input/input.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "inputIconConfig",
+                    "defaultValue": "{\r\n  iconClassName: \"pi-search\",\r\n  iconFloat: enumIconFloat.left\r\n}"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/input/input.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Secondary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/input/input.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/input/input.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+                }
+            ],
             "src/stories/components/autocompete/autocomplete.component.stories.ts": [
                 {
                     "name": "exampleData",
@@ -836,28 +1371,6 @@
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/stories/components/autocompete/autocomplete.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
-                }
-            ],
-            "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts": [
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -896,12 +1409,12 @@
                     "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
                 }
             ],
-            "src/stories/components/input/input.component.stories.ts": [
+            "src/stories/components/rating/rating.component.stories.ts": [
                 {
                     "name": "Primary",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/input/input.component.stories.ts",
+                    "file": "src/stories/components/rating/rating.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -911,17 +1424,86 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/input/input.component.stories.ts",
+                    "file": "src/stories/components/rating/rating.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "args => ({\n  props:{\n    ...args\n  }\n})"
+                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+                }
+            ],
+            "src/stories/components/knob/knob.component.stories.ts": [
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/knob/knob.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/knob/knob.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
+                }
+            ],
+            "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts": [
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
                 }
             ]
         },
         "groupedFunctions": {},
         "groupedEnumerations": {
-            "src/stories/components/autocompete/autocomplete.model.ts": [
+            "src/stories/interfaces/input.model.ts": [
+                {
+                    "name": "enumIconFloat",
+                    "childs": [
+                        {
+                            "name": "left",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "p-input-icon-left"
+                        },
+                        {
+                            "name": "right",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "p-input-icon-right"
+                        }
+                    ],
+                    "ctype": "miscellaneous",
+                    "subtype": "enum",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "file": "src/stories/interfaces/input.model.ts"
+                }
+            ],
+            "src/stories/interfaces/autocomplete.model.ts": [
                 {
                     "name": "trainerSkillsModel",
                     "childs": [
@@ -949,7 +1531,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
-                    "file": "src/stories/components/autocompete/autocomplete.model.ts"
+                    "file": "src/stories/interfaces/autocomplete.model.ts"
                 }
             ]
         },
@@ -1051,15 +1633,6 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/components/autocompete/autocomplete.model.ts",
-                "type": "interface",
-                "linktype": "interface",
-                "name": "examplePersonalTrainerModel",
-                "coveragePercent": 0,
-                "coverageCount": "0/6",
-                "status": "low"
-            },
-            {
                 "filePath": "src/stories/components/button/button.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -1103,7 +1676,27 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "defaultData",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/input/input.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/input/input.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Secondary",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -1124,7 +1717,83 @@
                 "linktype": "component",
                 "name": "InputComponent",
                 "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/knob/knob.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/knob/knob.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/knob/knob.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "KnobComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/rating/rating.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/rating/rating.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/rating/rating.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "RatingComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/interfaces/autocomplete.model.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "examplePersonalTrainerModel",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/interfaces/input.model.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "inputIconConfig",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
                 "status": "low"
             }
         ]
