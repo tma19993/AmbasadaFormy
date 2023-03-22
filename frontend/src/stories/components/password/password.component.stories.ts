@@ -2,17 +2,17 @@ import { Meta, moduleMetadata, Story } from '@storybook/angular';
 import { DEFAULT_VIEWPORT } from '@storybook/addon-viewport';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
-import { AFKnobModule } from './knob.module';
-import { KnobComponent } from './knob.component';
+import { AppPasswordModule } from './password.module';
+import { PasswordComponent } from './password.component';
 
 export default {
-  title: 'Core/Konb',
+  title: 'Core/Password',
   decorators: [
     moduleMetadata({
-      imports: [AFKnobModule, BrowserAnimationsModule],
+      imports: [AppPasswordModule, BrowserAnimationsModule],
     }),
   ],
-  component: KnobComponent,
+  component: PasswordComponent,
   parameters: {
     viewport: DEFAULT_VIEWPORT,
   },
@@ -27,10 +27,12 @@ const Template: Story = (args) => ({
 
 export const Primary: Story = Template.bind({});
 Primary.args = {
-  value: 20,
-  minValue: 0,
-  maxValue: 100,
-  size: 100,
-  valueColor: 'tomato',
-  rangeColor: 'green',
+  weakLabel: 'Weak',
+  mediumLabel: 'Medium',
+  strongLabel: 'Strong-man',
+  toggleMask: true,
+  feedback: true,
+  maxLength: 20,
+  showClear: true,
+  placeholder: 'Password'
 };

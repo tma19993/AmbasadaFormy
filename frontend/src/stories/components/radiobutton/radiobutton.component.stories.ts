@@ -2,17 +2,17 @@ import { Meta, moduleMetadata, Story } from '@storybook/angular';
 import { DEFAULT_VIEWPORT } from '@storybook/addon-viewport';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
-import { AFKnobModule } from './knob.module';
-import { KnobComponent } from './knob.component';
+import { AFRadiobuttonModule } from './radiobutton.module';
+import { RadioButtonComponent } from './radiobutton.component';
 
 export default {
-  title: 'Core/Konb',
+  title: 'Core/RadioButton',
   decorators: [
     moduleMetadata({
-      imports: [AFKnobModule, BrowserAnimationsModule],
+      imports: [AFRadiobuttonModule, BrowserAnimationsModule],
     }),
   ],
-  component: KnobComponent,
+  component: RadioButtonComponent,
   parameters: {
     viewport: DEFAULT_VIEWPORT,
   },
