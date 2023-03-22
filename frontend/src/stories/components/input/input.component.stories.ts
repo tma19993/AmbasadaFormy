@@ -1,54 +1,48 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
-import {DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
+import { DEFAULT_VIEWPORT } from '@storybook/addon-viewport';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { InputComponent } from './input.component';
 import { InputModule } from './input.module';
-import { enumIconFloat, inputIconConfig } from 'src/stories/interfaces/input.model';
+import {
+  enumIconFloat,
+  inputIconConfig,
+} from 'src/stories/interfaces/input.model';
 
-const defaultData: inputIconConfig ={
-  iconClassName: "pi-search",
-  iconFloat: enumIconFloat.left
-}
+const defaultData: inputIconConfig = {
+  iconClassName: 'pi-search',
+  iconFloat: enumIconFloat.left,
+};
 
 export default {
   title: 'Core/Input',
-  decorators:[
+  decorators: [
     moduleMetadata({
-      imports: [
-        InputModule,
-        BrowserAnimationsModule,
-      ],
-    })
+      imports: [InputModule, BrowserAnimationsModule],
+    }),
   ],
   component: InputComponent,
-  parameters:{
-    viewport: DEFAULT_VIEWPORT
+  parameters: {
+    viewport: DEFAULT_VIEWPORT,
   },
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA,
-    NO_ERRORS_SCHEMA
-  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 } as Meta;
 
-const Template: Story  = args => ({
-  props:{
-    ...args
-  }
-})
+const Template: Story = (args) => ({
+  props: {
+    ...args,
+  },
+});
 
 export const Primary: Story = Template.bind({});
-Primary.args={
-  iconConfig: defaultData
-}
+Primary.args = {
+  iconConfig: defaultData,
+};
 
 export const Secondary: Story = Template.bind({});
-Secondary.args={
+Secondary.args = {
   iconConfig: {
-    iconClassName: "pi-user",
-    iconFloat: enumIconFloat.right
+    iconClassName: 'pi-user',
+    iconFloat: enumIconFloat.right,
   },
-  }
-
-
-
+};

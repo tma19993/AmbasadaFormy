@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { inputIconConfig } from 'src/stories/interfaces/input.model';
 
 @Component({
@@ -6,19 +6,12 @@ import { inputIconConfig } from 'src/stories/interfaces/input.model';
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss'],
 })
-export class InputComponent implements OnInit {
+export class InputComponent {
   @Input() public floatLabelText: string = '';
   @Input() public floatLabel: boolean = false;
   @Input() public iconConfig: inputIconConfig | undefined;
 
   public property: string = '';
-  public iconClassName: string = '';
 
   constructor() {}
-
- public ngOnInit(): void {
-    if (!!this.iconConfig) {
-      this.iconClassName = `pi ${this.iconConfig.iconClassName}`;
-    }
-  }
 }
