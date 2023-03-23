@@ -5,6 +5,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AFRadiobuttonModule } from './radiobutton.module';
 import { RadioButtonComponent } from './radiobutton.component';
 
+
 export default {
   title: 'Core/RadioButton',
   decorators: [
@@ -27,10 +28,9 @@ const Template: Story = (args) => ({
 
 export const Primary: Story = Template.bind({});
 Primary.args = {
-  value: 20,
-  minValue: 0,
-  maxValue: 100,
-  size: 100,
-  valueColor: 'tomato',
-  rangeColor: 'green',
+  disabled: true,
+};
+export const Secondary: Story = Template.bind({});
+Primary.args = {
+  disabled: false,
 };

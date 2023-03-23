@@ -6,11 +6,15 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./radiobutton.component.scss'],
 })
 export class RadioButtonComponent {
-  @Input() public value: number = 0;
-  @Input() public minValue: number = 0;
-  @Input() public maxValue: number = 0;
-  @Input() public size: number = 0;
-  @Input() public valueColor: string = '';
-  @Input() public rangeColor: string = '';
+  selectedCategory: any = null;
+
+  categories: any[] = [
+      { name: 'Mężczyzna', key: 'M' },
+      { name: 'Kobieta', key: 'K' },
+      { name: 'Inne', key: 'I' },
+      { name: 'Nie chce podawać', key: 'N' }
+  ];
+
+  @Input() public disabled: boolean = false;
   constructor() {}
 }

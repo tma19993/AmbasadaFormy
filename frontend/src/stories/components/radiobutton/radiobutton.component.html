@@ -1,5 +1,11 @@
-<p-radioButton
-  name="groupname"
-  value="val1"
-  [(ngModel)]="selectedValue"
-></p-radioButton>
+<section>
+  <div *ngFor="let category of categories" class="field-checkbox">
+    <p-radioButton
+    [inputId]="category.key"
+    name="category"
+    [value]="category"
+    [(ngModel)]="selectedCategory"
+    [disabled]="disabled"></p-radioButton>
+    <label [for]="category.key" class="ml-2">{{ category.name }}</label>
+  </div>
+</section>
