@@ -33,11 +33,78 @@ const Template: Story  = args => ({
 
 export const Primary: Story = Template.bind({});
 Primary.args={
-  label: "Button"
+  label: "Button",
+  iconConfig: {
+    iconClassName: '',
+    iconPos: '',
+  },
 }
 
 export const Secondary: Story = Template.bind({});
 Secondary.args={
-  label: "Button2"
+  label: "Button",
+  iconConfig: {
+    iconClassName: 'pi-check',
+    iconPos: 'right',
+  },
+}
+
+export const Tertiary: Story = Template.bind({});
+Tertiary.args={
+  label: "Button",
+  iconConfig: {
+    iconClassName: 'pi-check',
+    iconPos: 'left',
+  },
+}
+
+export const Quaternary: Story = Template.bind({});
+Quaternary.args={
+  label: "Button",
+  iconConfig: {
+    iconClassName: '',
+    iconPos: '',
+  },
+  loading: false,
+}
+
+export const Success: Story = Template.bind({});
+Success.args={
+  label: "Button",
+  iconConfig: {
+    iconClassName: '',
+    iconPos: '',
+  },
+  styleClass: 'p-button-success'
+}
+
+export const Warning: Story = Template.bind({});
+Warning.args={
+  label: "Button",
+  iconConfig: {
+    iconClassName: '',
+    iconPos: '',
+  },
+  styleClass: 'p-button-warning'
+}
+
+export const Help: Story = Template.bind({});
+Help.args={
+  label: "Button",
+  iconConfig: {
+    iconClassName: '',
+    iconPos: '',
+  },
+  styleClass: 'p-button-help'
+}
+
+export const Danger: Story = Template.bind({});
+Danger.args={
+  label: "Button",
+  iconConfig: {
+    iconClassName: '',
+    iconPos: '',
+  },
+  styleClass: 'p-button-danger'
 }
 

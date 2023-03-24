@@ -314,7 +314,7 @@
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-1526b06853649b74de7de90271de7ad7510a9165dd8c29bd9f4aa9033ce6805dddabd85d9a87be3efda71eb0ee1ee750befe44be2469999f39a609cef9b67b4f",
+            "id": "component-ButtonComponent-26e929391359b13d7674e758db481da12d4a3bb8ff880eaf74d7813defbed8fb9bc5f303792b0fec71905e102e1d498a9796800ac2dc6004113f6d954f1abafa",
             "file": "src/stories/components/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -332,11 +332,28 @@
             "viewProviders": [],
             "inputsClass": [
                 {
-                    "name": "label",
-                    "defaultValue": "\"\"",
+                    "name": "iconConfig",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 9,
+                    "line": 11,
+                    "type": "inputIconConfig | undefined",
+                    "decorators": []
+                },
+                {
+                    "name": "iconPos",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
                     "type": "string",
                     "decorators": []
                 }
@@ -351,7 +368,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'af-button',\r\n  templateUrl: './button.component.html',\r\n  styleUrls: ['./button.component.scss']\r\n})\r\nexport class ButtonComponent {\r\n@Input() public label: string = \"\";\r\nconstructor(){\r\n\r\n}\r\n}\r\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\nimport { inputIconConfig } from 'src/stories/interfaces/input.model';\r\n\r\n@Component({\r\n  selector: 'af-button',\r\n  templateUrl: './button.component.html',\r\n  styleUrls: ['./button.component.scss']\r\n})\r\nexport class ButtonComponent {\r\n@Input() public label: string = '';\r\n@Input() public iconConfig: inputIconConfig | undefined ;\r\n@Input() public iconPos: boolean = false;\r\n\r\nconstructor(){\r\n\r\n}\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -366,9 +383,9 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 9
+                "line": 12
             },
-            "templateData": "<section>\r\n    <p-button [label]=\"label\"></p-button>\r\n</section>"
+            "templateData": "<section>\r\n    <p-button \r\n        [label]=\"label\"\r\n        iconPos=\"{{iconConfig?.iconPos}}\"\r\n        icon=\"pi {{ iconConfig?.iconClassName }}\">\r\n    </p-button>\r\n</section>"
         },
         {
             "name": "CalendarComponent",
@@ -1164,13 +1181,13 @@
         },
         {
             "name": "AppButtonModule",
-            "id": "module-AppButtonModule-ebeabe48ec9d8adb7208c2afb239ca2bfd5f63d2571bc55a3d8c0cda1d4ebce7e3e4aa59b0b4f86b69c7f0890a9d95bf69cd9cb2d4113ec96fccc21a18f82c7f",
+            "id": "module-AppButtonModule-28c799e4bbeb8401282258ca1ae01388eb7434e5cda95afafa841b2607d5e17b2497ea14589b2235f0fd3965b9ee1399ee1b16ffa3bfac9edeeb30a0f60a7b10",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/stories/components/button/button.module.ts",
             "methods": [],
-            "sourceCode": "import {  NgModule} from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { ButtonComponent } from './button.component';\r\nimport {ButtonModule} from 'primeng/button';\r\n\r\n@NgModule({\r\n  declarations: [\r\n    ButtonComponent\r\n  ],\r\n  exports: [\r\n    ButtonComponent\r\n  ],\r\n  imports: [\r\n    CommonModule,\r\n    ButtonModule,\r\n  ],\r\n})\r\nexport class AppButtonModule { }\r\n",
+            "sourceCode": "import {  NgModule} from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { ButtonComponent } from './button.component';\r\nimport {ButtonModule} from 'primeng/button';\r\nimport { FormsModule } from '@angular/forms';\r\nimport { BrowserModule } from '@angular/platform-browser';\r\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\r\n\r\n@NgModule({\r\n  declarations: [\r\n    ButtonComponent\r\n  ],\r\n  exports: [\r\n    ButtonComponent\r\n  ],\r\n  imports: [\r\n    CommonModule,\r\n    ButtonModule,\r\n    FormsModule,\r\n    BrowserModule,\r\n    BrowserAnimationsModule,\r\n  ],\r\n})\r\nexport class AppButtonModule { }\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -1573,6 +1590,16 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/autocompete/autocomplete.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -1583,7 +1610,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/calendar/calendar.component.stories.ts",
+                "file": "src/stories/components/button/button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -1593,7 +1620,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/button/button.component.stories.ts",
+                "file": "src/stories/components/calendar/calendar.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -1623,7 +1650,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/input/input.component.stories.ts",
+                "file": "src/stories/components/password/password.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -1633,7 +1660,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/password/password.component.stories.ts",
+                "file": "src/stories/components/input/input.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -1660,10 +1687,10 @@
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "Primary",
+                "name": "Secondary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
+                "file": "src/stories/components/button/button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -1674,16 +1701,6 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/components/calendar/calendar.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Secondary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/button/button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -1723,6 +1740,16 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/autocompete/autocomplete.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -1733,7 +1760,7 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/calendar/calendar.component.stories.ts",
+                "file": "src/stories/components/button/button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -1743,7 +1770,7 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/button/button.component.stories.ts",
+                "file": "src/stories/components/calendar/calendar.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -1773,7 +1800,7 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/input/input.component.stories.ts",
+                "file": "src/stories/components/password/password.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -1783,7 +1810,7 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/password/password.component.stories.ts",
+                "file": "src/stories/components/input/input.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -1808,16 +1835,6 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
             }
         ],
         "functions": [],
@@ -1951,22 +1968,12 @@
                     "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
                 }
             ],
-            "src/stories/components/calendar/calendar.component.stories.ts": [
+            "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts": [
                 {
                     "name": "Primary",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/calendar/calendar.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Secondary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/calendar/calendar.component.stories.ts",
+                    "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -1976,7 +1983,7 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/calendar/calendar.component.stories.ts",
+                    "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -2009,6 +2016,38 @@
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/stories/components/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+                }
+            ],
+            "src/stories/components/calendar/calendar.component.stories.ts": [
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/calendar/calendar.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Secondary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/calendar/calendar.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/calendar/calendar.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -2143,28 +2182,6 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
-                }
-            ],
-            "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts": [
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
                 }
             ]
         },
@@ -2360,7 +2377,7 @@
                 "linktype": "component",
                 "name": "ButtonComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
