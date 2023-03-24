@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
+import { Categories } from 'src/stories/interfaces/radiobutton.model';
 
 @Component({
   selector: 'app-floatlabel',
@@ -6,15 +7,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./radiobutton.component.scss'],
 })
 export class RadioButtonComponent {
-  selectedCategory: any = null;
-
-  categories: any[] = [
-      { name: 'Mężczyzna', key: 'M' },
-      { name: 'Kobieta', key: 'K' },
-      { name: 'Inne', key: 'I' },
-      { name: 'Nie chce podawać', key: 'N' }
-  ];
-
-  @Input() public disabled: boolean = false;
+  @Input() categories: Categories[] = [];
+  @Input() disabled: boolean = false;
+  selectedCategory: Categories | null = null;
+  
   constructor() {}
 }

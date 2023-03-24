@@ -2,6 +2,38 @@
     "pipes": [],
     "interfaces": [
         {
+            "name": "Category",
+            "id": "interface-Category-9fa20e3100309de4b7e6ee1ac24159fcc3cc10de7ccf94bd2589b08f1fc84e91a61751222ad34a159294ad37dcbbed9d0c98842464cd45207f2f97db8eaf4b99",
+            "file": "src/stories/interfaces/radiobutton.model.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface Category {\r\n    name: string;\r\n    key: string;\r\n  }",
+            "properties": [
+                {
+                    "name": "key",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                },
+                {
+                    "name": "name",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 165,
+            "methods": []
+        },
+        {
             "name": "examplePersonalTrainerModel",
             "id": "interface-examplePersonalTrainerModel-76536f75268b615226548061fc3f6a7d3e95f0a7f85c09ca6e9eaab84f24ebecd7114e44c4b05f668d51d9e7e2e83a528d28c37a5fb03ae20f6a4634841a1ca3",
             "file": "src/stories/interfaces/autocomplete.model.ts",
@@ -314,7 +346,7 @@
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-26e929391359b13d7674e758db481da12d4a3bb8ff880eaf74d7813defbed8fb9bc5f303792b0fec71905e102e1d498a9796800ac2dc6004113f6d954f1abafa",
+            "id": "component-ButtonComponent-dc34cc7457dc0b346ff303567526c314b30c4e9129f230793337aa19c207fa34061b3a9e64daf9fc175ed779b631c8ad80cac6dd4ea54e809dbc64413ae88602",
             "file": "src/stories/components/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -332,15 +364,34 @@
             "viewProviders": [],
             "inputsClass": [
                 {
-                    "name": "iconConfig",
+                    "name": "iconClassName",
+                    "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 11,
-                    "type": "inputIconConfig | undefined",
+                    "line": 10,
+                    "type": "string",
                     "decorators": []
                 },
                 {
                     "name": "iconPos",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "loading",
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
@@ -349,18 +400,38 @@
                     "decorators": []
                 },
                 {
-                    "name": "label",
+                    "name": "styleClass",
                     "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 10,
+                    "line": 13,
                     "type": "string",
                     "decorators": []
                 }
             ],
-            "outputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "onClick",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "EventEmitter<any>"
+                }
+            ],
             "propertiesClass": [],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "handleClick",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 16,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -368,7 +439,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\r\nimport { inputIconConfig } from 'src/stories/interfaces/input.model';\r\n\r\n@Component({\r\n  selector: 'af-button',\r\n  templateUrl: './button.component.html',\r\n  styleUrls: ['./button.component.scss']\r\n})\r\nexport class ButtonComponent {\r\n@Input() public label: string = '';\r\n@Input() public iconConfig: inputIconConfig | undefined ;\r\n@Input() public iconPos: boolean = false;\r\n\r\nconstructor(){\r\n\r\n}\r\n}\r\n",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'af-button',\r\n  templateUrl: './button.component.html',\r\n  styleUrls: ['./button.component.scss']\r\n})\r\nexport class ButtonComponent {\r\n  @Input() public label: string = '';\r\n  @Input() public iconClassName: string = '';\r\n  @Input() public iconPos: string = '';\r\n  @Input() public loading: boolean = false;\r\n  @Input() public styleClass: string = '';\r\n  @Output() onClick: EventEmitter<any> = new EventEmitter();\r\n\r\n  handleClick() {\r\n    this.loading = true;\r\n    setTimeout(() => {\r\n      this.loading = false;\r\n      this.onClick.emit();\r\n    }, 500);\r\n  }\r\n\r\n\r\n  \r\nconstructor(){\r\n\r\n}\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -383,9 +454,9 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 12
+                "line": 22
             },
-            "templateData": "<section>\r\n    <p-button \r\n        [label]=\"label\"\r\n        iconPos=\"{{iconConfig?.iconPos}}\"\r\n        icon=\"pi {{ iconConfig?.iconClassName }}\">\r\n    </p-button>\r\n</section>"
+            "templateData": "<section>\r\n    <p-button \r\n      [label]=\"label\"\r\n      [loading]=\"loading\"\r\n      [iconPos]=\"iconPos\"\r\n      [icon]=\"iconClassName\"\r\n      [styleClass]=\"styleClass\"\r\n      (click)=\"handleClick()\">\r\n    </p-button>\r\n  </section>"
         },
         {
             "name": "CalendarComponent",
@@ -851,7 +922,7 @@
         },
         {
             "name": "RadioButtonComponent",
-            "id": "component-RadioButtonComponent-05338644c794adcfc87a2acac870605c9d6310e2997a079fe259acd18e8a54896f5983054d700970baeee967fa5dd0c32894617101e813a7ca9e7f63c7cbea4a",
+            "id": "component-RadioButtonComponent-8a1354cd46b8ebed45eee2a9e2a1aa26b83ec640a000e99b6c22c462bd8d19706add5462957b632317ebc15b6108b21a8356e2f759576cebd53424d004474457",
             "file": "src/stories/components/radiobutton/radiobutton.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -873,7 +944,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 18,
+                    "line": 19,
                     "type": "boolean",
                     "decorators": []
                 }
@@ -885,20 +956,20 @@
                     "defaultValue": "[\r\n      { name: 'Mężczyzna', key: 'M' },\r\n      { name: 'Kobieta', key: 'K' },\r\n      { name: 'Inne', key: 'I' },\r\n      { name: 'Nie chce podawać', key: 'N' }\r\n  ]",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "any[]",
+                    "type": "Category[]",
                     "optional": false,
                     "description": "",
-                    "line": 11
+                    "line": 12
                 },
                 {
                     "name": "selectedCategory",
                     "defaultValue": "null",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "any",
+                    "type": "Category | null",
                     "optional": false,
                     "description": "",
-                    "line": 9
+                    "line": 10
                 }
             ],
             "methodsClass": [],
@@ -909,7 +980,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-floatlabel',\r\n  templateUrl: './radiobutton.component.html',\r\n  styleUrls: ['./radiobutton.component.scss'],\r\n})\r\nexport class RadioButtonComponent {\r\n  selectedCategory: any = null;\r\n\r\n  categories: any[] = [\r\n      { name: 'Mężczyzna', key: 'M' },\r\n      { name: 'Kobieta', key: 'K' },\r\n      { name: 'Inne', key: 'I' },\r\n      { name: 'Nie chce podawać', key: 'N' }\r\n  ];\r\n\r\n  @Input() public disabled: boolean = false;\r\n  constructor() {}\r\n}\r\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\nimport { Category } from 'src/stories/interfaces/radiobutton.model';\r\n\r\n@Component({\r\n  selector: 'app-floatlabel',\r\n  templateUrl: './radiobutton.component.html',\r\n  styleUrls: ['./radiobutton.component.scss'],\r\n})\r\nexport class RadioButtonComponent {\r\n  selectedCategory: Category | null = null;\r\n\r\n  categories: Category[] = [\r\n      { name: 'Mężczyzna', key: 'M' },\r\n      { name: 'Kobieta', key: 'K' },\r\n      { name: 'Inne', key: 'I' },\r\n      { name: 'Nie chce podawać', key: 'N' }\r\n  ];\r\n\r\n  @Input() public disabled: boolean = false;\r\n  constructor() {}\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -924,7 +995,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 18
+                "line": 19
             },
             "templateData": "<section>\r\n  <div *ngFor=\"let category of categories\" class=\"field-checkbox\">\r\n    <p-radioButton\r\n    [inputId]=\"category.key\"\r\n    name=\"category\"\r\n    [value]=\"category\"\r\n    [(ngModel)]=\"selectedCategory\"\r\n    [disabled]=\"disabled\"></p-radioButton>\r\n    <label [for]=\"category.key\" class=\"ml-2\">{{ category.name }}</label>\r\n  </div>\r\n</section>\r\n"
         },
@@ -1567,6 +1638,16 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "Danger",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "defaultData",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1587,10 +1668,10 @@
                 "defaultValue": "[\r\n  {\r\n    id:1,\r\n    name: 'Adam',\r\n    age: '23 lata',\r\n    trainerSkills: 1,\r\n    maxClients: 8,\r\n  },\r\n  {\r\n    id:2,\r\n    name: 'Michał',\r\n    age: '28 lata',\r\n    trainerSkills: 2,\r\n    maxClients: 4,\r\n  },\r\n  {\r\n    id:3,\r\n    name: 'Janina',\r\n    age: '31 lata',\r\n    trainerSkills: 3,\r\n    maxClients: 10,\r\n  },\r\n]"
             },
             {
-                "name": "Primary",
+                "name": "Help",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
+                "file": "src/stories/components/button/button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -1630,6 +1711,16 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/input/input.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/checkbox/checkbox.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -1660,7 +1751,17 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/input/input.component.stories.ts",
+                "file": "src/stories/components/radiobutton/radiobutton.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -1677,10 +1778,10 @@
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "Primary",
+                "name": "Quetriary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/radiobutton/radiobutton.component.stories.ts",
+                "file": "src/stories/components/button/button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -1710,7 +1811,7 @@
                 "name": "Secondary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/checkbox/checkbox.component.stories.ts",
+                "file": "src/stories/components/input/input.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -1720,7 +1821,7 @@
                 "name": "Secondary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/input/input.component.stories.ts",
+                "file": "src/stories/components/checkbox/checkbox.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -1737,14 +1838,14 @@
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "Template",
+                "name": "Success",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
+                "file": "src/stories/components/button/button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "Template",
@@ -1780,6 +1881,16 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/input/input.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/checkbox/checkbox.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -1810,11 +1921,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/input/input.component.stories.ts",
+                "file": "src/stories/components/radiobutton/radiobutton.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
             },
             {
                 "name": "Template",
@@ -1827,14 +1948,24 @@
                 "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
             },
             {
-                "name": "Template",
+                "name": "Tertiary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/radiobutton/radiobutton.component.stories.ts",
+                "file": "src/stories/components/button/button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Warning",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
             }
         ],
         "functions": [],
@@ -1894,6 +2025,98 @@
             }
         ],
         "groupedVariables": {
+            "src/stories/components/button/button.component.stories.ts": [
+                {
+                    "name": "Danger",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Help",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Quetriary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Secondary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Success",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+                },
+                {
+                    "name": "Tertiary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Warning",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                }
+            ],
             "src/stories/components/input/input.component.stories.ts": [
                 {
                     "name": "defaultData",
@@ -1962,60 +2185,6 @@
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/stories/components/autocompete/autocomplete.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
-                }
-            ],
-            "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts": [
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
-                }
-            ],
-            "src/stories/components/button/button.component.stories.ts": [
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/button/button.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Secondary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/button/button.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/button/button.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -2130,28 +2299,6 @@
                     "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
                 }
             ],
-            "src/stories/components/rating/rating.component.stories.ts": [
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/rating/rating.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/rating/rating.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
-                }
-            ],
             "src/stories/components/radiobutton/radiobutton.component.stories.ts": [
                 {
                     "name": "Primary",
@@ -2182,6 +2329,50 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
+                }
+            ],
+            "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts": [
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+                }
+            ],
+            "src/stories/components/rating/rating.component.stories.ts": [
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/rating/rating.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/rating/rating.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
                 }
             ]
         },
@@ -2346,7 +2537,37 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "Danger",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Help",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Quetriary",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -2366,7 +2587,37 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "Success",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Tertiary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Warning",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -2377,7 +2628,7 @@
                 "linktype": "component",
                 "name": "ButtonComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {
@@ -2647,6 +2898,15 @@
                 "type": "interface",
                 "linktype": "interface",
                 "name": "inputIconConfig",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/interfaces/radiobutton.model.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "Category",
                 "coveragePercent": 0,
                 "coverageCount": "0/3",
                 "status": "low"

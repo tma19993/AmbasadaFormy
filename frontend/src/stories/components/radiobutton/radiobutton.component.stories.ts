@@ -4,13 +4,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AFRadiobuttonModule } from './radiobutton.module';
 import { RadioButtonComponent } from './radiobutton.component';
+import { FormsModule } from '@angular/forms';
+import { Categories } from 'src/stories/interfaces/radiobutton.model';
 
 
 export default {
   title: 'Core/RadioButton',
   decorators: [
     moduleMetadata({
-      imports: [AFRadiobuttonModule, BrowserAnimationsModule],
+      imports: [AFRadiobuttonModule, BrowserAnimationsModule, FormsModule],
     }),
   ],
   component: RadioButtonComponent,
@@ -28,9 +30,27 @@ const Template: Story = (args) => ({
 
 export const Primary: Story = Template.bind({});
 Primary.args = {
-  disabled: true,
+  categories: [
+    { name: 'Option 1', key: 'option1' },
+    { name: 'Option 2', key: 'option2' },
+    { name: 'Option 3', key: 'option3' },
+  ],
 };
 export const Secondary: Story = Template.bind({});
-Primary.args = {
-  disabled: false,
+Secondary.args = {
+  categories: [
+    { name: 'Option 1', key: 'option1' },
+    { name: 'Option 2', key: 'option2' },
+    { name: 'Option 3', key: 'option3' },
+  ],
+  disabled: true,
+};
+
+export const CustomLabels = Template.bind({});
+CustomLabels.args = {
+  categories: [
+    { name: 'Male', key: 'M' },
+    { name: 'Female', key: 'F' },
+    { name: 'Other', key: 'O' },
+  ],
 };

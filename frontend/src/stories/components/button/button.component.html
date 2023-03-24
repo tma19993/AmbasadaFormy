@@ -1,9 +1,10 @@
 <section>
     <p-button 
-        [label]="label"
-        iconPos="{{ iconConfig?.iconPos }}"
-        icon="pi {{ iconConfig?.iconClassName }}"
-        [loading]="loading" (click)="load()"
-        [styleClass]="styleClass">
+      [label]="label"
+      [loading]="loading"
+      [iconPos]="iconPos"
+      [icon]="iconClassName"
+      [styleClass]="styleClass"
+      (click)="handleClick()">
     </p-button>
-</section>
+  </section>

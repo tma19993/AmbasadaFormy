@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { inputIconConfig } from 'src/stories/interfaces/input.model';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'af-button',
@@ -7,19 +6,23 @@ import { inputIconConfig } from 'src/stories/interfaces/input.model';
   styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent {
-@Input() public label: string = '';
-@Input() public iconConfig: inputIconConfig | undefined ;
-@Input() public styleClass: string = '' ;
-@Input() public iconPos: boolean = false;
-@Input() public loading: boolean = false;
-load() {
-        this.loading = true;
+  @Input() public label: string = '';
+  @Input() public iconClassName: string = '';
+  @Input() public iconPos: string = '';
+  @Input() public loading: boolean = false;
+  @Input() public styleClass: string = '';
+  @Output() onClick: EventEmitter<any> = new EventEmitter();
 
-        setTimeout(() => {
-            this.loading = false
-        }, 500);
-    }
+  handleClick() {
+    this.loading = true;
+    setTimeout(() => {
+      this.loading = false;
+      this.onClick.emit();
+    }, 500);
+  }
 
+
+  
 constructor(){
 
 }
