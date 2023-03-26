@@ -1,0 +1,20 @@
+<section class="inputtextarea-container">
+    <div *ngIf="!floatLabel">
+        <textarea pInputTextarea [(ngModel)]="value"
+        [rows]="size.rows"
+        [cols]="size.clos" 
+        [autoResize]="autoResize"
+        [disabled]="disabled"></textarea>
+    </div>
+    <div *ngIf="floatLabel">
+    <span class="p-float-label">
+        <textarea id="float-inputtextarea" pInputTextarea 
+        [(ngModel)]="value"
+        [rows]="size.rows"
+        [cols]="size.clos" 
+        [autoResize]="autoResize"
+        [disabled]="disabled"></textarea>
+        <label for="float-inputtextarea">{{floatLabelText}}</label>
+    </span>
+    </div>
+</section>
