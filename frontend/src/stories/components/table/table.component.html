@@ -1,0 +1,22 @@
+<p-table 
+[(first)]="firstPage"
+[columns]="columns" 
+[value]="values" 
+[tableStyle]="{ 'min-width': '50rem' }"  
+[paginator]="paginator"
+[rows]="rows">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let header of columns">
+                {{header.field}}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData  let-columns="columns">
+        <tr> 
+            <td *ngFor="let col of columns">
+            {{ rowData[col.field] }}
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
