@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
+import { Categories } from 'src/stories/interfaces/radiobutton.model';
 
 @Component({
   selector: 'app-floatlabel',
@@ -6,11 +7,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./radiobutton.component.scss'],
 })
 export class RadioButtonComponent {
-  @Input() public value: number = 0;
-  @Input() public minValue: number = 0;
-  @Input() public maxValue: number = 0;
-  @Input() public size: number = 0;
-  @Input() public valueColor: string = '';
-  @Input() public rangeColor: string = '';
+  @Input() categories: Categories[] = [];
+  @Input() disabled: boolean = false;
+  @Input() selectedCategory: Categories | null = null;
+  
   constructor() {}
 }
