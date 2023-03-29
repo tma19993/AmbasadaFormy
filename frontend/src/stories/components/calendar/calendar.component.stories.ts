@@ -48,3 +48,48 @@ Primary.args={
   showTime:true,
   showSeconds:true,
 }
+
+export const WithIcon: Story = Template.bind({});
+WithIcon.args={
+  showIcon:true,
+  showButtonBar:false,
+  readonlyInput:false,
+  showTime:false,
+  showSeconds:false,
+}
+
+export const WithButtonBar: Story = Template.bind({});
+WithButtonBar.args={
+  showIcon:false,
+  showButtonBar:true,
+  readonlyInput:false,
+  showTime:false,
+  showSeconds:false,
+}
+
+export const WithReadOnlyInput: Story = Template.bind({});
+WithReadOnlyInput.args={
+  showIcon:false,
+  showButtonBar:false,
+  readonlyInput:true,
+  showTime:false,
+  showSeconds:false,
+}
+
+export const WithShowTime: Story = Template.bind({});
+WithShowTime.args={
+  showIcon:false,
+  showButtonBar:false,
+  readonlyInput:false,
+  showTime:true,
+  showSeconds:false,
+}
+
+export const WithSeconds: Story = Template.bind({});
+WithSeconds.args={
+  showIcon:false,
+  showButtonBar:false,
+  readonlyInput:false,
+  showTime:true,
+  showSeconds:true,
+}

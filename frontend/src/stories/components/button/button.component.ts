@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-
+import { ButtonIconPosition } from 'src/stories/enums/button.enum';
 @Component({
   selector: 'af-button',
   templateUrl: './button.component.html',
@@ -8,12 +8,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class ButtonComponent {
   @Input() public label: string = '';
   @Input() public iconClassName: string = '';
-  @Input() public iconPos: string = '';
+  @Input() public iconPos: ButtonIconPosition = `left` ;
   @Input() public loading: boolean = false;
   @Input() public styleClass: string = '';
-  @Output() onClick: EventEmitter<any> = new EventEmitter();
+  @Output() onClick: EventEmitter<void> = new EventEmitter();
 
-  handleClick() {
+  click() {
     this.loading = true;
     setTimeout(() => {
       this.loading = false;

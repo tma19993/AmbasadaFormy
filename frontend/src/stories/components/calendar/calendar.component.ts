@@ -6,6 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./calendar.component.scss']
 })
 export class CalendarComponent {
+  @Input() public date: Date | undefined;
   @Input() public showIcon: boolean = false;
   @Input() public showButtonBar: boolean = false;
   @Input() public readonlyInput: boolean = false;

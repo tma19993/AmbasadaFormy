@@ -4,10 +4,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { InputComponent } from './input.component';
 import { InputModule } from './input.module';
-import {
-  enumIconFloat,
-  inputIconConfig,
-} from 'src/stories/interfaces/input.model';
+import { inputIconConfig } from 'src/stories/interfaces/input.model';
+import { enumIconFloat } from 'src/stories/enums/input.enum';
 
 const defaultData: inputIconConfig = {
   iconClassName: 'pi-search',

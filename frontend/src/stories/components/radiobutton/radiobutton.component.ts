@@ -9,7 +9,7 @@ import { Categories } from 'src/stories/interfaces/radiobutton.model';
 export class RadioButtonComponent {
   @Input() categories: Categories[] = [];
   @Input() disabled: boolean = false;
-  selectedCategory: Categories | null = null;
+  @Input() selectedCategory: Categories | null = null;
   
   constructor() {}
 }
