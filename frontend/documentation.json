@@ -2,13 +2,13 @@
     "pipes": [],
     "interfaces": [
         {
-            "name": "Category",
-            "id": "interface-Category-9fa20e3100309de4b7e6ee1ac24159fcc3cc10de7ccf94bd2589b08f1fc84e91a61751222ad34a159294ad37dcbbed9d0c98842464cd45207f2f97db8eaf4b99",
+            "name": "Categories",
+            "id": "interface-Categories-359eab8cacedfffceea5675146f1347a4b4186d144f1c7de302582d10db4b0ead3a22479831aa6a50c574cdee62388ff99a5418299abf8274661dcb5264bd507",
             "file": "src/stories/interfaces/radiobutton.model.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "export interface Category {\r\n    name: string;\r\n    key: string;\r\n  }",
+            "sourceCode": "export interface Categories {\r\n    name: string;\r\n    key: string;\r\n  }",
             "properties": [
                 {
                     "name": "key",
@@ -94,12 +94,12 @@
         },
         {
             "name": "inputIconConfig",
-            "id": "interface-inputIconConfig-68c9604def755393d961a6a42aa7d32ab97ec978e7ef10f215f8b06399ecaf1217d59a60ebde0ef23a4d910cd505a74377483a7ec199f033e53879416bcd2960",
+            "id": "interface-inputIconConfig-71ef099f115eb69cd3b7d0ab6952e6783d83a72df1432595681cad91b76ebc73da0f2d6b262f201321a4b5d55043655ff6b0acf650d1c492123517bb21ee3fee",
             "file": "src/stories/interfaces/input.model.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "export interface inputIconConfig {\r\n    iconClassName?:string,\r\n    iconFloat?: enumIconFloat\r\n}\r\nexport enum enumIconFloat {\r\n left =  \"p-input-icon-left\",\r\n right = \"p-input-icon-right\"\r\n}",
+            "sourceCode": "import { enumIconFloat } from \"../enums/input.enum\";\r\n\r\nexport interface inputIconConfig {\r\n    iconClassName?:string,\r\n    iconFloat?: enumIconFloat\r\n}\r\n",
             "properties": [
                 {
                     "name": "iconClassName",
@@ -108,13 +108,77 @@
                     "type": "string",
                     "optional": true,
                     "description": "",
-                    "line": 2
+                    "line": 4
                 },
                 {
                     "name": "iconFloat",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "enumIconFloat",
+                    "optional": true,
+                    "description": "",
+                    "line": 5
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 165,
+            "methods": []
+        },
+        {
+            "name": "InputTextareaSizeModel",
+            "id": "interface-InputTextareaSizeModel-791e58f76cbbe6cbd066fa40b913de3221994f7eb4f42749c2b1662b8aa0cc8f9c0d4408dbf74aa94518103605e5846e94c8a1f367cc2bbc5095e6af498d13b1",
+            "file": "src/stories/interfaces/inputtextarea.model.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface InputTextareaSizeModel {\r\n    rows?: number,\r\n    cols?: number\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "cols",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": true,
+                    "description": "",
+                    "line": 3
+                },
+                {
+                    "name": "rows",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": true,
+                    "description": "",
+                    "line": 2
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 165,
+            "methods": []
+        },
+        {
+            "name": "TableHeaderModel",
+            "id": "interface-TableHeaderModel-24457b355fd28981f748d3635647e6fca15f00b49f91ea9039d2e4ff7c915d1efef57a95e26a07af8729c31c504d2e6c9e3d15d8f74fc68e23557de0e8c32069",
+            "file": "src/stories/interfaces/table.model.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface TableHeaderModel{\r\n    field?: string,\r\n    header?: string;\r\n}",
+            "properties": [
+                {
+                    "name": "field",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": true,
+                    "description": "",
+                    "line": 2
+                },
+                {
+                    "name": "header",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
                     "optional": true,
                     "description": "",
                     "line": 3
@@ -131,6 +195,121 @@
     "classes": [],
     "directives": [],
     "components": [
+        {
+            "name": "AFTableComponent",
+            "id": "component-AFTableComponent-b9ee9d51326aae03396e387c32a8199eef273cae825024633a27df6cf0c903c8a15684a34fa77d754d17a520c6d255fe72eddd8cbd7da745d288b13d744a12f0",
+            "file": "src/stories/components/table/table.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "af-table",
+            "styleUrls": [
+                "./table.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./table.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "columns",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "TableHeaderModel[]",
+                    "decorators": []
+                },
+                {
+                    "name": "paginator",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "rows",
+                    "defaultValue": "2",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "values",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "any",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "firstPage",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 18,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\r\nimport { TableHeaderModel } from 'src/stories/interfaces/table.model';\r\n\r\n@Component({\r\n  selector: 'af-table',\r\n  templateUrl: './table.component.html',\r\n  styleUrls: ['./table.component.scss']\r\n})\r\nexport class AFTableComponent implements OnInit {\r\n  @Input() public columns: TableHeaderModel[]=[];\r\n  @Input() public values: any;\r\n  @Input() public paginator: boolean = false; \r\n  @Input() public rows: number = 2;\r\n  public firstPage: number = 0;\r\nconstructor(){\r\n\r\n}\r\n public ngOnInit(): void {\r\n  }\r\n\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./table.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 14
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<p-table \r\n[(first)]=\"firstPage\"\r\n[columns]=\"columns\" \r\n[value]=\"values\" \r\n[tableStyle]=\"{ 'min-width': '50rem' }\"  \r\n[paginator]=\"paginator\"\r\n[rows]=\"rows\">\r\n    <ng-template pTemplate=\"header\" let-columns>\r\n        <tr>\r\n            <th *ngFor=\"let header of columns\">\r\n                {{header.field}}\r\n            </th>\r\n        </tr>\r\n    </ng-template>\r\n    <ng-template pTemplate=\"body\" let-rowData  let-columns=\"columns\">\r\n        <tr> \r\n            <td *ngFor=\"let col of columns\">\r\n            {{ rowData[col.field] }}\r\n            </td>\r\n        </tr>\r\n    </ng-template>\r\n</p-table>"
+        },
         {
             "name": "AppComponent",
             "id": "component-AppComponent-ed488eb1a716d2c7fc965267495048ce3268b22af79e4348a21b929456e0fa7190430a476acc9062b2baabb8d65460e5fb06bb8fcd0d9b0032b74fbfc33163f5",
@@ -342,11 +521,118 @@
                 "args": [],
                 "line": 20
             },
-            "templateData": "<section class=\"autocomplete-container\">\r\n    <!-- <p-autoComplete \r\n    [suggestions]=\"filteredValues\" \r\n    [dropdown]=\"dropdown\"\r\n    [formControlName]=\"controlName\"\r\n    [field]=\"filedName\" \r\n    [minLength]=\"minLength\"\r\n    [maxlength]=\"maxLength\"\r\n    [multiple]=\"multiple\"\r\n    (completeMethod)=\"filter($event)\"\r\n    [(ngModel)]=\"selectedData\"\r\n    ></p-autoComplete>\r\n    <ng-template let-item pTemplate=\"item\">\r\n    <div class=\"country-item\">\r\n      <div>{{item.name}}</div>\r\n    </div>\r\n  </ng-template> -->\r\n\r\n  <p-autoComplete [(ngModel)]=\"selectedValue\" \r\n  [suggestions]=\"filteredValues\" \r\n  [dropdown]=\"dropdown\"\r\n  [field]=\"filedName\"\r\n  [multiple]=\"multiple\"\r\n  [minLength]=\"minLength\"\r\n  [maxlength]=\"maxLength\"\r\n  (completeMethod)=\"filter($event)\"\r\n  ></p-autoComplete>\r\n  <ng-template let-object pTemplate=\"item\">\r\n    {{ object.name }}\r\n  </ng-template>\r\n</section>"
+            "templateData": "<section class=\"autocomplete-container\">\r\n  <p-autoComplete [(ngModel)]=\"selectedValue\" \r\n  [suggestions]=\"filteredValues\" \r\n  [dropdown]=\"dropdown\"\r\n  [field]=\"filedName\"\r\n  [multiple]=\"multiple\"\r\n  [minLength]=\"minLength\"\r\n  [maxlength]=\"maxLength\"\r\n  (completeMethod)=\"filter($event)\"\r\n  ></p-autoComplete>\r\n  <ng-template let-object pTemplate=\"item\">\r\n    {{ object.name }}\r\n  </ng-template>\r\n</section>"
+        },
+        {
+            "name": "AvatarComponent",
+            "id": "component-AvatarComponent-840c1f83b3fd354356997d9adb0438cd9df4a36bad0cf8c90432b1cddfde22dd886cb1eb0f82d5c8d6435513ac907205bc0da9d21786b9a167f337cdf3ce6bb1",
+            "file": "src/stories/components/avatar/avatar.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-floatlabel",
+            "styleUrls": [
+                "./avatar.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./avatar.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "login",
+                    "defaultValue": "\"\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "shape",
+                    "defaultValue": "\"\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "\"\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "letterOfLogin",
+                    "defaultValue": "\"\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 12,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 15,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-floatlabel',\r\n  templateUrl: './avatar.component.html',\r\n  styleUrls: ['./avatar.component.scss'],\r\n})\r\nexport class AvatarComponent implements OnInit {\r\n  @Input() public login: string =\"\";\r\n  @Input() public size: string = \"\";\r\n  @Input() public shape: string = \"\";\r\n  public letterOfLogin:string = \"\";\r\n  constructor() {}\r\n\r\n  public ngOnInit(): void {\r\n   this.letterOfLogin = this.login[0].toUpperCase();\r\n  }\r\n\r\n\r\n\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./avatar.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 12
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<p-avatar\r\npBadge\r\n[label]=\"letterOfLogin\"\r\n[size]=\"size\"\r\n[shape]=\"shape\"\r\nvalue=\"5\"\r\n></p-avatar>"
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-dc34cc7457dc0b346ff303567526c314b30c4e9129f230793337aa19c207fa34061b3a9e64daf9fc175ed779b631c8ad80cac6dd4ea54e809dbc64413ae88602",
+            "id": "component-ButtonComponent-bf3cbc098cc0c04d04d00dfe14ababf94dbba2df418a623906e15db165a8993b08e8a806c941929b08033c203a28372ee0fee466a0a09110f25c7c2af01c952d",
             "file": "src/stories/components/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -374,11 +660,11 @@
                 },
                 {
                     "name": "iconPos",
-                    "defaultValue": "''",
+                    "defaultValue": "`left`",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 11,
-                    "type": "string",
+                    "type": "ButtonIconPosition",
                     "decorators": []
                 },
                 {
@@ -416,13 +702,13 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 14,
-                    "type": "EventEmitter<any>"
+                    "type": "EventEmitter<void>"
                 }
             ],
             "propertiesClass": [],
             "methodsClass": [
                 {
-                    "name": "handleClick",
+                    "name": "click",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
@@ -439,7 +725,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'af-button',\r\n  templateUrl: './button.component.html',\r\n  styleUrls: ['./button.component.scss']\r\n})\r\nexport class ButtonComponent {\r\n  @Input() public label: string = '';\r\n  @Input() public iconClassName: string = '';\r\n  @Input() public iconPos: string = '';\r\n  @Input() public loading: boolean = false;\r\n  @Input() public styleClass: string = '';\r\n  @Output() onClick: EventEmitter<any> = new EventEmitter();\r\n\r\n  handleClick() {\r\n    this.loading = true;\r\n    setTimeout(() => {\r\n      this.loading = false;\r\n      this.onClick.emit();\r\n    }, 500);\r\n  }\r\n\r\n\r\n  \r\nconstructor(){\r\n\r\n}\r\n}\r\n",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\r\nimport { ButtonIconPosition } from 'src/stories/enums/button.enum';\r\n@Component({\r\n  selector: 'af-button',\r\n  templateUrl: './button.component.html',\r\n  styleUrls: ['./button.component.scss']\r\n})\r\nexport class ButtonComponent {\r\n  @Input() public label: string = '';\r\n  @Input() public iconClassName: string = '';\r\n  @Input() public iconPos: ButtonIconPosition = `left` ;\r\n  @Input() public loading: boolean = false;\r\n  @Input() public styleClass: string = '';\r\n  @Output() onClick: EventEmitter<void> = new EventEmitter();\r\n\r\n  click() {\r\n    this.loading = true;\r\n    setTimeout(() => {\r\n      this.loading = false;\r\n      this.onClick.emit();\r\n    }, 500);\r\n  }\r\n\r\n\r\n  \r\nconstructor(){\r\n\r\n}\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -456,11 +742,11 @@
                 "args": [],
                 "line": 22
             },
-            "templateData": "<section>\r\n    <p-button \r\n      [label]=\"label\"\r\n      [loading]=\"loading\"\r\n      [iconPos]=\"iconPos\"\r\n      [icon]=\"iconClassName\"\r\n      [styleClass]=\"styleClass\"\r\n      (click)=\"handleClick()\">\r\n    </p-button>\r\n  </section>"
+            "templateData": "<section>\r\n    <p-button \r\n      [label]=\"label\"\r\n      [loading]=\"loading\"\r\n      [iconPos]=\"iconPos\"\r\n      [icon]=\"iconClassName\"\r\n      [styleClass]=\"styleClass\"\r\n      (click)=\"click()\">\r\n    </p-button>\r\n  </section>"
         },
         {
             "name": "CalendarComponent",
-            "id": "component-CalendarComponent-7f27e089b137b8e7614730ea86474af3a3301b0573aa9aed79de5958cc414d7647da14302053ae6451574e93b6ae2e7fbddc03d8675e9c1042ffc1ae50bd36b1",
+            "id": "component-CalendarComponent-36f172e7e44cae50ce925e80ab2ad79fd05f9a0bea81ec2e13e9e47797f52a9afe867b13b555aa3e4b98fcf452c0645476d1c1991975476b9dd17c17246429f4",
             "file": "src/stories/components/calendar/calendar.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -478,11 +764,19 @@
             "viewProviders": [],
             "inputsClass": [
                 {
+                    "name": "date",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "Date | undefined",
+                    "decorators": []
+                },
+                {
                     "name": "readonlyInput",
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 11,
+                    "line": 12,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -491,7 +785,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 10,
+                    "line": 11,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -500,7 +794,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 9,
+                    "line": 10,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -509,7 +803,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 13,
+                    "line": 14,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -518,7 +812,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 12,
+                    "line": 13,
                     "type": "boolean",
                     "decorators": []
                 }
@@ -533,7 +827,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'af-calendar',\n  templateUrl: './calendar.component.html',\n  styleUrls: ['./calendar.component.scss']\n})\nexport class CalendarComponent {\n  @Input() public showIcon: boolean = false;\n  @Input() public showButtonBar: boolean = false;\n  @Input() public readonlyInput: boolean = false;\n  @Input() public showTime: boolean = false;\n  @Input() public showSeconds: boolean = false;\n  constructor(){}\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'af-calendar',\r\n  templateUrl: './calendar.component.html',\r\n  styleUrls: ['./calendar.component.scss']\r\n})\r\nexport class CalendarComponent {\r\n  @Input() public date: Date | undefined;\r\n  @Input() public showIcon: boolean = false;\r\n  @Input() public showButtonBar: boolean = false;\r\n  @Input() public readonlyInput: boolean = false;\r\n  @Input() public showTime: boolean = false;\r\n  @Input() public showSeconds: boolean = false;\r\n  constructor(){}\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -548,13 +842,103 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 13
+                "line": 14
             },
-            "templateData": "<section>\n    <p-calendar\n    [(ngModel)]=\"date\"\n    [showIcon]=\"showIcon\"\n    [showButtonBar]=\"showButtonBar\"\n    [readonlyInput]=\"readonlyInput\"\n    [showTime]=\"showTime\"\n    [showSeconds]=\"showSeconds\"\n    >Basic</p-calendar>\n</section>\n\n\n\n    "
+            "templateData": "<section>\r\n    <p-calendar\r\n    [(ngModel)]=\"date\"\r\n    [showIcon]=\"showIcon\"\r\n    [showButtonBar]=\"showButtonBar\"\r\n    [readonlyInput]=\"readonlyInput\"\r\n    [showTime]=\"showTime\"\r\n    [showSeconds]=\"showSeconds\"\r\n    >Basic</p-calendar>\r\n</section>\r\n\r\n\r\n\r\n    "
+        },
+        {
+            "name": "ChartBarsComponent",
+            "id": "component-ChartBarsComponent-418b8c68ab1a7dd18f2f240a1413a7c86bec529ce574d2e80d5afb29316dc5004f54f2d07fd705a4a9c2167274c654cd00e9316003070aa824b186a28724880a",
+            "file": "src/stories/components/chart-bars/chart-bars.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "af-chartBars",
+            "styleUrls": [
+                "./chart-bars.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./chart-bars.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "data",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "any",
+                    "decorators": []
+                },
+                {
+                    "name": "options",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "any",
+                    "decorators": []
+                },
+                {
+                    "name": "type",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "ChartBarsType | undefined",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 17,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\r\nimport { ChartBarsType } from 'src/stories/interfaces/chartBars.model';\r\n\r\n@Component({\r\n  selector: 'af-chartBars',\r\n  templateUrl: './chart-bars.component.html',\r\n  styleUrls: ['./chart-bars.component.scss']\r\n})\r\nexport class ChartBarsComponent implements OnInit {\r\n@Input() public type: ChartBarsType | undefined;\r\n@Input() public data: any;\r\n@Input() public options: any;\r\n\r\n  constructor(){\r\n\r\n  }\r\n public ngOnInit() {\r\n    const documentStyle = getComputedStyle(document.documentElement);\r\n    const textColor = \"blue\";\r\n    const textColorSecondary = \"red\";\r\n    const surfaceBorder = \"green\";\r\n\r\n    this.data = {\r\n        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],\r\n        datasets: [\r\n            {\r\n                label: 'First Dataset',\r\n                data: [65, 59, 80, 81, 56, 55, 40],\r\n                fill: false,\r\n                borderColor: \"red\",\r\n                tension: 0.4\r\n            },\r\n            {\r\n                label: 'Second Dataset',\r\n                data: [28, 48, 40, 19, 86, 27, 90],\r\n                fill: false,\r\n                borderColor: \"blue\",\r\n                tension: 0.4\r\n            }\r\n        ]\r\n    };\r\n\r\n    this.options = {\r\n        maintainAspectRatio: false,\r\n        aspectRatio: 0.6,\r\n        plugins: {\r\n            legend: {\r\n                labels: {\r\n                    color: textColor\r\n                }\r\n            }\r\n        },\r\n        scales: {\r\n            x: {\r\n                ticks: {\r\n                    color: textColorSecondary\r\n                },\r\n                grid: {\r\n                    color: surfaceBorder,\r\n                    drawBorder: false\r\n                }\r\n            },\r\n            y: {\r\n                ticks: {\r\n                    color: textColorSecondary\r\n                },\r\n                grid: {\r\n                    color: surfaceBorder,\r\n                    drawBorder: false\r\n                }\r\n            }\r\n        }\r\n    };\r\n}\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./chart-bars.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 12
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<section class=\"chartBars-container\">\r\n    <p-chart type=\"bar\" [data]=\"data\" [options]=\"options\"></p-chart>\r\n</section>"
         },
         {
             "name": "CheckboxComponent",
-            "id": "component-CheckboxComponent-4fb46f94bd725166063b0085021c341a29e5f18297e7a35903df24f7d35cd6c96f6f87f7d068093063d90e36cc61255665ae7712442e3f6fa6405217b07c6e21",
+            "id": "component-CheckboxComponent-8151f014b9e012cac8c1cc4b08c71413f9073e515d1dba423452ede96ee64ce278ddb39e6ff7d2f364e7ddb28bcc84ae203e038ac84f8829053bb16efe479f56",
             "file": "src/stories/components/checkbox/checkbox.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -609,7 +993,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-checkbox',\n  templateUrl: './checkbox.component.html',\n  styleUrls: ['./checkbox.component.scss']\n})\nexport class CheckboxComponent {\n\n  \n  @Input() public label: string = \"\";\n  @Input() public disabled: boolean = false;\n  @Input() public binary: boolean = false;\n  constructor() {\n  }\n\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-checkbox',\r\n  templateUrl: './checkbox.component.html',\r\n  styleUrls: ['./checkbox.component.scss']\r\n})\r\nexport class CheckboxComponent {\r\n\r\n  \r\n  @Input() public label: string = \"\";\r\n  @Input() public disabled: boolean = false;\r\n  @Input() public binary: boolean = false;\r\n  constructor() {\r\n  }\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -626,7 +1010,7 @@
                 "args": [],
                 "line": 13
             },
-            "templateData": "<section>\n    <p-checkbox \n    [(ngModel)]=\"checked\" \n    [binary]=\"binary\" \n    [disabled]=\"disabled\"\n    [label]=\"label\">\n    </p-checkbox>\n</section>"
+            "templateData": "<section>\r\n    <p-checkbox \r\n    [(ngModel)]=\"checked\" \r\n    [binary]=\"binary\" \r\n    [disabled]=\"disabled\"\r\n    [label]=\"label\">\r\n    </p-checkbox>\r\n</section>"
         },
         {
             "name": "CheckeredBackgroundComponent",
@@ -667,6 +1051,157 @@
             ],
             "stylesData": "",
             "templateData": "<h2>Tło napisane w css</h2>\r\n<section></section>\r\n"
+        },
+        {
+            "name": "DropdownComponent",
+            "id": "component-DropdownComponent-d17ced966737d3d7f90e9ed49097aa493a3be64a600e7035e8c6d660ab57576e78c1cc65733f2972b88f4673e89acdcefca84926bf0f01c47a23e8eb972ebb0f",
+            "file": "src/stories/components/dropdown/dropdown.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "af-dropdown",
+            "styleUrls": [
+                "./dropdown.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./dropdown.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "data",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "any",
+                    "decorators": []
+                },
+                {
+                    "name": "disabled",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "filter",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "filterName",
+                    "defaultValue": "\"\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "isFloatlabel",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "optionLabelName",
+                    "defaultValue": "\"name\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "placeholder",
+                    "defaultValue": "\"\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "showClear",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "virtualScroll",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "virtualScrollItemSize",
+                    "defaultValue": "1",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "number",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "selected",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any",
+                    "optional": false,
+                    "description": "",
+                    "line": 19,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'af-dropdown',\r\n  templateUrl: './dropdown.component.html',\r\n  styleUrls: ['./dropdown.component.scss']\r\n})\r\nexport class DropdownComponent {\r\n  @Input() public optionLabelName:string = \"name\";\r\n  @Input() public showClear:boolean = false;\r\n  @Input() public filter:boolean = false;\r\n  @Input() public virtualScroll:boolean = false;\r\n  @Input() public isFloatlabel:boolean = false;\r\n  @Input() public disabled:boolean = false;\r\n  @Input() public placeholder: string = \"\";\r\n  @Input() public filterName: string = \"\";\r\n  @Input() public virtualScrollItemSize: number = 1;\r\n  @Input() public data:any;\r\n  public selected:any;\r\n  constructor(){}\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./dropdown.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 19
+            },
+            "templateData": "<div *ngIf=\"!isFloatlabel\">\r\n  <p-dropdown [(ngModel)]=\"selected\" \r\n  [options]=\"data\" \r\n  [optionLabel]=\"optionLabelName\" \r\n[placeholder]=\"placeholder\" \r\n[filter]=\"filter\" \r\n[filterBy]=\"filterName\" \r\n[showClear]=\"showClear\"\r\n[virtualScroll]=\"virtualScroll\" \r\n[virtualScrollItemSize]=\"virtualScrollItemSize\" \r\n[disabled]=\"disabled\">\r\n\r\n  </p-dropdown>\r\n</div>\r\n<div *ngIf=\"isFloatlabel\">\r\n  <span class=\"p-float-label\">\r\n    <p-dropdown [(ngModel)]=\"selected\" \r\n  [options]=\"data\" \r\n  [optionLabel]=\"optionLabelName\" \r\n[placeholder]=\"placeholder\" \r\n[filter]=\"filter\" \r\n[filterBy]=\"filterName\" \r\n[showClear]=\"showClear\"\r\n[virtualScroll]=\"virtualScroll\" \r\n[virtualScrollItemSize]=\"virtualScrollItemSize\" \r\n[disabled]=\"disabled\">\r\n\r\n  </p-dropdown>\r\n    <label for=\"float-label\">{{floatText}}</label>\r\n  </span>\r\n</div>\r\n"
         },
         {
             "name": "InputComponent",
@@ -742,7 +1277,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": ".input-container{\r\n    margin-top: 20px;\r\n}",
                     "styleUrl": "./input.component.scss"
                 }
             ],
@@ -755,7 +1290,115 @@
                 "args": [],
                 "line": 14
             },
-            "templateData": "<div *ngIf=\"!floatLabel\">\r\n  <span class=\"{{ iconConfig?.iconFloat }}\">\r\n    <i class=\"pi {{ iconConfig?.iconClassName }}\"></i>\r\n    <input id=\"float-input\" type=\"text\" pInputText [(ngModel)]=\"property\" />\r\n  </span>\r\n</div>\r\n<div *ngIf=\"floatLabel\">\r\n  <span class=\"p-float-label\" [class]=\"iconConfig?.iconFloat\">\r\n    <i class=\"pi {{ iconConfig?.iconClassName }}\"></i>\r\n    <input id=\"float-input\" type=\"text\" pInputText [(ngModel)]=\"property\" />\r\n    <label for=\"float-input\">{{ floatLabelText }}</label>\r\n  </span>\r\n</div>\r\n"
+            "templateData": "<section class=\"input-container\">\r\n  <div *ngIf=\"!floatLabel\">\r\n    <span class=\"{{ iconConfig?.iconFloat }}\">\r\n      <i class=\"pi {{ iconConfig?.iconClassName }}\"></i>\r\n      <input id=\"float-input\" type=\"text\" pInputText [(ngModel)]=\"property\" />\r\n    </span>\r\n  </div>\r\n  <div *ngIf=\"floatLabel\">\r\n    <span class=\"p-float-label\" [class]=\"iconConfig?.iconFloat\">\r\n      <i class=\"pi {{ iconConfig?.iconClassName }}\"></i>\r\n      <input id=\"float-input\" type=\"text\" pInputText [(ngModel)]=\"property\" />\r\n      <label for=\"float-input\">{{ floatLabelText }}</label>\r\n    </span>\r\n  </div>\r\n</section>\r\n"
+        },
+        {
+            "name": "InputTextareaComponent",
+            "id": "component-InputTextareaComponent-1672e45ba450de14657ea214120e335a839c9dabf04c64c822ebc736d579a2008b77c124546c0f13a514ae03020e4ab0102844104d3f19d21ae3df494ef8179b",
+            "file": "src/stories/components/inputTextarea/inputtextarea.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "af-inputTextarea",
+            "styleUrls": [
+                "./inputtextarea.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./inputtextarea.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "autoResize",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "disabled",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "floatLabel",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "floatLabelText",
+                    "defaultValue": "\"\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "{}",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "InputTextareaSizeModel",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "value",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 16,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\nimport { InputTextareaSizeModel } from 'src/stories/interfaces/inputtextarea.model';\r\n\r\n@Component({\r\n  selector: 'af-inputTextarea',\r\n  templateUrl: './inputtextarea.component.html',\r\n  styleUrls: ['./inputtextarea.component.scss'],\r\n})\r\nexport class InputTextareaComponent {\r\n  @Input() public autoResize: boolean = false;\r\n  @Input() public floatLabel: boolean = false;\r\n  @Input() public floatLabelText: string = \"\";\r\n  @Input() public disabled: boolean = false;\r\n  @Input() public size: InputTextareaSizeModel = {};\r\n\r\n  public value: string = '';\r\n\r\n  constructor() {}\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".inputtextarea-container{\r\n    margin-top: 20px;\r\n}",
+                    "styleUrl": "./inputtextarea.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 16
+            },
+            "templateData": "<section class=\"inputtextarea-container\">\r\n    <div *ngIf=\"!floatLabel\">\r\n        <textarea pInputTextarea [(ngModel)]=\"value\"\r\n        [rows]=\"size.rows\"\r\n        [cols]=\"size.clos\" \r\n        [autoResize]=\"autoResize\"\r\n        [disabled]=\"disabled\"></textarea>\r\n    </div>\r\n    <div *ngIf=\"floatLabel\">\r\n    <span class=\"p-float-label\">\r\n        <textarea id=\"float-inputtextarea\" pInputTextarea \r\n        [(ngModel)]=\"value\"\r\n        [rows]=\"size.rows\"\r\n        [cols]=\"size.clos\" \r\n        [autoResize]=\"autoResize\"\r\n        [disabled]=\"disabled\"></textarea>\r\n        <label for=\"float-inputtextarea\">{{floatLabelText}}</label>\r\n    </span>\r\n    </div>\r\n</section>"
         },
         {
             "name": "KnobComponent",
@@ -861,6 +1504,118 @@
             "templateData": "<p-knob\r\n  [(ngModel)]=\"value\"\r\n  [min]=\"minValue\"\r\n  [max]=\"maxValue\"\r\n  [size]=\"size\"\r\n  [valueColor]=\"valueColor\"\r\n  [rangeColor]=\"rangeColor\"\r\n></p-knob>\r\n"
         },
         {
+            "name": "MessagesComponent",
+            "id": "component-MessagesComponent-f28f5c06d9b7714268fd8c5cf0c1a0b1231625e64ad19f59d004d6a62018d3ee6742723f4d4e65d0db0f25b4cb71e1940b5e5831727b09d05a34778f001b95dc",
+            "file": "src/stories/components/messages/messages.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "af-messages",
+            "styleUrls": [
+                "./messages.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./messages.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "closable",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "enableService",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "messages",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "Message[]",
+                    "decorators": []
+                },
+                {
+                    "name": "showAdditionalButtons",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "addMessages",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 18,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "clearMessages",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 22,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\nimport { Message } from 'primeng/api';\r\n@Component({\r\n  selector: 'af-messages',\r\n  templateUrl: './messages.component.html',\r\n  styleUrls: ['./messages.component.scss']\r\n})\r\nexport class MessagesComponent {\r\n@Input() public messages:Message[] = [];\r\n@Input() public enableService: boolean = false;\r\n@Input() public closable: boolean = false;\r\n// to show how message component works\r\n@Input() public showAdditionalButtons: boolean = false;\r\n\r\nconstructor(){\r\n\r\n}\r\npublic addMessages(): void {\r\n  this.messages = [{ severity: 'info', summary: 'Info', detail: 'Message Content' }]\r\n}\r\n\r\npublic clearMessages(): void {\r\n  this.messages = [];\r\n}\r\n\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./messages.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 13
+            },
+            "templateData": "<section>\r\n    <p-messages [(value)]=\"messages\" [enableService]=\"enableService\" [closable]=\"closable\"></p-messages>\r\n     <!-- to show how message component works -->\r\n    <div class=\"card\" *ngIf=\"showAdditionalButtons\">\r\n        <button type=\"button\" pButton pRipple (click)=\"addMessages()\" label=\"Show\" class=\"mr-2\"></button>\r\n        <button type=\"button\" pButton pRipple (click)=\"clearMessages()\" label=\"Clear\" class=\"p-button-secondary\"></button>\r\n    </div>\r\n</section>"
+        },
+        {
             "name": "PasswordComponent",
             "id": "component-PasswordComponent-ad5b6de107b023beb183118a1304f6001a4e0ee29e0572f7cc7453c7295685c53336c0556a18f96d9b0ca373e14fc52b74cdc6d802707f83fcc3d543ef2d00e1",
             "file": "src/stories/components/password/password.component.ts",
@@ -922,7 +1677,7 @@
         },
         {
             "name": "RadioButtonComponent",
-            "id": "component-RadioButtonComponent-8a1354cd46b8ebed45eee2a9e2a1aa26b83ec640a000e99b6c22c462bd8d19706add5462957b632317ebc15b6108b21a8356e2f759576cebd53424d004474457",
+            "id": "component-RadioButtonComponent-6fa96dd247455c37223cdf545d5c16e1fdc4da281726b58df40bb4678805aded806c13243b0e6ae624e45bae64e2f48a2dc02f39f18d88a1f507a0b909db6d96",
             "file": "src/stories/components/radiobutton/radiobutton.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -940,38 +1695,35 @@
             "viewProviders": [],
             "inputsClass": [
                 {
+                    "name": "categories",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "Categories[]",
+                    "decorators": []
+                },
+                {
                     "name": "disabled",
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 19,
+                    "line": 11,
                     "type": "boolean",
                     "decorators": []
-                }
-            ],
-            "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "categories",
-                    "defaultValue": "[\r\n      { name: 'Mężczyzna', key: 'M' },\r\n      { name: 'Kobieta', key: 'K' },\r\n      { name: 'Inne', key: 'I' },\r\n      { name: 'Nie chce podawać', key: 'N' }\r\n  ]",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Category[]",
-                    "optional": false,
-                    "description": "",
-                    "line": 12
                 },
                 {
                     "name": "selectedCategory",
                     "defaultValue": "null",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Category | null",
-                    "optional": false,
-                    "description": "",
-                    "line": 10
+                    "line": 12,
+                    "type": "Categories | null",
+                    "decorators": []
                 }
             ],
+            "outputsClass": [],
+            "propertiesClass": [],
             "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
@@ -980,7 +1732,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\r\nimport { Category } from 'src/stories/interfaces/radiobutton.model';\r\n\r\n@Component({\r\n  selector: 'app-floatlabel',\r\n  templateUrl: './radiobutton.component.html',\r\n  styleUrls: ['./radiobutton.component.scss'],\r\n})\r\nexport class RadioButtonComponent {\r\n  selectedCategory: Category | null = null;\r\n\r\n  categories: Category[] = [\r\n      { name: 'Mężczyzna', key: 'M' },\r\n      { name: 'Kobieta', key: 'K' },\r\n      { name: 'Inne', key: 'I' },\r\n      { name: 'Nie chce podawać', key: 'N' }\r\n  ];\r\n\r\n  @Input() public disabled: boolean = false;\r\n  constructor() {}\r\n}\r\n",
+            "sourceCode": "import { Component, Input, Output } from '@angular/core';\r\nimport { Categories } from 'src/stories/interfaces/radiobutton.model';\r\n\r\n@Component({\r\n  selector: 'app-floatlabel',\r\n  templateUrl: './radiobutton.component.html',\r\n  styleUrls: ['./radiobutton.component.scss'],\r\n})\r\nexport class RadioButtonComponent {\r\n  @Input() categories: Categories[] = [];\r\n  @Input() disabled: boolean = false;\r\n  @Input() selectedCategory: Categories | null = null;\r\n  \r\n  constructor() {}\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -995,9 +1747,9 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 19
+                "line": 12
             },
-            "templateData": "<section>\r\n  <div *ngFor=\"let category of categories\" class=\"field-checkbox\">\r\n    <p-radioButton\r\n    [inputId]=\"category.key\"\r\n    name=\"category\"\r\n    [value]=\"category\"\r\n    [(ngModel)]=\"selectedCategory\"\r\n    [disabled]=\"disabled\"></p-radioButton>\r\n    <label [for]=\"category.key\" class=\"ml-2\">{{ category.name }}</label>\r\n  </div>\r\n</section>\r\n"
+            "templateData": "<section>\r\n  <div *ngFor=\"let category of categories\" class=\"field-checkbox\">\r\n    <p-radioButton\r\n      [inputId]=\"category.key\"\r\n      name=\"category\"\r\n      [value]=\"category\"\r\n      [(ngModel)]=\"selectedCategory\"\r\n      [disabled]=\"disabled\"\r\n    ></p-radioButton>\r\n    <label [for]=\"category.key\" class=\"ml-2\">{{ category.name }}</label>\r\n  </div>\r\n</section>"
         },
         {
             "name": "RatingComponent",
@@ -1119,6 +1871,138 @@
     ],
     "modules": [
         {
+            "name": "AFAvatarModule",
+            "id": "module-AFAvatarModule-465bce4a36871627b132197a1982c2d936155224555a9eab3d288e94b8b679e9866ad18b8455f0ce2a16d486f454cd3947edd33652df0958f0a9b9bb9975342c",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/stories/components/avatar/avatar.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { AvatarComponent } from './avatar.component';\r\nimport { AvatarModule } from 'primeng/avatar';\r\nimport { FormsModule } from '@angular/forms';\r\n@NgModule({\r\n  declarations: [AvatarComponent],\r\n  imports: [CommonModule, AvatarModule, FormsModule],\r\n  exports: [AvatarComponent],\r\n})\r\nexport class AFAvatarModule {}\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "AvatarComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "AvatarComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "AFDropdownModule",
+            "id": "module-AFDropdownModule-a9324b870a052f2428187733d6cc6a776173c8912aa174854d04c68a6cdc40cfd57da80b09d844c567c506b357850b8f153662472423915169ad0e9ea25a1f8a",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/stories/components/dropdown/dropdown.model.ts",
+            "methods": [],
+            "sourceCode": "import {  NgModule} from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { DropdownComponent } from './dropdown.component';\r\nimport { DropdownModule } from 'primeng/dropdown';\r\nimport { FormsModule } from '@angular/forms';\r\n\r\n\r\n@NgModule({\r\n  declarations: [\r\n    DropdownComponent\r\n  ],\r\n  exports: [\r\n    DropdownComponent\r\n  ],\r\n  imports: [\r\n    CommonModule,\r\n    DropdownModule,\r\n    FormsModule\r\n  ],\r\n})\r\nexport class AFDropdownModule { }\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "DropdownComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "DropdownComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "AfInputTextareaModule",
+            "id": "module-AfInputTextareaModule-0dd697c379dafe29d758d0c8cdde49d0a3ce41421e1bd1957ef85fa0c6d34e074e5c17989bebe19f4f1d219720fc028d6a331b1b404c85277f7f3839b47bece7",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/stories/components/inputTextarea/inputtextarea.module.ts",
+            "methods": [],
+            "sourceCode": "import {  NgModule} from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { InputTextareaComponent } from './inputtextarea.component';\r\nimport { InputTextareaModule } from 'primeng/inputtextarea';\r\nimport { FormsModule } from '@angular/forms';\r\n\r\n@NgModule({\r\n  declarations: [\r\n    InputTextareaComponent\r\n  ],\r\n  exports: [\r\n    InputTextareaComponent\r\n  ],\r\n  imports: [\r\n    CommonModule,\r\n    InputTextareaModule,\r\n    FormsModule\r\n  ],\r\n})\r\nexport class AfInputTextareaModule { }\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "InputTextareaComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "InputTextareaComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "AFKnobModule",
             "id": "module-AFKnobModule-4f6c0aaa63858c834ec668892d57c6c9ff01d3accece5d115f3f70a9ae5a6f5b436afacb8b2f9ee01e33900b5f50ae9d0fe039e0dcc4eac35eed0be2156cea4c",
             "description": "",
@@ -1149,6 +2033,50 @@
                     "elements": [
                         {
                             "name": "KnobComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "AfMessagesModule",
+            "id": "module-AfMessagesModule-ca7cd517fb1f4201c5d380c3a3234ca675f931171e0791d00e4f7c056c996d6cb6ddd65ea84fa8b711cbbf734acd313e8c5e1a7e7c6315512857d7551a9c5aa7",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/stories/components/messages/messages.module.ts",
+            "methods": [],
+            "sourceCode": "import {  NgModule} from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { MessagesComponent } from './messages.component';\r\nimport { MessagesModule } from 'primeng/messages';\r\nimport { ButtonModule } from 'primeng/button';\r\n@NgModule({\r\n  declarations: [\r\n    MessagesComponent\r\n  ],\r\n  exports: [\r\n    MessagesComponent\r\n  ],\r\n  imports: [\r\n    CommonModule,\r\n    MessagesModule,\r\n    ButtonModule\r\n  ],\r\n})\r\nexport class AfMessagesModule { }\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "MessagesComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "MessagesComponent"
                         }
                     ]
                 },
@@ -1251,6 +2179,50 @@
             ]
         },
         {
+            "name": "AFTableModule",
+            "id": "module-AFTableModule-b7659c9b3c479820dbbe46b049448e3e984618becf5f1800250e5d8d98c2c2b006b9c670370fb4cc801955119f023dfdde6af41508abce970b9aba30b34f1645",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/stories/components/table/table.module.ts",
+            "methods": [],
+            "sourceCode": "import {  NgModule} from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport {ButtonModule} from 'primeng/button';\r\nimport { FormsModule } from '@angular/forms';\r\nimport { BrowserModule } from '@angular/platform-browser';\r\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\r\nimport { AFTableComponent } from './table.component';\r\nimport { TableModule } from 'primeng/table';\r\n\r\n@NgModule({\r\n  declarations: [\r\n    AFTableComponent\r\n  ],\r\n  exports: [\r\n    AFTableComponent\r\n  ],\r\n  imports: [\r\n    CommonModule,\r\n    TableModule,\r\n    FormsModule\r\n  ],\r\n})\r\nexport class AFTableModule { }\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "AFTableComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "AFTableComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "AppButtonModule",
             "id": "module-AppButtonModule-28c799e4bbeb8401282258ca1ae01388eb7434e5cda95afafa841b2607d5e17b2497ea14589b2235f0fd3965b9ee1399ee1b16ffa3bfac9edeeb30a0f60a7b10",
             "description": "",
@@ -1296,13 +2268,13 @@
         },
         {
             "name": "AppCalendarModule",
-            "id": "module-AppCalendarModule-f8abb7e34bc1423a93c660dcbb67cea97e94daa46e1ab9ede2cc32c0ec67a1a74262b00d646a417832367e9b2b9d62d1b22d389f86e43dddbcbb34af3d46f221",
+            "id": "module-AppCalendarModule-811f72b7748597cf6226f857c04d56c2eb7f3054323d7505e0e725b08ad095a1484e76a9d6e1de6a2bc9393ed327cd24e8889d00e8a7722eef3c77568c5c4716",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/stories/components/calendar/calendar.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { CalendarComponent } from './calendar.component';\nimport { CalendarModule } from 'primeng/calendar';\nimport { FormsModule } from '@angular/forms';\n\n\n@NgModule({\n  declarations: [\n    CalendarComponent\n  ],\n  exports: [\n    CalendarComponent,\n  ],\n  imports: [\n    CommonModule,\n    CalendarModule,\n    FormsModule,\n  ],\n})\nexport class AppCalendarModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { CalendarComponent } from './calendar.component';\r\nimport { CalendarModule } from 'primeng/calendar';\r\nimport { FormsModule } from '@angular/forms';\r\n\r\n\r\n@NgModule({\r\n  declarations: [\r\n    CalendarComponent\r\n  ],\r\n  exports: [\r\n    CalendarComponent,\r\n  ],\r\n  imports: [\r\n    CommonModule,\r\n    CalendarModule,\r\n    FormsModule,\r\n  ],\r\n})\r\nexport class AppCalendarModule { }\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -1340,13 +2312,13 @@
         },
         {
             "name": "AppCheckboxModule",
-            "id": "module-AppCheckboxModule-9ac612b7edd078b8ffff1b721981ceade0fd9ba7410d9ec7222e3b21407cbfadb1ea378ae06ee854b520191eae96e26818e5094da1be9265a6c0ec48e4302215",
+            "id": "module-AppCheckboxModule-14346f719a0ba7fefde824c4c79672072afaa231910a117e53ad16884416ecf45dea9fd78346092a6b5ca31a153d9ad832d08cace6ed774add5cc8d8c8c1fa21",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/stories/components/checkbox/checkbox.module.ts",
             "methods": [],
-            "sourceCode": "import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { CheckboxComponent } from './checkbox.component';\nimport { CheckboxModule } from 'primeng/checkbox';\nimport { FormsModule } from '@angular/forms';\nimport { NO_ERRORS_SCHEMA } from '@angular/compiler';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\n\n\n\n@NgModule({\n  declarations: [\n    CheckboxComponent\n  ],\n  exports: [\n    CheckboxComponent\n  ],\n  imports: [\n    CommonModule,\n    FormsModule,\n    CheckboxModule,\n    BrowserAnimationsModule\n  ],\n  schemas: [\n    CUSTOM_ELEMENTS_SCHEMA,\n    NO_ERRORS_SCHEMA\n  ],\n})\nexport class AppCheckboxModule {\n}\n",
+            "sourceCode": "import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { CheckboxComponent } from './checkbox.component';\r\nimport { CheckboxModule } from 'primeng/checkbox';\r\nimport { FormsModule } from '@angular/forms';\r\nimport { NO_ERRORS_SCHEMA } from '@angular/compiler';\r\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\r\n\r\n\r\n\r\n@NgModule({\r\n  declarations: [\r\n    CheckboxComponent\r\n  ],\r\n  exports: [\r\n    CheckboxComponent\r\n  ],\r\n  imports: [\r\n    CommonModule,\r\n    FormsModule,\r\n    CheckboxModule,\r\n    BrowserAnimationsModule\r\n  ],\r\n  schemas: [\r\n    CUSTOM_ELEMENTS_SCHEMA,\r\n    NO_ERRORS_SCHEMA\r\n  ],\r\n})\r\nexport class AppCheckboxModule {\r\n}\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -1555,6 +2527,50 @@
             ]
         },
         {
+            "name": "ChartBarsModule",
+            "id": "module-ChartBarsModule-fcedc7d1a24deef250729935419ba8ebdcbe4285c61e07ff5030811df9006280f8138074aed1ce740f8ceba672c7e79be6fc43d3218a7717d2261cad40a0f444",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/stories/components/chart-bars/chart-bars.module.ts",
+            "methods": [],
+            "sourceCode": "import {  NgModule} from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { ChartModule } from 'primeng/chart';\r\nimport { ChartBarsComponent } from './chart-bars.component';\r\n\r\n@NgModule({\r\n  declarations: [\r\n    ChartBarsComponent\r\n  ],\r\n  exports: [\r\n    ChartBarsComponent\r\n  ],\r\n  imports: [\r\n    CommonModule,\r\n    ChartModule,\r\n  ],\r\n})\r\nexport class ChartBarsModule { }\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ChartBarsComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ChartBarsComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "CheckeredBackgroundModule",
             "id": "module-CheckeredBackgroundModule-fe8f0e62d293c5d0808d114419964478bfdf5324e376f62bf767b4f46bd8e326dafcb0f44d388a61911c335e5685adc55e1098961aa99b96a092e6e2805c7398",
             "description": "",
@@ -1638,6 +2654,16 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "CustomLabels",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/radiobutton/radiobutton.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Danger",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1656,6 +2682,26 @@
                 "deprecationMessage": "",
                 "type": "inputIconConfig",
                 "defaultValue": "{\r\n  iconClassName: 'pi-search',\r\n  iconFloat: enumIconFloat.left,\r\n}"
+            },
+            {
+                "name": "Disabled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/dropdown/dropdown.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Error",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/messages/messages.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "exampleData",
@@ -1678,80 +2724,30 @@
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "Primary",
+                "name": "Info",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/autocompete/autocomplete.component.stories.ts",
+                "file": "src/stories/components/messages/messages.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "Primary",
+                "name": "Large",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/button/button.component.stories.ts",
+                "file": "src/stories/components/avatar/avatar.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "Primary",
+                "name": "MessageAfterClickButton",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/calendar/calendar.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/input/input.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/checkbox/checkbox.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/knob/knob.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/password/password.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/radiobutton/radiobutton.component.stories.ts",
+                "file": "src/stories/components/messages/messages.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -1771,7 +2767,127 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/autocompete/autocomplete.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/calendar/calendar.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/checkbox/checkbox.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/chart-bars/chart-bars.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/input/input.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/knob/knob.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/dropdown/dropdown.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/inputTextarea/inputtextarea.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/password/password.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/rating/rating.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/radiobutton/radiobutton.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/table/table.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -1791,16 +2907,6 @@
                 "name": "Secondary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/button/button.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Secondary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/calendar/calendar.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -1811,7 +2917,7 @@
                 "name": "Secondary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/input/input.component.stories.ts",
+                "file": "src/stories/components/button/button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -1831,7 +2937,27 @@
                 "name": "Secondary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/input/input.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Secondary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/radiobutton/radiobutton.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Small",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/avatar/avatar.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -1848,10 +2974,20 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "Success",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/messages/messages.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/autocompete/autocomplete.component.stories.ts",
+                "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -1861,7 +2997,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/button/button.component.stories.ts",
+                "file": "src/stories/components/avatar/avatar.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/autocompete/autocomplete.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -1881,11 +3027,11 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/input/input.component.stories.ts",
+                "file": "src/stories/components/button/button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
+                "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
             },
             {
                 "name": "Template",
@@ -1901,11 +3047,51 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/chart-bars/chart-bars.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/input/input.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/knob/knob.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/dropdown/dropdown.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/inputTextarea/inputtextarea.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
             },
             {
                 "name": "Template",
@@ -1921,17 +3107,7 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/radiobutton/radiobutton.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
+                "file": "src/stories/components/messages/messages.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -1948,10 +3124,40 @@
                 "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
             },
             {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/radiobutton/radiobutton.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/table/table.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+            },
+            {
                 "name": "Tertiary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/components/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Warm",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/messages/messages.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -1966,11 +3172,124 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "WithButtonBar",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/calendar/calendar.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "WithIcon",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/calendar/calendar.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "WithReadOnlyInput",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/calendar/calendar.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "WithSeconds",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/calendar/calendar.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "WithShowTime",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/calendar/calendar.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Xlarge",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/avatar/avatar.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
             }
         ],
         "functions": [],
-        "typealiases": [],
+        "typealiases": [
+            {
+                "name": "ButtonIconPosition",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"left\" | \"right\" | \"top\" | \"bottom\"",
+                "file": "src/stories/enums/button.enum.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 186
+            }
+        ],
         "enumerations": [
+            {
+                "name": "ChartBarsType",
+                "childs": [
+                    {
+                        "name": "bar",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "pie",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "doughnut",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "line",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "polarArea",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "radar",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "ctype": "miscellaneous",
+                "subtype": "enum",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "file": "src/stories/interfaces/chartBars.model.ts"
+            },
             {
                 "name": "enumIconFloat",
                 "childs": [
@@ -1992,7 +3311,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
-                "file": "src/stories/interfaces/input.model.ts"
+                "file": "src/stories/enums/input.enum.ts"
             },
             {
                 "name": "trainerSkillsModel",
@@ -2025,6 +3344,48 @@
             }
         ],
         "groupedVariables": {
+            "src/stories/components/radiobutton/radiobutton.component.stories.ts": [
+                {
+                    "name": "CustomLabels",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/radiobutton/radiobutton.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/radiobutton/radiobutton.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Secondary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/radiobutton/radiobutton.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/radiobutton/radiobutton.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
+                }
+            ],
             "src/stories/components/button/button.component.stories.ts": [
                 {
                     "name": "Danger",
@@ -2159,6 +3520,100 @@
                     "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
                 }
             ],
+            "src/stories/components/dropdown/dropdown.component.stories.ts": [
+                {
+                    "name": "Disabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/dropdown/dropdown.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/dropdown/dropdown.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/dropdown/dropdown.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+                }
+            ],
+            "src/stories/components/messages/messages.component.stories.ts": [
+                {
+                    "name": "Error",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/messages/messages.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Info",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/messages/messages.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "MessageAfterClickButton",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/messages/messages.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Success",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/messages/messages.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/messages/messages.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+                },
+                {
+                    "name": "Warm",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/messages/messages.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                }
+            ],
             "src/stories/components/autocompete/autocomplete.component.stories.ts": [
                 {
                     "name": "exampleData",
@@ -2185,6 +3640,70 @@
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/stories/components/autocompete/autocomplete.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+                }
+            ],
+            "src/stories/components/avatar/avatar.component.stories.ts": [
+                {
+                    "name": "Large",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/avatar/avatar.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Small",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/avatar/avatar.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/avatar/avatar.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
+                },
+                {
+                    "name": "Xlarge",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/avatar/avatar.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                }
+            ],
+            "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts": [
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -2221,6 +3740,56 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+                },
+                {
+                    "name": "WithButtonBar",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/calendar/calendar.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "WithIcon",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/calendar/calendar.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "WithReadOnlyInput",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/calendar/calendar.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "WithSeconds",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/calendar/calendar.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "WithShowTime",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/calendar/calendar.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
                 }
             ],
             "src/stories/components/checkbox/checkbox.component.stories.ts": [
@@ -2255,6 +3824,28 @@
                     "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
                 }
             ],
+            "src/stories/components/chart-bars/chart-bars.component.stories.ts": [
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/chart-bars/chart-bars.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/chart-bars/chart-bars.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+                }
+            ],
             "src/stories/components/knob/knob.component.stories.ts": [
                 {
                     "name": "Primary",
@@ -2275,6 +3866,28 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
+                }
+            ],
+            "src/stories/components/inputTextarea/inputtextarea.component.stories.ts": [
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/inputTextarea/inputtextarea.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/inputTextarea/inputtextarea.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
                 }
             ],
             "src/stories/components/password/password.component.stories.ts": [
@@ -2299,60 +3912,6 @@
                     "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
                 }
             ],
-            "src/stories/components/radiobutton/radiobutton.component.stories.ts": [
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/radiobutton/radiobutton.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Secondary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/radiobutton/radiobutton.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/radiobutton/radiobutton.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
-                }
-            ],
-            "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts": [
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
-                }
-            ],
             "src/stories/components/rating/rating.component.stories.ts": [
                 {
                     "name": "Primary",
@@ -2374,11 +3933,76 @@
                     "type": "Story",
                     "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
                 }
+            ],
+            "src/stories/components/table/table.component.stories.ts": [
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/table/table.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/table/table.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+                }
             ]
         },
         "groupedFunctions": {},
         "groupedEnumerations": {
-            "src/stories/interfaces/input.model.ts": [
+            "src/stories/interfaces/chartBars.model.ts": [
+                {
+                    "name": "ChartBarsType",
+                    "childs": [
+                        {
+                            "name": "bar",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "pie",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "doughnut",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "line",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "polarArea",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "radar",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "ctype": "miscellaneous",
+                    "subtype": "enum",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "file": "src/stories/interfaces/chartBars.model.ts"
+                }
+            ],
+            "src/stories/enums/input.enum.ts": [
                 {
                     "name": "enumIconFloat",
                     "childs": [
@@ -2400,7 +4024,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
-                    "file": "src/stories/interfaces/input.model.ts"
+                    "file": "src/stories/enums/input.enum.ts"
                 }
             ],
             "src/stories/interfaces/autocomplete.model.ts": [
@@ -2435,7 +4059,21 @@
                 }
             ]
         },
-        "groupedTypeAliases": {}
+        "groupedTypeAliases": {
+            "src/stories/enums/button.enum.ts": [
+                {
+                    "name": "ButtonIconPosition",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"left\" | \"right\" | \"top\" | \"bottom\"",
+                    "file": "src/stories/enums/button.enum.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 186
+                }
+            ]
+        }
     },
     "routes": {
         "name": "<root>",
@@ -2530,6 +4168,55 @@
                 "name": "AutocompleteComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/11",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/avatar/avatar.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Large",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/avatar/avatar.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Small",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/avatar/avatar.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/avatar/avatar.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Xlarge",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/avatar/avatar.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AvatarComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
                 "status": "low"
             },
             {
@@ -2662,12 +4349,91 @@
                 "status": "low"
             },
             {
+                "filePath": "src/stories/components/calendar/calendar.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithButtonBar",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/calendar/calendar.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithIcon",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/calendar/calendar.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithReadOnlyInput",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/calendar/calendar.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithSeconds",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/calendar/calendar.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithShowTime",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/stories/components/calendar/calendar.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "CalendarComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/chart-bars/chart-bars.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/chart-bars/chart-bars.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/chart-bars/chart-bars.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ChartBarsComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
@@ -2707,6 +4473,45 @@
                 "name": "CheckboxComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/dropdown/dropdown.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Disabled",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/dropdown/dropdown.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/dropdown/dropdown.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/dropdown/dropdown.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "DropdownComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/13",
                 "status": "low"
             },
             {
@@ -2759,6 +4564,35 @@
                 "status": "low"
             },
             {
+                "filePath": "src/stories/components/inputTextarea/inputtextarea.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/inputTextarea/inputtextarea.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/inputTextarea/inputtextarea.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "InputTextareaComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
                 "filePath": "src/stories/components/knob/knob.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -2783,6 +4617,75 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "KnobComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/messages/messages.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Error",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/messages/messages.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Info",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/messages/messages.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "MessageAfterClickButton",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/messages/messages.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Success",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/messages/messages.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/messages/messages.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Warm",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/messages/messages.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "MessagesComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/8",
                 "status": "low"
@@ -2814,6 +4717,16 @@
                 "name": "PasswordComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/radiobutton/radiobutton.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "CustomLabels",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -2885,6 +4798,35 @@
                 "status": "low"
             },
             {
+                "filePath": "src/stories/components/table/table.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/table/table.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/table/table.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AFTableComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
                 "filePath": "src/stories/interfaces/autocomplete.model.ts",
                 "type": "interface",
                 "linktype": "interface",
@@ -2903,10 +4845,28 @@
                 "status": "low"
             },
             {
+                "filePath": "src/stories/interfaces/inputtextarea.model.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "InputTextareaSizeModel",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
                 "filePath": "src/stories/interfaces/radiobutton.model.ts",
                 "type": "interface",
                 "linktype": "interface",
-                "name": "Category",
+                "name": "Categories",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/interfaces/table.model.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "TableHeaderModel",
                 "coveragePercent": 0,
                 "coverageCount": "0/3",
                 "status": "low"
