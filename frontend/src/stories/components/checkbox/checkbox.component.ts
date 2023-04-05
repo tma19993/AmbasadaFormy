@@ -11,6 +11,7 @@ export class CheckboxComponent {
   @Input() public label: string = "";
   @Input() public disabled: boolean = false;
   @Input() public binary: boolean = false;
+  public checked: boolean = false;
   constructor() {
   }
 

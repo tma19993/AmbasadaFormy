@@ -25,12 +25,28 @@ const Template: Story = (args) => ({
   },
 });
 
-export const Primary: Story = Template.bind({});
-Primary.args = {
+export const ExapmleValues: Story = Template.bind({});
+ExapmleValues.args = {
   value: 20,
   minValue: 0,
   maxValue: 100,
   size: 100,
-  valueColor: 'tomato',
-  rangeColor: 'green',
+};
+
+export const Readonly: Story = Template.bind({});
+Readonly.args = {
+  value: 20,
+  minValue: 0,
+  maxValue: 100,
+  size: 100,
+  readonly: true,
+};
+
+export const Disabled: Story = Template.bind({});
+Disabled.args = {
+  value: 20,
+  minValue: 0,
+  maxValue: 100,
+  size: 100,
+  disabled: true,
 };

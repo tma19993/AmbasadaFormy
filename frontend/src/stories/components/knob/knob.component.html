@@ -1,8 +1,13 @@
-<p-knob
+<section class="knob__container">
+  <p-knob
   [(ngModel)]="value"
   [min]="minValue"
   [max]="maxValue"
   [size]="size"
-  [valueColor]="valueColor"
-  [rangeColor]="rangeColor"
+  [readonly]="readonly"
+  [disabled]="disabled"
+  valueColor="#00ADB5"
+  rangeColor="#222831"
 ></p-knob>
+
+</section>

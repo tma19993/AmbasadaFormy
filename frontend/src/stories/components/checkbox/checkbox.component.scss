@@ -1,0 +1,17 @@
+@import "../../constants/constants.scss";
+
+.checkbox--container{
+    ::ng-deep p-checkbox {
+        .p-checkbox{
+            &-box{
+               border: 2px solid $input-main-color !important;
+            }
+        }
+        .p-highlight{
+            background-color: $input-main-color !important;
+        }
+        .p-focus{
+            box-shadow: none !important;
+        }
+    }
+}

@@ -1,10 +1,12 @@
-<section>
+<section class="button__container">
     <p-button 
+    class="button__content"
+    [ngClass]="transparentButton ? 'transparent-button':''"
       [label]="label"
-      [loading]="loading"
       [iconPos]="iconPos"
-      [icon]="iconClassName"
-      [styleClass]="styleClass"
-      (click)="click()">
+      [icon]="'pi ' + iconClassName"
+      (click)="click()"
+      [disabled]="disabled"
+      >
     </p-button>
   </section>

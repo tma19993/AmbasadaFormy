@@ -1,0 +1,22 @@
+@import "./../../constants/constants.scss";
+.button__container{
+    .button__content{
+       ::ng-deep .p-button{
+        background-color: $darker-gray;
+        border-color: transparent;
+        box-shadow: 0 0 8px 1px $darker-gray;
+        font-family: $font-family;
+        font-weight: $font-weight-bold;
+        border-radius: 14px;
+        padding: 10px 40px;
+       }
+    }
+    .transparent-button{
+        ::ng-deep .p-button{
+            background-color: transparent;
+            box-shadow: none;
+            color: $input-main-color;
+        }
+       
+    }
+}
