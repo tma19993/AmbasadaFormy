@@ -21,10 +21,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CheckboxModule,
     BrowserAnimationsModule
   ],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA,
-    NO_ERRORS_SCHEMA
-  ],
 })
 export class AppCheckboxModule {
 }

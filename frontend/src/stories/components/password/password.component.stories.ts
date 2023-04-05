@@ -33,6 +33,16 @@ Primary.args = {
   toggleMask: true,
   feedback: true,
   maxLength: 20,
-  showClear: true,
-  placeholder: 'Password'
+  floatLabel:true,
+  floatLabelText: "Password"
+};
+export const Secondary: Story = Template.bind({});
+Secondary.args = {
+  weakLabel: 'Weak',
+  mediumLabel: 'Medium',
+  strongLabel: 'Strong-man',
+  toggleMask: true,
+  feedback: true,
+  maxLength: 20,
+  disabledPassword:true
 };

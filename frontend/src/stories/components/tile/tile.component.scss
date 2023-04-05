@@ -1,0 +1,17 @@
+@import "./../../constants/constants.scss";
+
+.tile_container {
+  box-shadow: 0 0 20px 1px $darker-gray;
+  border-radius: 15px;
+  min-width: 100px;
+  min-height: 100px;
+  padding: 5px;
+
+  &--light {
+    background-color: $background-white-opacity;
+  }
+
+  &--dark {
+    background-color: $darker-gray;
+  }
+}
