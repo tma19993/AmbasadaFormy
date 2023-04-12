@@ -1,7 +1,7 @@
 <div class="login-container">
-  <div class="row">
+  <af-tile class="duparzepa">
     <div class="button__return-right">
-      <af-button [label]="'Powrót'" (click)="goToHome()"></af-button>
+      <af-button [label]="'Powrót'" (click)="backToWelcomePage()"></af-button>
     </div>
     <h2>Logowanie</h2>
     <form>
@@ -13,12 +13,13 @@
       </div>
       <div class="form-group">
         <label>
+          <af-input [iconConfig]="defaultData"></af-input>
           <input type="checkbox" name="remember" [(ngModel)]="remember"> Zapisz hasło
         </label>
         <a href="#" class="form-group__forgot-password">Nie pamiętasz hasła? Przypomnij hasło</a>
       </div>
-      <af-button [label]="'Zaloguj'" (click)="onClickLogin()"></af-button>
+      <af-button label="Zaloguj" (click)="onClickLogin()"></af-button>
       <a routerLink="/register">Nie masz konta? Zarejestruj się</a>
     </form>
-  </div>
+  </af-tile>
 </div>

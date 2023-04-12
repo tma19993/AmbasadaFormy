@@ -7,7 +7,7 @@ import { HomePageComponent } from './sites/home-page/home-page.component';
 
 const routes: Routes = [
 { path: '', redirectTo: '/home', pathMatch: 'full' },
-{ path: 'home', component: WelcomePageComponent },
+{ path: 'home', component: HomePageComponent },
 { path: 'login', component: LoginComponent },
 { path: 'register', component: RegisterComponent }
 ];

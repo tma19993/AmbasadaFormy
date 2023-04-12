@@ -1,5 +1,7 @@
 import { Component, Input} from '@angular/core';
 import { Router } from '@angular/router';
+import { enumIconFloat } from 'src/stories/enums/input.enum';
+import { inputIconConfig } from 'src/stories/interfaces/input.model';
 
 @Component({
   selector: 'app-login',
@@ -12,15 +14,16 @@ export class LoginComponent {
   @Input() public remember: boolean | undefined;
   constructor(private router: Router) { }
 
-
-  ngOnInit() {
-  }
+  public defaultData: inputIconConfig = {
+    iconClassName: 'pi-search',
+    iconFloat: enumIconFloat.left,
+  };
 
   onClickLogin() {
     // login logic here
   }
 
-  goToHome() {
+  public backToWelcomePage(): void{
     this.router.navigate(['/home']);
   }
 }
