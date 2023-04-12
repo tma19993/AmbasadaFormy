@@ -1,0 +1,24 @@
+<div class="login-container">
+  <div class="row">
+    <div class="button__return-right">
+      <af-button [label]="'Powrót'" (click)="goToHome()"></af-button>
+    </div>
+    <h2>Logowanie</h2>
+    <form>
+      <div class="form-group">
+        <input type="text" id="login-input" name="login" [(ngModel)]="login" placeholder="login">
+      </div>
+      <div class="form-group">
+        <input type="password" id="password-input" name="password" [(ngModel)]="password" placeholder="hasło">
+      </div>
+      <div class="form-group">
+        <label>
+          <input type="checkbox" name="remember" [(ngModel)]="remember"> Zapisz hasło
+        </label>
+        <a href="#" class="form-group__forgot-password">Nie pamiętasz hasła? Przypomnij hasło</a>
+      </div>
+      <af-button [label]="'Zaloguj'" (click)="onClickLogin()"></af-button>
+      <a routerLink="/register">Nie masz konta? Zarejestruj się</a>
+    </form>
+  </div>
+</div>

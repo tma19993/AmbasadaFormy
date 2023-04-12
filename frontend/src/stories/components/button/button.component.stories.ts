@@ -1,7 +1,7 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 import { DEFAULT_VIEWPORT } from '@storybook/addon-viewport';
 import { ButtonComponent } from './button.component';
-import { AppButtonModule } from './button.module';
+import { AFButtonModule } from './button.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 
@@ -9,7 +9,7 @@ export default {
   title: 'Core/Button',
   decorators: [
     moduleMetadata({
-      imports: [AppButtonModule, BrowserAnimationsModule],
+      imports: [AFButtonModule, BrowserAnimationsModule],
     }),
   ],
   component: ButtonComponent,
