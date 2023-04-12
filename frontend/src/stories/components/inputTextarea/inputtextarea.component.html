@@ -2,7 +2,7 @@
     <div *ngIf="!floatLabel">
         <textarea pInputTextarea [(ngModel)]="value"
         [rows]="size.rows"
-        [cols]="size.clos" 
+        [cols]="size.cols" 
         [autoResize]="autoResize"
         [disabled]="disabled"></textarea>
     </div>
@@ -11,7 +11,7 @@
         <textarea id="float-inputtextarea" pInputTextarea 
         [(ngModel)]="value"
         [rows]="size.rows"
-        [cols]="size.clos" 
+        [cols]="size.cols" 
         [autoResize]="autoResize"
         [disabled]="disabled"></textarea>
         <label for="float-inputtextarea">{{floatLabelText}}</label>
