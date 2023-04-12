@@ -1,7 +1,6 @@
 import {  NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer.component';
-import { AppButtonModule } from '../button/button.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +11,6 @@ import { AppButtonModule } from '../button/button.module';
   ],
   imports: [
     CommonModule,
-    AppButtonModule
   ],
 })
 export class FooterModule { }
