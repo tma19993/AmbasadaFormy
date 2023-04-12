@@ -1,0 +1,57 @@
+@import "./../../constants/constants.scss";
+
+.footer__container {
+  background-color: $darker-gray;
+  font-family: $font-family;
+  color: $input-main-color;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer__content {
+  display: flex;
+  justify-content: center;
+  gap: 75px;
+  padding: 80px 0;
+  max-width: 1530px;
+  &--info {
+    max-width: 230px;
+  }
+
+  &--social-media {
+    text-align: center;
+
+    .links {
+      margin: 20px 0;
+
+      a {
+        text-decoration: none;
+        color: $input-main-color;
+
+        i {
+          font-size: 40px;
+        }
+      }
+    }
+  }
+
+  &--links {
+    text-align: center;
+    .links{
+        margin-top:45px ;
+        a{
+            text-decoration: none;
+            color: $input-main-color;
+        }
+    }
+  }
+  &--map{
+    text-align: center;
+  }
+}
+
+.footer_header {
+  color: $input-background-color;
+  font-weight: $font-weight-bold;
+}
