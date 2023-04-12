@@ -30,6 +30,7 @@ const Template: Story  = args => ({
     ...args
   }
 })
+
 export const Primary: Story = Template.bind({});
 Primary.args={
   size:{
