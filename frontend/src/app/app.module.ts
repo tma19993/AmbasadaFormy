@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomePageComponent } from './sites/home-page/home-page.component';
+import { WelcomePageComponent } from './sites/welcomePage/welcomePage.component';
 import { LoginComponent } from './sites/login/login.component';
 import { RegisterComponent } from './sites/register/register.component';
 import { FormsModule } from '@angular/forms';
@@ -15,7 +15,7 @@ import { AFTileModule } from 'src/stories/components/tile/tile.module';
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponent,
+    WelcomePageComponent,
     LoginComponent,
     RegisterComponent,
   ],

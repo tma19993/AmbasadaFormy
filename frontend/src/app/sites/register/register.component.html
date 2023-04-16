@@ -1,7 +1,7 @@
-<div class="container">
+<section class="register-container">
     <div class="row">
       <div class="button__return-right">
-        <af-button [label]="'Powrót'" (click)="goToHome()"></af-button>
+        <af-button [label]="'Powrót'" (click)="goToWelcomePage()"></af-button>
       </div>
       <div class="input__test">
         <h2>Rejestracja</h2>
@@ -41,12 +41,11 @@
           <div class="input__test">
             <input type="password" class="form-control" id="confirmPassword" placeholder="Powtórz hasło">
           </div>
-          <af-button [label]="'Zarejestruj'" (click)="goToHome()"></af-button>
+          <af-button [label]="'Zarejestruj'" (click)="goToWelcomePage()"></af-button>
         </form>
         <div class="paragraf__test">
           <p>Mam już konto <a (click)="goToLogin()">Zaloguj się</a></p>
         </div>
       </div>
     </div>
-  </div>
-  
+  </section>

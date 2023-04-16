@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="homePage-container">
+    <af-tile class="slajdy">
+      <p class="slajdy__content">
+      </p>
+    </af-tile>
+    <af-tile class="panel__login-register">
+      <div class="panel__logo">
+        <img src="../assets/logo/logo.svg" alt="Ambasada Formy logo">
+      </div>
+      <div class="panel__center">
+        <af-button [label]="'Logowanie'" (click)="goToLogin()"></af-button>
+      </div>
+      <div class="panel__center">
+        <af-button [label]="'Rejestracja'" (click)="goToRegister()"></af-button>
+      </div>
+    </af-tile>
+    <af-tile [darkMode]="true" class="signUs">
+      <h3 class="signUs__content">Dołącz do nas</h3>
+    </af-tile>
+    <af-tile [darkMode]="true" class="other">
+      <h3 class="other__content">Praca, efekty, cele</h3>
+    </af-tile>
+  </div>
+</div>

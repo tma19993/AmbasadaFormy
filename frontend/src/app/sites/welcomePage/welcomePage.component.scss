@@ -1,0 +1,82 @@
+*, body, html{
+  margin: 0;
+  padding: 0;
+}
+
+.row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(15deg, #1CB5E0 0%, #000851 100%);
+}
+
+
+.homePage-container {
+  display: grid;
+  grid-template-columns: 0.8fr 1.1fr 1.1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 20px 20px;
+  grid-template-areas:
+    "slajdy panel__login-register panel__login-register"
+    "slajdy panel__login-register panel__login-register"
+    "slajdy signUs other";
+  margin: auto;
+  max-width: 1600px;
+}
+
+.slajdy {
+  grid-area: slajdy;
+
+  &__content {
+  padding: 210px 100px;
+  background: url('../../../assets/backgrounds/victor-freitas-WvDYdXDzkhs-unsplash.jpg');
+  background-size: cover;
+  background-position: 420px center;
+  border-radius: 10px;
+  }
+}
+
+.panel {
+  &__login-register {
+    grid-area: panel__login-register;
+  }
+
+  &__logo {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0 40px 0;
+
+    img {
+      max-height: 50px;
+    }
+  }
+
+  &__center {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 40px;
+  }
+}
+
+.signUs {
+  grid-area: signUs;
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+    color: #fff;
+  }
+}
+
+.other {
+  grid-area: other;
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+    color: #fff;
+  }
+}

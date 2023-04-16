@@ -9,11 +9,11 @@ import { Router } from '@angular/router';
 export class RegisterComponent {
   constructor(private router: Router) { }
 
-  goToLogin() {
+  public goToLogin(): void {
     this.router.navigate(['/login']);
   }
 
-  goToHome() {
+  public goToWelcomePage(): void {
     this.router.navigate(['/home']);
   }
 }

@@ -19,7 +19,7 @@ export class LoginComponent {
     iconFloat: enumIconFloat.left,
   };
 
-  onClickLogin() {
+  public onClickLogin(): void {
     // login logic here
   }
 
