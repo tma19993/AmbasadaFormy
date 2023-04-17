@@ -15,7 +15,6 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FooterModule } from 'src/stories/components/footer/footer.module';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +27,11 @@ import { FooterModule } from 'src/stories/components/footer/footer.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    AFButtonModule,
+    InputModule,
+    AFTileModule,
+
     TranslateModule.forRoot(
       {
         loader:{
@@ -36,11 +40,7 @@ import { FooterModule } from 'src/stories/components/footer/footer.module';
           deps:[HttpClient]
         }
       }
-    ),
-    FormsModule,
-    AFButtonModule,
-    InputModule,
-    AFTileModule,
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
