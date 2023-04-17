@@ -1,78 +1,68 @@
 .login-container {
-    display: grid;
-    place-items: center;
-    height: 100vh;
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.3fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+  "logo logo logo"
+  "login-section login-section login-section"
+  "footer footer footer";
+  justify-items: center;
+  align-items: center;
+  width: 1600px;
+
+  .logo {
+  grid-area: logo;
   }
 
-  .row{
-    border: 1px solid black;
-    padding: 10px 200px;
-    border-radius: 10px;
+  .login-section {
+  grid-area: login-section;
+  margin: 5px;
+
+    &__justify {
+    margin: 50px;
+  }
+}
+
+.footer {
+  grid-area: footer;
+  position: fixed;
+  bottom: 0;
   }
 
-  .login-container form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   }
 
-  .login-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
+  h2 {
+  text-align: center;
+  margin-bottom: 20px;
   }
 
-  .login-container .form-group {
-    margin-bottom: 20px;
-  }
-
-  .login-container input[type="text"],
-  .login-container input[type="password"] {
-    font-size: 16px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-bottom: 10px;
-    width: 100%;
-    max-width: 300px;
+  .form-group {
+  margin-bottom: 20px;
   }
 
   .button__return-right {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
 
-  }
-
-
-  .button__return-right{
-    button:hover{
-    background-color: #007bff;
-    color: #fff;
-    }
-  }
-
-  .login-container button[type="submit"] {
-    background-color: blue;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    max-width: 300px;
-  }
-
-  .login-container button[type="submit"]:hover {
+  button:hover {
     background-color: #007bff;
     color: #fff;
   }
+}
 
-  .login-container a {
-    display: block;
-    margin-top: 20px;
-    text-align: center;
-    color: blue;
-  }
-
+a {
+display: block;
+margin-top: 20px;
+text-align: center;
+color: blue;
+}
+}

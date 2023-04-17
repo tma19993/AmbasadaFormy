@@ -14,8 +14,13 @@ export class LoginComponent {
   @Input() public remember: boolean | undefined;
   constructor(private router: Router) { }
 
-  public defaultData: inputIconConfig = {
-    iconClassName: 'pi-search',
+  public loginData: inputIconConfig = {
+    iconClassName: 'pi-user',
+    iconFloat: enumIconFloat.left,
+  };
+
+  public passwordData: inputIconConfig = {
+    iconClassName: 'pi-lock',
     iconFloat: enumIconFloat.left,
   };
 

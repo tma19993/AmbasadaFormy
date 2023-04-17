@@ -10,6 +10,10 @@ import { FormsModule } from '@angular/forms';
 import { AFButtonModule } from 'src/stories/components/button/button.module';
 import { InputModule } from 'src/stories/components/input/input.module';
 import { AFTileModule } from 'src/stories/components/tile/tile.module';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { FooterModule } from 'src/stories/components/footer/footer.module';
 
 
 @NgModule({
@@ -20,8 +24,19 @@ import { AFTileModule } from 'src/stories/components/tile/tile.module';
     RegisterComponent,
   ],
   imports: [
+    FooterModule,
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    TranslateModule.forRoot(
+      {
+        loader:{
+          provide: TranslateLoader,
+          useFactory: (handler: HttpClient) => { return new TranslateHttpLoader(handler, './assets/i18n/', '.json');},
+          deps:[HttpClient]
+        }
+      }
+    ),
     FormsModule,
     AFButtonModule,
     InputModule,
