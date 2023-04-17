@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'af-footer',
@@ -6,7 +7,8 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
-constructor(){
-
+constructor(private translateService: TranslateService){
+  this.translateService.setDefaultLang(localStorage.getItem("language") || ("en"));
 }
+
 }

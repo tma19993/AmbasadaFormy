@@ -1,0 +1,21 @@
+{
+    "footer":{
+        "header":"Ambasada Formy",
+        "info":"Jesteśmy grupą osób, której zależy na tym abyś zaliczył progres korzystając z naszej oferty. Pamiętaj jednak, że to od twojego zaangażowania wszystko zależy. My dajemy tobie możliwości i odpowiednie narzędzia.",
+        "contact": "Kontakt",
+        "address":"ul. Konstantynów 1H 20-708 Lublin, Polska",
+        "mail":"e-mail",
+        "phone": "Telefon",
+        "socialMedia": "Social Media",
+        "links":"Linki",
+        "statute":"Regulamin",
+        "faq":"FAQ",
+        "location": "Lokalizacja",
+        "constant":{
+            "email":"email@email.com",
+            "firstPhoneNumber":"+48 000 000 000",
+            "secondPhoneNumber":"(00) 000 00 00"
+        }
+        
+    }
+}

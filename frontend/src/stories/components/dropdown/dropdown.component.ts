@@ -13,6 +13,7 @@ export class DropdownComponent {
   @Input() public isFloatlabel:boolean = false;
   @Input() public disabled:boolean = false;
   @Input() public placeholder: string = "";
+  @Input() public floatText: string = "";
   @Input() public filterName: string = "";
   @Input() public virtualScrollItemSize: number = 1;
   @Input() public data:any;
