@@ -21,4 +21,4 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
   ],
 })
-export class AppButtonModule { }
+export class AFButtonModule { }

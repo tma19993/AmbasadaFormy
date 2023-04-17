@@ -196,6 +196,73 @@
     "directives": [],
     "components": [
         {
+            "name": "AFIconShadowComponent",
+            "id": "component-AFIconShadowComponent-62c7c9a8fa1a7d6bcd9f67f4e962a59c0ed8e797fec68512900908dd49fc12e7616c81fe6996fcba782bd7b1e74f5ad8ec16423f3ff9b2254dcd19ff1a1ef115",
+            "file": "src/stories/components/iconShadow/iconShadow.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-floatlabel",
+            "styleUrls": [
+                "./iconShadow.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./iconShadow.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "iconClassName",
+                    "defaultValue": "\"\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "link",
+                    "defaultValue": "\"#\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-floatlabel',\r\n  templateUrl: './iconShadow.component.html',\r\n  styleUrls: ['./iconShadow.component.scss'],\r\n})\r\nexport class AFIconShadowComponent  {\r\n@Input() link:string = \"#\";\r\n@Input() iconClassName:string = \"\";\r\n  constructor() {}\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "section{\r\n    display: grid;\r\n    place-items: center;\r\n    height: 100vh;\r\n}\r\n\r\n.iconShadow__container {\r\n  cursor: pointer;\r\n  position: relative;\r\n\r\n  .iconShadow__content {\r\n    text-decoration: none;\r\n    overflow: hidden;\r\n    color: #dc2743;\r\n    \r\n    .pi{\r\n        color: #222;\r\n        font-size: 60px;\r\n        padding:  2px 5px 0 5px;\r\n        &:hover{\r\n            z-index: 1001;\r\n        }\r\n            \r\n        \r\n    }\r\n      \r\n      &::before {\r\n        font-family: 'primeicons';\r\n        content: \"\\e908\"; // tutaj dana ikonka\r\n        position: absolute;\r\n        top: 0;\r\n        left: 0;\r\n        font-size: 60px;\r\n        height: 0;\r\n        overflow: hidden;\r\n        transition: 0.5s ease-in-out;\r\n        border-bottom: 4px solid #dc2743;\r\n        padding: 2px 5px 0 5px;\r\n      }\r\n  }\r\n  &:hover .iconShadow__content::before{\r\n    height: 60px;\r\n  }\r\n}",
+                    "styleUrl": "./iconShadow.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 10
+            },
+            "templateData": "<section>\r\n    <div class=\"iconShadow__container\">\r\n        <a [href]=\"link\" class=\"iconShadow__content\"><i class=\"pi {{iconClassName}} iconShadow__content--icon\"></i></a>\r\n    </div> \r\n</section>\r\n"
+        },
+        {
             "name": "AFTableComponent",
             "id": "component-AFTableComponent-b9ee9d51326aae03396e387c32a8199eef273cae825024633a27df6cf0c903c8a15684a34fa77d754d17a520c6d255fe72eddd8cbd7da745d288b13d744a12f0",
             "file": "src/stories/components/table/table.component.ts",
@@ -354,12 +421,12 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": "*, body, html{\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n",
                     "styleUrl": "./app.component.scss"
                 }
             ],
             "stylesData": "",
-            "templateData": "<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->\r\n<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->\r\n<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->\r\n<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->\r\n<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->\r\n<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->\r\n<!-- * * * * * * * to get started with your project! * * * * * * * * -->\r\n<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->\r\n\r\n<style>\r\n  :host {\r\n    font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\";\r\n    font-size: 14px;\r\n    color: #333;\r\n    box-sizing: border-box;\r\n    -webkit-font-smoothing: antialiased;\r\n    -moz-osx-font-smoothing: grayscale;\r\n  }\r\n\r\n  h1,\r\n  h2,\r\n  h3,\r\n  h4,\r\n  h5,\r\n  h6 {\r\n    margin: 8px 0;\r\n  }\r\n\r\n  p {\r\n    margin: 0;\r\n  }\r\n\r\n  .spacer {\r\n    flex: 1;\r\n  }\r\n\r\n  .toolbar {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    right: 0;\r\n    height: 60px;\r\n    display: flex;\r\n    align-items: center;\r\n    background-color: #1976d2;\r\n    color: white;\r\n    font-weight: 600;\r\n  }\r\n\r\n  .toolbar img {\r\n    margin: 0 16px;\r\n  }\r\n\r\n  .toolbar #twitter-logo {\r\n    height: 40px;\r\n    margin: 0 8px;\r\n  }\r\n\r\n  .toolbar #youtube-logo {\r\n    height: 40px;\r\n    margin: 0 16px;\r\n  }\r\n\r\n  .toolbar #twitter-logo:hover,\r\n  .toolbar #youtube-logo:hover {\r\n    opacity: 0.8;\r\n  }\r\n\r\n  .content {\r\n    display: flex;\r\n    margin: 82px auto 32px;\r\n    padding: 0 16px;\r\n    max-width: 960px;\r\n    flex-direction: column;\r\n    align-items: center;\r\n  }\r\n\r\n  svg.material-icons {\r\n    height: 24px;\r\n    width: auto;\r\n  }\r\n\r\n  svg.material-icons:not(:last-child) {\r\n    margin-right: 8px;\r\n  }\r\n\r\n  .card svg.material-icons path {\r\n    fill: #888;\r\n  }\r\n\r\n  .card-container {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: center;\r\n    margin-top: 16px;\r\n  }\r\n\r\n  .card {\r\n    all: unset;\r\n    border-radius: 4px;\r\n    border: 1px solid #eee;\r\n    background-color: #fafafa;\r\n    height: 40px;\r\n    width: 200px;\r\n    margin: 0 8px 16px;\r\n    padding: 16px;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: center;\r\n    align-items: center;\r\n    transition: all 0.2s ease-in-out;\r\n    line-height: 24px;\r\n  }\r\n\r\n  .card-container .card:not(:last-child) {\r\n    margin-right: 0;\r\n  }\r\n\r\n  .card.card-small {\r\n    height: 16px;\r\n    width: 168px;\r\n  }\r\n\r\n  .card-container .card:not(.highlight-card) {\r\n    cursor: pointer;\r\n  }\r\n\r\n  .card-container .card:not(.highlight-card):hover {\r\n    transform: translateY(-3px);\r\n    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);\r\n  }\r\n\r\n  .card-container .card:not(.highlight-card):hover .material-icons path {\r\n    fill: rgb(105, 103, 103);\r\n  }\r\n\r\n  .card.highlight-card {\r\n    background-color: #1976d2;\r\n    color: white;\r\n    font-weight: 600;\r\n    border: none;\r\n    width: auto;\r\n    min-width: 30%;\r\n    position: relative;\r\n  }\r\n\r\n  .card.card.highlight-card span {\r\n    margin-left: 60px;\r\n  }\r\n\r\n  svg#rocket {\r\n    width: 80px;\r\n    position: absolute;\r\n    left: -10px;\r\n    top: -24px;\r\n  }\r\n\r\n  svg#rocket-smoke {\r\n    height: calc(100vh - 95px);\r\n    position: absolute;\r\n    top: 10px;\r\n    right: 180px;\r\n    z-index: -10;\r\n  }\r\n\r\n  a,\r\n  a:visited,\r\n  a:hover {\r\n    color: #1976d2;\r\n    text-decoration: none;\r\n  }\r\n\r\n  a:hover {\r\n    color: #125699;\r\n  }\r\n\r\n  .terminal {\r\n    position: relative;\r\n    width: 80%;\r\n    max-width: 600px;\r\n    border-radius: 6px;\r\n    padding-top: 45px;\r\n    margin-top: 8px;\r\n    overflow: hidden;\r\n    background-color: rgb(15, 15, 16);\r\n  }\r\n\r\n  .terminal::before {\r\n    content: \"\\2022 \\2022 \\2022\";\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    height: 4px;\r\n    background: rgb(58, 58, 58);\r\n    color: #c2c3c4;\r\n    width: 100%;\r\n    font-size: 2rem;\r\n    line-height: 0;\r\n    padding: 14px 0;\r\n    text-indent: 4px;\r\n  }\r\n\r\n  .terminal pre {\r\n    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;\r\n    color: white;\r\n    padding: 0 1rem 1rem;\r\n    margin: 0;\r\n  }\r\n\r\n  .circle-link {\r\n    height: 40px;\r\n    width: 40px;\r\n    border-radius: 40px;\r\n    margin: 8px;\r\n    background-color: white;\r\n    border: 1px solid #eeeeee;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    cursor: pointer;\r\n    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\r\n    transition: 1s ease-out;\r\n  }\r\n\r\n  .circle-link:hover {\r\n    transform: translateY(-0.25rem);\r\n    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);\r\n  }\r\n\r\n  footer {\r\n    margin-top: 8px;\r\n    display: flex;\r\n    align-items: center;\r\n    line-height: 20px;\r\n  }\r\n\r\n  footer a {\r\n    display: flex;\r\n    align-items: center;\r\n  }\r\n\r\n  .github-star-badge {\r\n    color: #24292e;\r\n    display: flex;\r\n    align-items: center;\r\n    font-size: 12px;\r\n    padding: 3px 10px;\r\n    border: 1px solid rgba(27,31,35,.2);\r\n    border-radius: 3px;\r\n    background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);\r\n    margin-left: 4px;\r\n    font-weight: 600;\r\n  }\r\n\r\n  .github-star-badge:hover {\r\n    background-image: linear-gradient(-180deg,#f0f3f6,#e6ebf1 90%);\r\n    border-color: rgba(27,31,35,.35);\r\n    background-position: -.5em;\r\n  }\r\n\r\n  .github-star-badge .material-icons {\r\n    height: 16px;\r\n    width: 16px;\r\n    margin-right: 4px;\r\n  }\r\n\r\n  svg#clouds {\r\n    position: fixed;\r\n    bottom: -160px;\r\n    left: -230px;\r\n    z-index: -10;\r\n    width: 1920px;\r\n  }\r\n\r\n  /* Responsive Styles */\r\n  @media screen and (max-width: 767px) {\r\n    .card-container > *:not(.circle-link) ,\r\n    .terminal {\r\n      width: 100%;\r\n    }\r\n\r\n    .card:not(.highlight-card) {\r\n      height: 16px;\r\n      margin: 8px 0;\r\n    }\r\n\r\n    .card.highlight-card span {\r\n      margin-left: 72px;\r\n    }\r\n\r\n    svg#rocket-smoke {\r\n      right: 120px;\r\n      transform: rotate(-5deg);\r\n    }\r\n  }\r\n\r\n  @media screen and (max-width: 575px) {\r\n    svg#rocket-smoke {\r\n      display: none;\r\n      visibility: hidden;\r\n    }\r\n  }\r\n</style>\r\n\r\n<!-- Toolbar -->\r\n<div class=\"toolbar\" role=\"banner\">\r\n  <img\r\n    width=\"40\"\r\n    alt=\"Angular Logo\"\r\n    src=\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==\"\r\n  />\r\n  <span>Welcome</span>\r\n    <div class=\"spacer\"></div>\r\n    <a aria-label=\"Angular on twitter\" target=\"_blank\" rel=\"noopener\" href=\"https://twitter.com/angular\" title=\"Twitter\">\r\n      <svg id=\"twitter-logo\" height=\"24\" data-name=\"Logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 400\">\r\n        <rect width=\"400\" height=\"400\" fill=\"none\"/>\r\n        <path d=\"M153.62,301.59c94.34,0,145.94-78.16,145.94-145.94,0-2.22,0-4.43-.15-6.63A104.36,104.36,0,0,0,325,122.47a102.38,102.38,0,0,1-29.46,8.07,51.47,51.47,0,0,0,22.55-28.37,102.79,102.79,0,0,1-32.57,12.45,51.34,51.34,0,0,0-87.41,46.78A145.62,145.62,0,0,1,92.4,107.81a51.33,51.33,0,0,0,15.88,68.47A50.91,50.91,0,0,1,85,169.86c0,.21,0,.43,0,.65a51.31,51.31,0,0,0,41.15,50.28,51.21,51.21,0,0,1-23.16.88,51.35,51.35,0,0,0,47.92,35.62,102.92,102.92,0,0,1-63.7,22A104.41,104.41,0,0,1,75,278.55a145.21,145.21,0,0,0,78.62,23\" fill=\"#fff\"/>\r\n      </svg>\r\n    </a>\r\n    <a aria-label=\"Angular on YouTube\" target=\"_blank\" rel=\"noopener\" href=\"https://youtube.com/angular\" title=\"YouTube\">\r\n      <svg id=\"youtube-logo\" height=\"24\" width=\"24\" data-name=\"Logo\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"#fff\">\r\n        <path d=\"M0 0h24v24H0V0z\" fill=\"none\"/>\r\n        <path d=\"M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z\"/>\r\n      </svg>\r\n    </a>\r\n</div>\r\n\r\n<div class=\"content\" role=\"main\">\r\n\r\n  <!-- Highlight Card -->\r\n  <div class=\"card highlight-card card-small\">\r\n\r\n    <svg id=\"rocket\" xmlns=\"http://www.w3.org/2000/svg\" width=\"101.678\" height=\"101.678\" viewBox=\"0 0 101.678 101.678\">\r\n      <title>Rocket Ship</title>\r\n      <g id=\"Group_83\" data-name=\"Group 83\" transform=\"translate(-141 -696)\">\r\n        <circle id=\"Ellipse_8\" data-name=\"Ellipse 8\" cx=\"50.839\" cy=\"50.839\" r=\"50.839\" transform=\"translate(141 696)\" fill=\"#dd0031\"/>\r\n        <g id=\"Group_47\" data-name=\"Group 47\" transform=\"translate(165.185 720.185)\">\r\n          <path id=\"Path_33\" data-name=\"Path 33\" d=\"M3.4,42.615a3.084,3.084,0,0,0,3.553,3.553,21.419,21.419,0,0,0,12.215-6.107L9.511,30.4A21.419,21.419,0,0,0,3.4,42.615Z\" transform=\"translate(0.371 3.363)\" fill=\"#fff\"/>\r\n          <path id=\"Path_34\" data-name=\"Path 34\" d=\"M53.3,3.221A3.09,3.09,0,0,0,50.081,0,48.227,48.227,0,0,0,18.322,13.437c-6-1.666-14.991-1.221-18.322,7.218A33.892,33.892,0,0,1,9.439,25.1l-.333.666a3.013,3.013,0,0,0,.555,3.553L23.985,43.641a2.9,2.9,0,0,0,3.553.555l.666-.333A33.892,33.892,0,0,1,32.647,53.3c8.55-3.664,8.884-12.326,7.218-18.322A48.227,48.227,0,0,0,53.3,3.221ZM34.424,9.772a6.439,6.439,0,1,1,9.106,9.106,6.368,6.368,0,0,1-9.106,0A6.467,6.467,0,0,1,34.424,9.772Z\" transform=\"translate(0 0.005)\" fill=\"#fff\"/>\r\n        </g>\r\n      </g>\r\n    </svg>\r\n\r\n    <span>{{ title }} app is running!</span>\r\n\r\n    <svg id=\"rocket-smoke\" xmlns=\"http://www.w3.org/2000/svg\" width=\"516.119\" height=\"1083.632\" viewBox=\"0 0 516.119 1083.632\">\r\n      <title>Rocket Ship Smoke</title>\r\n      <path id=\"Path_40\" data-name=\"Path 40\" d=\"M644.6,141S143.02,215.537,147.049,870.207s342.774,201.755,342.774,201.755S404.659,847.213,388.815,762.2c-27.116-145.51-11.551-384.124,271.9-609.1C671.15,139.365,644.6,141,644.6,141Z\" transform=\"translate(-147.025 -140.939)\" fill=\"#f5f5f5\"/>\r\n    </svg>\r\n\r\n  </div>\r\n\r\n  <!-- Resources -->\r\n  <h2>Resources</h2>\r\n  <p>Here are some links to help you get started:</p>\r\n\r\n  <div class=\"card-container\">\r\n    <a class=\"card\" target=\"_blank\" rel=\"noopener\" href=\"https://angular.io/tutorial\">\r\n      <svg class=\"material-icons\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z\"/></svg>\r\n      <span>Learn Angular</span>\r\n      <svg class=\"material-icons\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z\"/></svg>    </a>\r\n\r\n    <a class=\"card\" target=\"_blank\" rel=\"noopener\" href=\"https://angular.io/cli\">\r\n      <svg class=\"material-icons\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z\"/></svg>\r\n      <span>CLI Documentation</span>\r\n      <svg class=\"material-icons\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z\"/></svg>\r\n    </a>\r\n\r\n    <a class=\"card\" target=\"_blank\" rel=\"noopener\" href=\"https://material.angular.io\">\r\n      <svg xmlns=\"http://www.w3.org/2000/svg\" style=\"margin-right: 8px\" width=\"21.813\" height=\"23.453\" viewBox=\"0 0 179.2 192.7\"><path fill=\"#ffa726\" d=\"M89.4 0 0 32l13.5 118.4 75.9 42.3 76-42.3L179.2 32 89.4 0z\"/><path fill=\"#fb8c00\" d=\"M89.4 0v192.7l76-42.3L179.2 32 89.4 0z\"/><path fill=\"#ffe0b2\" d=\"m102.9 146.3-63.3-30.5 36.3-22.4 63.7 30.6-36.7 22.3z\"/><path fill=\"#fff3e0\" d=\"M102.9 122.8 39.6 92.2l36.3-22.3 63.7 30.6-36.7 22.3z\"/><path fill=\"#fff\" d=\"M102.9 99.3 39.6 68.7l36.3-22.4 63.7 30.6-36.7 22.4z\"/></svg>\r\n      <span>Angular Material</span>\r\n      <svg class=\"material-icons\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z\"/></svg>\r\n    </a>\r\n\r\n    <a class=\"card\" target=\"_blank\" rel=\"noopener\" href=\"https://blog.angular.io/\">\r\n      <svg class=\"material-icons\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z\"/></svg>\r\n      <span>Angular Blog</span>\r\n      <svg class=\"material-icons\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z\"/></svg>\r\n    </a>\r\n\r\n    <a class=\"card\" target=\"_blank\" rel=\"noopener\" href=\"https://angular.io/devtools/\">\r\n      <svg class=\"material-icons\" xmlns=\"http://www.w3.org/2000/svg\" enable-background=\"new 0 0 24 24\" height=\"24px\" viewBox=\"0 0 24 24\" width=\"24px\" fill=\"#000000\"><g><rect fill=\"none\" height=\"24\" width=\"24\"/></g><g><g><path d=\"M14.73,13.31C15.52,12.24,16,10.93,16,9.5C16,5.91,13.09,3,9.5,3S3,5.91,3,9.5C3,13.09,5.91,16,9.5,16 c1.43,0,2.74-0.48,3.81-1.27L19.59,21L21,19.59L14.73,13.31z M9.5,14C7.01,14,5,11.99,5,9.5S7.01,5,9.5,5S14,7.01,14,9.5 S11.99,14,9.5,14z\"/><polygon points=\"10.29,8.44 9.5,6 8.71,8.44 6.25,8.44 8.26,10.03 7.49,12.5 9.5,10.97 11.51,12.5 10.74,10.03 12.75,8.44\"/></g></g></svg>\r\n      <span>Angular DevTools</span>\r\n      <svg class=\"material-icons\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z\"/></svg>\r\n    </a>\r\n\r\n  </div>\r\n\r\n  <!-- Next Steps -->\r\n  <h2>Next Steps</h2>\r\n  <p>What do you want to do next with your app?</p>\r\n\r\n  <input type=\"hidden\" #selection>\r\n\r\n  <div class=\"card-container\">\r\n    <button class=\"card card-small\" (click)=\"selection.value = 'component'\" tabindex=\"0\">\r\n      <svg class=\"material-icons\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z\"/></svg>\r\n      <span>New Component</span>\r\n    </button>\r\n\r\n    <button class=\"card card-small\" (click)=\"selection.value = 'material'\" tabindex=\"0\">\r\n      <svg class=\"material-icons\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z\"/></svg>\r\n      <span>Angular Material</span>\r\n    </button>\r\n\r\n    <button class=\"card card-small\" (click)=\"selection.value = 'pwa'\" tabindex=\"0\">\r\n      <svg class=\"material-icons\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z\"/></svg>\r\n      <span>Add PWA Support</span>\r\n    </button>\r\n\r\n    <button class=\"card card-small\" (click)=\"selection.value = 'dependency'\" tabindex=\"0\">\r\n      <svg class=\"material-icons\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z\"/></svg>\r\n      <span>Add Dependency</span>\r\n    </button>\r\n\r\n    <button class=\"card card-small\" (click)=\"selection.value = 'test'\" tabindex=\"0\">\r\n      <svg class=\"material-icons\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z\"/></svg>\r\n      <span>Run and Watch Tests</span>\r\n    </button>\r\n\r\n    <button class=\"card card-small\" (click)=\"selection.value = 'build'\" tabindex=\"0\">\r\n      <svg class=\"material-icons\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z\"/></svg>\r\n      <span>Build for Production</span>\r\n    </button>\r\n  </div>\r\n\r\n  <!-- Terminal -->\r\n  <div class=\"terminal\" [ngSwitch]=\"selection.value\">\r\n      <pre *ngSwitchDefault>ng generate component xyz</pre>\r\n      <pre *ngSwitchCase=\"'material'\">ng add @angular/material</pre>\r\n      <pre *ngSwitchCase=\"'pwa'\">ng add @angular/pwa</pre>\r\n      <pre *ngSwitchCase=\"'dependency'\">ng add _____</pre>\r\n      <pre *ngSwitchCase=\"'test'\">ng test</pre>\r\n      <pre *ngSwitchCase=\"'build'\">ng build</pre>\r\n  </div>\r\n\r\n  <!-- Links -->\r\n  <div class=\"card-container\">\r\n    <a class=\"circle-link\" title=\"Find a Local Meetup\" href=\"https://www.meetup.com/find/?keywords=angular\" target=\"_blank\" rel=\"noopener\">\r\n      <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24.607\" height=\"23.447\" viewBox=\"0 0 24.607 23.447\">\r\n        <title>Meetup Logo</title>\r\n        <path id=\"logo--mSwarm\" d=\"M21.221,14.95A4.393,4.393,0,0,1,17.6,19.281a4.452,4.452,0,0,1-.8.069c-.09,0-.125.035-.154.117a2.939,2.939,0,0,1-2.506,2.091,2.868,2.868,0,0,1-2.248-.624.168.168,0,0,0-.245-.005,3.926,3.926,0,0,1-2.589.741,4.015,4.015,0,0,1-3.7-3.347,2.7,2.7,0,0,1-.043-.38c0-.106-.042-.146-.143-.166a3.524,3.524,0,0,1-1.516-.69A3.623,3.623,0,0,1,2.23,14.557a3.66,3.66,0,0,1,1.077-3.085.138.138,0,0,0,.026-.2,3.348,3.348,0,0,1-.451-1.821,3.46,3.46,0,0,1,2.749-3.28.44.44,0,0,0,.355-.281,5.072,5.072,0,0,1,3.863-3,5.028,5.028,0,0,1,3.555.666.31.31,0,0,0,.271.03A4.5,4.5,0,0,1,18.3,4.7a4.4,4.4,0,0,1,1.334,2.751,3.658,3.658,0,0,1,.022.706.131.131,0,0,0,.1.157,2.432,2.432,0,0,1,1.574,1.645,2.464,2.464,0,0,1-.7,2.616c-.065.064-.051.1-.014.166A4.321,4.321,0,0,1,21.221,14.95ZM13.4,14.607a2.09,2.09,0,0,0,1.409,1.982,4.7,4.7,0,0,0,1.275.221,1.807,1.807,0,0,0,.9-.151.542.542,0,0,0,.321-.545.558.558,0,0,0-.359-.534,1.2,1.2,0,0,0-.254-.078c-.262-.047-.526-.086-.787-.138a.674.674,0,0,1-.617-.75,3.394,3.394,0,0,1,.218-1.109c.217-.658.509-1.286.79-1.918a15.609,15.609,0,0,0,.745-1.86,1.95,1.95,0,0,0,.06-1.073,1.286,1.286,0,0,0-1.051-1.033,1.977,1.977,0,0,0-1.521.2.339.339,0,0,1-.446-.042c-.1-.092-.2-.189-.307-.284a1.214,1.214,0,0,0-1.643-.061,7.563,7.563,0,0,1-.614.512A.588.588,0,0,1,10.883,8c-.215-.115-.437-.215-.659-.316a2.153,2.153,0,0,0-.695-.248A2.091,2.091,0,0,0,7.541,8.562a9.915,9.915,0,0,0-.405.986c-.559,1.545-1.015,3.123-1.487,4.7a1.528,1.528,0,0,0,.634,1.777,1.755,1.755,0,0,0,1.5.211,1.35,1.35,0,0,0,.824-.858c.543-1.281,1.032-2.584,1.55-3.875.142-.355.28-.712.432-1.064a.548.548,0,0,1,.851-.24.622.622,0,0,1,.185.539,2.161,2.161,0,0,1-.181.621c-.337.852-.68,1.7-1.018,2.552a2.564,2.564,0,0,0-.173.528.624.624,0,0,0,.333.71,1.073,1.073,0,0,0,.814.034,1.22,1.22,0,0,0,.657-.655q.758-1.488,1.511-2.978.35-.687.709-1.37a1.073,1.073,0,0,1,.357-.434.43.43,0,0,1,.463-.016.373.373,0,0,1,.153.387.7.7,0,0,1-.057.236c-.065.157-.127.316-.2.469-.42.883-.846,1.763-1.262,2.648A2.463,2.463,0,0,0,13.4,14.607Zm5.888,6.508a1.09,1.09,0,0,0-2.179.006,1.09,1.09,0,0,0,2.179-.006ZM1.028,12.139a1.038,1.038,0,1,0,.01-2.075,1.038,1.038,0,0,0-.01,2.075ZM13.782.528a1.027,1.027,0,1,0-.011,2.055A1.027,1.027,0,0,0,13.782.528ZM22.21,6.95a.882.882,0,0,0-1.763.011A.882.882,0,0,0,22.21,6.95ZM4.153,4.439a.785.785,0,1,0,.787-.78A.766.766,0,0,0,4.153,4.439Zm8.221,18.22a.676.676,0,1,0-.677.666A.671.671,0,0,0,12.374,22.658ZM22.872,12.2a.674.674,0,0,0-.665.665.656.656,0,0,0,.655.643.634.634,0,0,0,.655-.644A.654.654,0,0,0,22.872,12.2ZM7.171-.123A.546.546,0,0,0,6.613.43a.553.553,0,1,0,1.106,0A.539.539,0,0,0,7.171-.123ZM24.119,9.234a.507.507,0,0,0-.493.488.494.494,0,0,0,.494.494.48.48,0,0,0,.487-.483A.491.491,0,0,0,24.119,9.234Zm-19.454,9.7a.5.5,0,0,0-.488-.488.491.491,0,0,0-.487.5.483.483,0,0,0,.491.479A.49.49,0,0,0,4.665,18.936Z\" transform=\"translate(0 0.123)\" fill=\"#f64060\"/>\r\n      </svg>\r\n    </a>\r\n\r\n    <a class=\"circle-link\" title=\"Join the Conversation on Discord\" href=\"https://discord.gg/angular\" target=\"_blank\" rel=\"noopener\">\r\n      <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"26\" height=\"26\" viewBox=\"0 0 245 240\">\r\n        <title>Discord Logo</title>\r\n        <path d=\"M104.4 103.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1.1-6.1-4.5-11.1-10.2-11.1zM140.9 103.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1s-4.5-11.1-10.2-11.1z\"/>\r\n        <path d=\"M189.5 20h-134C44.2 20 35 29.2 35 40.6v135.2c0 11.4 9.2 20.6 20.5 20.6h113.4l-5.3-18.5 12.8 11.9 12.1 11.2 21.5 19V40.6c0-11.4-9.2-20.6-20.5-20.6zm-38.6 130.6s-3.6-4.3-6.6-8.1c13.1-3.7 18.1-11.9 18.1-11.9-4.1 2.7-8 4.6-11.5 5.9-5 2.1-9.8 3.5-14.5 4.3-9.6 1.8-18.4 1.3-25.9-.1-5.7-1.1-10.6-2.7-14.7-4.3-2.3-.9-4.8-2-7.3-3.4-.3-.2-.6-.3-.9-.5-.2-.1-.3-.2-.4-.3-1.8-1-2.8-1.7-2.8-1.7s4.8 8 17.5 11.8c-3 3.8-6.7 8.3-6.7 8.3-22.1-.7-30.5-15.2-30.5-15.2 0-32.2 14.4-58.3 14.4-58.3 14.4-10.8 28.1-10.5 28.1-10.5l1 1.2c-18 5.2-26.3 13.1-26.3 13.1s2.2-1.2 5.9-2.9c10.7-4.7 19.2-6 22.7-6.3.6-.1 1.1-.2 1.7-.2 6.1-.8 13-1 20.2-.2 9.5 1.1 19.7 3.9 30.1 9.6 0 0-7.9-7.5-24.9-12.7l1.4-1.6s13.7-.3 28.1 10.5c0 0 14.4 26.1 14.4 58.3 0 0-8.5 14.5-30.6 15.2z\"/>\r\n      </svg>\r\n    </a>\r\n  </div>\r\n\r\n  <!-- Footer -->\r\n  <footer>\r\n      Love Angular?&nbsp;\r\n      <a href=\"https://github.com/angular/angular\" target=\"_blank\" rel=\"noopener\"> Give our repo a star.\r\n        <div class=\"github-star-badge\">\r\n            <svg class=\"material-icons\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z\"/></svg>\r\n          Star\r\n        </div>\r\n      </a>\r\n      <a href=\"https://github.com/angular/angular\" target=\"_blank\" rel=\"noopener\">\r\n        <svg class=\"material-icons\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z\" fill=\"#1976d2\"/><path d=\"M0 0h24v24H0z\" fill=\"none\"/></svg>\r\n      </a>\r\n  </footer>\r\n\r\n  <svg id=\"clouds\" xmlns=\"http://www.w3.org/2000/svg\" width=\"2611.084\" height=\"485.677\" viewBox=\"0 0 2611.084 485.677\">\r\n    <title>Gray Clouds Background</title>\r\n    <path id=\"Path_39\" data-name=\"Path 39\" d=\"M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z\" transform=\"translate(142.69 -634.312)\" fill=\"#eee\"/>\r\n  </svg>\r\n\r\n</div>\r\n\r\n<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->\r\n<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->\r\n<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->\r\n<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->\r\n<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->\r\n<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->\r\n<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->\r\n\r\n<router-outlet></router-outlet>\r\n"
+            "templateData": "<div class=\"container\">\r\n  <router-outlet></router-outlet>\r\n</div>"
         },
         {
             "name": "AutocompleteComponent",
@@ -632,7 +699,7 @@
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-bf3cbc098cc0c04d04d00dfe14ababf94dbba2df418a623906e15db165a8993b08e8a806c941929b08033c203a28372ee0fee466a0a09110f25c7c2af01c952d",
+            "id": "component-ButtonComponent-0c7090905ab138af44c13087516cba07ca17a4d77fd9069279e961c525d88056f9d7c45e8b1cb6b449d867f57aa377c74971b4a35817aab4a2b617224b5b2b25",
             "file": "src/stories/components/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -650,6 +717,24 @@
             "viewProviders": [],
             "inputsClass": [
                 {
+                    "name": "disabled",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "fontSize",
+                    "defaultValue": "20",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
                     "name": "iconClassName",
                     "defaultValue": "''",
                     "deprecated": false,
@@ -660,11 +745,20 @@
                 },
                 {
                     "name": "iconPos",
-                    "defaultValue": "`left`",
+                    "defaultValue": "'left'",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 11,
                     "type": "ButtonIconPosition",
+                    "decorators": []
+                },
+                {
+                    "name": "iconSize",
+                    "defaultValue": "20",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "number",
                     "decorators": []
                 },
                 {
@@ -677,21 +771,12 @@
                     "decorators": []
                 },
                 {
-                    "name": "loading",
+                    "name": "transparentButton",
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 12,
+                    "line": 15,
                     "type": "boolean",
-                    "decorators": []
-                },
-                {
-                    "name": "styleClass",
-                    "defaultValue": "''",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 13,
-                    "type": "string",
                     "decorators": []
                 }
             ],
@@ -701,21 +786,76 @@
                     "defaultValue": "new EventEmitter()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 14,
+                    "line": 16,
                     "type": "EventEmitter<void>"
                 }
             ],
             "propertiesClass": [],
             "methodsClass": [
                 {
+                    "name": "changeFontsize",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 30,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "changeIconsize",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 34,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
                     "name": "click",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 16,
+                    "line": 27,
                     "deprecated": false,
-                    "deprecationMessage": ""
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "ngAfterViewInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 23,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 20,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
                 }
             ],
             "deprecated": false,
@@ -725,11 +865,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\r\nimport { ButtonIconPosition } from 'src/stories/enums/button.enum';\r\n@Component({\r\n  selector: 'af-button',\r\n  templateUrl: './button.component.html',\r\n  styleUrls: ['./button.component.scss']\r\n})\r\nexport class ButtonComponent {\r\n  @Input() public label: string = '';\r\n  @Input() public iconClassName: string = '';\r\n  @Input() public iconPos: ButtonIconPosition = `left` ;\r\n  @Input() public loading: boolean = false;\r\n  @Input() public styleClass: string = '';\r\n  @Output() onClick: EventEmitter<void> = new EventEmitter();\r\n\r\n  click() {\r\n    this.loading = true;\r\n    setTimeout(() => {\r\n      this.loading = false;\r\n      this.onClick.emit();\r\n    }, 500);\r\n  }\r\n\r\n\r\n  \r\nconstructor(){\r\n\r\n}\r\n}\r\n",
+            "sourceCode": "import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\r\nimport { ButtonIconPosition } from 'src/stories/enums/button.enum';\r\n@Component({\r\n  selector: 'af-button',\r\n  templateUrl: './button.component.html',\r\n  styleUrls: ['./button.component.scss'],\r\n})\r\nexport class ButtonComponent implements AfterViewInit, OnInit {\r\n  @Input() public label: string = '';\r\n  @Input() public iconClassName: string = '';\r\n  @Input() public iconPos: ButtonIconPosition = 'left';\r\n  @Input() public fontSize: number = 20;\r\n  @Input() public iconSize: number = 20;\r\n  @Input() public disabled: boolean = false;\r\n  @Input() public transparentButton: boolean = false;\r\n  @Output() onClick: EventEmitter<void> = new EventEmitter();\r\n\r\n  constructor() {\r\n  }\r\n  public ngOnInit(): void {\r\n    this.label = this.label.toUpperCase(); \r\n  }\r\n  public ngAfterViewInit(): void {\r\n      this.changeFontsize();\r\n      this.changeIconsize();\r\n  }\r\n  public click(): void {\r\n    this.onClick.emit();\r\n  }\r\n  private changeFontsize():void {\r\n   const element: HTMLElement = (document.querySelector(\".p-button-label\")) as HTMLElement;\r\n   element!.style.fontSize = this.fontSize + \"px\";\r\n  }\r\n  private changeIconsize():void {\r\n   const element: HTMLElement = (document.querySelector(\".p-button-icon\")) as HTMLElement;\r\n   element!.style.fontSize = this.iconSize + \"px\";\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": "@import \"./../../constants/constants.scss\";\r\n.button__container{\r\n    .button__content{\r\n       ::ng-deep .p-button{\r\n        background-color: $darker-gray;\r\n        border-color: transparent;\r\n        box-shadow: 0 0 8px 1px $darker-gray;\r\n        font-family: $font-family;\r\n        font-weight: $font-weight-bold;\r\n        border-radius: 14px;\r\n        padding: 10px 40px;\r\n       }\r\n    }\r\n    .transparent-button{\r\n        ::ng-deep .p-button{\r\n            background-color: transparent;\r\n            box-shadow: none;\r\n            color: $input-main-color;\r\n        }\r\n       \r\n    }\r\n}",
                     "styleUrl": "./button.component.scss"
                 }
             ],
@@ -740,9 +880,13 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 22
+                "line": 16
             },
-            "templateData": "<section>\r\n    <p-button \r\n      [label]=\"label\"\r\n      [loading]=\"loading\"\r\n      [iconPos]=\"iconPos\"\r\n      [icon]=\"iconClassName\"\r\n      [styleClass]=\"styleClass\"\r\n      (click)=\"click()\">\r\n    </p-button>\r\n  </section>"
+            "implements": [
+                "AfterViewInit",
+                "OnInit"
+            ],
+            "templateData": "<section class=\"button__container\">\r\n    <p-button \r\n    class=\"button__content\"\r\n    [ngClass]=\"transparentButton ? 'transparent-button':''\"\r\n      [label]=\"label\"\r\n      [iconPos]=\"iconPos\"\r\n      [icon]=\"'pi ' + iconClassName\"\r\n      (click)=\"click()\"\r\n      [disabled]=\"disabled\"\r\n      >\r\n    </p-button>\r\n  </section>"
         },
         {
             "name": "CalendarComponent",
@@ -938,7 +1082,7 @@
         },
         {
             "name": "CheckboxComponent",
-            "id": "component-CheckboxComponent-8151f014b9e012cac8c1cc4b08c71413f9073e515d1dba423452ede96ee64ce278ddb39e6ff7d2f364e7ddb28bcc84ae203e038ac84f8829053bb16efe479f56",
+            "id": "component-CheckboxComponent-6403a37695ec69c2a1eb410dd786fa6189d6188937ea987e92bab6f702484bd89b753ffa4ac5b0b20e9e2a382a3257dc22ff45bfdf0363c6df9e8e01df53b64a",
             "file": "src/stories/components/checkbox/checkbox.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -984,7 +1128,21 @@
                 }
             ],
             "outputsClass": [],
-            "propertiesClass": [],
+            "propertiesClass": [
+                {
+                    "name": "checked",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
             "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
@@ -993,11 +1151,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-checkbox',\r\n  templateUrl: './checkbox.component.html',\r\n  styleUrls: ['./checkbox.component.scss']\r\n})\r\nexport class CheckboxComponent {\r\n\r\n  \r\n  @Input() public label: string = \"\";\r\n  @Input() public disabled: boolean = false;\r\n  @Input() public binary: boolean = false;\r\n  constructor() {\r\n  }\r\n\r\n}\r\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-checkbox',\r\n  templateUrl: './checkbox.component.html',\r\n  styleUrls: ['./checkbox.component.scss']\r\n})\r\nexport class CheckboxComponent {\r\n\r\n  \r\n  @Input() public label: string = \"\";\r\n  @Input() public disabled: boolean = false;\r\n  @Input() public binary: boolean = false;\r\n  public checked: boolean = false;\r\n  constructor() {\r\n  }\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": "@import \"../../constants/constants.scss\";\r\n\r\n.checkbox--container{\r\n    ::ng-deep p-checkbox {\r\n        .p-checkbox{\r\n            &-box{\r\n               border: 2px solid $input-main-color !important;\r\n            }\r\n        }\r\n        .p-highlight{\r\n            background-color: $input-main-color !important;\r\n        }\r\n        .p-focus{\r\n            box-shadow: none !important;\r\n        }\r\n    }\r\n}",
                     "styleUrl": "./checkbox.component.scss"
                 }
             ],
@@ -1008,49 +1166,9 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 13
+                "line": 14
             },
-            "templateData": "<section>\r\n    <p-checkbox \r\n    [(ngModel)]=\"checked\" \r\n    [binary]=\"binary\" \r\n    [disabled]=\"disabled\"\r\n    [label]=\"label\">\r\n    </p-checkbox>\r\n</section>"
-        },
-        {
-            "name": "CheckeredBackgroundComponent",
-            "id": "component-CheckeredBackgroundComponent-df6fd2de376dfd066a1cbcd14175e9f12432976dfb1907c1becfee5d01422c509c844b5e00722818fe83ec84fab3af2808956e295a68341de80850628f25edb8",
-            "file": "src/stories/backgrounds/checkered-background/checkered-background.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "af-checkered-background",
-            "styleUrls": [
-                "./checkered-background.component.scss"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "./checkered-background.component.html"
-            ],
-            "viewProviders": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'af-checkered-background',\r\n  templateUrl: './checkered-background.component.html',\r\n  styleUrls: ['./checkered-background.component.scss']\r\n})\r\nexport class CheckeredBackgroundComponent {\r\n\r\n}\r\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "section{\r\n    height: 70vh;\r\n    background-color: #0e0e0e; /* kolor tła, kolor się powtarza w background-image */\r\n    background-image: linear-gradient(0deg, #000 5%, transparent 5%, transparent 99%, #000 99%, #000), linear-gradient(90deg, #000 5%, #0e0e0e 5%, #0e0e0e 99%, #000 99%, #000); /* gradienty powtarzające się w kwadratach */\r\n    background-size: 50px 50px; /* rozmiar kwadratów */\r\n}",
-                    "styleUrl": "./checkered-background.component.scss"
-                }
-            ],
-            "stylesData": "",
-            "templateData": "<h2>Tło napisane w css</h2>\r\n<section></section>\r\n"
+            "templateData": "<section class=\"checkbox--container\">\r\n    <p-checkbox \r\n    [(ngModel)]=\"checked\" \r\n    [binary]=\"binary\" \r\n    [disabled]=\"disabled\"\r\n    [label]=\"label\">\r\n    </p-checkbox>\r\n</section>"
         },
         {
             "name": "DropdownComponent",
@@ -1204,6 +1322,54 @@
             "templateData": "<div *ngIf=\"!isFloatlabel\">\r\n  <p-dropdown [(ngModel)]=\"selected\" \r\n  [options]=\"data\" \r\n  [optionLabel]=\"optionLabelName\" \r\n[placeholder]=\"placeholder\" \r\n[filter]=\"filter\" \r\n[filterBy]=\"filterName\" \r\n[showClear]=\"showClear\"\r\n[virtualScroll]=\"virtualScroll\" \r\n[virtualScrollItemSize]=\"virtualScrollItemSize\" \r\n[disabled]=\"disabled\">\r\n\r\n  </p-dropdown>\r\n</div>\r\n<div *ngIf=\"isFloatlabel\">\r\n  <span class=\"p-float-label\">\r\n    <p-dropdown [(ngModel)]=\"selected\" \r\n  [options]=\"data\" \r\n  [optionLabel]=\"optionLabelName\" \r\n[placeholder]=\"placeholder\" \r\n[filter]=\"filter\" \r\n[filterBy]=\"filterName\" \r\n[showClear]=\"showClear\"\r\n[virtualScroll]=\"virtualScroll\" \r\n[virtualScrollItemSize]=\"virtualScrollItemSize\" \r\n[disabled]=\"disabled\">\r\n\r\n  </p-dropdown>\r\n    <label for=\"float-label\">{{floatText}}</label>\r\n  </span>\r\n</div>\r\n"
         },
         {
+            "name": "FooterComponent",
+            "id": "component-FooterComponent-6b2d12c7266ea2764f79c0a9e5c2a66dba60b20f68c9df9a013693d98aa8511af6fa3dd43cb7dcff18979af72c5fcb5ae9a016fbecd827d6d7b1610b6f9f00bb",
+            "file": "src/stories/components/footer/footer.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "af-footer",
+            "styleUrls": [
+                "./footer.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./footer.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'af-footer',\r\n  templateUrl: './footer.component.html',\r\n  styleUrls: ['./footer.component.scss']\r\n})\r\nexport class FooterComponent {\r\nconstructor(){\r\n\r\n}\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import \"./../../constants/constants.scss\";\r\n\r\n.footer__container {\r\n  background-color: $darker-gray;\r\n  font-family: $font-family;\r\n  color: $input-main-color;\r\n  font-size: 16px;\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.footer__content {\r\n  display: flex;\r\n  justify-content: center;\r\n  gap: 75px;\r\n  padding: 80px 0;\r\n  max-width: 1530px;\r\n  &--info {\r\n    max-width: 230px;\r\n  }\r\n\r\n  &--social-media {\r\n    text-align: center;\r\n\r\n    .links {\r\n      margin: 20px 0;\r\n\r\n      a {\r\n        text-decoration: none;\r\n        color: $input-main-color;\r\n\r\n        i {\r\n          font-size: 40px;\r\n        }\r\n      }\r\n    }\r\n  }\r\n\r\n  &--links {\r\n    text-align: center;\r\n    .links{\r\n        margin-top:45px ;\r\n        a{\r\n            text-decoration: none;\r\n            color: $input-main-color;\r\n        }\r\n    }\r\n  }\r\n  &--map{\r\n    text-align: center;\r\n  }\r\n}\r\n\r\n.footer_header {\r\n  color: $input-background-color;\r\n  font-weight: $font-weight-bold;\r\n}",
+                    "styleUrl": "./footer.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            },
+            "templateData": "<section class=\"footer__container\">\r\n  <div class=\"footer__content\">\r\n    <div class=\"footer__content--info\">\r\n      <h3 class=\"footer_header\">\r\n        Ambasada Formy\r\n      </h3>\r\n      <p>\r\n        Jesteśmy grupą osób, której zależy na tym abyś zaliczył progres korzystając z naszej oferty. Pamiętaj jednak, że\r\n        to od twojego zaangażowania wszystko zależy. My dajemy tobie możliwości i odpowiednie narzędzia.\r\n      </p>\r\n    </div>\r\n    <div class=\"footer__content--contact\">\r\n      <h3 class=\"footer_header\">\r\n        Kontakt\r\n      </h3>\r\n      <p>ul. Konstantynów 1H <br>\r\n        20-708 Lublin, Polska</p>\r\n      <p>e-mail <br>\r\n        email@email.com</p>\r\n      <p>Telefony <br>\r\n        +48 000 000 000 <br>\r\n        (00) 000 00 00\r\n      </p>\r\n    </div>\r\n    <div class=\"footer__content--social-media\">\r\n      <h3 class=\"footer_header\">\r\n        Social Media\r\n      </h3>\r\n      <div class=\"links\">\r\n        <a href=\"https://www.facebook.com/\"><i class=\"pi pi-facebook\"></i></a>\r\n      </div>\r\n      <div class=\"links\">\r\n        <a href=\"https://www.instagram.com/\"><i class=\"pi pi-instagram\"></i></a>\r\n      </div>\r\n      <div class=\"links\">\r\n        <a href=\"https://twitter.com/\"><i class=\"pi pi-twitter\"></i></a>\r\n      </div>\r\n    </div>\r\n    <div class=\"footer__content--links\">\r\n      <h3 class=\"footer_header\">\r\n        Linki\r\n      </h3>\r\n      <div class=\"links\">\r\n        <a href=\"#\">Regulamin</a>\r\n      </div>\r\n      <div class=\"links\">\r\n        <a href=\"#\">FAQ</a>\r\n      </div>\r\n    </div>\r\n    <div class=\"footer__content--map\">\r\n      <h3 class=\"footer_header\">\r\n        Lokalizacja\r\n      </h3>\r\n      <iframe\r\n        src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2497.9966023027428!2d22.500503552408468!3d51.237557459763586!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4722583469e163c1%3A0xcd2340f2a6afcce4!2sWydzia%C5%82%20Nauk%20Przyrodniczych%20i%20Technicznych%20KUL!5e0!3m2!1spl!2spl!4v1681305666451!5m2!1spl!2spl\"\r\n        width=\"600\" height=\"180\" style=\"border:0; border-radius: 15px;\" allowfullscreen=\"\" loading=\"lazy\"\r\n        referrerpolicy=\"no-referrer-when-downgrade\"></iframe>\r\n    </div>\r\n  </div>\r\n</section>"
+        },
+        {
             "name": "InputComponent",
             "id": "component-InputComponent-f3631b01ac44491d8c00ad96b0c4144fd9c70b41efe90706d60fdb5733ffa93d8a05a157490e9fed6a6a0050f32ba3ac67bdb4fcb172c5c1bd7f5df189fb7b33",
             "file": "src/stories/components/input/input.component.ts",
@@ -1277,7 +1443,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".input-container{\r\n    margin-top: 20px;\r\n}",
+                    "data": "@import \"./../../constants/constants.scss\";\r\n\r\n.input__container {\r\n    width: 100%;\r\n    height: 60px;\r\n    //tutaj margin do usunięcia póżniej \r\n    margin-top: 20px;\r\n    \r\n    .input__content {\r\n        width: 100%;\r\n        &--icon{\r\n            font-size: 20px;\r\n        color: $input-main-color;\r\n        padding: 13px 16px;\r\n            top: 19%;\r\n            &-left{\r\n                left: 0;\r\n                border-right: 2px solid $input-border-color;\r\n            }\r\n            &-right {\r\n                right: 0;\r\n                border-left: 2px solid $input-border-color;\r\n            }\r\n        }\r\n\r\n        &--text {\r\n            padding-left: 75px;\r\n            width: 100%;\r\n            border: 2px solid $input-border-color;\r\n            border-radius: 15px;\r\n            background-color: $input-background-color;\r\n            font-family: $font-family;\r\n            &:focus {\r\n               box-shadow: none;\r\n            }\r\n        }\r\n\r\n        &--label{\r\n            font-family: $font-family;\r\n            font-weight: $font-weight-normal;\r\n            padding-left: 40px;\r\n            color: $input-text-color;\r\n        }\r\n    }\r\n}",
                     "styleUrl": "./input.component.scss"
                 }
             ],
@@ -1290,7 +1456,7 @@
                 "args": [],
                 "line": 14
             },
-            "templateData": "<section class=\"input-container\">\r\n  <div *ngIf=\"!floatLabel\">\r\n    <span class=\"{{ iconConfig?.iconFloat }}\">\r\n      <i class=\"pi {{ iconConfig?.iconClassName }}\"></i>\r\n      <input id=\"float-input\" type=\"text\" pInputText [(ngModel)]=\"property\" />\r\n    </span>\r\n  </div>\r\n  <div *ngIf=\"floatLabel\">\r\n    <span class=\"p-float-label\" [class]=\"iconConfig?.iconFloat\">\r\n      <i class=\"pi {{ iconConfig?.iconClassName }}\"></i>\r\n      <input id=\"float-input\" type=\"text\" pInputText [(ngModel)]=\"property\" />\r\n      <label for=\"float-input\">{{ floatLabelText }}</label>\r\n    </span>\r\n  </div>\r\n</section>\r\n"
+            "templateData": "<section class=\"input__container\">\r\n  <div *ngIf=\"!floatLabel\">\r\n    <span class=\"input__content\" [class]=\"iconConfig?.iconFloat\">\r\n      <i class=\"pi {{ iconConfig?.iconClassName }} input__content--icon\"\r\n        [ngClass]=\"iconConfig?.iconFloat == 'p-input-icon-right' ? 'input__content--icon-right':'input__content--icon-left'\"></i>\r\n      <input id=\"float-input\" class=\"input__content--text\" type=\"text\" pInputText [(ngModel)]=\"property\" />\r\n    </span>\r\n  </div>\r\n  <div *ngIf=\"floatLabel\">\r\n    <span class=\"p-float-label input__content\" [class]=\"iconConfig?.iconFloat\">\r\n      <i class=\"pi {{ iconConfig?.iconClassName }} input__content--icon\"\r\n        [ngClass]=\"iconConfig?.iconFloat == 'p-input-icon-right' ? 'input__content--icon-right':'input__content--icon-left'\"></i>\r\n      <input id=\"float-input\" class=\"input__content--text\" type=\"text\" pInputText [(ngModel)]=\"property\" />\r\n      <label for=\"float-input\" class=\"input__content--label\">{{ floatLabelText }}</label>\r\n    </span>\r\n  </div>\r\n</section>\r\n"
         },
         {
             "name": "InputTextareaComponent",
@@ -1398,18 +1564,18 @@
                 "args": [],
                 "line": 16
             },
-            "templateData": "<section class=\"inputtextarea-container\">\r\n    <div *ngIf=\"!floatLabel\">\r\n        <textarea pInputTextarea [(ngModel)]=\"value\"\r\n        [rows]=\"size.rows\"\r\n        [cols]=\"size.clos\" \r\n        [autoResize]=\"autoResize\"\r\n        [disabled]=\"disabled\"></textarea>\r\n    </div>\r\n    <div *ngIf=\"floatLabel\">\r\n    <span class=\"p-float-label\">\r\n        <textarea id=\"float-inputtextarea\" pInputTextarea \r\n        [(ngModel)]=\"value\"\r\n        [rows]=\"size.rows\"\r\n        [cols]=\"size.clos\" \r\n        [autoResize]=\"autoResize\"\r\n        [disabled]=\"disabled\"></textarea>\r\n        <label for=\"float-inputtextarea\">{{floatLabelText}}</label>\r\n    </span>\r\n    </div>\r\n</section>"
+            "templateData": "<section class=\"inputtextarea-container\">\r\n    <div *ngIf=\"!floatLabel\">\r\n        <textarea pInputTextarea [(ngModel)]=\"value\"\r\n        [rows]=\"size.rows\"\r\n        [cols]=\"size.cols\" \r\n        [autoResize]=\"autoResize\"\r\n        [disabled]=\"disabled\"></textarea>\r\n    </div>\r\n    <div *ngIf=\"floatLabel\">\r\n    <span class=\"p-float-label\">\r\n        <textarea id=\"float-inputtextarea\" pInputTextarea \r\n        [(ngModel)]=\"value\"\r\n        [rows]=\"size.rows\"\r\n        [cols]=\"size.cols\" \r\n        [autoResize]=\"autoResize\"\r\n        [disabled]=\"disabled\"></textarea>\r\n        <label for=\"float-inputtextarea\">{{floatLabelText}}</label>\r\n    </span>\r\n    </div>\r\n</section>"
         },
         {
             "name": "KnobComponent",
-            "id": "component-KnobComponent-d182fea0e8f9406f332a702fc31443ca03f9fe72d15d3bae0905a90acbc3428f8a467d65dd53142da53b57799f5558858fd725e21f2a7ea07c88b02cad5f0513",
+            "id": "component-KnobComponent-82a3751dac41982881f65fe919654b6ce8dae86ffe1db14a76682d87adead721391437f8b3d16594af439f8314955f13b829546ae852a4fe23effc228bbc5b64",
             "file": "src/stories/components/knob/knob.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "app-floatlabel",
+            "selector": "af-knob",
             "styleUrls": [
                 "./knob.component.scss"
             ],
@@ -1419,6 +1585,15 @@
             ],
             "viewProviders": [],
             "inputsClass": [
+                {
+                    "name": "disabled",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "boolean",
+                    "decorators": []
+                },
                 {
                     "name": "maxValue",
                     "defaultValue": "0",
@@ -1438,12 +1613,12 @@
                     "decorators": []
                 },
                 {
-                    "name": "rangeColor",
-                    "defaultValue": "''",
+                    "name": "readonly",
+                    "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 14,
-                    "type": "string",
+                    "line": 13,
+                    "type": "boolean",
                     "decorators": []
                 },
                 {
@@ -1463,15 +1638,6 @@
                     "line": 9,
                     "type": "number",
                     "decorators": []
-                },
-                {
-                    "name": "valueColor",
-                    "defaultValue": "''",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 13,
-                    "type": "string",
-                    "decorators": []
                 }
             ],
             "outputsClass": [],
@@ -1484,11 +1650,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-floatlabel',\r\n  templateUrl: './knob.component.html',\r\n  styleUrls: ['./knob.component.scss'],\r\n})\r\nexport class KnobComponent {\r\n  @Input() public value: number = 0;\r\n  @Input() public minValue: number = 0;\r\n  @Input() public maxValue: number = 0;\r\n  @Input() public size: number = 0;\r\n  @Input() public valueColor: string = '';\r\n  @Input() public rangeColor: string = '';\r\n  constructor() {}\r\n}\r\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'af-knob',\r\n  templateUrl: './knob.component.html',\r\n  styleUrls: ['./knob.component.scss'],\r\n})\r\nexport class KnobComponent {\r\n  @Input() public value: number = 0;\r\n  @Input() public minValue: number = 0;\r\n  @Input() public maxValue: number = 0;\r\n  @Input() public size: number = 0;\r\n  @Input() public readonly:boolean = false;\r\n  @Input() public disabled:boolean = false;\r\n  constructor() {}\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": "@import \"./../../constants/constants.scss\";\r\n.knob__container{\r\n   font-family: $font-family; \r\n}",
                     "styleUrl": "./knob.component.scss"
                 }
             ],
@@ -1501,7 +1667,139 @@
                 "args": [],
                 "line": 14
             },
-            "templateData": "<p-knob\r\n  [(ngModel)]=\"value\"\r\n  [min]=\"minValue\"\r\n  [max]=\"maxValue\"\r\n  [size]=\"size\"\r\n  [valueColor]=\"valueColor\"\r\n  [rangeColor]=\"rangeColor\"\r\n></p-knob>\r\n"
+            "templateData": "<section class=\"knob__container\">\r\n  <p-knob\r\n  [(ngModel)]=\"value\"\r\n  [min]=\"minValue\"\r\n  [max]=\"maxValue\"\r\n  [size]=\"size\"\r\n  [readonly]=\"readonly\"\r\n  [disabled]=\"disabled\"\r\n  valueColor=\"#00ADB5\"\r\n  rangeColor=\"#222831\"\r\n></p-knob>\r\n\r\n</section>"
+        },
+        {
+            "name": "LoginComponent",
+            "id": "component-LoginComponent-745b284333294f629abc9df04ac59a6edbc558617ff67e6f696f3237d2dd05d54477596568ffa389fe7c11037c5ee2448445a53b5dc90ea2cf8320fcbf85ed13",
+            "file": "src/app/sites/login/login.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-login",
+            "styleUrls": [
+                "./login.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./login.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "login",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "string | undefined",
+                    "decorators": []
+                },
+                {
+                    "name": "password",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "string | undefined",
+                    "decorators": []
+                },
+                {
+                    "name": "remember",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "boolean | undefined",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "defaultData",
+                    "defaultValue": "{\r\n    iconClassName: 'pi-search',\r\n    iconFloat: enumIconFloat.left,\r\n  }",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "inputIconConfig",
+                    "optional": false,
+                    "description": "",
+                    "line": 17,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "backToWelcomePage",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 26,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "onClickLogin",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 22,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input} from '@angular/core';\r\nimport { Router } from '@angular/router';\r\nimport { enumIconFloat } from 'src/stories/enums/input.enum';\r\nimport { inputIconConfig } from 'src/stories/interfaces/input.model';\r\n\r\n@Component({\r\n  selector: 'app-login',\r\n  templateUrl: './login.component.html',\r\n  styleUrls: ['./login.component.scss']\r\n})\r\nexport class LoginComponent {\r\n  @Input() public login: string | undefined;\r\n  @Input() public password: string | undefined;\r\n  @Input() public remember: boolean | undefined;\r\n  constructor(private router: Router) { }\r\n\r\n  public defaultData: inputIconConfig = {\r\n    iconClassName: 'pi-search',\r\n    iconFloat: enumIconFloat.left,\r\n  };\r\n\r\n  public onClickLogin(): void {\r\n    // login logic here\r\n  }\r\n\r\n  public backToWelcomePage(): void{\r\n    this.router.navigate(['/home']);\r\n  }\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".login-container {\r\n    display: grid;\r\n    place-items: center;\r\n    height: 100vh;\r\n  }\r\n\r\n  .row{\r\n    border: 1px solid black;\r\n    padding: 10px 200px;\r\n    border-radius: 10px;\r\n  }\r\n\r\n  .login-container form {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    justify-content: center;\r\n  }\r\n\r\n  .login-container h2 {\r\n    text-align: center;\r\n    margin-bottom: 20px;\r\n  }\r\n\r\n  .login-container .form-group {\r\n    margin-bottom: 20px;\r\n  }\r\n\r\n  .login-container input[type=\"text\"],\r\n  .login-container input[type=\"password\"] {\r\n    font-size: 16px;\r\n    padding: 10px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    box-sizing: border-box;\r\n    margin-bottom: 10px;\r\n    width: 100%;\r\n    max-width: 300px;\r\n  }\r\n\r\n  .button__return-right {\r\n    display: flex;\r\n    justify-content: flex-end;\r\n    margin-bottom: 20px;\r\n\r\n  }\r\n\r\n\r\n  .button__return-right{\r\n    button:hover{\r\n    background-color: #007bff;\r\n    color: #fff;\r\n    }\r\n  }\r\n\r\n  .login-container button[type=\"submit\"] {\r\n    background-color: blue;\r\n    color: white;\r\n    border: none;\r\n    padding: 10px;\r\n    border-radius: 5px;\r\n    cursor: pointer;\r\n    width: 100%;\r\n    max-width: 300px;\r\n  }\r\n\r\n  .login-container button[type=\"submit\"]:hover {\r\n    background-color: #007bff;\r\n    color: #fff;\r\n  }\r\n\r\n  .login-container a {\r\n    display: block;\r\n    margin-top: 20px;\r\n    text-align: center;\r\n    color: blue;\r\n  }\r\n\r\n",
+                    "styleUrl": "./login.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "router",
+                        "type": "Router",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 14,
+                "jsdoctags": [
+                    {
+                        "name": "router",
+                        "type": "Router",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "templateData": "<section class=\"login-container\">\r\n  <af-tile class=\"duparzepa\">\r\n    <div class=\"button__return-right\">\r\n      <af-button [label]=\"'Powrót'\" (click)=\"backToWelcomePage()\"></af-button>\r\n    </div>\r\n    <h2>Logowanie</h2>\r\n    <form>\r\n      <div class=\"form-group\">\r\n        <input type=\"text\" id=\"login-input\" name=\"login\" [(ngModel)]=\"login\" placeholder=\"login\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <input type=\"password\" id=\"password-input\" name=\"password\" [(ngModel)]=\"password\" placeholder=\"hasło\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label>\r\n          <af-input [iconConfig]=\"defaultData\"></af-input>\r\n          <input type=\"checkbox\" name=\"remember\" [(ngModel)]=\"remember\"> Zapisz hasło\r\n        </label>\r\n        <a href=\"#\" class=\"form-group__forgot-password\">Nie pamiętasz hasła? Przypomnij hasło</a>\r\n      </div>\r\n      <af-button label=\"Zaloguj\" (click)=\"onClickLogin()\"></af-button>\r\n      <a routerLink=\"/register\">Nie masz konta? Zarejestruj się</a>\r\n    </form>\r\n  </af-tile>\r\n</section>\r\n"
         },
         {
             "name": "MessagesComponent",
@@ -1617,7 +1915,7 @@
         },
         {
             "name": "PasswordComponent",
-            "id": "component-PasswordComponent-ad5b6de107b023beb183118a1304f6001a4e0ee29e0572f7cc7453c7295685c53336c0556a18f96d9b0ca373e14fc52b74cdc6d802707f83fcc3d543ef2d00e1",
+            "id": "component-PasswordComponent-8a75cbe980f5893e690392fcf4be8f802d71004b610c10f2fedbf8caaff4ec9bbdedf8c3d18f67f8ced13fd95cc95e34e8f9d9c34802e119b6d1361fdaafa12d",
             "file": "src/stories/components/password/password.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1628,27 +1926,189 @@
             "styleUrls": [
                 "./password.component.scss"
             ],
-            "styles": [
-                "\n      :host ::ng-deep .p-password input {\n        width: 15rem;\n      }\n    "
-            ],
+            "styles": [],
             "templateUrl": [
                 "./password.component.html"
             ],
             "viewProviders": [],
             "inputsClass": [
                 {
-                    "name": "label",
-                    "defaultValue": "''",
+                    "name": "disabledPassword",
+                    "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 16,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "feedback",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "floatLabel",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "floatLabelText",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "maxLength",
+                    "defaultValue": "255",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "mediumLabel",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "strongLabel",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "toggleMask",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "weakLabel",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
                     "type": "string",
                     "decorators": []
                 }
             ],
             "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "showClear",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 20,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "value",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string | undefined",
+                    "optional": false,
+                    "description": "",
+                    "line": 19,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "addIconToPasswordInput",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 44,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "findIcon",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 38,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "ngAfterViewInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 25,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "ngDoCheck",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 30,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "showClearButton",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 34,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        121
+                    ]
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -1656,24 +2116,28 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-password',\r\n  templateUrl: './password.component.html',\r\n  styleUrls: ['./password.component.scss'],\r\n  styles: [\r\n    `\r\n      :host ::ng-deep .p-password input {\r\n        width: 15rem;\r\n      }\r\n    `,\r\n  ],\r\n})\r\nexport class PasswordComponent {\r\n  @Input() public label: string = '';\r\n  constructor() {}\r\n}\r\n",
+            "sourceCode": "import { AfterViewInit, Component, DoCheck, Input, OnChanges, SimpleChanges } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-password',\r\n  templateUrl: './password.component.html',\r\n  styleUrls: ['./password.component.scss'],\r\n})\r\nexport class PasswordComponent implements AfterViewInit, DoCheck {\r\n  @Input() public floatLabelText: string = '';\r\n  @Input() public weakLabel: string = '';\r\n  @Input() public mediumLabel: string = '';\r\n  @Input() public strongLabel: string = '';\r\n  @Input() public toggleMask: boolean = false;\r\n  @Input() public feedback: boolean = false;\r\n  @Input() public floatLabel: boolean = false;\r\n  @Input() public disabledPassword: boolean = false;\r\n  @Input() public maxLength: number = 255;\r\n\r\n  public value: string | undefined;\r\n  public showClear: boolean = false;\r\n\r\n  constructor() {\r\n  }\r\n\r\n  public ngAfterViewInit(): void {\r\n    this.addIconToPasswordInput();\r\n    this.findIcon();\r\n  }\r\n\r\n  public ngDoCheck(): void {\r\n    this.showClearButton();\r\n  }\r\n\r\n  private showClearButton(): void {\r\n    this.value?.length ? (this.showClear = true) : (this.showClear = false);\r\n  }\r\n\r\n  private findIcon():void{\r\n    \r\n    document.querySelector(\".pi-eye\")?.classList.add(\"password__icon\");\r\n   \r\n  }\r\n\r\n  private addIconToPasswordInput():void{\r\n    const classList: string[] = [\"pi\", \"pi-lock\", \"password__content--lock-icon\"];\r\n    const lockIcon:HTMLElement = document.createElement(\"i\");\r\n    lockIcon.classList.add(...classList);\r\n    document.querySelector(\".p-password\")?.prepend(lockIcon);\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": "@import \"./../../constants/constants.scss\";\r\n\r\n.password__container {\r\n  width: 100%;\r\n    padding-top: 22px;\r\n  .password__label{\r\n    width: 100%;\r\n  }\r\n  .password__content {\r\n    display: block;\r\n    \r\n\r\n    ::ng-deep .p-component {\r\n      width: 100%;\r\n\r\n      .p-inputtext {\r\n        width: 100%;\r\n        border: 2px solid $input-border-color;\r\n        border-radius: 15px;\r\n        font-family: $font-family;\r\n        background-color: $input-background-color;\r\n        &:focus {\r\n          box-shadow: none;\r\n        }\r\n      }\r\n      .p-password-input{\r\n        padding-left: 75px;\r\n      }\r\n      .p-password-panel {\r\n        background-color: $input-background-color;\r\n        box-shadow: 0 0 3px 1px $input-border-color;\r\n      }\r\n      .password__content--lock-icon {\r\n        top: 9px;\r\n        font-size: 20px;\r\n        color: $input-main-color;\r\n        padding: 13px 16px;\r\n        border-right: 2px solid $input-border-color;\r\n    }\r\n      .p-password-clear-icon,\r\n      .password__icon {\r\n        padding: 0 22px;\r\n        color: $input-main-color;\r\n      }\r\n\r\n      .password__icon {\r\n        top: 22px;\r\n        font-size: 20px;\r\n        padding: 0 16px;\r\n      }\r\n    }\r\n\r\n\r\n    &--label {\r\n        padding-left: 40px;\r\n        font-family: $font-family;\r\n    }\r\n  }\r\n}\r\n",
                     "styleUrl": "./password.component.scss"
                 }
             ],
-            "stylesData": "\n      :host ::ng-deep .p-password input {\n        width: 15rem;\n      }\n    \n",
+            "stylesData": "",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 16
+                "line": 20
             },
-            "templateData": "<section>\r\n  <p-password\r\n    [(ngModel)]=\"value4\"\r\n    [weakLabel]=\"weakLabel\"\r\n    [mediumLabel]=\"mediumLabel\"\r\n    [strongLabel]=\"strongLabel\"\r\n    [toggleMask]=\"toggleMask\"\r\n    [feedback]=\"feedback\"\r\n    [maxLength]=\"maxLength\"\r\n    [showClear]=\"showClear\"\r\n    [placeholder]=\"placeholder\"\r\n  >\r\n    <ng-template pTemplate=\"header\">\r\n      <ng-content select=\"#PasswordRequirmentsDialog\"></ng-content>\r\n    </ng-template>\r\n\r\n    <ng-template pTemplate=\"footer\">\r\n      <p-divider></p-divider>\r\n      <p class=\"p-mt-2\">Requirements</p>\r\n      <ul class=\"p-pl-2 p-ml-2 p-mt-0\" style=\"line-height: 1.5\">\r\n        <li>Minimum one lowercase</li>\r\n        <li>Minimum one uppercase</li>\r\n        <li>Minimum one numeric</li>\r\n        <li>Minimum 8 characters</li>\r\n      </ul>\r\n    </ng-template>\r\n  </p-password>\r\n</section>\r\n"
+            "implements": [
+                "AfterViewInit",
+                "DoCheck"
+            ],
+            "templateData": "<section class=\"password__container\">\r\n  <div *ngIf=\"!floatLabel\">\r\n  <p-password class=\"password__content\"\r\n  [(ngModel)]=\"value\"\r\n  [weakLabel]=\"weakLabel\"\r\n  [mediumLabel]=\"mediumLabel\"\r\n  [strongLabel]=\"strongLabel\"\r\n  [toggleMask]=\"toggleMask\"\r\n  [feedback]=\"feedback\"\r\n  [maxLength]=\"maxLength\"\r\n  [showClear]=\"showClear\"\r\n  [disabled]=\"disabledPassword\">\r\n</p-password>\r\n </div>\r\n  <div *ngIf=\"floatLabel\">\r\n  <span class=\"p-float-label password__label p-input-icon-left\">\r\n  <p-password class=\"password__content\"\r\n  id=\"float-input\"\r\n  [(ngModel)]=\"value\"\r\n  [weakLabel]=\"weakLabel\"\r\n  [mediumLabel]=\"mediumLabel\"\r\n  [strongLabel]=\"strongLabel\"\r\n  [toggleMask]=\"toggleMask\"\r\n  [feedback]=\"feedback\"\r\n  [maxLength]=\"maxLength\"\r\n  [showClear]=\"showClear\"\r\n  [disabled]=\"disabledPassword\">\r\n</p-password>\r\n<label for=\"float-input\" class=\"password__content--label\">{{ floatLabelText }}</label>\r\n</span>\r\n </div>\r\n</section>\r\n"
         },
         {
             "name": "RadioButtonComponent",
@@ -1867,6 +2331,250 @@
                 "line": 15
             },
             "templateData": "    <p-rating [(ngModel)]=\"val\"\r\n    [stars]=\"stars\"\r\n    [cancel]=\"cancel\"\r\n    >\r\n</p-rating>\r\n"
+        },
+        {
+            "name": "RegisterComponent",
+            "id": "component-RegisterComponent-eba2c6defd282af134a1c462a45ecf31248035b49d1d364c1e580ce706039b985525fd70a76fbc2fbf9378f4c5697869f146059c43b619024d06f1a20d42b8c2",
+            "file": "src/app/sites/register/register.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-register",
+            "styleUrls": [
+                "./register.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./register.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "goToLogin",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "goToWelcomePage",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 16,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\nimport { Router } from '@angular/router';\r\n\r\n@Component({\r\n  selector: 'app-register',\r\n  templateUrl: './register.component.html',\r\n  styleUrls: ['./register.component.scss']\r\n})\r\nexport class RegisterComponent {\r\n  constructor(private router: Router) { }\r\n\r\n  public goToLogin(): void {\r\n    this.router.navigate(['/login']);\r\n  }\r\n\r\n  public goToWelcomePage(): void {\r\n    this.router.navigate(['/home']);\r\n  }\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".register-container {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    height: 98vh;\r\n  }\r\n\r\n.row{\r\n  border: 1px solid black;\r\n  padding: 10px 200px;\r\n  border-radius: 10px;\r\n}\r\n\r\nbutton[type=\"submit\"] {\r\n  background-color: blue;\r\n  color: white;\r\n  border: none;\r\n  padding: 10px;\r\n  border-radius: 5px;\r\n  cursor: pointer;\r\n  width: 100%;\r\n  max-width: 300px;\r\n}\r\n\r\nbutton:hover {\r\n    background-color: #007bff;\r\n    color: #fff;\r\n}\r\n\r\n.button__return-right {\r\n  display: flex;\r\n  justify-content: flex-end;\r\n  margin-bottom: 20px;\r\n\r\n}\r\n\r\n.button__return-right button{\r\n  background-color: blue;\r\n  color: white;\r\n  border: none;\r\n  padding: 10px;\r\n  border-radius: 5px;\r\n  cursor: pointer;\r\n}\r\n\r\n.button__return-right button:hover{\r\n  background-color: #007bff;\r\n  color: #fff;\r\n}\r\n\r\n.input__test{\r\n    margin-bottom: 15px;\r\n}\r\n\r\n.paragraf__test{\r\n    margin-top: 24px;\r\n}\r\n\r\ninput {\r\n    font-size: 16px;\r\n    padding: 10px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    box-sizing: border-box;\r\n    margin-bottom: 10px;\r\n  }\r\n\r\n.form-check {\r\n    display: inline;\r\n    margin-bottom: 1rem;\r\n  }\r\n\r\n.form-check-input {\r\n    position: relative;\r\n    margin-top: 0.3rem;\r\n    margin-right: 0.5rem;\r\n    cursor: pointer;\r\n  }\r\n",
+                    "styleUrl": "./register.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "router",
+                        "type": "Router",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 9,
+                "jsdoctags": [
+                    {
+                        "name": "router",
+                        "type": "Router",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "templateData": "<section class=\"register-container\">\r\n    <div class=\"row\">\r\n      <div class=\"button__return-right\">\r\n        <af-button [label]=\"'Powrót'\" (click)=\"goToWelcomePage()\"></af-button>\r\n      </div>\r\n      <div class=\"input__test\">\r\n        <h2>Rejestracja</h2>\r\n        <form>\r\n          <div class=\"input__test\">\r\n            <input type=\"text\" class=\"form-control\" id=\"firstName\" placeholder=\"imie\">\r\n          </div>\r\n          <div class=\"input__test\">\r\n            <input type=\"text\" class=\"form-control\" id=\"lastName\" placeholder=\"nazwisko\">\r\n          </div>\r\n          <div class=\"input__test\">\r\n            <input type=\"text\" class=\"form-control\" id=\"username\" placeholder=\"login\">\r\n          </div>\r\n          <div class=\"input__test\">\r\n            <input type=\"email\" class=\"form-control\" id=\"email\" placeholder=\"e-mail\">\r\n          </div>\r\n          <div class=\"input__test\">\r\n            <label for=\"gender\" class=\"form-label\">Płeć</label>\r\n            <div>\r\n              <div class=\"form-check form-check-inline\">\r\n                <input class=\"form-check-input\" type=\"radio\" name=\"gender\" id=\"male\" value=\"male\">\r\n                <label class=\"form-check-label\" for=\"male\">Mężczyzna</label>\r\n              </div>\r\n              <div class=\"form-check form-check-inline\">\r\n                <input class=\"form-check-input\" type=\"radio\" name=\"gender\" id=\"female\" value=\"female\">\r\n                <label class=\"form-check-label\" for=\"female\">Kobieta</label>\r\n              </div>\r\n              <div class=\"form-check form-check-inline\">\r\n                <input class=\"form-check-input\" type=\"radio\" name=\"gender\" id=\"other\" value=\"other\">\r\n                <label class=\"form-check-label\" for=\"other\">Inna</label>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"input__test\">\r\n            <input type=\"password\" class=\"form-control\" id=\"password\" placeholder=\"hasło\">\r\n          </div>\r\n          <div class=\"input__test\">\r\n            <input type=\"password\" class=\"form-control\" id=\"confirmPassword\" placeholder=\"Powtórz hasło\">\r\n          </div>\r\n          <af-button [label]=\"'Zarejestruj'\" (click)=\"goToWelcomePage()\"></af-button>\r\n        </form>\r\n        <div class=\"paragraf__test\">\r\n          <p>Mam już konto <a (click)=\"goToLogin()\">Zaloguj się</a></p>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </section>\r\n"
+        },
+        {
+            "name": "TileComponent",
+            "id": "component-TileComponent-c6e94b1989a768adcca7ed51c83277e442f5f82b057ac29fabc55259c461622ac457ac1921244f5b0af6b7e6cb8505ec1dcc68bfa27fc63651b5fc3e58e510b6",
+            "file": "src/stories/components/tile/tile.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "af-tile",
+            "styleUrls": [
+                "./tile.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./tile.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "darkMode",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'af-tile',\r\n  templateUrl: './tile.component.html',\r\n  styleUrls: ['./tile.component.scss']\r\n})\r\nexport class TileComponent {\r\n  @Input() public darkMode:boolean = false;\r\nconstructor(){}\r\n\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import \"./../../constants/constants.scss\";\r\n\r\n.tile_container {\r\n  box-shadow: 0 0 20px 1px $darker-gray;\r\n  border-radius: 15px;\r\n  min-width: 100px;\r\n  min-height: 100px;\r\n  padding: 5px;\r\n\r\n  &--light {\r\n    background-color: $background-white-opacity;\r\n  }\r\n\r\n  &--dark {\r\n    background-color: $darker-gray;\r\n  }\r\n}",
+                    "styleUrl": "./tile.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 9
+            },
+            "templateData": "<section class=\"tile_container\" [ngClass]=\"darkMode ? 'tile_container--dark': 'tile_container--light'\">\r\n  <ng-content></ng-content>\r\n</section>"
+        },
+        {
+            "name": "WelcomePageComponent",
+            "id": "component-WelcomePageComponent-0b549194d885344cef5b087e3053f4b509d85836bc9a07cfb54512adfcfb82879dd28944c8cbc937ec4146284a224e2608bf779dc591668a1d5bcd4f900e028f",
+            "file": "src/app/sites/welcomePage/welcomePage.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-welcomePage",
+            "styleUrls": [
+                "./welcomePage.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./welcomePage.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "goToLogin",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "goToRegister",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 16,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\nimport { Router } from '@angular/router';\r\n\r\n@Component({\r\n  selector: 'app-welcomePage',\r\n  templateUrl: './welcomePage.component.html',\r\n  styleUrls: ['./welcomePage.component.scss']\r\n})\r\nexport class WelcomePageComponent {\r\n  constructor(private router: Router) { }\r\n\r\n  public goToLogin(): void {\r\n    this.router.navigate(['login']);\r\n  }\r\n\r\n  public goToRegister(): void {\r\n    this.router.navigate(['/register']);\r\n  }\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "*, body, html{\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n\r\n.row{\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  height: 100vh;\r\n  background: linear-gradient(15deg, #1CB5E0 0%, #000851 100%);\r\n}\r\n\r\n.homePage-container {\r\n  display: grid;\r\n  grid-template-columns: 0.8fr 1.1fr 1.1fr;\r\n  grid-template-rows: 1fr 1fr 1fr;\r\n  gap: 20px 20px;\r\n  grid-template-areas:\r\n    \"slajdy panel__login-register panel__login-register\"\r\n    \"slajdy panel__login-register panel__login-register\"\r\n    \"slajdy signUs other\";\r\n  margin: auto;\r\n  max-width: 1600px;\r\n}\r\n\r\n.slajdy {\r\n  grid-area: slajdy;\r\n\r\n  &__content {\r\n  padding: 200px 100px;\r\n  }\r\n}\r\n\r\n.panel {\r\n  &__login-register {\r\n    grid-area: panel__login-register;\r\n  }\r\n\r\n  &__logo {\r\n    display: flex;\r\n    justify-content: center;\r\n    padding: 30px 0 40px 0;\r\n\r\n    img {\r\n      max-height: 50px;\r\n    }\r\n  }\r\n\r\n  &__center {\r\n    display: flex;\r\n    justify-content: center;\r\n    padding-bottom: 40px;\r\n  }\r\n}\r\n\r\n.signUs {\r\n  grid-area: signUs;\r\n\r\n  &__content {\r\n    display: flex;\r\n    justify-content: center;\r\n    padding: 40px 0;\r\n  }\r\n}\r\n\r\n.other {\r\n  grid-area: other;\r\n\r\n  &__content {\r\n    display: flex;\r\n    justify-content: center;\r\n    padding: 40px 0;\r\n  }\r\n}\r\n",
+                    "styleUrl": "./welcomePage.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "router",
+                        "type": "Router",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 9,
+                "jsdoctags": [
+                    {
+                        "name": "router",
+                        "type": "Router",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "templateData": "<div class=\"row\">\r\n  <div class=\"homePage-container\">\r\n    <af-tile class=\"slajdy\">\r\n      <p class=\"slajdy__content\">slajdy</p>\r\n    </af-tile>\r\n    <af-tile class=\"panel__login-register\">\r\n      <div class=\"panel__logo\">\r\n        <img src=\"../assets/logo/logoColorPNG.png\" alt=\"Ambasada Formy logo\">\r\n      </div>\r\n      <div class=\"panel__center\">\r\n        <af-button [label]=\"'Logowanie'\" (click)=\"goToLogin()\"></af-button>\r\n      </div>\r\n      <div class=\"panel__center\">\r\n        <af-button [label]=\"'Rejestracja'\" (click)=\"goToRegister()\"></af-button>\r\n      </div>\r\n    </af-tile>\r\n    <af-tile class=\"signUs\">\r\n      <h3 class=\"signUs__content\">Dołącz do nas</h3>\r\n    </af-tile>\r\n    <af-tile class=\"other\">\r\n      <h3 class=\"other__content\">Praca, efekty, cele</h3>\r\n    </af-tile>\r\n  </div>\r\n</div>\r\n"
         }
     ],
     "modules": [
@@ -1915,6 +2623,50 @@
             ]
         },
         {
+            "name": "AFButtonModule",
+            "id": "module-AFButtonModule-694389ac1d5ad626e533b66125cd5667ca7064bf6140341c64ccde980f5d98e0be9cd066c423a7bed02f634c71fe9f9ddd2a2859a4b61f4b96d21d2553866d5a",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/stories/components/button/button.module.ts",
+            "methods": [],
+            "sourceCode": "import {  NgModule} from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { ButtonComponent } from './button.component';\r\nimport {ButtonModule} from 'primeng/button';\r\nimport { FormsModule } from '@angular/forms';\r\nimport { BrowserModule } from '@angular/platform-browser';\r\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\r\n\r\n@NgModule({\r\n  declarations: [\r\n    ButtonComponent\r\n  ],\r\n  exports: [\r\n    ButtonComponent\r\n  ],\r\n  imports: [\r\n    CommonModule,\r\n    ButtonModule,\r\n    FormsModule,\r\n    BrowserModule,\r\n    BrowserAnimationsModule,\r\n  ],\r\n})\r\nexport class AFButtonModule { }\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "AFDropdownModule",
             "id": "module-AFDropdownModule-a9324b870a052f2428187733d6cc6a776173c8912aa174854d04c68a6cdc40cfd57da80b09d844c567c506b357850b8f153662472423915169ad0e9ea25a1f8a",
             "description": "",
@@ -1945,6 +2697,50 @@
                     "elements": [
                         {
                             "name": "DropdownComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "AFIconShadowModule",
+            "id": "module-AFIconShadowModule-bf94d7f73366b9b99a8d92951d4c9737fcc5369e44341e93635327e426cc952e6941e725006b56c8f7449aa22c8bc5664c4eb6bd7f1bc9c4c137148fb36247c4",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/stories/components/iconShadow/iconShadow.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { AFIconShadowComponent } from './iconShadow.component';\r\n\r\n@NgModule({\r\n  declarations: [AFIconShadowComponent],\r\n  imports: [CommonModule],\r\n  exports: [AFIconShadowComponent],\r\n})\r\nexport class AFIconShadowModule {}\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "AFIconShadowComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "AFIconShadowComponent"
                         }
                     ]
                 },
@@ -2223,14 +3019,14 @@
             ]
         },
         {
-            "name": "AppButtonModule",
-            "id": "module-AppButtonModule-28c799e4bbeb8401282258ca1ae01388eb7434e5cda95afafa841b2607d5e17b2497ea14589b2235f0fd3965b9ee1399ee1b16ffa3bfac9edeeb30a0f60a7b10",
+            "name": "AFTileModule",
+            "id": "module-AFTileModule-f3e4fa6736970af441bf2c1cc244d7fff4e1385d5c2d645962a819e59ff13da1f9de09423b8399744cf126909529a4b6ec1f8a0ee18ecd0a26ece5bde6e9a5f6",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
-            "file": "src/stories/components/button/button.module.ts",
+            "file": "src/stories/components/tile/tile.module.ts",
             "methods": [],
-            "sourceCode": "import {  NgModule} from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { ButtonComponent } from './button.component';\r\nimport {ButtonModule} from 'primeng/button';\r\nimport { FormsModule } from '@angular/forms';\r\nimport { BrowserModule } from '@angular/platform-browser';\r\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\r\n\r\n@NgModule({\r\n  declarations: [\r\n    ButtonComponent\r\n  ],\r\n  exports: [\r\n    ButtonComponent\r\n  ],\r\n  imports: [\r\n    CommonModule,\r\n    ButtonModule,\r\n    FormsModule,\r\n    BrowserModule,\r\n    BrowserAnimationsModule,\r\n  ],\r\n})\r\nexport class AppButtonModule { }\r\n",
+            "sourceCode": "import {  NgModule} from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { TileComponent } from './tile.component';\r\n\r\n@NgModule({\r\n  declarations: [\r\n    TileComponent\r\n  ],\r\n  exports: [\r\n    TileComponent\r\n  ],\r\n  imports: [\r\n    CommonModule,\r\n  ],\r\n})\r\nexport class AFTileModule { }\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -2240,7 +3036,7 @@
                     "type": "declarations",
                     "elements": [
                         {
-                            "name": "ButtonComponent"
+                            "name": "TileComponent"
                         }
                     ]
                 },
@@ -2252,7 +3048,7 @@
                     "type": "exports",
                     "elements": [
                         {
-                            "name": "ButtonComponent"
+                            "name": "TileComponent"
                         }
                     ]
                 },
@@ -2312,13 +3108,13 @@
         },
         {
             "name": "AppCheckboxModule",
-            "id": "module-AppCheckboxModule-14346f719a0ba7fefde824c4c79672072afaa231910a117e53ad16884416ecf45dea9fd78346092a6b5ca31a153d9ad832d08cace6ed774add5cc8d8c8c1fa21",
+            "id": "module-AppCheckboxModule-039be3b10aba5adf6eb184080a5dc7931af187c45cd752d8b62bcc2a6eed4433976b4da5a48491f02b81337b2d303919b609b463ef03fe952d37d2da7edd4e3d",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/stories/components/checkbox/checkbox.module.ts",
             "methods": [],
-            "sourceCode": "import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { CheckboxComponent } from './checkbox.component';\r\nimport { CheckboxModule } from 'primeng/checkbox';\r\nimport { FormsModule } from '@angular/forms';\r\nimport { NO_ERRORS_SCHEMA } from '@angular/compiler';\r\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\r\n\r\n\r\n\r\n@NgModule({\r\n  declarations: [\r\n    CheckboxComponent\r\n  ],\r\n  exports: [\r\n    CheckboxComponent\r\n  ],\r\n  imports: [\r\n    CommonModule,\r\n    FormsModule,\r\n    CheckboxModule,\r\n    BrowserAnimationsModule\r\n  ],\r\n  schemas: [\r\n    CUSTOM_ELEMENTS_SCHEMA,\r\n    NO_ERRORS_SCHEMA\r\n  ],\r\n})\r\nexport class AppCheckboxModule {\r\n}\r\n",
+            "sourceCode": "import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { CheckboxComponent } from './checkbox.component';\r\nimport { CheckboxModule } from 'primeng/checkbox';\r\nimport { FormsModule } from '@angular/forms';\r\nimport { NO_ERRORS_SCHEMA } from '@angular/compiler';\r\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\r\n\r\n\r\n\r\n@NgModule({\r\n  declarations: [\r\n    CheckboxComponent\r\n  ],\r\n  exports: [\r\n    CheckboxComponent\r\n  ],\r\n  imports: [\r\n    CommonModule,\r\n    FormsModule,\r\n    CheckboxModule,\r\n    BrowserAnimationsModule\r\n  ],\r\n})\r\nexport class AppCheckboxModule {\r\n}\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -2356,13 +3152,13 @@
         },
         {
             "name": "AppModule",
-            "id": "module-AppModule-d1e97f473e9718600a109f126db5a2c195a9b7d74dcc762249544527809a52c0da1b52a2fd69c6f58fa8281159fbbcd361ac0d5d071ba0250f39d3ba60fd2707",
+            "id": "module-AppModule-55b632d6432ff3d80e83feec5462858da72f7edeb06e72299fcc0d4df3d63d4bce955b8d42c67f8c9a2e0045bd2418a1ca5bab2d7cd0850b11910684d30b57e1",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/app.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { BrowserModule } from '@angular/platform-browser';\r\n\r\nimport { AppRoutingModule } from './app-routing.module';\r\nimport { AppComponent } from './app.component';\r\n\r\n@NgModule({\r\n  declarations: [\r\n    AppComponent\r\n  ],\r\n  imports: [\r\n    BrowserModule,\r\n    AppRoutingModule\r\n  ],\r\n  providers: [],\r\n  bootstrap: [AppComponent]\r\n})\r\nexport class AppModule { }\r\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { BrowserModule } from '@angular/platform-browser';\r\n\r\nimport { AppRoutingModule } from './app-routing.module';\r\nimport { AppComponent } from './app.component';\r\nimport { WelcomePageComponent } from './sites/welcomePage/welcomePage.component';\r\nimport { LoginComponent } from './sites/login/login.component';\r\nimport { RegisterComponent } from './sites/register/register.component';\r\nimport { FormsModule } from '@angular/forms';\r\nimport { AFButtonModule } from 'src/stories/components/button/button.module';\r\nimport { InputModule } from 'src/stories/components/input/input.module';\r\nimport { AFTileModule } from 'src/stories/components/tile/tile.module';\r\n\r\n\r\n@NgModule({\r\n  declarations: [\r\n    AppComponent,\r\n    WelcomePageComponent,\r\n    LoginComponent,\r\n    RegisterComponent,\r\n  ],\r\n  imports: [\r\n    BrowserModule,\r\n    AppRoutingModule,\r\n    FormsModule,\r\n    AFButtonModule,\r\n    InputModule,\r\n    AFTileModule,\r\n  ],\r\n  providers: [],\r\n  bootstrap: [AppComponent]\r\n})\r\nexport class AppModule { }\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -2373,6 +3169,15 @@
                     "elements": [
                         {
                             "name": "AppComponent"
+                        },
+                        {
+                            "name": "LoginComponent"
+                        },
+                        {
+                            "name": "RegisterComponent"
+                        },
+                        {
+                            "name": "WelcomePageComponent"
                         }
                     ]
                 },
@@ -2380,7 +3185,16 @@
                     "type": "imports",
                     "elements": [
                         {
+                            "name": "AFButtonModule"
+                        },
+                        {
+                            "name": "AFTileModule"
+                        },
+                        {
                             "name": "AppRoutingModule"
+                        },
+                        {
+                            "name": "InputModule"
                         }
                     ]
                 },
@@ -2404,13 +3218,13 @@
         },
         {
             "name": "AppPasswordModule",
-            "id": "module-AppPasswordModule-f7748f5d6166b8b37e626d625cdcffcbcc4cec3878a26d868c35df628641317bfa2fecc37455c9d1db984cc27dc530832de312b592388d89619db6551853d758",
+            "id": "module-AppPasswordModule-8fb862098c4f6c5e438382a4f33c581572bd5cb74240e9f1761c7dfd3a3378f5b1b6feb43b10eb1cff6689bc5861de82c3c5d0f411d4e00e8ad36596e47356cf",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/stories/components/password/password.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { PasswordComponent } from './password.component';\r\nimport { PasswordModule } from 'primeng/password';\r\n\r\n@NgModule({\r\n  declarations: [PasswordComponent],\r\n  exports: [PasswordComponent],\r\n  imports: [CommonModule, PasswordModule],\r\n})\r\nexport class AppPasswordModule {}\r\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { PasswordComponent } from './password.component';\r\nimport { PasswordModule } from 'primeng/password';\r\nimport { FormsModule } from '@angular/forms';\r\nimport { DividerModule } from 'primeng/divider';\r\n@NgModule({\r\n  declarations: [PasswordComponent],\r\n  exports: [PasswordComponent],\r\n  imports: [CommonModule, PasswordModule, FormsModule,DividerModule],\r\n})\r\nexport class AppPasswordModule {}\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -2448,13 +3262,13 @@
         },
         {
             "name": "AppRoutingModule",
-            "id": "module-AppRoutingModule-4518c33195180c88b148f5ad346bbd509e37db201ff0191c9bd5d00989bc674a7e8476b2298b5f61b74b4fa3379b6d71a3615e2cc472074cf6e416b23941131b",
+            "id": "module-AppRoutingModule-7529ca1a16bd18acba8a9b7c8f534679befb634aa640d12d8756c8ae48d200f85063fe2e9ae8aa83b7a3828d095864e4e8aa27d52d9be9a5df2758d2a9c8b891",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/app-routing.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { RouterModule, Routes } from '@angular/router';\r\n\r\nconst routes: Routes = [];\r\n\r\n@NgModule({\r\n  imports: [RouterModule.forRoot(routes)],\r\n  exports: [RouterModule]\r\n})\r\nexport class AppRoutingModule { }\r\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { RouterModule, Routes } from '@angular/router';\r\nimport { LoginComponent } from './sites/login/login.component';\r\nimport { RegisterComponent } from './sites/register/register.component';\r\nimport { WelcomePageComponent } from './sites/welcomePage/welcomePage.component';\r\n\r\n\r\nconst routes: Routes = [\r\n{ path: '', redirectTo: '/home', pathMatch: 'full' },\r\n{ path: 'home', component: WelcomePageComponent },\r\n{ path: 'login', component: LoginComponent },\r\n{ path: 'register', component: RegisterComponent }\r\n];\r\n\r\n@NgModule({\r\n  imports: [RouterModule.forRoot(routes)],\r\n  exports: [RouterModule]\r\n})\r\n\r\n\r\n\r\nexport class AppRoutingModule { }\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -2571,14 +3385,14 @@
             ]
         },
         {
-            "name": "CheckeredBackgroundModule",
-            "id": "module-CheckeredBackgroundModule-fe8f0e62d293c5d0808d114419964478bfdf5324e376f62bf767b4f46bd8e326dafcb0f44d388a61911c335e5685adc55e1098961aa99b96a092e6e2805c7398",
+            "name": "FooterModule",
+            "id": "module-FooterModule-a39f1d4683ff40bc499251c57f3f35dede4d6ae63cd111345b86bd4520b5c6196e5d647e9f10b1cba9537f6c390e32f2b1a83da1adf0244a720d5ae965f527c2",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
-            "file": "src/stories/backgrounds/checkered-background/checkered-background.module.ts",
+            "file": "src/stories/components/footer/footer.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\n\r\n\r\n\r\n@NgModule({\r\n  declarations: [],\r\n  imports: [\r\n    CommonModule\r\n  ]\r\n})\r\nexport class CheckeredBackgroundModule { }\r\n",
+            "sourceCode": "import {  NgModule} from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { FooterComponent } from './footer.component';\r\n\r\n@NgModule({\r\n  declarations: [\r\n    FooterComponent\r\n  ],\r\n  exports: [\r\n    FooterComponent\r\n  ],\r\n  imports: [\r\n    CommonModule,\r\n  ],\r\n})\r\nexport class FooterModule { }\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -2586,7 +3400,11 @@
                 },
                 {
                     "type": "declarations",
-                    "elements": []
+                    "elements": [
+                        {
+                            "name": "FooterComponent"
+                        }
+                    ]
                 },
                 {
                     "type": "imports",
@@ -2594,7 +3412,11 @@
                 },
                 {
                     "type": "exports",
-                    "elements": []
+                    "elements": [
+                        {
+                            "name": "FooterComponent"
+                        }
+                    ]
                 },
                 {
                     "type": "bootstrap",
@@ -2654,6 +3476,26 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "BackgorundGymStructure",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/backgrounds/photo-backgrounds/photo-backgrounds.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "() => ({\r\n  template: `\r\n  <div>\r\n    <img src=\"assets/backgrounds/Gym-structure-1080x675.png\" alt=\"\" style=\"display: blok; max-width: 50%;\">\r\n</div>\r\n  `,\r\n})"
+            },
+            {
+                "name": "BarBackground",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/backgrounds/photo-backgrounds/photo-backgrounds.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "() => ({\r\n  template: `\r\n  <div>\r\n  <img src=\"assets/backgrounds/victor-freitas-Yuv-iwByVRQ-unsplash.jpg\" alt=\"\" style=\"display: blok; max-width: 50%;\">\r\n</div>\r\n  `,\r\n})"
+            },
+            {
                 "name": "CustomLabels",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -2664,14 +3506,24 @@
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "Danger",
+                "name": "DarkTile",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/button/button.component.stories.ts",
+                "file": "src/stories/components/tile/tile.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "Template.bind({})"
+                "defaultValue": "() => ({\r\n    template:`<div style=\" blue; height: 80vh;padding: 50px\">\r\n    <af-tile [darkMode]=\"darkMode\">\r\n    <p style=\"text-align:center; color: #fff\">przykładowe body</p>\r\n    </af-tile>\r\n    </div>`,\r\n  props: {\r\n    darkMode:true\r\n  },\r\n})"
+            },
+            {
+                "name": "DeadliftBackground",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/backgrounds/photo-backgrounds/photo-backgrounds.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "() => ({\r\n  template: `\r\n  <div>\r\n  <img src=\"assets/backgrounds/victor-freitas-qZ-U9z4TQ6A-unsplash.jpg\" alt=\"\" style=\"display: blok; max-width: 50%;\">\r\n</div>\r\n  `,\r\n})"
             },
             {
                 "name": "defaultData",
@@ -2687,7 +3539,27 @@
                 "name": "Disabled",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Disabled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/dropdown/dropdown.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Disabled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/knob/knob.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -2714,10 +3586,10 @@
                 "defaultValue": "[\r\n  {\r\n    id:1,\r\n    name: 'Adam',\r\n    age: '23 lata',\r\n    trainerSkills: 1,\r\n    maxClients: 8,\r\n  },\r\n  {\r\n    id:2,\r\n    name: 'Michał',\r\n    age: '28 lata',\r\n    trainerSkills: 2,\r\n    maxClients: 4,\r\n  },\r\n  {\r\n    id:3,\r\n    name: 'Janina',\r\n    age: '31 lata',\r\n    trainerSkills: 3,\r\n    maxClients: 10,\r\n  },\r\n]"
             },
             {
-                "name": "Help",
+                "name": "ExapmleValues",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/button/button.component.stories.ts",
+                "file": "src/stories/components/knob/knob.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -2744,6 +3616,46 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "LightTile",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/tile/tile.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "() => ({\r\n    template:`<div style=\"background-color: blue; height: 80vh;padding: 50px\">\r\n    <af-tile>\r\n    <p style=\"text-align:center\">przykładowe body</p>\r\n    </af-tile>\r\n    </div>`,\r\n  props: {\r\n    \r\n  },\r\n})"
+            },
+            {
+                "name": "Logo",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/backgrounds/photo-backgrounds/photo-backgrounds.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "() => ({\r\n  template: `\r\n  <div style=\"width: 30%; margin:0 auto\">\r\n    <img src=\"assets/logo/logo.svg\" alt=\"\">\r\n</div>\r\n  `,\r\n})"
+            },
+            {
+                "name": "LogoColor",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/backgrounds/photo-backgrounds/photo-backgrounds.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "() => ({\r\n  template: `\r\n<div style=\"width: 30%; margin:0 auto\">\r\n<img src=\"assets/logo/logoColor.svg\" alt=\"\">\r\n</div>\r\n  `,\r\n})"
+            },
+            {
+                "name": "LogoFTText",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/backgrounds/photo-backgrounds/photo-backgrounds.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "() => ({\r\n  template: `\r\n  <div style=\"width: 30%; margin:0 auto\">\r\n  <img src=\"assets/logo/logoFt_text.svg\" alt=\"\">\r\n</div>\r\n  `,\r\n})"
+            },
+            {
                 "name": "MessageAfterClickButton",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -2761,23 +3673,13 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "Template.bind({})"
+                "defaultValue": "() => ({\r\n  template: `\r\n<section \r\nstyle=\"\r\nheight: 70vh;  \r\nbackground-color: #0e0e0e;  \r\nbackground-image: \r\nlinear-gradient(0deg, #000 5%, transparent 5%, transparent 99%, #000 99%, #000), \r\nlinear-gradient(90deg, #000 5%, #0e0e0e 5%, #0e0e0e 99%, #000 99%, #000);  \r\nbackground-size: 50px 50px;\"\r\n></section>\r\n\r\n`,\r\n})"
             },
             {
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/components/autocompete/autocomplete.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/calendar/calendar.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -2797,7 +3699,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/checkbox/checkbox.component.stories.ts",
+                "file": "src/stories/components/calendar/calendar.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -2817,7 +3719,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/input/input.component.stories.ts",
+                "file": "src/stories/components/checkbox/checkbox.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -2827,7 +3729,17 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/knob/knob.component.stories.ts",
+                "file": "src/stories/components/footer/footer.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/iconShadow/iconShadow.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -2857,7 +3769,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/password/password.component.stories.ts",
+                "file": "src/stories/components/input/input.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -2867,7 +3779,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/rating/rating.component.stories.ts",
+                "file": "src/stories/components/password/password.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -2887,6 +3799,16 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/rating/rating.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/table/table.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -2894,10 +3816,10 @@
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "Quetriary",
+                "name": "Readonly",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/button/button.component.stories.ts",
+                "file": "src/stories/components/knob/knob.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -2908,16 +3830,6 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/components/calendar/calendar.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Secondary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/button/button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -2947,11 +3859,31 @@
                 "name": "Secondary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/password/password.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Secondary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/radiobutton/radiobutton.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "SecondDeadliftBackground",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/backgrounds/photo-backgrounds/photo-backgrounds.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "() => ({\r\n  template: `\r\n  <div>\r\n  <img src=\"assets/backgrounds/victor-freitas-WvDYdXDzkhs-unsplash.jpg\" alt=\"\" style=\"display: blok; max-width: 50%;\">\r\n</div>\r\n  `,\r\n})"
             },
             {
                 "name": "Small",
@@ -2967,16 +3899,6 @@
                 "name": "Success",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/button/button.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Success",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/messages/messages.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -2987,7 +3909,7 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
+                "file": "src/stories/components/autocompete/autocomplete.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -3007,37 +3929,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/autocompete/autocomplete.component.stories.ts",
+                "file": "src/stories/components/button/button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+                "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/components/calendar/calendar.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/button/button.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/checkbox/checkbox.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -3057,17 +3959,27 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/input/input.component.stories.ts",
+                "file": "src/stories/components/checkbox/checkbox.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
+                "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/knob/knob.component.stories.ts",
+                "file": "src/stories/components/footer/footer.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/iconShadow/iconShadow.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -3097,7 +4009,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/password/password.component.stories.ts",
+                "file": "src/stories/components/knob/knob.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/input/input.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -3117,11 +4039,11 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/rating/rating.component.stories.ts",
+                "file": "src/stories/components/password/password.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+                "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
             },
             {
                 "name": "Template",
@@ -3137,6 +4059,16 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/rating/rating.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/table/table.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3144,7 +4076,17 @@
                 "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
             },
             {
-                "name": "Tertiary",
+                "name": "TransparentButton",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "TransparentButtonWithIconOnTop",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/components/button/button.component.stories.ts",
@@ -3158,16 +4100,6 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/components/messages/messages.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Warning",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/button/button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -3344,6 +4276,78 @@
             }
         ],
         "groupedVariables": {
+            "src/stories/backgrounds/photo-backgrounds/photo-backgrounds.component.stories.ts": [
+                {
+                    "name": "BackgorundGymStructure",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/backgrounds/photo-backgrounds/photo-backgrounds.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "() => ({\r\n  template: `\r\n  <div>\r\n    <img src=\"assets/backgrounds/Gym-structure-1080x675.png\" alt=\"\" style=\"display: blok; max-width: 50%;\">\r\n</div>\r\n  `,\r\n})"
+                },
+                {
+                    "name": "BarBackground",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/backgrounds/photo-backgrounds/photo-backgrounds.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "() => ({\r\n  template: `\r\n  <div>\r\n  <img src=\"assets/backgrounds/victor-freitas-Yuv-iwByVRQ-unsplash.jpg\" alt=\"\" style=\"display: blok; max-width: 50%;\">\r\n</div>\r\n  `,\r\n})"
+                },
+                {
+                    "name": "DeadliftBackground",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/backgrounds/photo-backgrounds/photo-backgrounds.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "() => ({\r\n  template: `\r\n  <div>\r\n  <img src=\"assets/backgrounds/victor-freitas-qZ-U9z4TQ6A-unsplash.jpg\" alt=\"\" style=\"display: blok; max-width: 50%;\">\r\n</div>\r\n  `,\r\n})"
+                },
+                {
+                    "name": "Logo",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/backgrounds/photo-backgrounds/photo-backgrounds.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "() => ({\r\n  template: `\r\n  <div style=\"width: 30%; margin:0 auto\">\r\n    <img src=\"assets/logo/logo.svg\" alt=\"\">\r\n</div>\r\n  `,\r\n})"
+                },
+                {
+                    "name": "LogoColor",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/backgrounds/photo-backgrounds/photo-backgrounds.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "() => ({\r\n  template: `\r\n<div style=\"width: 30%; margin:0 auto\">\r\n<img src=\"assets/logo/logoColor.svg\" alt=\"\">\r\n</div>\r\n  `,\r\n})"
+                },
+                {
+                    "name": "LogoFTText",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/backgrounds/photo-backgrounds/photo-backgrounds.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "() => ({\r\n  template: `\r\n  <div style=\"width: 30%; margin:0 auto\">\r\n  <img src=\"assets/logo/logoFt_text.svg\" alt=\"\">\r\n</div>\r\n  `,\r\n})"
+                },
+                {
+                    "name": "SecondDeadliftBackground",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/backgrounds/photo-backgrounds/photo-backgrounds.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "() => ({\r\n  template: `\r\n  <div>\r\n  <img src=\"assets/backgrounds/victor-freitas-WvDYdXDzkhs-unsplash.jpg\" alt=\"\" style=\"display: blok; max-width: 50%;\">\r\n</div>\r\n  `,\r\n})"
+                }
+            ],
             "src/stories/components/radiobutton/radiobutton.component.stories.ts": [
                 {
                     "name": "CustomLabels",
@@ -3386,96 +4390,26 @@
                     "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
                 }
             ],
-            "src/stories/components/button/button.component.stories.ts": [
+            "src/stories/components/tile/tile.component.stories.ts": [
                 {
-                    "name": "Danger",
+                    "name": "DarkTile",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/button/button.component.stories.ts",
+                    "file": "src/stories/components/tile/tile.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "Template.bind({})"
+                    "defaultValue": "() => ({\r\n    template:`<div style=\" blue; height: 80vh;padding: 50px\">\r\n    <af-tile [darkMode]=\"darkMode\">\r\n    <p style=\"text-align:center; color: #fff\">przykładowe body</p>\r\n    </af-tile>\r\n    </div>`,\r\n  props: {\r\n    darkMode:true\r\n  },\r\n})"
                 },
                 {
-                    "name": "Help",
+                    "name": "LightTile",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/button/button.component.stories.ts",
+                    "file": "src/stories/components/tile/tile.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/button/button.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Quetriary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/button/button.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Secondary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/button/button.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Success",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/button/button.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/button/button.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
-                },
-                {
-                    "name": "Tertiary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/button/button.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Warning",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/button/button.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "Template.bind({})"
+                    "defaultValue": "() => ({\r\n    template:`<div style=\"background-color: blue; height: 80vh;padding: 50px\">\r\n    <af-tile>\r\n    <p style=\"text-align:center\">przykładowe body</p>\r\n    </af-tile>\r\n    </div>`,\r\n  props: {\r\n    \r\n  },\r\n})"
                 }
             ],
             "src/stories/components/input/input.component.stories.ts": [
@@ -3520,6 +4454,58 @@
                     "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
                 }
             ],
+            "src/stories/components/button/button.component.stories.ts": [
+                {
+                    "name": "Disabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
+                },
+                {
+                    "name": "TransparentButton",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "TransparentButtonWithIconOnTop",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                }
+            ],
             "src/stories/components/dropdown/dropdown.component.stories.ts": [
                 {
                     "name": "Disabled",
@@ -3550,6 +4536,48 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+                }
+            ],
+            "src/stories/components/knob/knob.component.stories.ts": [
+                {
+                    "name": "Disabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/knob/knob.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "ExapmleValues",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/knob/knob.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Readonly",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/knob/knob.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/knob/knob.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
                 }
             ],
             "src/stories/components/messages/messages.component.stories.ts": [
@@ -3697,17 +4725,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+                    "defaultValue": "() => ({\r\n  template: `\r\n<section \r\nstyle=\"\r\nheight: 70vh;  \r\nbackground-color: #0e0e0e;  \r\nbackground-image: \r\nlinear-gradient(0deg, #000 5%, transparent 5%, transparent 99%, #000 99%, #000), \r\nlinear-gradient(90deg, #000 5%, #0e0e0e 5%, #0e0e0e 99%, #000 99%, #000);  \r\nbackground-size: 50px 50px;\"\r\n></section>\r\n\r\n`,\r\n})"
                 }
             ],
             "src/stories/components/calendar/calendar.component.stories.ts": [
@@ -3792,6 +4810,28 @@
                     "defaultValue": "Template.bind({})"
                 }
             ],
+            "src/stories/components/chart-bars/chart-bars.component.stories.ts": [
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/chart-bars/chart-bars.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/chart-bars/chart-bars.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+                }
+            ],
             "src/stories/components/checkbox/checkbox.component.stories.ts": [
                 {
                     "name": "Primary",
@@ -3824,12 +4864,12 @@
                     "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
                 }
             ],
-            "src/stories/components/chart-bars/chart-bars.component.stories.ts": [
+            "src/stories/components/footer/footer.component.stories.ts": [
                 {
                     "name": "Primary",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/chart-bars/chart-bars.component.stories.ts",
+                    "file": "src/stories/components/footer/footer.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -3839,19 +4879,19 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/chart-bars/chart-bars.component.stories.ts",
+                    "file": "src/stories/components/footer/footer.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
                 }
             ],
-            "src/stories/components/knob/knob.component.stories.ts": [
+            "src/stories/components/iconShadow/iconShadow.component.stories.ts": [
                 {
                     "name": "Primary",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/knob/knob.component.stories.ts",
+                    "file": "src/stories/components/iconShadow/iconShadow.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -3861,7 +4901,7 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/knob/knob.component.stories.ts",
+                    "file": "src/stories/components/iconShadow/iconShadow.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -3893,6 +4933,16 @@
             "src/stories/components/password/password.component.stories.ts": [
                 {
                     "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/password/password.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Secondary",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/stories/components/password/password.component.stories.ts",
@@ -4084,7 +5134,25 @@
                 "name": "routes",
                 "filename": "src/app/app-routing.module.ts",
                 "module": "AppRoutingModule",
-                "children": [],
+                "children": [
+                    {
+                        "path": "",
+                        "redirectTo": "/home",
+                        "pathMatch": "full"
+                    },
+                    {
+                        "path": "home",
+                        "component": "WelcomePageComponent"
+                    },
+                    {
+                        "path": "login",
+                        "component": "LoginComponent"
+                    },
+                    {
+                        "path": "register",
+                        "component": "RegisterComponent"
+                    }
+                ],
                 "kind": "module"
             }
         ]
@@ -4103,6 +5171,33 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/sites/login/login.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "LoginComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/sites/register/register.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "RegisterComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/sites/welcomePage/welcomePage.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "WelcomePageComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
                 "filePath": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -4113,20 +5208,71 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
+                "filePath": "src/stories/backgrounds/photo-backgrounds/photo-backgrounds.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Template",
+                "name": "BackgorundGymStructure",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "src/stories/backgrounds/checkered-background/checkered-background.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "CheckeredBackgroundComponent",
+                "filePath": "src/stories/backgrounds/photo-backgrounds/photo-backgrounds.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "BarBackground",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/backgrounds/photo-backgrounds/photo-backgrounds.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "DeadliftBackground",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/backgrounds/photo-backgrounds/photo-backgrounds.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Logo",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/backgrounds/photo-backgrounds/photo-backgrounds.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LogoColor",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/backgrounds/photo-backgrounds/photo-backgrounds.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LogoFTText",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/backgrounds/photo-backgrounds/photo-backgrounds.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "SecondDeadliftBackground",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -4224,17 +5370,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Danger",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/components/button/button.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Help",
+                "name": "Disabled",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -4254,36 +5390,6 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Quetriary",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/components/button/button.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Secondary",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/components/button/button.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Success",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/components/button/button.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
                 "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
@@ -4294,7 +5400,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Tertiary",
+                "name": "TransparentButton",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -4304,7 +5410,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Warning",
+                "name": "TransparentButtonWithIconOnTop",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -4315,7 +5421,7 @@
                 "linktype": "component",
                 "name": "ButtonComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/9",
+                "coverageCount": "0/15",
                 "status": "low"
             },
             {
@@ -4472,7 +5578,7 @@
                 "linktype": "component",
                 "name": "CheckboxComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
@@ -4512,6 +5618,64 @@
                 "name": "DropdownComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/13",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/footer/footer.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/footer/footer.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/footer/footer.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "FooterComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/iconShadow/iconShadow.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/iconShadow/iconShadow.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/iconShadow/iconShadow.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AFIconShadowComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
@@ -4597,7 +5761,27 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Primary",
+                "name": "Disabled",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/knob/knob.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ExapmleValues",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/knob/knob.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Readonly",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -4705,6 +5889,16 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "Secondary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/password/password.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
@@ -4716,7 +5910,7 @@
                 "linktype": "component",
                 "name": "PasswordComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/18",
                 "status": "low"
             },
             {
@@ -4824,6 +6018,35 @@
                 "name": "AFTableComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/tile/tile.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "DarkTile",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/tile/tile.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LightTile",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/tile/tile.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TileComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {

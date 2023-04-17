@@ -3,20 +3,35 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import { HttpClientModule} from '@angular/common/http';
-import { HttpClient } from "@angular/common/http";
+import { WelcomePageComponent } from './sites/welcomePage/welcomePage.component';
+import { LoginComponent } from './sites/login/login.component';
+import { RegisterComponent } from './sites/register/register.component';
+import { FormsModule } from '@angular/forms';
+import { AFButtonModule } from 'src/stories/components/button/button.module';
+import { InputModule } from 'src/stories/components/input/input.module';
+import { AFTileModule } from 'src/stories/components/tile/tile.module';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FooterModule } from 'src/stories/components/footer/footer.module';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WelcomePageComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     FooterModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    AFButtonModule,
+    InputModule,
+    AFTileModule,
+
     TranslateModule.forRoot(
       {
         loader:{

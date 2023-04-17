@@ -1,0 +1,51 @@
+<section class="register-container">
+    <div class="row">
+      <div class="button__return-right">
+        <af-button [label]="'Powrót'" (click)="goToWelcomePage()"></af-button>
+      </div>
+      <div class="input__test">
+        <h2>Rejestracja</h2>
+        <form>
+          <div class="input__test">
+            <input type="text" class="form-control" id="firstName" placeholder="imie">
+          </div>
+          <div class="input__test">
+            <input type="text" class="form-control" id="lastName" placeholder="nazwisko">
+          </div>
+          <div class="input__test">
+            <input type="text" class="form-control" id="username" placeholder="login">
+          </div>
+          <div class="input__test">
+            <input type="email" class="form-control" id="email" placeholder="e-mail">
+          </div>
+          <div class="input__test">
+            <label for="gender" class="form-label">Płeć</label>
+            <div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+                <label class="form-check-label" for="male">Mężczyzna</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                <label class="form-check-label" for="female">Kobieta</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="other" value="other">
+                <label class="form-check-label" for="other">Inna</label>
+              </div>
+            </div>
+          </div>
+          <div class="input__test">
+            <input type="password" class="form-control" id="password" placeholder="hasło">
+          </div>
+          <div class="input__test">
+            <input type="password" class="form-control" id="confirmPassword" placeholder="Powtórz hasło">
+          </div>
+          <af-button [label]="'Zarejestruj'" (click)="goToWelcomePage()"></af-button>
+        </form>
+        <div class="paragraf__test">
+          <p>Mam już konto <a (click)="goToLogin()">Zaloguj się</a></p>
+        </div>
+      </div>
+    </div>
+  </section>

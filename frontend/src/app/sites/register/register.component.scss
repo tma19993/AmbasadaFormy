@@ -1,0 +1,38 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 98vh;
+}
+  .row {
+  border: 1px solid black;
+  padding: 10px 200px;
+  border-radius: 10px;
+
+  .button__return-right {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+
+    button {
+      background-color: blue;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #007bff;
+        color: #fff;
+      }
+    }
+  }
+
+  .input__test {
+    margin-bottom: 15px;
+  }
+
+  .paragraf__test {
+  }
+}
