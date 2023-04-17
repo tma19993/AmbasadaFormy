@@ -1,0 +1,20 @@
+{
+    "footer":{
+        "header":"Ambasada Formy",
+        "info":"We are a group of people who want you to make progress using our offer. Remember, however, that everything depends on your commitment. We give you opportunities and the right tools.",
+        "contact": "Contact",
+        "address":"St. Konstantynów 1H 20-708 Lublin, Polska",
+        "mail":"e-mail",
+        "phone": "Phone",
+        "socialMedia": "Social Media",
+        "links":"Links",
+        "statute":"Statute",
+        "faq":"FAQ",
+        "location": "Location",
+        "constant":{
+            "email":"email@email.com",
+            "firstPhoneNumber":"+48 000 000 000",
+            "secondPhoneNumber":"(00) 000 00 00"
+        }
+    }
+}
