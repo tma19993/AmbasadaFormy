@@ -14,6 +14,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FooterModule } from 'src/stories/components/footer/footer.module';
+import { ZalogowanoComponent } from './sites/zalogowano/zalogowano.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FooterModule } from 'src/stories/components/footer/footer.module';
     WelcomePageComponent,
     LoginComponent,
     RegisterComponent,
+    ZalogowanoComponent,
   ],
   imports: [
     FooterModule,
