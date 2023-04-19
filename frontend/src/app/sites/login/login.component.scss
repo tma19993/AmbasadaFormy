@@ -66,16 +66,16 @@
     }
   }
 
-.button__mid {
-  display: flex;
-  justify-content:center;
-  padding: 20px 20px;
-}
+  .button__mid {
+    display: flex;
+    justify-content:center;
+    padding: 20px 20px;
+  }
 
 
-a {
-margin-top: 20px;
-color: rgb(0, 173, 181);
+  a {
+  margin-top: 20px;
+  color: rgb(0, 173, 181);
 }
 }
 
@@ -95,8 +95,6 @@ color: rgb(0, 173, 181);
     display: flex;
     align-items: center;
     justify-content: flex-end;
-
-
   }
 }
 

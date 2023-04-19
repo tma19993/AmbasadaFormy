@@ -36,6 +36,13 @@ export class RegisterComponent {
     iconFloat: enumIconFloat.left,
   };
 
+  public mailData: inputIconConfig = {
+    iconClassName: 'pi-envelope',
+    iconFloat: enumIconFloat.left,
+  };
+
+
+
   public goToLogin(): void {
     this.router.navigate(['/login']);
   }
