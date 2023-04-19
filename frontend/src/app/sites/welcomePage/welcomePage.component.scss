@@ -9,7 +9,11 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(15deg, #1CB5E0 0%, #000851 100%);
+  background-image: url('../../../assets/backgrounds/background-welcomePage.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
 }
 
 
@@ -23,18 +27,19 @@
     "slajdy panel__login-register panel__login-register"
     "slajdy signUs other";
   margin: auto;
-  max-width: 1600px;
+  width: 1280px;
 }
 
 .slajdy {
   grid-area: slajdy;
 
   &__content {
-  padding: 210px 100px;
+  height: calc(100vh - 230px);
   background: url('../../../assets/backgrounds/victor-freitas-WvDYdXDzkhs-unsplash.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
-  background-position: 420px center;
-  border-radius: 10px;
+  border-radius: 15px;
   }
 }
 
@@ -46,17 +51,31 @@
   &__logo {
     display: flex;
     justify-content: center;
-    padding: 30px 0 40px 0;
+    padding: 50px 0 0 0;
 
     img {
-      max-height: 50px;
+      max-height: 150px;
     }
   }
 
   &__center {
-    display: flex;
-    justify-content: center;
-    padding-bottom: 40px;
+    display: inline-flexbox;
+    padding: 60px;
+
+      &-btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        ::ng-deep .button__content{
+          .p-button{
+            width: 440px;
+            // font-size: 27px !important;
+            letter-spacing: 2px;
+            // padding:  !important;
+          }
+        }
+    }
   }
 }
 
@@ -66,8 +85,10 @@
   &__content {
     display: flex;
     justify-content: center;
-    padding: 40px 0;
     color: #fff;
+    font-size: 5em;
+    text-align: center;
+    padding: 10px 0;
   }
 }
 
@@ -77,7 +98,9 @@
   &__content {
     display: flex;
     justify-content: center;
-    padding: 40px 0;
     color: #fff;
+    padding: 20px 0;
+    font-size: 3em;
+    text-align: center;
   }
 }

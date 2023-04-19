@@ -1,25 +1,27 @@
 <div class="row">
   <section class="homePage-container">
     <af-tile class="slajdy">
-      <p class="slajdy__content">
-      </p>
+      <div class="slajdy__content">
+      </div>
     </af-tile>
     <af-tile class="panel__login-register">
       <div class="panel__logo">
-        <img src="../assets/logo/logo.svg" alt="Ambasada Formy logo">
+        <img src="../assets/logo/logoColor.svg" alt="Ambasada Formy logo">
       </div>
       <div class="panel__center">
-        <af-button [label]="'Logowanie'" (click)="goToLogin()"></af-button>
-      </div>
-      <div class="panel__center">
-        <af-button [label]="'Rejestracja'" (click)="goToRegister()"></af-button>
+        <div class="panel__center-btn">
+          <af-button [label]="'Logowanie'" (click)="goToLogin()" [fontSize]="27"></af-button>
+        </div>
+        <div class="panel__center-btn">
+          <af-button [label]="'Rejestracja'" (click)="goToRegister()" [fontSize]="27"></af-button>
+        </div>
       </div>
     </af-tile>
     <af-tile [darkMode]="true" class="signUs">
-      <h3 class="signUs__content">Dołącz do nas</h3>
+      <h3 class="signUs__content">Dołącz<br>do nas!</h3>
     </af-tile>
     <af-tile [darkMode]="true" class="other">
-      <h3 class="other__content">Praca, efekty, cele</h3>
+      <h3 class="other__content">Praca<br>Efekty<br>Cele</h3>
     </af-tile>
   </section>
 </div>

@@ -14,37 +14,38 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FooterModule } from 'src/stories/components/footer/footer.module';
-import { ZalogowanoComponent } from './sites/zalogowano/zalogowano.component';
+import { HomePageComponent } from './sites/homePage/homePage.component';
+import { AppCheckboxModule } from "../stories/components/checkbox/checkbox.module";
+import { AFRadiobuttonModule } from "../stories/components/radiobutton/radiobutton.module";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    WelcomePageComponent,
-    LoginComponent,
-    RegisterComponent,
-    ZalogowanoComponent,
-  ],
-  imports: [
-    FooterModule,
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    AFButtonModule,
-    InputModule,
-    AFTileModule,
-
-    TranslateModule.forRoot(
-      {
-        loader:{
-          provide: TranslateLoader,
-          useFactory: (handler: HttpClient) => { return new TranslateHttpLoader(handler, './assets/i18n/', '.json');},
-          deps:[HttpClient]
-        }
-      }
-    )
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        WelcomePageComponent,
+        LoginComponent,
+        RegisterComponent,
+        HomePageComponent,
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+    imports: [
+        FooterModule,
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        AFButtonModule,
+        InputModule,
+        AFTileModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: (handler: HttpClient) => { return new TranslateHttpLoader(handler, './assets/i18n/', '.json'); },
+                deps: [HttpClient]
+            }
+        }),
+        AppCheckboxModule,
+        AFRadiobuttonModule
+    ]
 })
 export class AppModule { }

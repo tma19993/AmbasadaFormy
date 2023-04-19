@@ -1,51 +1,53 @@
-<section class="register-container">
-    <div class="row">
-      <div class="button__return-right">
-        <af-button [label]="'Powrót'" (click)="goToWelcomePage()"></af-button>
-      </div>
-      <div class="input__test">
-        <h2>Rejestracja</h2>
-        <form>
-          <div class="input__test">
-            <input type="text" class="form-control" id="firstName" placeholder="imie">
-          </div>
-          <div class="input__test">
-            <input type="text" class="form-control" id="lastName" placeholder="nazwisko">
-          </div>
-          <div class="input__test">
-            <input type="text" class="form-control" id="username" placeholder="login">
-          </div>
-          <div class="input__test">
-            <input type="email" class="form-control" id="email" placeholder="e-mail">
-          </div>
-          <div class="input__test">
-            <label for="gender" class="form-label">Płeć</label>
-            <div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="gender" id="male" value="male">
-                <label class="form-check-label" for="male">Mężczyzna</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="gender" id="female" value="female">
-                <label class="form-check-label" for="female">Kobieta</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="gender" id="other" value="other">
-                <label class="form-check-label" for="other">Inna</label>
-              </div>
-            </div>
-          </div>
-          <div class="input__test">
-            <input type="password" class="form-control" id="password" placeholder="hasło">
-          </div>
-          <div class="input__test">
-            <input type="password" class="form-control" id="confirmPassword" placeholder="Powtórz hasło">
-          </div>
-          <af-button [label]="'Zarejestruj'" (click)="goToWelcomePage()"></af-button>
-        </form>
-        <div class="paragraf__test">
-          <p>Mam już konto <a (click)="goToLogin()">Zaloguj się</a></p>
-        </div>
+<div class="bg-img">
+  <section class="register-container">
+    <div class="logo-section">
+      <div class="logo-section__af">
+        <img src="../../../assets/logo/logoFt_text.svg" alt="test">
       </div>
     </div>
+    <div class="register-section">
+      <af-tile>
+        <div class="button__return-right">
+          <af-button iconClassName="pi-undo" iconPos="top" label="Powrót" [transparentButton]="true" (click)="goToWelcomePage()"></af-button>
+        </div>
+        <div class="register-section__justify">
+          <form>
+            <div class="form-group">
+              <af-input [iconConfig]="loginData" [floatLabel]="true" floatLabelText="imie" type="text" id="imie-input" name="imie"></af-input>
+            </div>
+            <div class="form-group">
+              <af-input [iconConfig]="loginData" [floatLabel]="true" floatLabelText="nazwisko" type="text" id="nazwisko-input" name="nazwisko"></af-input>
+            </div>
+            <div class="form-group">
+              <af-input [iconConfig]="loginData" [floatLabel]="true" floatLabelText="login" type="text" id="login-input" name="login"></af-input>
+            </div>
+            <div class="form-group">
+              <af-input [iconConfig]="loginData" [floatLabel]="true" floatLabelText="e-mail" type="text" id="e-mail-input" name="e-mail"></af-input>
+            </div>
+            <div class="form-group register--gender__selection">
+              <div class="register--gender__selection__buttons">
+
+                <af-radioButtons [categories]="genderArray">
+                  <label class="form-label">Płeć</label>
+                </af-radioButtons>
+              </div>
+            </div>
+            <div class="form-group">
+              <af-input [iconConfig]="passwordData" [floatLabel]="true" floatLabelText="Hasło" type="password" id="password-input" name="password"></af-input>
+            </div>
+            <div class="form-group">
+              <af-input [iconConfig]="passwordData" [floatLabel]="true" floatLabelText="Hasło" type="password" id="repeat-password-input" name="repeat-password"></af-input>
+            </div>
+            <div class="button__mid">
+              <af-button [label]="'Rejestruj'" (click)="goToWelcomePage()"></af-button>
+            </div>
+          </form>
+          <div class="box-have-account">
+            <p>Mam już konto <a (click)="goToLogin()">Zaloguj się</a></p>
+          </div>
+        </div>
+      </af-tile>
+    </div>
   </section>
+</div>
+<af-footer></af-footer>

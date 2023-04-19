@@ -1,3 +1,4 @@
+import { compileNgModule } from '@angular/compiler';
 import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ButtonIconPosition } from 'src/stories/enums/button.enum';
 @Component({
@@ -18,21 +19,26 @@ export class ButtonComponent implements AfterViewInit, OnInit {
   constructor() {
   }
   public ngOnInit(): void {
-    this.label = this.label.toUpperCase(); 
+    this.label = this.label.toUpperCase();
+
   }
   public ngAfterViewInit(): void {
-      this.changeFontsize();
-      this.changeIconsize();
+    this.changeFontsize();
+    this.changeIconsize();
   }
   public click(): void {
     this.onClick.emit();
   }
   private changeFontsize():void {
-   const element: HTMLElement = (document.querySelector(".p-button-label")) as HTMLElement;
-   element!.style.fontSize = this.fontSize + "px";
+   const element: NodeListOf<HTMLElement> = (document.querySelectorAll("p-button button.p-button span.p-button-label")) as NodeListOf<HTMLElement>;
+   element!.forEach(el=>{
+    el.style.fontSize = this.fontSize + "px";
+   })
   }
   private changeIconsize():void {
-   const element: HTMLElement = (document.querySelector(".p-button-icon")) as HTMLElement;
-   element!.style.fontSize = this.iconSize + "px";
+    const element: NodeListOf<HTMLElement> = (document.querySelectorAll("p-button button.p-button span.p-button-icon")) as NodeListOf<HTMLElement>;
+  element!.forEach(el=>{
+    el.style.fontSize = this.iconSize + "px";
+   })
   }
 }
