@@ -9,6 +9,14 @@
         font-weight: $font-weight-bold;
         border-radius: 14px;
         padding: 10px 40px;
+        transition: .2s;
+        .p-button-label{
+          transition-duration: 0s;
+        }
+        &:hover{
+          color:$input-main-color;
+        }
+
        }
     }
     .transparent-button{
@@ -17,6 +25,6 @@
             box-shadow: none;
             color: $input-main-color;
         }
-       
+
     }
 }

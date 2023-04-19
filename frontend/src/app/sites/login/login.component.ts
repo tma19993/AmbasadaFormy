@@ -29,6 +29,6 @@ export class LoginComponent {
   }
 
   public backToWelcomePage(): void{
-    this.router.navigate(['/home']);
+    this.router.navigate(['/welcome']);
   }
 }

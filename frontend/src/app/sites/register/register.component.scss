@@ -1,38 +1,130 @@
-.register-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 98vh;
+@import "../../../stories/constants/constants.scss";
+.bg-img{
+  background: url('../../../assets/backgrounds/background-RegisterPage.jpg');
+  background-size: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-  .row {
-  border: 1px solid black;
-  padding: 10px 200px;
-  border-radius: 10px;
 
-  .button__return-right {
+.register-container {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr 1fr;
+  gap: 20px 0px;
+  height: 100vh;
+  grid-template-areas:
+  "logo-section logo-section logo-section"
+  "register-section register-section register-section";
+  justify-items: center;
+  align-items: stretch;
+  .logo-section {
+    grid-area: logo-section;
+
+      &__af{
+        padding: 50px 0 0 0;
+      }
+      img{
+        width: 300px;
+        filter: invert(1);
+      }
+    }
+
+    .register-section {
+    grid-area: register-section;
+    width: 700px;
+
+      af-tile{
+        position: relative;
+
+        form {
+          max-width: 400px;
+          margin: 0 auto;
+          padding: 30px 0 5px;
+          .form-group {
+            af-input ::ng-deep {
+              .input__container {
+                height: 40px;
+              }
+            }
+          }
+          .register--gender__selection {
+            margin-top: 20px;
+            &__buttons{
+              display: flex;
+
+              gap: 20px;
+              .form-label{
+                margin-left: 10px;
+                font-size: 14px;
+                font-weight: $font-weight-bold;
+              }
+              af-radioButtons ::ng-deep{
+                section{
+                  display: flex;
+                  gap: 20px;
+                  font-size: 12px;
+                  .field-checkbox{
+                    display: flex;
+                  align-items: center;
+                  }
+                }
+              }
+            }
+          }
+
+        }
+      }
+      &__justify {
+      width: 100%;
+    }
+  }
+
+
+
+    .button__return-right {
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 20px;
-
-    button {
-      background-color: blue;
-      color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 5px;
-      cursor: pointer;
-
-      &:hover {
-        background-color: #007bff;
-        color: #fff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    af-button::ng-deep{
+      .button__container{
+        margin-top: 10px;
+        .p-element{
+          .p-button{
+            &-label{
+              font-size: 10px !important;
+            }
+          }
+        }
       }
     }
   }
 
-  .input__test {
-    margin-bottom: 15px;
+  .button__mid {
+    display: flex;
+    justify-content:center;
+    padding: 20px 20px;
   }
 
-  .paragraf__test {
-  }
+
+a {
+  margin-top: 20px;
+  color: rgb(0, 173, 181);
+}
+}
+.button__mid {
+  display: flex;
+  justify-content:center;
+  padding: 20px 20px;
+}
+
+.box-have-account{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10px;
 }

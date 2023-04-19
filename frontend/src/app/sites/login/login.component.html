@@ -1,32 +1,43 @@
-<section class="login-container">
-    <div class="logo">
-      <p class="af-logo"></p>
+<div class="bg-img">
+  <section class="login-container">
+    <div class="logo-section">
+      <div class="logo-section__af">
+        <img src="../../../assets/logo/logoFt_text.svg" alt="test">
+      </div>
     </div>
     <div class="login-section">
-      <af-tile class="login-section__justify">
+      <af-tile>
         <div class="button__return-right">
-          <af-button [label]="'Powrót'" (click)="backToWelcomePage()"></af-button>
+          <af-button iconClassName="pi-undo" iconPos="top" label="Powrót" [transparentButton]="true" [fontSize]="1" buttonId="back" (click)="backToWelcomePage()"></af-button>
         </div>
-        <h2>Logowanie</h2>
-        <form>
-          <div class="form-group">
-            <af-input [iconConfig]="loginData" type="text" id="login-input" name="login" [(ngModel)]="login" placeholder="login"></af-input>
-          </div>
-          <div class="form-group">
-            <af-input [iconConfig]="passwordData" type="password" id="password-input" name="password" [(ngModel)]="password" placeholder="hasło"></af-input>
-          </div>
-          <div class="form-group">
-            <label>
-              <input type="checkbox" name="remember" [(ngModel)]="remember"> Zapisz hasło
-            </label>
-            <a href="#" class="form-group__forgot-password">Nie pamiętasz hasła? Przypomnij hasło</a>
-          </div>
-          <af-button label="Zaloguj" (click)="onClickLogin()"></af-button>
-          <a routerLink="/register">Nie masz konta? Zarejestruj się</a>
-        </form>
+        <div class="login-section__justify">
+          <form>
+            <div class="form-group">
+              <af-input [iconConfig]="loginData" [floatLabel]="true" floatLabelText="Login" type="text" id="login-input" name="login" [(ngModel)]="login"></af-input>
+            </div>
+            <div class="form-group">
+              <af-input [iconConfig]="passwordData" [floatLabel]="true" floatLabelText="Hasło" type="password" id="password-input" name="password" [(ngModel)]="password"></af-input>
+            </div>
+            <div class="form-group">
+              <div class="box-forgot">
+                <div class="box-forgot__checkbox">
+                  <app-checkbox [(ngModel)]="remember" [binary]="true" [label]="'Zapisz hasło'"></app-checkbox>
+                </div>
+                <div class="box-forgot__forgot">
+                  <p>Nie pamiętasz hasła? <a href="#" class="form-group__forgot-password">Przypomnij hasło</a>.</p>
+                </div>
+              </div>
+            </div>
+            <div class="button__mid">
+              <af-button label="Zaloguj" [fontSize]="15" (click)="onClickLogin()"></af-button>
+            </div>
+            <div class="account-dont-exist">
+              <p>Nie masz konta? <a routerLink="/register">Zarejestruj się</a>.</p>
+            </div>
+          </form>
+        </div>
       </af-tile>
     </div>
-    <div class="footer">
-      tutej stopka na samym dole
-    </div>
-</section>
+  </section>
+  <af-footer></af-footer>
+</div>
