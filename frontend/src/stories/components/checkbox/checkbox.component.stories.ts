@@ -1,7 +1,7 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 import {DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
 import { CheckboxComponent } from './checkbox.component';
-import { AppCheckboxModule } from './checkbox.module';
+import { AfCheckboxModule } from './checkbox.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -12,7 +12,7 @@ export default {
   decorators:[
     moduleMetadata({
       imports: [
-        AppCheckboxModule,
+        AfCheckboxModule,
         BrowserAnimationsModule,
         FormsModule
       ],

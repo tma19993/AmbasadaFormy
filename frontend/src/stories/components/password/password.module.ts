@@ -9,4 +9,4 @@ import { DividerModule } from 'primeng/divider';
   exports: [PasswordComponent],
   imports: [CommonModule, PasswordModule, FormsModule,DividerModule],
 })
-export class AppPasswordModule {}
+export class AfPasswordModule {}

@@ -1,9 +1,19 @@
 @import "./../../constants/constants.scss";
 
 section{
-  display: flex;
-  align-items: center;
+ 
 }
 label{
   margin-left: 12px;
+}
+.radioButtons{
+  font-size: 25px;
+  &--container{
+    display: flex;
+    align-items: center;
+  
+  }
+  &--content{
+    margin-left: 10px;
+  }
 }

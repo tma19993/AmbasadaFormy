@@ -1,9 +1,14 @@
+@import "../../../stories/constants/constants.scss";
+
 .bg-img{
   background: url('../../../assets/backgrounds/background-loginPage.jpg');
   background-size: 100%;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  overflow: hidden;
+  height: 100vh;
+  color:$darker-gray;
 }
 
 .login-container {
@@ -19,7 +24,7 @@
   justify-items: center;
   align-items: stretch;
   height: 100vh;
-
+  
   .logo-section {
   grid-area: logo-section;
 
@@ -50,20 +55,8 @@
 
   .button__return-right {
     position: absolute;
-    top: 0;
-    right: 0;
-    af-button::ng-deep{
-      .button__container{
-        margin-top: 10px;
-        .p-element{
-          .p-button{
-            &-label{
-              font-size: 10px !important;
-            }
-          }
-        }
-      }
-    }
+    top: 20px;
+    right: 20px;
   }
 
   .button__mid {
@@ -103,3 +96,9 @@
   align-items: center;
   justify-content: center;
 }
+
+.validoation__container{
+  position: absolute;
+  top: 20px;
+  right:20px;
+  }
