@@ -2,14 +2,14 @@ import { Meta, moduleMetadata, Story } from '@storybook/angular';
 import { DEFAULT_VIEWPORT } from '@storybook/addon-viewport';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
-import { AppPasswordModule } from './password.module';
+import { AfPasswordModule } from './password.module';
 import { PasswordComponent } from './password.component';
 
 export default {
   title: 'Core/Password',
   decorators: [
     moduleMetadata({
-      imports: [AppPasswordModule, BrowserAnimationsModule],
+      imports: [AfPasswordModule, BrowserAnimationsModule],
     }),
   ],
   component: PasswordComponent,

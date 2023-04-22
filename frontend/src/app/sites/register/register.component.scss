@@ -1,129 +1,107 @@
 @import "../../../stories/constants/constants.scss";
-.bg-img{
+
+.bg-img {
   background: url('../../../assets/backgrounds/background-RegisterPage.jpg');
   background-size: 100%;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  height: 100vh;
 }
 
 .register-container {
-  display: grid;
-  grid-auto-columns: 1fr;
-  grid-auto-rows: 1fr;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 0.5fr 1fr 1fr;
-  gap: 20px 0px;
-  height: 100vh;
-  grid-template-areas:
-  "logo-section logo-section logo-section"
-  "register-section register-section register-section";
-  justify-items: center;
-  align-items: stretch;
-  .logo-section {
-    grid-area: logo-section;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
-      &__af{
-        padding: 50px 0 0 0;
-      }
-      img{
-        width: 300px;
-        filter: invert(1);
+  .logo-section {
+    &__af {
+      padding: 50px 0 0 0;
+    }
+
+    img {
+      width: 300px;
+      filter: invert(1);
+    }
+  }
+
+  .register-section {
+    width: 700px;
+
+    af-tile {
+      position: relative;
+
+      .register-content {
+        width: 400px;
+        margin: 0 auto;
+        padding: 30px 0 5px;
+
+        .register--gender__selection {
+          margin: 20px 0 30px 0;
+
+          &__buttons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+
+            &--header {
+              margin-left: 10px;
+              font-size: $checkbox-register;
+              font-weight: $font-weight-bold;
+            }
+            
+            &--checkbox{
+              ::ng-deep .checkbox--container {
+                  label.p-checkbox-label{
+                    font-size: $checkbox-register;
+                  }
+                }
+            }
+          }
+        }
       }
     }
 
-    .register-section {
-    grid-area: register-section;
-    width: 700px;
-
-      af-tile{
-        position: relative;
-
-        form {
-          max-width: 400px;
-          margin: 0 auto;
-          padding: 30px 0 5px;
-          .form-group {
-            af-input ::ng-deep {
-              .input__container {
-                height: 40px;
-              }
-            }
-          }
-          .register--gender__selection {
-            margin-top: 20px;
-            &__buttons{
-              display: flex;
-
-              gap: 20px;
-              .form-label{
-                margin-left: 10px;
-                font-size: 14px;
-                font-weight: $font-weight-bold;
-              }
-              af-radioButtons ::ng-deep{
-                section{
-                  display: flex;
-                  gap: 20px;
-                  font-size: 12px;
-                  .field-checkbox{
-                    display: flex;
-                  align-items: center;
-                  }
-                }
-              }
-            }
-          }
-
-        }
-      }
-      &__justify {
+    &__justify {
       width: 100%;
     }
   }
 
-
-
-    .button__return-right {
+  .button__return-right {
     position: absolute;
-    top: 0;
-    right: 0;
-    af-button::ng-deep{
-      .button__container{
-        margin-top: 10px;
-        .p-element{
-          .p-button{
-            &-label{
-              font-size: 10px !important;
-            }
-          }
-        }
-      }
-    }
+    top: 20px;
+    right: 20px;
   }
 
   .button__mid {
     display: flex;
-    justify-content:center;
+    justify-content: center;
     padding: 20px 20px;
   }
-
-
-a {
-  margin-top: 20px;
-  color: rgb(0, 173, 181);
-  cursor: pointer;
 }
-}
+
 .button__mid {
   display: flex;
-  justify-content:center;
+  justify-content: center;
   padding: 20px 20px;
 }
 
-.box-have-account{
+.box-have-account {
   display: flex;
   align-items: center;
   justify-content: center;
   padding-bottom: 10px;
+
+  &__reference {
+    margin-top: 20px;
+    color: $input-main-color;
+    cursor: pointer;
+  }
 }
+
+.validoation__container{
+  position: absolute;
+  top: 20px;
+  right:20px;
+  }

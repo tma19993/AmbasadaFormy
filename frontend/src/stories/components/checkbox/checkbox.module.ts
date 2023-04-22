@@ -22,5 +22,5 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule
   ],
 })
-export class AppCheckboxModule {
+export class AfCheckboxModule {
 }

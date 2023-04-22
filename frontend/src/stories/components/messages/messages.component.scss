@@ -1,0 +1,28 @@
+@import "./../../constants/constants.scss";
+
+p-messages ::ng-deep{
+    max-width: 400px;
+    .p-messages{
+      .p-message{
+        background-color: $darker-gray;
+        color:$input-background-color;
+        border:none;
+        &-wrapper{
+          padding: 10px;
+        }
+        &-icon{
+          color:$input-main-color;
+        }
+        &-close{
+          color:$input-background-color;
+          &:hover{
+            background: none;
+            color:$input-main-color;
+          }
+          &:focus{
+            box-shadow: none;
+          }
+        }
+        }
+      }
+    }

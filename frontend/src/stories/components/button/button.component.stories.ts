@@ -24,6 +24,17 @@ const Template: Story = (args) => ({
     ...args,
   },
 });
+export const Cos:Story = ()=>({
+  template:`
+  <af-button [label]="label" [buttonId]="'pierwszy'" [fontSize]="30"></af-button>
+  <br/>
+  <af-button [label]="label" [buttonId]="'drugi'" [fontSize]="10"></af-button>
+  `,
+  props:{
+    label: 'Button',
+    fontSize: 30
+  }
+})
 
 export const Primary: Story = Template.bind({});
 Primary.args = {

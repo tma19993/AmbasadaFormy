@@ -8,45 +8,52 @@
     <div class="register-section">
       <af-tile>
         <div class="button__return-right">
-          <af-button iconClassName="pi-undo" iconPos="top" label="Powrót" [transparentButton]="true" (click)="goToWelcomePage()"></af-button>
+          <af-button iconClassName="pi-undo" iconPos="top" label="Powrót" buttonId="undo" [fontSize]="10"
+            [iconSize]="18" [transparentButton]="true" (click)="goToWelcomePage()"></af-button>
         </div>
-        <div class="register-section__justify">
-          <form>
+        <div class="register-content">
+          <div class="register-section__justify">
             <div class="form-group">
-              <af-input [iconConfig]="loginData" [floatLabel]="true" floatLabelText="imie" type="text" id="imie-input" name="imie"></af-input>
+              <af-input [iconConfig]="loginData" [floatLabel]="true" floatLabelText="imie" (inputValue)="getData($event,'firstName')"></af-input>
             </div>
             <div class="form-group">
-              <af-input [iconConfig]="loginData" [floatLabel]="true" floatLabelText="nazwisko" type="text" id="nazwisko-input" name="nazwisko"></af-input>
+              <af-input [iconConfig]="loginData" [floatLabel]="true" floatLabelText="nazwisko" (inputValue)="getData($event,'lastName')"></af-input>
             </div>
             <div class="form-group">
-              <af-input [iconConfig]="loginData" [floatLabel]="true" floatLabelText="login" type="text" id="login-input" name="login"></af-input>
+              <af-input [iconConfig]="loginData" [floatLabel]="true" floatLabelText="login" (inputValue)="getData($event,'login')"></af-input>
             </div>
             <div class="form-group">
-              <af-input [iconConfig]="mailData" [floatLabel]="true" floatLabelText="e-mail" type="text" id="e-mail-input" name="e-mail"></af-input>
+              <af-input [iconConfig]="mailData" [floatLabel]="true" floatLabelText="e-mail" (inputValue)="getData($event,'email')"></af-input>
             </div>
             <div class="form-group register--gender__selection">
               <div class="register--gender__selection__buttons">
-
-                <af-radioButtons [categories]="genderArray">
-                  <label class="form-label">Płeć</label>
-                </af-radioButtons>
+                <p class="register--gender__selection__buttons--header">Płeć</p>
+                <div *ngFor="let gender of genderArray;  index as id" [attr.data-index]="id">
+                  <af-checkbox (checkedToggler)="getGender($event, id)"
+                    [disabled]="genderCheckboxDisabled && !gender.checked" [label]="gender.name"
+                    class="register--gender__selection__buttons--checkbox"></af-checkbox>
+                </div>
               </div>
             </div>
             <div class="form-group">
-              <af-input [iconConfig]="passwordData" [floatLabel]="true" floatLabelText="hasło" type="password" id="password-input" name="password"></af-input>
+              <af-password floatLabelText="Hasło" (inputValue)="getData($event,'password')"></af-password>
             </div>
             <div class="form-group">
-              <af-input [iconConfig]="passwordData" [floatLabel]="true" floatLabelText="hasło" type="password" id="repeat-password-input" name="repeat-password"></af-input>
+              <af-password floatLabelText="Powtórz hasło" (inputValue)="getReapeatedPassword($event)"></af-password>
             </div>
             <div class="button__mid">
-              <af-button [label]="'Rejestruj'" (click)="goToWelcomePage()"></af-button>
+              <af-button [label]="'Rejestruj'" buttonId="register" [fontSize]="30" (click)="goToHomePage()"></af-button>
             </div>
-          </form>
-          <div class="box-have-account">
-            <p>Mam już konto <a (click)="goToLogin()">Zaloguj się</a></p>
+            <div class="box-have-account">
+              <p>Mam już konto <a (click)="goToLogin()" class="box-have-account__reference">Zaloguj się</a></p>
+            </div>
           </div>
         </div>
       </af-tile>
     </div>
   </section>
 </div>
+
+<section class="validoation__container">
+  <af-messages [closable]="true"></af-messages>
+</section>

@@ -1,6 +1,6 @@
-<section>
-  <ng-content></ng-content>
-  <div *ngFor="let category of categories" class="field-checkbox">
+<section class="radioButtons--container">
+  <ng-content class="radioButtons"></ng-content>
+  <div *ngFor="let category of categories" class="radioButtons--content">
     <p-radioButton
       [inputId]="category.key"
       name="category"
@@ -8,6 +8,6 @@
       [(ngModel)]="selectedCategory"
       [disabled]="disabled"
     ></p-radioButton>
-    <label [for]="category.key" class="ml-2">{{ category.name }}</label>
+    <label [for]="category.key">{{ category.name }}</label>
   </div>
 </section>

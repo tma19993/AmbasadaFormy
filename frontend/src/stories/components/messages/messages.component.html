@@ -1,8 +1,1 @@
-<section>
-    <p-messages [(value)]="messages" [enableService]="enableService" [closable]="closable"></p-messages>
-     <!-- to show how message component works -->
-    <div class="card" *ngIf="showAdditionalButtons">
-        <button type="button" pButton pRipple (click)="addMessages()" label="Show" class="mr-2"></button>
-        <button type="button" pButton pRipple (click)="clearMessages()" label="Clear" class="p-button-secondary"></button>
-    </div>
-</section>
+    <p-messages [(value)]="messages" [enableService]="true" [closable]="closable" [showTransitionOptions]="'250ms'" [hideTransitionOptions]="'250ms'"></p-messages>

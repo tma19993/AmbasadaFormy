@@ -1,7 +1,8 @@
 <section class="checkbox--container">
     <p-checkbox 
+    (onChange)="checkedTogglerEmiter()"
     [(ngModel)]="checked" 
-    [binary]="binary" 
+    [binary]="true" 
     [disabled]="disabled"
     [label]="label">
     </p-checkbox>

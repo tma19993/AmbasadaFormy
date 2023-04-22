@@ -1,4 +1,5 @@
 export interface Categories {
     name: string;
-    key: string;
+    key: "men" | "woman" | "other";
+    checked: boolean
   }

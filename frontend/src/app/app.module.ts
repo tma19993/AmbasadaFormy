@@ -15,8 +15,13 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FooterModule } from 'src/stories/components/footer/footer.module';
 import { HomePageComponent } from './sites/homePage/homePage.component';
-import { AppCheckboxModule } from "../stories/components/checkbox/checkbox.module";
+import { AfCheckboxModule } from "../stories/components/checkbox/checkbox.module";
 import { AFRadiobuttonModule } from "../stories/components/radiobutton/radiobutton.module";
+import { MessagesModule } from 'primeng/messages';
+import { AfMessagesModule } from 'src/stories/components/messages/messages.module';
+import { AfPasswordModule } from 'src/stories/components/password/password.module';
+import { AfMessageService } from './services/message.service';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
     declarations: [
@@ -26,14 +31,18 @@ import { AFRadiobuttonModule } from "../stories/components/radiobutton/radiobutt
         RegisterComponent,
         HomePageComponent,
     ],
-    providers: [],
+    providers: [AfMessageService, MessageService],
     bootstrap: [AppComponent],
     imports: [
+        AfPasswordModule,
+        AfMessagesModule,
+        MessagesModule,
         FooterModule,
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
         FormsModule,
+        AfCheckboxModule,
         AFButtonModule,
         InputModule,
         AFTileModule,
@@ -44,7 +53,6 @@ import { AFRadiobuttonModule } from "../stories/components/radiobutton/radiobutt
                 deps: [HttpClient]
             }
         }),
-        AppCheckboxModule,
         AFRadiobuttonModule
     ]
 })
