@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { GenderModel, genderKey } from 'src/app/models/gender.model';
 import { registerData } from 'src/app/models/register.model';
 import { AfMessageService } from 'src/app/services/message.service';
 import { enumIconFloat } from 'src/stories/enums/input.enum';
 import { inputIconConfig } from 'src/stories/interfaces/input.model';
-import { Categories } from 'src/stories/interfaces/radiobutton.model';
 
 @Component({
   selector: 'app-register',
@@ -23,39 +24,22 @@ export class RegisterComponent {
   };
   public genderCheckboxDisabled: boolean = false;
   public accountData: registerData = {};
-  public genderArray: Categories[] = [
-    {
-      name: 'Mężczyzna',
-      key: 'men',
-      checked: false,
-    },
-    {
-      name: 'Kobieta',
-      key: 'woman',
-      checked: false,
-    },
-    {
-      name: 'Inna',
-      key: 'other',
-      checked: false,
-    },
-  ];
-  private repeatedPassword: string= "";
+  public genderArray: GenderModel[] =[];
+  private repeatedPassword: string = "";
    
   constructor(
     private router: Router,
-    private messageService: AfMessageService
-  ) {}
+    private messageService: AfMessageService,
+    private translateService: TranslateService) {
+    this.translateService.setDefaultLang(localStorage.getItem("language") || ("en"));
+    this.getTranslationGenderData();
+  }
 
   public goToHomePage(): void {
     if(this.validation()){
       console.log("logowanie udane");
     // this.router.navigate(['/home']);
     }
-  }
-
-  public goToLogin(): void {
-    this.router.navigate(['/login']);
   }
 
   public goToWelcomePage(): void {
@@ -82,6 +66,24 @@ export class RegisterComponent {
 
  public getReapeatedPassword(event:string):void{
   this.repeatedPassword = event;
+  }
+
+  private getTranslationGenderData():void{
+    this.translateService.get("registerLogin.genderType").subscribe((translate)=>{
+      const keys = Object.keys(translate);
+      const name:string[] = Object.values(translate);
+      if(name.length == keys.length){
+
+        for (let i = 0; i < name.length; i++) {
+          const object:GenderModel = {
+              "key": keys[i] as genderKey,
+              "name": name[i],
+              "checked": false
+          }
+           this.genderArray.push(object);
+        }
+      }
+    })
   }
 
   private validation():Boolean{

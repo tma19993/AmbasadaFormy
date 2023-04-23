@@ -8,31 +8,31 @@
     <div class="login-section">
       <af-tile>
         <div class="button__return-right">
-          <af-button iconClassName="pi-undo" iconPos="top" label="Powrót" buttonId="undo" [fontSize]="10" [iconSize]="18"  [transparentButton]="true" (click)="backToWelcomePage()"></af-button>
+          <af-button iconClassName="pi-undo" iconPos="top" [label]="'buttons.back' | translate" buttonId="undo" [fontSize]="10" [iconSize]="18"  [transparentButton]="true" (click)="backToWelcomePage()"></af-button>
         </div>
         <div class="login-section__justify">
           <form>
             <div class="form-group">
-              <af-input [iconConfig]="loginData" [floatLabel]="true" floatLabelText="Login" (inputValue)="getLogin($event)"></af-input>
+              <af-input [iconConfig]="loginData" [floatLabel]="true" [floatLabelText]="'registerLogin.login' | translate" (inputValue)="getLogin($event)"></af-input>
             </div>
             <div class="form-group">
-              <af-password floatLabelText="Hasło" (inputValue)="getPassword($event)"></af-password>
+              <af-password [floatLabelText]="'registerLogin.password' | translate" (inputValue)="getPassword($event)"></af-password>
             </div>
             <div class="form-group">
               <div class="box-forgot">
                 <div class="box-forgot__checkbox">
-                  <af-checkbox (checkedToggler)="getRemeberPassword($event)" [label]="'Zapisz hasło'"></af-checkbox>
+                  <af-checkbox (checkedToggler)="getRemeberPassword($event)" [label]="'registerLogin.safePassword' | translate"></af-checkbox>
                 </div>
                 <div class="box-forgot__forgot">
-                  <p>Nie pamiętasz hasła? <a href="#" class="form-group__forgot-password">Przypomnij hasło</a>.</p>
+                  <p>{{'registerLogin.dontRememberPassword' | translate}} <a href="#" class="form-group__forgot-password">{{'registerLogin.RemindPassword' | translate}}</a></p>
                 </div>
               </div>
             </div>
             <div class="button__mid">
-              <af-button label="Zaloguj" buttonId="login" [fontSize]="30" (click)="onClickLogin()"></af-button>
+              <af-button [label]="'registerLogin.log_in' | translate" buttonId="login" [fontSize]="30" (click)="onClickLogin()"></af-button>
             </div>
             <div class="account-dont-exist">
-              <p>Nie masz konta? <a routerLink="/register">Zarejestruj się</a>.</p>
+              <p>{{'registerLogin.dontHaveAccount' | translate}} <a routerLink="/register">{{'registerLogin.registerNow' | translate}}</a></p>
             </div>
           </form>
         </div>

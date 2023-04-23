@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ButtonIconPosition } from 'src/stories/enums/button.enum';
 @Component({
   selector: 'af-button',
   templateUrl: './button.component.html',
-  styleUrls: ['./button.component.scss']
+  styleUrls: ['./button.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent implements OnInit {
   @Input() public label: string = '';
@@ -19,7 +20,6 @@ export class ButtonComponent implements OnInit {
   constructor() {
   }
   public ngOnInit(): void {
-    this.label = this.label.toUpperCase();
     if(!!this.buttonId){
     setTimeout(()=>{
       this.changeFontsize();

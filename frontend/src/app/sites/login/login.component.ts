@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { AfMessageService } from 'src/app/services/message.service';
 import { enumIconFloat } from 'src/stories/enums/input.enum';
 import { inputIconConfig } from 'src/stories/interfaces/input.model';
@@ -20,7 +21,9 @@ export class LoginComponent {
     iconFloat: enumIconFloat.left,
   };
 
-  constructor(private router: Router, private message: AfMessageService) {}
+  constructor(private router: Router, private message: AfMessageService,private translateService: TranslateService) {
+    this.translateService.setDefaultLang(localStorage.getItem("language") || ("en"));
+  }
 
   public onClickLogin(): void {
     if (!this.login && !this.password) {

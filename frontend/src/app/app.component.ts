@@ -9,7 +9,7 @@ export class AppComponent implements OnInit {
   title = 'AmbasadaFormy-front';
 
   public ngOnInit(): void {
-   localStorage.setItem("language", "pl");
+   localStorage.setItem("language", "en");
   }
 
   public reload():void{

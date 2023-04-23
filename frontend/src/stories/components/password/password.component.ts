@@ -1,9 +1,10 @@
-import { AfterViewInit, Component, EventEmitter, Input, Output, } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, } from '@angular/core';
 
 @Component({
   selector: 'af-password',
   templateUrl: './password.component.html',
   styleUrls: ['./password.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PasswordComponent implements AfterViewInit {
   @Input() public floatLabelText: string = '';
@@ -19,20 +20,18 @@ export class PasswordComponent implements AfterViewInit {
 
   public value: string | undefined;
   public showClear: boolean = false;
-  public floatLabel: boolean = false;
-  constructor() {
-    if(this.floatLabelText.length !=0){
-      this.floatLabel = true;
-    }
+  constructor() {}
+
+  public ngAfterViewInit(): void {
+  setTimeout(()=>{
+    this.addIconToPasswordInput();
+    this.findIcon();
+  },0);
+
   }
 
   public getValue():void{
     this.inputValue.emit(this.value);
-  }
-
-  public ngAfterViewInit(): void {
-    this.addIconToPasswordInput();
-    this.findIcon();
   }
 
   private findIcon():void{
@@ -41,8 +40,8 @@ export class PasswordComponent implements AfterViewInit {
     });
   }
 
-  private addIconToPasswordInput():void{
-    document.querySelectorAll(".p-password")?.forEach(element => {
+  private addIconToPasswordInput(): void {
+    document.querySelectorAll("p-password .p-password")?.forEach(element => {
       const classList: string[] = ["pi", "pi-lock", "password__content--lock-icon"];
       const lockIcon:HTMLElement = document.createElement("i");
     lockIcon.classList.add(...classList);

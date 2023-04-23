@@ -1,21 +1,52 @@
 {
-    "footer":{
-        "header":"Ambasada Formy",
-        "info":"Jesteśmy grupą osób, której zależy na tym abyś zaliczył progres korzystając z naszej oferty. Pamiętaj jednak, że to od twojego zaangażowania wszystko zależy. My dajemy tobie możliwości i odpowiednie narzędzia.",
+    "welcomePage": {
+        "login": "Logowanie",
+        "register": "Rejestracja",
+        "joinUs": "Dołącz do nas!",
+        "workEffectsGoals": "Praca Efekty Cele"
+    },
+    "registerLogin": {
+        "firstName": "Imie",
+        "lastName": "Nazwisko",
+        "login": "login",
+        "email": "e-mail",
+        "gender": "Płeć",
+        "genderType": {
+            "men": "Mężczyzna",
+            "woman": "Kobieta",
+            "other": "Inna"
+        },
+        "password": "Hasło",
+        "repeatPassowrd": "Powtórz hasło",
+        "register":"Zarejestruj",
+        "haveAccount": "Mam już konto",
+        "dontHaveAccount": "Nie masz konta?",
+        "log_in": "Zaloguj się",
+        "registerNow": "Zarejestruj się",
+        "safePassword": "Zapisz hasło",
+        "dontRememberPassword": "Nie pamiętasz hasła?",
+        "RemindPassword": "Przypomnij hasło"
+
+    },
+    "footer": {
+        "header": "Ambasada Formy",
+        "info": "Jesteśmy grupą osób, której zależy na tym abyś zaliczył progres korzystając z naszej oferty. Pamiętaj jednak, że to od twojego zaangażowania wszystko zależy. My dajemy tobie możliwości i odpowiednie narzędzia.",
         "contact": "Kontakt",
-        "address":"ul. Konstantynów 1H 20-708 Lublin, Polska",
-        "mail":"e-mail",
+        "address": "ul. Konstantynów 1H 20-708 Lublin, Polska",
+        "mail": "e-mail",
         "phone": "Telefon",
         "socialMedia": "Social Media",
-        "links":"Linki",
-        "statute":"Regulamin",
-        "faq":"FAQ",
+        "links": "Linki",
+        "statute": "Regulamin",
+        "faq": "FAQ",
         "location": "Lokalizacja",
-        "constant":{
-            "email":"email@email.com",
-            "firstPhoneNumber":"+48 000 000 000",
-            "secondPhoneNumber":"(00) 000 00 00"
+        "constant": {
+            "email": "email@email.com",
+            "firstPhoneNumber": "+48 000 000 000",
+            "secondPhoneNumber": "(00) 000 00 00"
         }
-        
+    },
+    "buttons": {
+        "back": "Powrót"
     }
 }

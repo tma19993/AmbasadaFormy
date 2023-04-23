@@ -8,26 +8,26 @@
     <div class="register-section">
       <af-tile>
         <div class="button__return-right">
-          <af-button iconClassName="pi-undo" iconPos="top" label="Powrót" buttonId="undo" [fontSize]="10"
+          <af-button iconClassName="pi-undo" iconPos="top" [label]="'buttons.back' | translate" buttonId="undo" [fontSize]="10"
             [iconSize]="18" [transparentButton]="true" (click)="goToWelcomePage()"></af-button>
         </div>
         <div class="register-content">
           <div class="register-section__justify">
             <div class="form-group">
-              <af-input [iconConfig]="loginData" [floatLabel]="true" floatLabelText="imie" (inputValue)="getData($event,'firstName')"></af-input>
+              <af-input [iconConfig]="loginData" [floatLabel]="true" [floatLabelText]="'registerLogin.firstName' | translate" (inputValue)="getData($event,'firstName')"></af-input>
             </div>
             <div class="form-group">
-              <af-input [iconConfig]="loginData" [floatLabel]="true" floatLabelText="nazwisko" (inputValue)="getData($event,'lastName')"></af-input>
+              <af-input [iconConfig]="loginData" [floatLabel]="true" [floatLabelText]="'registerLogin.lastName' | translate" (inputValue)="getData($event,'lastName')"></af-input>
             </div>
             <div class="form-group">
-              <af-input [iconConfig]="loginData" [floatLabel]="true" floatLabelText="login" (inputValue)="getData($event,'login')"></af-input>
+              <af-input [iconConfig]="loginData" [floatLabel]="true" [floatLabelText]="'registerLogin.login' | translate" (inputValue)="getData($event,'login')"></af-input>
             </div>
             <div class="form-group">
-              <af-input [iconConfig]="mailData" [floatLabel]="true" floatLabelText="e-mail" (inputValue)="getData($event,'email')"></af-input>
+              <af-input [iconConfig]="mailData" [floatLabel]="true" [floatLabelText]="'registerLogin.email' | translate" (inputValue)="getData($event,'email')"></af-input>
             </div>
             <div class="form-group register--gender__selection">
               <div class="register--gender__selection__buttons">
-                <p class="register--gender__selection__buttons--header">Płeć</p>
+                <p class="register--gender__selection__buttons--header">{{'registerLogin.gender' | translate}}</p>
                 <div *ngFor="let gender of genderArray;  index as id" [attr.data-index]="id">
                   <af-checkbox (checkedToggler)="getGender($event, id)"
                     [disabled]="genderCheckboxDisabled && !gender.checked" [label]="gender.name"
@@ -36,16 +36,16 @@
               </div>
             </div>
             <div class="form-group">
-              <af-password floatLabelText="Hasło" (inputValue)="getData($event,'password')"></af-password>
+              <af-password [floatLabelText]="'registerLogin.password' | translate" (inputValue)="getData($event,'password')"></af-password>
             </div>
             <div class="form-group">
-              <af-password floatLabelText="Powtórz hasło" (inputValue)="getReapeatedPassword($event)"></af-password>
+              <af-password [floatLabelText]="'registerLogin.repeatPassowrd' | translate" (inputValue)="getReapeatedPassword($event)"></af-password>
             </div>
             <div class="button__mid">
-              <af-button [label]="'Rejestruj'" buttonId="register" [fontSize]="30" (click)="goToHomePage()"></af-button>
+              <af-button [label]="'registerLogin.register' | translate" buttonId="register" [fontSize]="30" (click)="goToHomePage()"></af-button>
             </div>
             <div class="box-have-account">
-              <p>Mam już konto <a (click)="goToLogin()" class="box-have-account__reference">Zaloguj się</a></p>
+              <p>{{'registerLogin.haveAccount' | translate}} <a routerLink="/login" class="box-have-account__reference">{{'registerLogin.log_in' | translate}}</a></p>
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-welcomePage',
@@ -7,7 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./welcomePage.component.scss']
 })
 export class WelcomePageComponent {
-  constructor(private router: Router) { }
+  constructor(private router: Router, private translateService: TranslateService) { 
+    this.translateService.setDefaultLang(localStorage.getItem("language") || ("en"));
+  }
 
   public goToLogin(): void {
     this.router.navigate(['login']);
