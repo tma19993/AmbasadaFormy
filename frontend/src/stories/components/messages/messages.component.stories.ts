@@ -52,9 +52,4 @@ Error.args={
   messages: [{severity: 'error', summary: 'Error', detail: 'Error Content' }]
 }
 
-export const MessageAfterClickButton:Story = Template.bind({});
-MessageAfterClickButton.args={
-  showAdditionalButtons:true
-}
-
 

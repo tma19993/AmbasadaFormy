@@ -1,0 +1,39 @@
+@import "./../../constants/constants.scss";
+.dropdown {
+    display: inline-block;
+  position: relative;
+  &__button {
+    background-color: transparent;
+    border: none;
+    color: $input-main-color;
+    cursor: pointer;
+  }
+  &__options {
+    position: absolute;
+    margin-top: 5px;
+    border: 2px solid $input-border-color;
+    background-color: $input-border-color;
+    color: $input-background-color;
+    border-radius: 15px;
+    &--single-option{
+      text-align: center;
+        padding: 10px 15px;
+        font-size: 16px;
+        font-weight: $font-weight-bold;
+        &:first-of-type{
+          border-top-left-radius: 12px;
+          border-top-right-radius: 12px;
+        }
+        &:last-of-type{
+          border-bottom-left-radius: 12px;
+          border-bottom-right-radius: 12px;
+        }
+        cursor: pointer;
+        transition: .1s;
+        &:hover{
+          background-color:$input-background-color;
+          color: $input-border-color ;
+        }
+    }
+  }
+}

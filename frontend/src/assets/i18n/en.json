@@ -19,7 +19,7 @@
         "password": "password",
         "repeatPassowrd": "repeat passowrd",
         "register":"register",
-        "haveAccount": "I already have an account",
+        "haveAccount": "You already have an account",
         "dontHaveAccount": "You do not have an account?",
         "log_in": "Log in",
         "registerNow": "Register Now",
