@@ -53,6 +53,12 @@
     position: relative;
   }
 
+  .button__language{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+
   .button__return-right {
     position: absolute;
     top: 20px;
@@ -62,7 +68,7 @@
   .button__mid {
     display: flex;
     justify-content:center;
-    padding: 20px 20px;
+    padding: 20px;
   }
 
 
@@ -73,6 +79,7 @@
 }
 
 .box-forgot{
+  margin-top: 10px;
   width: 100%;
   display: flex;
 

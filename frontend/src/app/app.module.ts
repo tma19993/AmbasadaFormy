@@ -22,6 +22,8 @@ import { AfMessagesModule } from 'src/stories/components/messages/messages.modul
 import { AfPasswordModule } from 'src/stories/components/password/password.module';
 import { AfMessageService } from './services/message.service';
 import { MessageService } from 'primeng/api';
+import { LanguageChangerModule } from "../stories/components/languageChanger/languageChanger.module";
+import { MenuStaticModule } from "../stories/components/menuStatic/menuStatic.module";
 
 @NgModule({
     declarations: [
@@ -53,7 +55,9 @@ import { MessageService } from 'primeng/api';
                 deps: [HttpClient]
             }
         }),
-        AFRadiobuttonModule
+        AFRadiobuttonModule,
+        LanguageChangerModule,
+        MenuStaticModule
     ]
 })
 export class AppModule { }

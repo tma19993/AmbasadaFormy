@@ -207,6 +207,38 @@
             "methods": []
         },
         {
+            "name": "LanguageModel",
+            "id": "interface-LanguageModel-f06849dc9bddc0694ba5f0dc4e59a91b5310c4fb3d3d76b0a04c14a8ce133109e9d9f3377ec393f7fbe060898b47984756b910e2871d6ee7f398f09ab81d2a52",
+            "file": "src/stories/components/languageChanger/language.model.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface LanguageModel{ \r\n    id:string,\r\n    name:string\r\n}",
+            "properties": [
+                {
+                    "name": "id",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                },
+                {
+                    "name": "name",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 165,
+            "methods": []
+        },
+        {
             "name": "registerData",
             "id": "interface-registerData-156b7a3740478658843b90f76e14b0b33f3305aafcacae0a8368db02180252fdb2e4f2324cf11283feb7bade33e2e53a9b6acd38ef2f302d1a4315dd9787cfdd",
             "file": "src/app/models/register.model.ts",
@@ -586,7 +618,7 @@
         },
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-9b4b2fdb38159f3fe59f6fd50c5eccae1746ed46da47281c0c0794c83d5e8744ad4ca09029cf3c424065ed558b2f3ce4ca9e0fb6c6c4429be7da1813fcf7e8be",
+            "id": "component-AppComponent-7b202ca4cc7c13738b2ceb8accc58baf18dc2e4e517eed21808a093388f5dd1808aa911f88c4b114775f8f7e5f2410dad58af35cc7f797e62c79809a6413c166",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -616,34 +648,7 @@
                     "line": 9
                 }
             ],
-            "methodsClass": [
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 11,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "modifierKind": [
-                        123
-                    ]
-                },
-                {
-                    "name": "reload",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 15,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "modifierKind": [
-                        123
-                    ]
-                }
-            ],
+            "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -651,7 +656,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  templateUrl: './app.component.html',\r\n  styleUrls: ['./app.component.scss']\r\n})\r\nexport class AppComponent implements OnInit {\r\n  title = 'AmbasadaFormy-front';\r\n\r\n  public ngOnInit(): void {\r\n   localStorage.setItem(\"language\", \"en\");\r\n  }\r\n\r\n  public reload():void{\r\n    window.location.reload();\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  templateUrl: './app.component.html',\r\n  styleUrls: ['./app.component.scss'],\r\n})\r\nexport class AppComponent {\r\n  title = 'AmbasadaFormy-front';\r\n  constructor() {}\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -660,9 +665,14 @@
                 }
             ],
             "stylesData": "",
-            "implements": [
-                "OnInit"
-            ],
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 9
+            },
             "templateData": "<div class=\"container\">\r\n  <router-outlet></router-outlet>\r\n</div>"
         },
         {
@@ -936,7 +946,7 @@
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-cff8eed7cf7ef3cb66732ce9b4115237279b924c74d4ce30e3085593c251336ab715de8d7c3de83b53146fc73de249d7eae8f20a449b07499a2cdedae990fd88",
+            "id": "component-ButtonComponent-00dcf347b59eade3bfffbdc6996ab3b678f3d8b69bfb858fda9000d3b55c62d8bc80a90353f263ecee62d2e79b2f6b72368d3f118fbe0b5a7d43803814fde838",
             "file": "src/stories/components/button/button.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -1079,7 +1089,7 @@
                     ]
                 },
                 {
-                    "name": "ngOnInit",
+                    "name": "ngAfterViewInit",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
@@ -1099,7 +1109,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\r\nimport { ButtonIconPosition } from 'src/stories/enums/button.enum';\r\n@Component({\r\n  selector: 'af-button',\r\n  templateUrl: './button.component.html',\r\n  styleUrls: ['./button.component.scss'],\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class ButtonComponent implements OnInit {\r\n  @Input() public label: string = '';\r\n  @Input() public iconClassName: string = '';\r\n  @Input() public iconPos: ButtonIconPosition = 'left';\r\n  @Input() public fontSize: number = 20;\r\n  @Input() public iconSize: number = 20;\r\n  @Input() public buttonId: string = '';\r\n  @Input() public disabled: boolean = false;\r\n  @Input() public transparentButton: boolean = false;\r\n  @Output() onClick: EventEmitter<void> = new EventEmitter();\r\n\r\n  constructor() {\r\n  }\r\n  public ngOnInit(): void {\r\n    if(!!this.buttonId){\r\n    setTimeout(()=>{\r\n      this.changeFontsize();\r\n      this.changeIconsize();\r\n    },0);\r\n    }\r\n  }\r\n\r\n  public click(): void {\r\n    this.onClick.emit();\r\n  }\r\n  public changeFontsize():void {\r\n   const element: HTMLElement= document.querySelector(`.${this.buttonId} p-button button.p-button span.p-button-label`) as HTMLElement;\r\n   element.style.fontSize = this.fontSize + \"px\";\r\n  };\r\n\r\n  public changeIconsize():void {\r\n    const element: HTMLElement= document.querySelector(`.${this.buttonId} p-button button.p-button span.p-button-icon`) as HTMLElement;\r\n    element.style.fontSize = this.iconSize + \"px\";\r\n  }\r\n}\r\n",
+            "sourceCode": "import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\r\nimport { ButtonIconPosition } from 'src/stories/enums/button.enum';\r\n@Component({\r\n  selector: 'af-button',\r\n  templateUrl: './button.component.html',\r\n  styleUrls: ['./button.component.scss'],\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class ButtonComponent implements AfterViewInit {\r\n  @Input() public label: string = '';\r\n  @Input() public iconClassName: string = '';\r\n  @Input() public iconPos: ButtonIconPosition = 'left';\r\n  @Input() public fontSize: number = 20;\r\n  @Input() public iconSize: number = 20;\r\n  @Input() public buttonId: string = '';\r\n  @Input() public disabled: boolean = false;\r\n  @Input() public transparentButton: boolean = false;\r\n  @Output() onClick: EventEmitter<void> = new EventEmitter();\r\n\r\n  constructor() {\r\n  }\r\n  public ngAfterViewInit(): void {\r\n    if(!!this.buttonId){\r\n    setTimeout(()=>{\r\n      this.changeFontsize();\r\n      this.changeIconsize();\r\n    },5);\r\n    }\r\n  }\r\n\r\n  public click(): void {\r\n    this.onClick.emit();\r\n  }\r\n  public changeFontsize():void {\r\n   const element: HTMLElement= document.querySelector(`.${this.buttonId} p-button button.p-button span.p-button-label`) as HTMLElement;\r\n   element.style.fontSize = this.fontSize + \"px\";\r\n  };\r\n\r\n  public changeIconsize():void {\r\n    const element: HTMLElement= document.querySelector(`.${this.buttonId} p-button button.p-button span.p-button-icon`) as HTMLElement;\r\n    element.style.fontSize = this.iconSize + \"px\";\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1117,7 +1127,7 @@
                 "line": 18
             },
             "implements": [
-                "OnInit"
+                "AfterViewInit"
             ],
             "templateData": "<section class=\"button__container\" [ngClass]=\"buttonId ? buttonId:''\">\r\n    <p-button \r\n    class=\"button__content\"\r\n    [ngClass]=\"transparentButton ? 'transparent-button':''\"\r\n      [label]=\"label.toUpperCase()\"\r\n      [iconPos]=\"iconPos\"\r\n      [icon]=\"'pi ' + iconClassName\"\r\n      (click)=\"click()\"\r\n      [disabled]=\"disabled\"\r\n      >\r\n    </p-button>\r\n  </section>"
         },
@@ -1645,7 +1655,7 @@
         },
         {
             "name": "HomePageComponent",
-            "id": "component-HomePageComponent-84793bbb4c49ec986fbd9b4f77728c455ad8631865084584ffcefb411b4e37629304cbfee4eacba6978c2207642bcc1fc28004518dc4e5f172d197948d3dc6f0",
+            "id": "component-HomePageComponent-f2d024b2d10dde6b609c018a1fec979ecbc8696792cd47d8a1b6f59c1a192efb84176b646e37352aa7a40f282a2d7b50ae1b477e46312fe98d79a946e33471b6",
             "file": "src/app/sites/homePage/homePage.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1672,42 +1682,16 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\nimport { Router } from '@angular/router';\r\n\r\n@Component({\r\n  selector: 'app-homePage',\r\n  templateUrl: './homePage.component.html',\r\n  styleUrls: ['./homePage.component.scss']\r\n})\r\nexport class HomePageComponent {\r\n  constructor(private router: Router) { }\r\n}\r\n",
+            "sourceCode": "import { Component } from '@angular/core';\r\nimport { Router } from '@angular/router';\r\nimport { TranslateService } from '@ngx-translate/core';\r\n\r\n@Component({\r\n  selector: 'app-homePage',\r\n  templateUrl: './homePage.component.html',\r\n  styleUrls: ['./homePage.component.scss']\r\n})\r\nexport class HomePageComponent {\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": ".content-home{\r\n    width: 100%;\r\n    height: 100vh;\r\n}\r\n\r\nnav{\r\n    height: 10%;\r\n}",
                     "styleUrl": "./homePage.component.scss"
                 }
             ],
             "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [
-                    {
-                        "name": "router",
-                        "type": "Router",
-                        "deprecated": false,
-                        "deprecationMessage": ""
-                    }
-                ],
-                "line": 9,
-                "jsdoctags": [
-                    {
-                        "name": "router",
-                        "type": "Router",
-                        "deprecated": false,
-                        "deprecationMessage": "",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    }
-                ]
-            },
-            "templateData": "<p>zalogowano works!</p>\r\n"
+            "templateData": " <section class=\"content-home\">\r\n    <nav>\r\n        <div class=\"brand\">\r\n            <div class=\"brand__icon\">\r\n                <a>\r\n                    <img src=\"/frontend/src/assets/logo/logo.svg\" alt=\"Ambasada Formy\">\r\n                </a>\r\n            </div>\r\n            <div class=\"brand__name\">\r\n                <h1>Ambasada Formy</h1>\r\n            </div>\r\n        </div>\r\n        <ul>\r\n            <li><a href=\"\">Start</a></li>\r\n            <li><a href=\"\">Karnety</a></li>\r\n            <li><a href=\"\">Trening</a></li>\r\n            <li><a href=\"\">Blog</a></li>\r\n        </ul>\r\n    </nav>\r\n </section>"
         },
         {
             "name": "InputComponent",
@@ -2034,62 +2018,116 @@
         },
         {
             "name": "LanguageChangerComponent",
-            "id": "component-LanguageChangerComponent-39a7e81983114052e7c54e8a91ed2cf15a59ce94184f223cec62f6c63cada8a44fc5b47349b9a0f1025e225a71ebb8e54c886e24efeaa1aa3f188c64968977eb",
-            "file": "src/stories/components/language-changer/language-changer.component.ts",
+            "id": "component-LanguageChangerComponent-a80c4073490cd55a98c430221bd16e6aa86826ebf9fe0694f242ea3f647626efb7c2e3f19320f0f322e5e7ddb03ae334518629a7db9128f9577d1daca460e44f",
+            "file": "src/stories/components/languageChanger/languageChanger.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "af-language-changer",
+            "selector": "af-languageChanger",
             "styleUrls": [
-                "./language-changer.component.scss"
+                "./languageChanger.component.scss"
             ],
             "styles": [],
             "templateUrl": [
-                "./language-changer.component.html"
+                "./languageChanger.component.html"
             ],
             "viewProviders": [],
             "inputsClass": [
                 {
-                    "name": "label",
-                    "defaultValue": "\"\"",
+                    "name": "fontSize",
+                    "defaultValue": "12",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 10,
-                    "type": "string",
+                    "line": 12,
+                    "type": "number",
                     "decorators": []
                 }
             ],
             "outputsClass": [],
             "propertiesClass": [
                 {
-                    "name": "data",
-                    "defaultValue": "[{ name: 'Angielski', code: 'en' },{ name: 'Polski', code: 'pl' }]",
+                    "name": "languages",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "any[]",
+                    "type": "LanguageModel[]",
                     "optional": false,
                     "description": "",
-                    "line": 11,
+                    "line": 13,
                     "modifierKind": [
                         123
                     ]
                 },
                 {
-                    "name": "selected",
+                    "name": "selectedLanguage",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "any",
+                    "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 12,
+                    "line": 15,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "showDropdownOption",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
                     "modifierKind": [
                         123
                     ]
                 }
             ],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "changeLanguage",
+                    "args": [
+                        {
+                            "name": "id",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 27,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "id",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "dropdownOptionsToggler",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 23,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -2097,12 +2135,12 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\r\nimport { TranslateService } from '@ngx-translate/core';\r\n\r\n@Component({\r\n  selector: 'af-language-changer',\r\n  templateUrl: './language-changer.component.html',\r\n  styleUrls: ['./language-changer.component.scss']\r\n})\r\nexport class LanguageChangerComponent {\r\n@Input() public label: string = \"\";\r\npublic data: any[] =  [{ name: 'Angielski', code: 'en' },{ name: 'Polski', code: 'pl' }];\r\npublic selected: any;\r\nconstructor(private translateService: TranslateService){\r\n\r\n}\r\n}\r\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\nimport { Router } from '@angular/router';\r\nimport { TranslateService } from '@ngx-translate/core';\r\nimport { LanguageModel } from './language.model';\r\n\r\n@Component({\r\n  selector: 'af-languageChanger',\r\n  templateUrl: './languageChanger.component.html',\r\n  styleUrls: ['./languageChanger.component.scss']\r\n})\r\nexport class LanguageChangerComponent {\r\n  @Input() fontSize: number = 12;\r\n  public languages: LanguageModel[];\r\n  public showDropdownOption: boolean = false;\r\n  public selectedLanguage: string;\r\n\r\n  constructor( private translateService: TranslateService) { \r\n    this.translateService.setDefaultLang(localStorage.getItem(\"language\")!);\r\n    this.selectedLanguage = localStorage.getItem(\"language\")!;\r\n    this.languages=[{id:\"pl\",name:\"polski\"},{id:\"en\",name:\"angielski\"}]\r\n  }\r\n\r\n  public dropdownOptionsToggler():void{\r\n    this.showDropdownOption = !this.showDropdownOption;\r\n  }\r\n\r\n  changeLanguage(id: string) {\r\n  console.log(id);\r\n  localStorage.setItem(\"language\", id);\r\n  setTimeout(()=>{\r\n    window.location.reload();\r\n  },100);\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
-                    "styleUrl": "./language-changer.component.scss"
+                    "data": "@import \"./../../constants/constants.scss\";\r\n.dropdown {\r\n    display: inline-block;\r\n  position: relative;\r\n  &__button {\r\n    background-color: transparent;\r\n    border: none;\r\n    color: $input-main-color;\r\n    cursor: pointer;\r\n  }\r\n  &__options {\r\n    position: absolute;\r\n    margin-top: 5px;\r\n    border: 2px solid $input-main-color;\r\n    color: $input-main-color ;\r\n    border-radius: 15px;\r\n    &--single-option{\r\n      text-align: center;\r\n        padding: 10px 15px;\r\n        font-size: 12px;\r\n        font-weight: $font-weight-bold;\r\n        &:first-of-type{\r\n          border-top-left-radius: 12px;\r\n          border-top-right-radius: 12px;\r\n        }\r\n        &:last-of-type{\r\n          border-bottom-left-radius: 12px;\r\n          border-bottom-right-radius: 12px;\r\n        }\r\n        cursor: pointer;\r\n        transition: .1s;\r\n        &:hover{\r\n          background-color: $input-main-color ;\r\n          color: $input-background-color;\r\n        }\r\n         span{\r\n          display: flex; \r\n          gap: 5px;\r\n          align-items: center;\r\n         }\r\n    }\r\n  }\r\n}",
+                    "styleUrl": "./languageChanger.component.scss"
                 }
             ],
             "stylesData": "",
@@ -2119,7 +2157,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 12,
+                "line": 15,
                 "jsdoctags": [
                     {
                         "name": "translateService",
@@ -2132,7 +2170,7 @@
                     }
                 ]
             },
-            "templateData": "<!-- <af-dropdown  placeholder=\"language\"\r\n    [data] = \"data\"\r\n    optionLabel=\"name\"\r\n    filterBy= \"name\">\r\n    \r\n</af-dropdown> -->\r\n\r\n<p-dropdown [(ngModel)]=\"selected\"  [options]=\"data\"  optionLabel=\"name\" filterBy=\"name\" placeholder=\"język\" >\r\n    <ng-template pTemplate=\"selectedItem\">\r\n        <div *ngIf=\"selected\">\r\n            <img src=\"https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png\" style=\"width: 18px;\" class=\"flag flag-af\">\r\n            {{selected.name}}\r\n        </div>\r\n    </ng-template>\r\n    <ng-template let-language pTemplate=\"item\">\r\n        <div>\r\n            <i class=\"flag flag-us\"></i>\r\n            <!-- <img src=\"https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png\" style=\"width: 18px;\" class=\" mr-2 flag flag-af\"> -->\r\n            {{language.name}}\r\n        </div>\r\n    </ng-template>\r\n</p-dropdown>\r\n\r\n"
+            "templateData": " <div class=\"dropdown\">\r\n    <button class=\"dropdown__button\" (click)=\"dropdownOptionsToggler()\">\r\n      <span class=\"pi pi-language\" [style]=\"'fontSize:' +fontSize +'px'\"></span>\r\n    </button>\r\n    <div *ngIf=\"showDropdownOption\" class=\"dropdown__options\">\r\n      <div *ngFor=\"let item of languages\" class=\"dropdown__options--single-option\">\r\n        <span (click)=\"changeLanguage(item.id)\"><img [src]=\"'../../../assets/backgrounds/flags/'+item.id+'.png'\" [alt]=\"item.name\" style=\"max-width: 18px;\">{{item.id.toUpperCase()}}</span>\r\n      </div>\r\n    </div>\r\n  </div>"
         },
         {
             "name": "LoginComponent",
@@ -2334,7 +2372,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"../../../stories/constants/constants.scss\";\r\n\r\n.bg-img{\r\n  background: url('../../../assets/backgrounds/background-loginPage.jpg');\r\n  background-size: 100%;\r\n  background-position: center;\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  overflow: hidden;\r\n  height: 100vh;\r\n  color:$darker-gray;\r\n}\r\n\r\n.login-container {\r\n  display: grid;\r\n  grid-auto-columns: 1fr;\r\n  grid-auto-rows: 1fr;\r\n  grid-template-columns: 1fr 1fr 1fr;\r\n  grid-template-rows: 0.5fr 1fr 1fr;\r\n  gap: 20px 0px;\r\n  grid-template-areas:\r\n  \"logo-section logo-section logo-section\"\r\n  \"login-section login-section login-section\";\r\n  justify-items: center;\r\n  align-items: stretch;\r\n  height: 100vh;\r\n  \r\n  .logo-section {\r\n  grid-area: logo-section;\r\n\r\n    &__af{\r\n      padding: 50px;\r\n    }\r\n    img{\r\n      width: 350px;\r\n      filter: invert(1);\r\n    }\r\n  }\r\n\r\n  .login-section {\r\n  grid-area: login-section;\r\n  margin: 5px;\r\n  width: 1000px;\r\n\r\n    &__justify {\r\n    padding: 40px 200px;\r\n    width: 100%;\r\n  }\r\n}\r\n\r\n\r\n  af-tile{\r\n    position: relative;\r\n  }\r\n\r\n  .button__return-right {\r\n    position: absolute;\r\n    top: 20px;\r\n    right: 20px;\r\n  }\r\n\r\n  .button__mid {\r\n    display: flex;\r\n    justify-content:center;\r\n    padding: 20px 20px;\r\n  }\r\n\r\n\r\n  a {\r\n  margin-top: 20px;\r\n  color: rgb(0, 173, 181);\r\n}\r\n}\r\n\r\n.box-forgot{\r\n  width: 100%;\r\n  display: flex;\r\n\r\n  &__checkbox{\r\n    width:25%;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: flex-end;\r\n  }\r\n\r\n  &__forgot{\r\n    width: 75%;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: flex-end;\r\n  }\r\n}\r\n\r\n.account-dont-exist {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n}\r\n\r\n.validoation__container{\r\n  position: absolute;\r\n  top: 20px;\r\n  right:20px;\r\n  }\r\n",
+                    "data": "@import \"../../../stories/constants/constants.scss\";\r\n\r\n.bg-img{\r\n  background: url('../../../assets/backgrounds/background-loginPage.jpg');\r\n  background-size: 100%;\r\n  background-position: center;\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  overflow: hidden;\r\n  height: 100vh;\r\n  color:$darker-gray;\r\n}\r\n\r\n.login-container {\r\n  display: grid;\r\n  grid-auto-columns: 1fr;\r\n  grid-auto-rows: 1fr;\r\n  grid-template-columns: 1fr 1fr 1fr;\r\n  grid-template-rows: 0.5fr 1fr 1fr;\r\n  gap: 20px 0px;\r\n  grid-template-areas:\r\n  \"logo-section logo-section logo-section\"\r\n  \"login-section login-section login-section\";\r\n  justify-items: center;\r\n  align-items: stretch;\r\n  height: 100vh;\r\n  \r\n  .logo-section {\r\n  grid-area: logo-section;\r\n\r\n    &__af{\r\n      padding: 50px;\r\n    }\r\n    img{\r\n      width: 350px;\r\n      filter: invert(1);\r\n    }\r\n  }\r\n\r\n  .login-section {\r\n  grid-area: login-section;\r\n  margin: 5px;\r\n  width: 1000px;\r\n\r\n    &__justify {\r\n    padding: 40px 200px;\r\n    width: 100%;\r\n  }\r\n}\r\n\r\n\r\n  af-tile{\r\n    position: relative;\r\n  }\r\n\r\n  .button__language{\r\n    position: absolute;\r\n    top: 20px;\r\n    left: 20px;\r\n  }\r\n\r\n  .button__return-right {\r\n    position: absolute;\r\n    top: 20px;\r\n    right: 20px;\r\n  }\r\n\r\n  .button__mid {\r\n    display: flex;\r\n    justify-content:center;\r\n    padding: 20px;\r\n  }\r\n\r\n\r\n  a {\r\n  margin-top: 20px;\r\n  color: rgb(0, 173, 181);\r\n}\r\n}\r\n\r\n.box-forgot{\r\n  margin-top: 10px;\r\n  width: 100%;\r\n  display: flex;\r\n\r\n  &__checkbox{\r\n    width:25%;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: flex-end;\r\n  }\r\n\r\n  &__forgot{\r\n    width: 75%;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: flex-end;\r\n  }\r\n}\r\n\r\n.account-dont-exist {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n}\r\n\r\n.validoation__container{\r\n  position: absolute;\r\n  top: 20px;\r\n  right:20px;\r\n  }\r\n",
                     "styleUrl": "./login.component.scss"
                 }
             ],
@@ -2395,7 +2433,7 @@
                     }
                 ]
             },
-            "templateData": "<div class=\"bg-img\">\r\n  <section class=\"login-container\">\r\n    <div class=\"logo-section\">\r\n      <div class=\"logo-section__af\">\r\n        <img src=\"../../../assets/logo/logoFt_text.svg\" alt=\"test\">\r\n      </div>\r\n    </div>\r\n    <div class=\"login-section\">\r\n      <af-tile>\r\n        <div class=\"button__return-right\">\r\n          <af-button iconClassName=\"pi-undo\" iconPos=\"top\" [label]=\"'buttons.back' | translate\" buttonId=\"undo\" [fontSize]=\"10\" [iconSize]=\"18\"  [transparentButton]=\"true\" (click)=\"backToWelcomePage()\"></af-button>\r\n        </div>\r\n        <div class=\"login-section__justify\">\r\n          <form>\r\n            <div class=\"form-group\">\r\n              <af-input [iconConfig]=\"loginData\" [floatLabel]=\"true\" [floatLabelText]=\"'registerLogin.login' | translate\" (inputValue)=\"getLogin($event)\"></af-input>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <af-password [floatLabelText]=\"'registerLogin.password' | translate\" (inputValue)=\"getPassword($event)\"></af-password>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <div class=\"box-forgot\">\r\n                <div class=\"box-forgot__checkbox\">\r\n                  <af-checkbox (checkedToggler)=\"getRemeberPassword($event)\" [label]=\"'registerLogin.safePassword' | translate\"></af-checkbox>\r\n                </div>\r\n                <div class=\"box-forgot__forgot\">\r\n                  <p>{{'registerLogin.dontRememberPassword' | translate}} <a href=\"#\" class=\"form-group__forgot-password\">{{'registerLogin.RemindPassword' | translate}}</a></p>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"button__mid\">\r\n              <af-button [label]=\"'registerLogin.log_in' | translate\" buttonId=\"login\" [fontSize]=\"30\" (click)=\"onClickLogin()\"></af-button>\r\n            </div>\r\n            <div class=\"account-dont-exist\">\r\n              <p>{{'registerLogin.dontHaveAccount' | translate}} <a routerLink=\"/register\">{{'registerLogin.registerNow' | translate}}</a></p>\r\n            </div>\r\n          </form>\r\n        </div>\r\n      </af-tile>\r\n    </div>\r\n  </section>\r\n</div>\r\n\r\n<section class=\"validoation__container\">\r\n  <af-messages [closable]=\"true\"></af-messages>\r\n</section>"
+            "templateData": "<div class=\"bg-img\">\r\n  <section class=\"login-container\">\r\n    <div class=\"logo-section\">\r\n      <div class=\"logo-section__af\">\r\n        <img src=\"../../../assets/logo/logoFt_text.svg\" alt=\"test\">\r\n      </div>\r\n    </div>\r\n    <div class=\"login-section\">\r\n      <af-tile>\r\n        <div class=\"button__language\">\r\n          <af-languageChanger [fontSize]=\"22\"></af-languageChanger>\r\n        </div>\r\n        <div class=\"button__return-right\">\r\n          <af-button iconClassName=\"pi-undo\" iconPos=\"top\" [label]=\"'buttons.back' | translate\" buttonId=\"undo\" [fontSize]=\"10\" [iconSize]=\"18\"  [transparentButton]=\"true\" (click)=\"backToWelcomePage()\"></af-button>\r\n        </div>\r\n        <div class=\"login-section__justify\">\r\n          <form>\r\n            <div class=\"form-group\">\r\n              <af-input [iconConfig]=\"loginData\" [floatLabel]=\"true\" [floatLabelText]=\"'registerLogin.login' | translate\" (inputValue)=\"getLogin($event)\"></af-input>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <af-password [floatLabelText]=\"'registerLogin.password' | translate\" (inputValue)=\"getPassword($event)\"></af-password>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <div class=\"box-forgot\">\r\n                <div class=\"box-forgot__checkbox\">\r\n                  <af-checkbox (checkedToggler)=\"getRemeberPassword($event)\" [label]=\"'registerLogin.safePassword' | translate\"></af-checkbox>\r\n                </div>\r\n                <div class=\"box-forgot__forgot\">\r\n                  <p>{{'registerLogin.dontRememberPassword' | translate}} <a href=\"#\" class=\"form-group__forgot-password\">{{'registerLogin.RemindPassword' | translate}}</a></p>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"button__mid\">\r\n              <af-button [label]=\"'registerLogin.log_in' | translate\" buttonId=\"login\" [fontSize]=\"30\" (click)=\"onClickLogin()\"></af-button>\r\n            </div>\r\n            <div class=\"account-dont-exist\">\r\n              <p>{{'registerLogin.dontHaveAccount' | translate}} <a routerLink=\"/register\">{{'registerLogin.registerNow' | translate}}</a></p>\r\n            </div>\r\n          </form>\r\n        </div>\r\n      </af-tile>\r\n    </div>\r\n  </section>\r\n</div>\r\n\r\n<section class=\"validoation__container\">\r\n  <af-messages [closable]=\"true\"></af-messages>\r\n</section>"
         },
         {
             "name": "MessagesComponent",
@@ -3149,7 +3187,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"../../../stories/constants/constants.scss\";\r\n\r\n.bg-img {\r\n  background: url('../../../assets/backgrounds/background-RegisterPage.jpg');\r\n  background-size: 100%;\r\n  background-position: center;\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  height: 100vh;\r\n}\r\n\r\n.register-container {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  flex-direction: column;\r\n\r\n  .logo-section {\r\n    &__af {\r\n      padding: 50px 0 0 0;\r\n    }\r\n\r\n    img {\r\n      width: 300px;\r\n      filter: invert(1);\r\n    }\r\n  }\r\n\r\n  .register-section {\r\n    width: 700px;\r\n\r\n    af-tile {\r\n      position: relative;\r\n\r\n      .register-content {\r\n        width: 400px;\r\n        margin: 0 auto;\r\n        padding: 30px 0 5px;\r\n\r\n        .register--gender__selection {\r\n          margin: 20px 0 30px 0;\r\n\r\n          &__buttons {\r\n            display: flex;\r\n            gap: 20px;\r\n            align-items: center;\r\n\r\n            &--header {\r\n              margin-left: 10px;\r\n              font-size: $checkbox-register;\r\n              font-weight: $font-weight-bold;\r\n            }\r\n            \r\n            &--checkbox{\r\n              ::ng-deep .checkbox--container {\r\n                  label.p-checkbox-label{\r\n                    font-size: $checkbox-register;\r\n                  }\r\n                }\r\n            }\r\n          }\r\n        }\r\n      }\r\n    }\r\n\r\n    &__justify {\r\n      width: 100%;\r\n    }\r\n  }\r\n\r\n  .button__return-right {\r\n    position: absolute;\r\n    top: 20px;\r\n    right: 20px;\r\n  }\r\n\r\n  .button__mid {\r\n    display: flex;\r\n    justify-content: center;\r\n    padding: 20px 20px;\r\n  }\r\n}\r\n\r\n.button__mid {\r\n  display: flex;\r\n  justify-content: center;\r\n  padding: 20px 20px;\r\n}\r\n\r\n.box-have-account {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  padding-bottom: 10px;\r\n\r\n  &__reference {\r\n    margin-top: 20px;\r\n    color: $input-main-color;\r\n    cursor: pointer;\r\n  }\r\n}\r\n\r\n.validoation__container{\r\n  position: absolute;\r\n  top: 20px;\r\n  right:20px;\r\n  }\r\n",
+                    "data": "@import \"../../../stories/constants/constants.scss\";\r\n\r\n.bg-img {\r\n  background: url('../../../assets/backgrounds/background-RegisterPage.jpg');\r\n  background-size: 100%;\r\n  background-position: center;\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  height: 100vh;\r\n}\r\n\r\n.register-container {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  flex-direction: column;\r\n\r\n  .logo-section {\r\n    &__af {\r\n      padding: 50px 0 0 0;\r\n    }\r\n\r\n    img {\r\n      width: 300px;\r\n      filter: invert(1);\r\n    }\r\n  }\r\n\r\n  .register-section {\r\n    width: 700px;\r\n\r\n    af-tile {\r\n      position: relative;\r\n\r\n      .register-content {\r\n        width: 400px;\r\n        margin: 0 auto;\r\n        padding: 30px 0 5px;\r\n\r\n        .register--gender__selection {\r\n          margin: 20px 0 30px 0;\r\n\r\n          &__buttons {\r\n            display: flex;\r\n            gap: 20px;\r\n            align-items: center;\r\n\r\n            &--header {\r\n              margin-left: 10px;\r\n              font-size: $checkbox-register;\r\n              font-weight: $font-weight-bold;\r\n            }\r\n            \r\n            &--checkbox{\r\n              ::ng-deep .checkbox--container {\r\n                  label.p-checkbox-label{\r\n                    font-size: $checkbox-register;\r\n                  }\r\n                }\r\n            }\r\n          }\r\n        }\r\n      }\r\n    }\r\n\r\n    &__justify {\r\n      width: 100%;\r\n    }\r\n  }\r\n\r\n  .button__language{\r\n    position: absolute;\r\n    top: 20px;\r\n    left: 20px;\r\n  }\r\n\r\n  .button__return-right {\r\n    position: absolute;\r\n    top: 20px;\r\n    right: 20px;\r\n  }\r\n\r\n  .button__mid {\r\n    display: flex;\r\n    justify-content: center;\r\n    padding: 20px 20px;\r\n  }\r\n}\r\n\r\n.button__mid {\r\n  display: flex;\r\n  justify-content: center;\r\n  padding: 20px 20px;\r\n}\r\n\r\n.box-have-account {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  padding-bottom: 10px;\r\n\r\n  &__reference {\r\n    margin-top: 20px;\r\n    color: $input-main-color;\r\n    cursor: pointer;\r\n  }\r\n}\r\n\r\n.validoation__container{\r\n  position: absolute;\r\n  top: 20px;\r\n  right:20px;\r\n  }\r\n",
                     "styleUrl": "./register.component.scss"
                 }
             ],
@@ -3210,7 +3248,7 @@
                     }
                 ]
             },
-            "templateData": "<div class=\"bg-img\">\r\n  <section class=\"register-container\">\r\n    <div class=\"logo-section\">\r\n      <div class=\"logo-section__af\">\r\n        <img src=\"../../../assets/logo/logoFt_text.svg\" alt=\"test\">\r\n      </div>\r\n    </div>\r\n    <div class=\"register-section\">\r\n      <af-tile>\r\n        <div class=\"button__return-right\">\r\n          <af-button iconClassName=\"pi-undo\" iconPos=\"top\" [label]=\"'buttons.back' | translate\" buttonId=\"undo\" [fontSize]=\"10\"\r\n            [iconSize]=\"18\" [transparentButton]=\"true\" (click)=\"goToWelcomePage()\"></af-button>\r\n        </div>\r\n        <div class=\"register-content\">\r\n          <div class=\"register-section__justify\">\r\n            <div class=\"form-group\">\r\n              <af-input [iconConfig]=\"loginData\" [floatLabel]=\"true\" [floatLabelText]=\"'registerLogin.firstName' | translate\" (inputValue)=\"getData($event,'firstName')\"></af-input>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <af-input [iconConfig]=\"loginData\" [floatLabel]=\"true\" [floatLabelText]=\"'registerLogin.lastName' | translate\" (inputValue)=\"getData($event,'lastName')\"></af-input>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <af-input [iconConfig]=\"loginData\" [floatLabel]=\"true\" [floatLabelText]=\"'registerLogin.login' | translate\" (inputValue)=\"getData($event,'login')\"></af-input>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <af-input [iconConfig]=\"mailData\" [floatLabel]=\"true\" [floatLabelText]=\"'registerLogin.email' | translate\" (inputValue)=\"getData($event,'email')\"></af-input>\r\n            </div>\r\n            <div class=\"form-group register--gender__selection\">\r\n              <div class=\"register--gender__selection__buttons\">\r\n                <p class=\"register--gender__selection__buttons--header\">{{'registerLogin.gender' | translate}}</p>\r\n                <div *ngFor=\"let gender of genderArray;  index as id\" [attr.data-index]=\"id\">\r\n                  <af-checkbox (checkedToggler)=\"getGender($event, id)\"\r\n                    [disabled]=\"genderCheckboxDisabled && !gender.checked\" [label]=\"gender.name\"\r\n                    class=\"register--gender__selection__buttons--checkbox\"></af-checkbox>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <af-password [floatLabelText]=\"'registerLogin.password' | translate\" (inputValue)=\"getData($event,'password')\"></af-password>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <af-password [floatLabelText]=\"'registerLogin.repeatPassowrd' | translate\" (inputValue)=\"getReapeatedPassword($event)\"></af-password>\r\n            </div>\r\n            <div class=\"button__mid\">\r\n              <af-button [label]=\"'registerLogin.register' | translate\" buttonId=\"register\" [fontSize]=\"30\" (click)=\"goToHomePage()\"></af-button>\r\n            </div>\r\n            <div class=\"box-have-account\">\r\n              <p>{{'registerLogin.haveAccount' | translate}} <a routerLink=\"/login\" class=\"box-have-account__reference\">{{'registerLogin.log_in' | translate}}</a></p>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </af-tile>\r\n    </div>\r\n  </section>\r\n</div>\r\n\r\n<section class=\"validoation__container\">\r\n  <af-messages [closable]=\"true\"></af-messages>\r\n</section>"
+            "templateData": "<div class=\"bg-img\">\r\n  <section class=\"register-container\">\r\n    <div class=\"logo-section\">\r\n      <div class=\"logo-section__af\">\r\n        <img src=\"../../../assets/logo/logoFt_text.svg\" alt=\"test\">\r\n      </div>\r\n    </div>\r\n    <div class=\"register-section\">\r\n      <af-tile>\r\n        <div class=\"button__language\">\r\n          <af-languageChanger [fontSize]=\"22\"></af-languageChanger>\r\n        </div>\r\n        <div class=\"button__return-right\">\r\n          <af-button iconClassName=\"pi-undo\" iconPos=\"top\" [label]=\"'buttons.back' | translate\" buttonId=\"undo\" [fontSize]=\"10\"\r\n            [iconSize]=\"18\" [transparentButton]=\"true\" (click)=\"goToWelcomePage()\"></af-button>\r\n        </div>\r\n        <div class=\"register-content\">\r\n          <div class=\"register-section__justify\">\r\n            <div class=\"form-group\">\r\n              <af-input [iconConfig]=\"loginData\" [floatLabel]=\"true\" [floatLabelText]=\"'registerLogin.firstName' | translate\" (inputValue)=\"getData($event,'firstName')\"></af-input>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <af-input [iconConfig]=\"loginData\" [floatLabel]=\"true\" [floatLabelText]=\"'registerLogin.lastName' | translate\" (inputValue)=\"getData($event,'lastName')\"></af-input>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <af-input [iconConfig]=\"loginData\" [floatLabel]=\"true\" [floatLabelText]=\"'registerLogin.login' | translate\" (inputValue)=\"getData($event,'login')\"></af-input>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <af-input [iconConfig]=\"mailData\" [floatLabel]=\"true\" [floatLabelText]=\"'registerLogin.email' | translate\" (inputValue)=\"getData($event,'email')\"></af-input>\r\n            </div>\r\n            <div class=\"form-group register--gender__selection\">\r\n              <div class=\"register--gender__selection__buttons\">\r\n                <p class=\"register--gender__selection__buttons--header\">{{'registerLogin.gender' | translate}}</p>\r\n                <div *ngFor=\"let gender of genderArray;  index as id\" [attr.data-index]=\"id\">\r\n                  <af-checkbox (checkedToggler)=\"getGender($event, id)\"\r\n                    [disabled]=\"genderCheckboxDisabled && !gender.checked\" [label]=\"gender.name\"\r\n                    class=\"register--gender__selection__buttons--checkbox\"></af-checkbox>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <af-password [floatLabelText]=\"'registerLogin.password' | translate\" (inputValue)=\"getData($event,'password')\"></af-password>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <af-password [floatLabelText]=\"'registerLogin.repeatPassowrd' | translate\" (inputValue)=\"getReapeatedPassword($event)\"></af-password>\r\n            </div>\r\n            <div class=\"button__mid\">\r\n              <af-button [label]=\"'registerLogin.register' | translate\" buttonId=\"register\" [fontSize]=\"30\" (click)=\"goToHomePage()\"></af-button>\r\n            </div>\r\n            <div class=\"box-have-account\">\r\n              <p>{{'registerLogin.haveAccount' | translate}} <a routerLink=\"/login\" class=\"box-have-account__reference\">{{'registerLogin.log_in' | translate}}</a></p>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </af-tile>\r\n    </div>\r\n  </section>\r\n</div>\r\n\r\n<section class=\"validoation__container\">\r\n  <af-messages [closable]=\"true\"></af-messages>\r\n</section>"
         },
         {
             "name": "TileComponent",
@@ -3330,7 +3368,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "*, body, html{\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.row{\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  height: 100vh;\r\n  background-image: url('../../../assets/backgrounds/background-welcomePage.jpg');\r\n  background-position: center;\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n\r\n}\r\n\r\n\r\n.homePage-container {\r\n  display: grid;\r\n  grid-template-columns: 0.8fr 1.1fr 1.1fr;\r\n  grid-template-rows: 1fr 1fr 1fr;\r\n  gap: 20px 20px;\r\n  grid-template-areas:\r\n    \"slajdy panel__login-register panel__login-register\"\r\n    \"slajdy panel__login-register panel__login-register\"\r\n    \"slajdy signUs other\";\r\n  margin: auto;\r\n  width: 1280px;\r\n}\r\n\r\n.slajdy {\r\n  grid-area: slajdy;\r\n\r\n  &__content {\r\n  height: 700px;\r\n  background: url('../../../assets/backgrounds/victor-freitas-WvDYdXDzkhs-unsplash.jpg');\r\n  background-repeat: no-repeat;\r\n  background-position: center;\r\n  background-size: cover;\r\n  border-radius: 15px;\r\n  }\r\n}\r\n\r\n.panel {\r\n  &__login-register {\r\n    grid-area: panel__login-register;\r\n  }\r\n\r\n  &__logo {\r\n    display: flex;\r\n    justify-content: center;\r\n    padding: 50px 0 0 0;\r\n\r\n    img {\r\n      max-height: 150px;\r\n    }\r\n  }\r\n\r\n  &__center {\r\n    display: inline-flexbox;\r\n    padding: 60px;\r\n\r\n      &-btn{\r\n        display: flex;\r\n        justify-content: center;\r\n        align-items: center;\r\n        padding: 10px;\r\n        ::ng-deep .button__content{\r\n          .p-button{\r\n            width: 440px;\r\n            // font-size: 27px !important;\r\n            letter-spacing: 2px;\r\n            // padding:  !important;\r\n          }\r\n        }\r\n    }\r\n  }\r\n}\r\n\r\n.signUs {\r\n  grid-area: signUs;\r\n\r\n  &__content {\r\n    display: flex;\r\n    justify-content: center;\r\n    color: #fff;\r\n    font-size: 5em;\r\n    text-align: center;\r\n    padding: 10px 85px;\r\n  }\r\n}\r\n\r\n.other {\r\n  grid-area: other;\r\n\r\n  &__content {\r\n    display: flex;\r\n    justify-content: center;\r\n    color: #fff;\r\n    padding: 20px 100px;\r\n    font-size: 3em;\r\n    text-align: center;\r\n  }\r\n}\r\n",
+                    "data": "*, body, html{\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.row{\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  height: 100vh;\r\n  background-image: url('../../../assets/backgrounds/background-welcomePage.jpg');\r\n  background-position: center;\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n\r\n}\r\n\r\n\r\n.homePage-container {\r\n  display: grid;\r\n  grid-template-columns: 0.8fr 1.1fr 1.1fr;\r\n  grid-template-rows: 1fr 1fr 1fr;\r\n  gap: 20px 20px;\r\n  grid-template-areas:\r\n    \"slajdy panel__login-register panel__login-register\"\r\n    \"slajdy panel__login-register panel__login-register\"\r\n    \"slajdy signUs other\";\r\n  margin: auto;\r\n  width: 1280px;\r\n}\r\n\r\n.slajdy {\r\n  grid-area: slajdy;\r\n\r\n  &__content {\r\n  height: 700px;\r\n  background: url('../../../assets/backgrounds/victor-freitas-WvDYdXDzkhs-unsplash.jpg');\r\n  background-repeat: no-repeat;\r\n  background-position: center;\r\n  background-size: cover;\r\n  border-radius: 15px;\r\n  }\r\n}\r\n\r\n.panel {\r\n  &__login-register {\r\n    grid-area: panel__login-register;\r\n    position: relative;\r\n    .button__language{\r\n      position: absolute;\r\n      top: 20px;\r\n      right: 20px;\r\n      ::ng-deep .dropdown{ \r\n        .dropdown__options{\r\n          right:0\r\n        }\r\n      }\r\n    }\r\n  }\r\n\r\n  &__logo {\r\n    display: flex;\r\n    justify-content: center;\r\n    padding: 50px 0 0 0;\r\n\r\n    img {\r\n      max-height: 150px;\r\n    }\r\n  }\r\n\r\n  &__center {\r\n    display: inline-flexbox;\r\n    padding: 60px;\r\n\r\n      &-btn{\r\n        display: flex;\r\n        justify-content: center;\r\n        align-items: center;\r\n        padding: 10px;\r\n        ::ng-deep .button__content{\r\n          .p-button{\r\n            width: 440px;\r\n            // font-size: 27px !important;\r\n            letter-spacing: 2px;\r\n            // padding:  !important;\r\n          }\r\n        }\r\n    }\r\n  }\r\n}\r\n\r\n.signUs {\r\n  grid-area: signUs;\r\n\r\n  &__content {\r\n    display: flex;\r\n    justify-content: center;\r\n    color: #fff;\r\n    font-size: 5em;\r\n    text-align: center;\r\n    padding: 10px 85px;\r\n  }\r\n}\r\n\r\n.other {\r\n  grid-area: other;\r\n\r\n  &__content {\r\n    display: flex;\r\n    justify-content: center;\r\n    color: #fff;\r\n    padding: 20px 100px;\r\n    font-size: 3em;\r\n    text-align: center;\r\n  }\r\n}\r\n",
                     "styleUrl": "./welcomePage.component.scss"
                 }
             ],
@@ -3376,7 +3414,7 @@
                     }
                 ]
             },
-            "templateData": "<div class=\"row\">\r\n  <section class=\"homePage-container\">\r\n    <af-tile class=\"slajdy\">\r\n      <div class=\"slajdy__content\">\r\n      </div>\r\n    </af-tile>\r\n    <af-tile class=\"panel__login-register\">\r\n      <div class=\"panel__logo\">\r\n        <img src=\"../assets/logo/logoColor.svg\" alt=\"Ambasada Formy logo\">\r\n      </div>\r\n      <div class=\"panel__center\">\r\n        <div class=\"panel__center-btn\">\r\n          <af-button [label]=\"'welcomePage.login' | translate\" (click)=\"goToLogin()\" buttonId=\"login\" [fontSize]=\"27\"></af-button>\r\n        </div>\r\n        <div class=\"panel__center-btn\">\r\n          <af-button [label]=\"'welcomePage.register' | translate\" (click)=\"goToRegister()\" buttonId=\"register\" [fontSize]=\"27\"></af-button>\r\n        </div>\r\n      </div>\r\n    </af-tile>\r\n    <af-tile [darkMode]=\"true\" class=\"signUs\">\r\n      <h3 class=\"signUs__content\">{{'welcomePage.joinUs' | translate}}</h3>\r\n    </af-tile>\r\n    <af-tile [darkMode]=\"true\" class=\"other\">\r\n      <h3 class=\"other__content\">{{'welcomePage.workEffectsGoals' | translate}}</h3>\r\n    </af-tile>\r\n  </section>\r\n</div>\r\n<af-footer></af-footer>\r\n"
+            "templateData": "<div class=\"row\">\r\n  <section class=\"homePage-container\">\r\n    <af-tile class=\"slajdy\">\r\n      <div class=\"slajdy__content\">\r\n      </div>\r\n    </af-tile>\r\n    <af-tile class=\"panel__login-register\">\r\n      <div class=\"button__language\">\r\n        <af-languageChanger [fontSize]=\"22\"></af-languageChanger>\r\n      </div>\r\n      <div class=\"panel__logo\">\r\n        <img src=\"../assets/logo/logoColor.svg\" alt=\"Ambasada Formy logo\">\r\n      </div>\r\n      <div class=\"panel__center\">\r\n        <div class=\"panel__center-btn\">\r\n          <af-button [label]=\"'welcomePage.login' | translate\" (click)=\"goToLogin()\" buttonId=\"login\" [fontSize]=\"27\"></af-button>\r\n        </div>\r\n        <div class=\"panel__center-btn\">\r\n          <af-button [label]=\"'welcomePage.register' | translate\" (click)=\"goToRegister()\" buttonId=\"register\" [fontSize]=\"27\"></af-button>\r\n        </div>\r\n      </div>\r\n    </af-tile>\r\n    <af-tile [darkMode]=\"true\" class=\"signUs\">\r\n      <h3 class=\"signUs__content\">{{'welcomePage.joinUs' | translate}}</h3>\r\n    </af-tile>\r\n    <af-tile [darkMode]=\"true\" class=\"other\">\r\n      <h3 class=\"other__content\">{{'welcomePage.workEffectsGoals' | translate}}</h3>\r\n    </af-tile>\r\n  </section>\r\n</div>\r\n<af-footer></af-footer>\r\n"
         }
     ],
     "modules": [
@@ -3998,13 +4036,13 @@
         },
         {
             "name": "AppModule",
-            "id": "module-AppModule-441e4f5124364dccd58be8f081813176ff23ea09822637a94396126455f9ed8653aade4b15f83a969f1d79ac9191b36d62f1b09a07dba1121ef4f4e4a9d5d9cb",
+            "id": "module-AppModule-9230ae46587ac0498cc5587665fe2b02b52b2a573dbea05ca3575a7e556760d9b22dbff592dc692ce59cc4cff78e67ec7e0cde10145fe252ac2966ed4a2e1b89",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/app.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { BrowserModule } from '@angular/platform-browser';\r\n\r\nimport { AppRoutingModule } from './app-routing.module';\r\nimport { AppComponent } from './app.component';\r\nimport { WelcomePageComponent } from './sites/welcomePage/welcomePage.component';\r\nimport { LoginComponent } from './sites/login/login.component';\r\nimport { RegisterComponent } from './sites/register/register.component';\r\nimport { FormsModule } from '@angular/forms';\r\nimport { AFButtonModule } from 'src/stories/components/button/button.module';\r\nimport { InputModule } from 'src/stories/components/input/input.module';\r\nimport { AFTileModule } from 'src/stories/components/tile/tile.module';\r\nimport { HttpClientModule, HttpClient } from '@angular/common/http';\r\nimport { TranslateModule, TranslateLoader } from '@ngx-translate/core';\r\nimport { TranslateHttpLoader } from '@ngx-translate/http-loader';\r\nimport { FooterModule } from 'src/stories/components/footer/footer.module';\r\nimport { HomePageComponent } from './sites/homePage/homePage.component';\r\nimport { AfCheckboxModule } from \"../stories/components/checkbox/checkbox.module\";\r\nimport { AFRadiobuttonModule } from \"../stories/components/radiobutton/radiobutton.module\";\r\nimport { MessagesModule } from 'primeng/messages';\r\nimport { AfMessagesModule } from 'src/stories/components/messages/messages.module';\r\nimport { AfPasswordModule } from 'src/stories/components/password/password.module';\r\nimport { AfMessageService } from './services/message.service';\r\nimport { MessageService } from 'primeng/api';\r\n\r\n@NgModule({\r\n    declarations: [\r\n        AppComponent,\r\n        WelcomePageComponent,\r\n        LoginComponent,\r\n        RegisterComponent,\r\n        HomePageComponent,\r\n    ],\r\n    providers: [AfMessageService, MessageService],\r\n    bootstrap: [AppComponent],\r\n    imports: [\r\n        AfPasswordModule,\r\n        AfMessagesModule,\r\n        MessagesModule,\r\n        FooterModule,\r\n        BrowserModule,\r\n        AppRoutingModule,\r\n        HttpClientModule,\r\n        FormsModule,\r\n        AfCheckboxModule,\r\n        AFButtonModule,\r\n        InputModule,\r\n        AFTileModule,\r\n        TranslateModule.forRoot({\r\n            loader: {\r\n                provide: TranslateLoader,\r\n                useFactory: (handler: HttpClient) => { return new TranslateHttpLoader(handler, './assets/i18n/', '.json'); },\r\n                deps: [HttpClient]\r\n            }\r\n        }),\r\n        AFRadiobuttonModule\r\n    ]\r\n})\r\nexport class AppModule { }\r\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { BrowserModule } from '@angular/platform-browser';\r\n\r\nimport { AppRoutingModule } from './app-routing.module';\r\nimport { AppComponent } from './app.component';\r\nimport { WelcomePageComponent } from './sites/welcomePage/welcomePage.component';\r\nimport { LoginComponent } from './sites/login/login.component';\r\nimport { RegisterComponent } from './sites/register/register.component';\r\nimport { FormsModule } from '@angular/forms';\r\nimport { AFButtonModule } from 'src/stories/components/button/button.module';\r\nimport { InputModule } from 'src/stories/components/input/input.module';\r\nimport { AFTileModule } from 'src/stories/components/tile/tile.module';\r\nimport { HttpClientModule, HttpClient } from '@angular/common/http';\r\nimport { TranslateModule, TranslateLoader } from '@ngx-translate/core';\r\nimport { TranslateHttpLoader } from '@ngx-translate/http-loader';\r\nimport { FooterModule } from 'src/stories/components/footer/footer.module';\r\nimport { HomePageComponent } from './sites/homePage/homePage.component';\r\nimport { AfCheckboxModule } from \"../stories/components/checkbox/checkbox.module\";\r\nimport { AFRadiobuttonModule } from \"../stories/components/radiobutton/radiobutton.module\";\r\nimport { MessagesModule } from 'primeng/messages';\r\nimport { AfMessagesModule } from 'src/stories/components/messages/messages.module';\r\nimport { AfPasswordModule } from 'src/stories/components/password/password.module';\r\nimport { AfMessageService } from './services/message.service';\r\nimport { MessageService } from 'primeng/api';\r\nimport { LanguageChangerModule } from \"../stories/components/languageChanger/languageChanger.module\";\r\n\r\n@NgModule({\r\n    declarations: [\r\n        AppComponent,\r\n        WelcomePageComponent,\r\n        LoginComponent,\r\n        RegisterComponent,\r\n        HomePageComponent,\r\n    ],\r\n    providers: [AfMessageService, MessageService],\r\n    bootstrap: [AppComponent],\r\n    imports: [\r\n        AfPasswordModule,\r\n        AfMessagesModule,\r\n        MessagesModule,\r\n        FooterModule,\r\n        BrowserModule,\r\n        AppRoutingModule,\r\n        HttpClientModule,\r\n        FormsModule,\r\n        AfCheckboxModule,\r\n        AFButtonModule,\r\n        InputModule,\r\n        AFTileModule,\r\n        TranslateModule.forRoot({\r\n            loader: {\r\n                provide: TranslateLoader,\r\n                useFactory: (handler: HttpClient) => { return new TranslateHttpLoader(handler, './assets/i18n/', '.json'); },\r\n                deps: [HttpClient]\r\n            }\r\n        }),\r\n        AFRadiobuttonModule,\r\n        LanguageChangerModule\r\n    ]\r\n})\r\nexport class AppModule { }\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -4063,6 +4101,9 @@
                         },
                         {
                             "name": "InputModule"
+                        },
+                        {
+                            "name": "LanguageChangerModule"
                         }
                     ]
                 },
@@ -4298,13 +4339,13 @@
         },
         {
             "name": "LanguageChangerModule",
-            "id": "module-LanguageChangerModule-70475b4508a74b523e3407ac03ff8d2ad7f48438cb5c71d54ac6515cdae48d9a07b411f730d447e7f07bdb42934f8d6d157429155e8bb8ad8d4d4ade170f2b2c",
+            "id": "module-LanguageChangerModule-573af1d16d828cc2f0f8ec77ea6546b8b2e10fee3f873b52c8499d0e788011181f7257bcb15bff8fea7421b0d55af4d1a110243f11c363c4927be9bf294615eb",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
-            "file": "src/stories/components/language-changer/language-changer.module.ts",
+            "file": "src/stories/components/languageChanger/languageChanger.module.ts",
             "methods": [],
-            "sourceCode": "import {  NgModule} from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { LanguageChangerComponent } from './language-changer.component';\r\nimport { HttpClientModule, HttpClient } from '@angular/common/http';\r\nimport { TranslateModule, TranslateLoader } from '@ngx-translate/core';\r\nimport { TranslateHttpLoader } from '@ngx-translate/http-loader';\r\nimport { DropdownModule } from 'primeng/dropdown';\r\nimport { FormsModule } from '@angular/forms';\r\n\r\n@NgModule({\r\n    declarations: [\r\n        LanguageChangerComponent\r\n    ],\r\n    exports: [\r\n        LanguageChangerComponent\r\n    ],\r\n    imports: [\r\n        CommonModule,\r\n        DropdownModule,\r\n        FormsModule,\r\n        HttpClientModule,\r\n        TranslateModule.forRoot(\r\n          {\r\n            loader:{\r\n              provide: TranslateLoader,\r\n              useFactory: (handler: HttpClient) => { return new TranslateHttpLoader(handler, './assets/i18n/', '.json');},\r\n              deps:[HttpClient]\r\n            }\r\n          }\r\n        )\r\n    ]\r\n})\r\nexport class LanguageChangerModule { }\r\n",
+            "sourceCode": "import {  NgModule} from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { LanguageChangerComponent } from './languageChanger.component';\r\nimport { FormsModule } from '@angular/forms';\r\nimport { TranslateLoader, TranslateModule } from '@ngx-translate/core';\r\nimport { HttpClient, HttpClientModule } from '@angular/common/http';\r\nimport { TranslateHttpLoader } from '@ngx-translate/http-loader';\r\n\r\n@NgModule({\r\n  declarations: [\r\n    LanguageChangerComponent\r\n  ],\r\n  exports: [\r\n    LanguageChangerComponent\r\n  ],\r\n  imports: [\r\n    CommonModule,\r\n    FormsModule,\r\n    HttpClientModule,\r\n    TranslateModule.forRoot(\r\n      {\r\n        loader:{\r\n          provide: TranslateLoader,\r\n          useFactory: (handler: HttpClient) => { return new TranslateHttpLoader(handler, './assets/i18n/', '.json');},\r\n          deps:[HttpClient]\r\n        }\r\n      }\r\n    )\r\n  ],\r\n\r\n})\r\nexport class LanguageChangerModule { }\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -4534,14 +4575,14 @@
                 "defaultValue": "() => ({\r\n  template: `\r\n  <div style=\"width: 30%; margin:0 auto\">\r\n  <img src=\"assets/logo/logoFt_text.svg\" alt=\"\">\r\n</div>\r\n  `,\r\n})"
             },
             {
-                "name": "MessageAfterClickButton",
+                "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/messages/messages.component.stories.ts",
+                "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "Template.bind({})"
+                "defaultValue": "() => ({\r\n  template: `\r\n<section \r\nstyle=\"\r\nheight: 70vh;  \r\nbackground-color: #0e0e0e;  \r\nbackground-image: \r\nlinear-gradient(0deg, #000 5%, transparent 5%, transparent 99%, #000 99%, #000), \r\nlinear-gradient(90deg, #000 5%, #0e0e0e 5%, #0e0e0e 99%, #000 99%, #000);  \r\nbackground-size: 50px 50px;\"\r\n></section>\r\n\r\n`,\r\n})"
             },
             {
                 "name": "Primary",
@@ -4577,7 +4618,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/chart-bars/chart-bars.component.stories.ts",
+                "file": "src/stories/components/checkbox/checkbox.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -4587,7 +4628,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/checkbox/checkbox.component.stories.ts",
+                "file": "src/stories/components/chart-bars/chart-bars.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -4617,7 +4658,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/iconShadow/iconShadow.component.stories.ts",
+                "file": "src/stories/components/input/input.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -4627,7 +4668,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/input/input.component.stories.ts",
+                "file": "src/stories/components/iconShadow/iconShadow.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -4647,7 +4688,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/language-changer/language-changer.component.stories.ts",
+                "file": "src/stories/components/languageChanger/languageChanger.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -4677,16 +4718,6 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/rating/rating.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/table/table.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -4697,11 +4728,11 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
+                "file": "src/stories/components/rating/rating.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "() => ({\r\n  template: `\r\n<section \r\nstyle=\"\r\nheight: 70vh;  \r\nbackground-color: #0e0e0e;  \r\nbackground-image: \r\nlinear-gradient(0deg, #000 5%, transparent 5%, transparent 99%, #000 99%, #000), \r\nlinear-gradient(90deg, #000 5%, #0e0e0e 5%, #0e0e0e 99%, #000 99%, #000);  \r\nbackground-size: 50px 50px;\"\r\n></section>\r\n\r\n`,\r\n})"
+                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "Readonly",
@@ -4797,6 +4828,16 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/avatar/avatar.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/autocompete/autocomplete.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -4817,16 +4858,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/avatar/avatar.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/calendar/calendar.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -4837,7 +4868,7 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/chart-bars/chart-bars.component.stories.ts",
+                "file": "src/stories/components/checkbox/checkbox.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -4847,7 +4878,7 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/checkbox/checkbox.component.stories.ts",
+                "file": "src/stories/components/chart-bars/chart-bars.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -4877,16 +4908,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/iconShadow/iconShadow.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/input/input.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -4897,7 +4918,7 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/knob/knob.component.stories.ts",
+                "file": "src/stories/components/iconShadow/iconShadow.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -4917,6 +4938,16 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/knob/knob.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/messages/messages.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -4927,7 +4958,7 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/language-changer/language-changer.component.stories.ts",
+                "file": "src/stories/components/languageChanger/languageChanger.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -4957,7 +4988,7 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/rating/rating.component.stories.ts",
+                "file": "src/stories/components/table/table.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -4967,7 +4998,7 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/table/table.component.stories.ts",
+                "file": "src/stories/components/rating/rating.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -5539,16 +5570,6 @@
                     "defaultValue": "Template.bind({})"
                 },
                 {
-                    "name": "MessageAfterClickButton",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/messages/messages.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
                     "name": "Success",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
@@ -5653,6 +5674,18 @@
                     "defaultValue": "Template.bind({})"
                 }
             ],
+            "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts": [
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "() => ({\r\n  template: `\r\n<section \r\nstyle=\"\r\nheight: 70vh;  \r\nbackground-color: #0e0e0e;  \r\nbackground-image: \r\nlinear-gradient(0deg, #000 5%, transparent 5%, transparent 99%, #000 99%, #000), \r\nlinear-gradient(90deg, #000 5%, #0e0e0e 5%, #0e0e0e 99%, #000 99%, #000);  \r\nbackground-size: 50px 50px;\"\r\n></section>\r\n\r\n`,\r\n})"
+                }
+            ],
             "src/stories/components/calendar/calendar.component.stories.ts": [
                 {
                     "name": "Primary",
@@ -5735,28 +5768,6 @@
                     "defaultValue": "Template.bind({})"
                 }
             ],
-            "src/stories/components/chart-bars/chart-bars.component.stories.ts": [
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/chart-bars/chart-bars.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/chart-bars/chart-bars.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
-                }
-            ],
             "src/stories/components/checkbox/checkbox.component.stories.ts": [
                 {
                     "name": "Primary",
@@ -5783,6 +5794,28 @@
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/stories/components/checkbox/checkbox.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+                }
+            ],
+            "src/stories/components/chart-bars/chart-bars.component.stories.ts": [
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/chart-bars/chart-bars.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/chart-bars/chart-bars.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -5855,12 +5888,12 @@
                     "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
                 }
             ],
-            "src/stories/components/language-changer/language-changer.component.stories.ts": [
+            "src/stories/components/languageChanger/languageChanger.component.stories.ts": [
                 {
                     "name": "Primary",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/language-changer/language-changer.component.stories.ts",
+                    "file": "src/stories/components/languageChanger/languageChanger.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -5870,7 +5903,7 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/language-changer/language-changer.component.stories.ts",
+                    "file": "src/stories/components/languageChanger/languageChanger.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -5909,28 +5942,6 @@
                     "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
                 }
             ],
-            "src/stories/components/rating/rating.component.stories.ts": [
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/rating/rating.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/rating/rating.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
-                }
-            ],
             "src/stories/components/table/table.component.stories.ts": [
                 {
                     "name": "Primary",
@@ -5953,16 +5964,26 @@
                     "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
                 }
             ],
-            "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts": [
+            "src/stories/components/rating/rating.component.stories.ts": [
                 {
                     "name": "Primary",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
+                    "file": "src/stories/components/rating/rating.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "() => ({\r\n  template: `\r\n<section \r\nstyle=\"\r\nheight: 70vh;  \r\nbackground-color: #0e0e0e;  \r\nbackground-image: \r\nlinear-gradient(0deg, #000 5%, transparent 5%, transparent 99%, #000 99%, #000), \r\nlinear-gradient(90deg, #000 5%, #0e0e0e 5%, #0e0e0e 99%, #000 99%, #000);  \r\nbackground-size: 50px 50px;\"\r\n></section>\r\n\r\n`,\r\n})"
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/rating/rating.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
                 }
             ]
         },
@@ -6161,7 +6182,7 @@
                 "linktype": "component",
                 "name": "AppComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/4",
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
@@ -6197,7 +6218,7 @@
                 "linktype": "component",
                 "name": "HomePageComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -6846,7 +6867,16 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/components/language-changer/language-changer.component.stories.ts",
+                "filePath": "src/stories/components/languageChanger/language.model.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "LanguageModel",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/languageChanger/languageChanger.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -6856,7 +6886,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/components/language-changer/language-changer.component.stories.ts",
+                "filePath": "src/stories/components/languageChanger/languageChanger.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -6866,12 +6896,12 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/components/language-changer/language-changer.component.ts",
+                "filePath": "src/stories/components/languageChanger/languageChanger.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "LanguageChangerComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/8",
                 "status": "low"
             },
             {
@@ -6890,16 +6920,6 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Info",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/components/messages/messages.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "MessageAfterClickButton",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
