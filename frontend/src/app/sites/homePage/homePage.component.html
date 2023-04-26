@@ -1,1 +1,8 @@
 <p>zalogowano works!</p>
+ <p>{{'registerLogin.haveAccount' | translate}}</p>
+  <select class="form-control" (change)="reload($event)" [(ngModel)]="selectedLanguage">
+    <option *ngFor="let language of languages" [value]="language.id">
+       {{ language.name }}
+    </option>
+  </select>
+  

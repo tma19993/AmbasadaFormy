@@ -1,0 +1,12 @@
+ <p>{{selectedLanguage}}</p>
+  
+  <div class="dropdown">
+    <button class="dropdown__button" (click)="dropdownOptionsToggler()">
+      <span class="pi pi-language" style="font-size: 30px;"></span>
+    </button>
+    <div *ngIf="showDropdownOption" class="dropdown__options">
+      <div *ngFor="let item of languages" class="dropdown__options--single-option">
+        <span (click)="changeLanguage(item.id)">{{item.name.toUpperCase()}}</span>
+      </div>
+    </div>
+  </div>
