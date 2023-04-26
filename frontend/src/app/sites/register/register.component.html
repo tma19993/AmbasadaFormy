@@ -7,6 +7,9 @@
     </div>
     <div class="register-section">
       <af-tile>
+        <div class="button__language">
+          <af-languageChanger [fontSize]="22"></af-languageChanger>
+        </div>
         <div class="button__return-right">
           <af-button iconClassName="pi-undo" iconPos="top" [label]="'buttons.back' | translate" buttonId="undo" [fontSize]="10"
             [iconSize]="18" [transparentButton]="true" (click)="goToWelcomePage()"></af-button>

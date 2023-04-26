@@ -46,6 +46,17 @@
 .panel {
   &__login-register {
     grid-area: panel__login-register;
+    position: relative;
+    .button__language{
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      ::ng-deep .dropdown{ 
+        .dropdown__options{
+          right:0
+        }
+      }
+    }
   }
 
   &__logo {

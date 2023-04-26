@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { LanguageModel } from './language.model';
@@ -9,6 +9,7 @@ import { LanguageModel } from './language.model';
   styleUrls: ['./languageChanger.component.scss']
 })
 export class LanguageChangerComponent {
+  @Input() fontSize: number = 12;
   public languages: LanguageModel[];
   public showDropdownOption: boolean = false;
   public selectedLanguage: string;

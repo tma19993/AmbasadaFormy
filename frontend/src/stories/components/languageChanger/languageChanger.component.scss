@@ -11,14 +11,13 @@
   &__options {
     position: absolute;
     margin-top: 5px;
-    border: 2px solid $input-border-color;
-    background-color: $input-border-color;
-    color: $input-background-color;
+    border: 2px solid $input-main-color;
+    color: $input-main-color ;
     border-radius: 15px;
     &--single-option{
       text-align: center;
         padding: 10px 15px;
-        font-size: 16px;
+        font-size: 12px;
         font-weight: $font-weight-bold;
         &:first-of-type{
           border-top-left-radius: 12px;
@@ -31,9 +30,14 @@
         cursor: pointer;
         transition: .1s;
         &:hover{
-          background-color:$input-background-color;
-          color: $input-border-color ;
+          background-color: $input-main-color ;
+          color: $input-background-color;
         }
+         span{
+          display: flex; 
+          gap: 5px;
+          align-items: center;
+         }
     }
   }
 }

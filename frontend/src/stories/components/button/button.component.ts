@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ButtonIconPosition } from 'src/stories/enums/button.enum';
 @Component({
   selector: 'af-button',
@@ -6,7 +6,7 @@ import { ButtonIconPosition } from 'src/stories/enums/button.enum';
   styleUrls: ['./button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ButtonComponent implements OnInit {
+export class ButtonComponent implements AfterViewInit {
   @Input() public label: string = '';
   @Input() public iconClassName: string = '';
   @Input() public iconPos: ButtonIconPosition = 'left';
@@ -19,12 +19,12 @@ export class ButtonComponent implements OnInit {
 
   constructor() {
   }
-  public ngOnInit(): void {
+  public ngAfterViewInit(): void {
     if(!!this.buttonId){
     setTimeout(()=>{
       this.changeFontsize();
       this.changeIconsize();
-    },0);
+    },5);
     }
   }
 
