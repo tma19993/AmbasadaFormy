@@ -14,7 +14,11 @@
     margin: 0;
     z-index: 1001;
     box-shadow: 0px 0px 32px 16px rgba(34, 40, 49, 0.75);
-    
+    &:hover{
+      box-shadow: none;
+      transition-delay: 0.2s;
+    }
+
     &:hover .navigation_container--details{
         top: 80px;
         box-shadow: 0px 0px 32px 16px rgba(34, 40, 49, 0.75);
@@ -29,8 +33,8 @@
         align-items: center;
         gap: 10px;
       &__brand{
-        
-        &__link{ 
+
+        &__link{
             &__photo{
                 height: 32px;
             }
@@ -57,7 +61,7 @@
         cursor: pointer;
         transform: .2s;
 
-         
+
     }
     }
 
@@ -71,12 +75,12 @@
             width: 40px;
         }
     }
- 
-    
+
+
 }
 .navigation_container--details{
     display: flex;
-    top: -36vh;
+    top: -70vh;
     left: 0;
     position: absolute;
     color: $input-text-light;
@@ -84,7 +88,7 @@
     width: 100%;
     padding: 0;
     transition:.7s;
-    max-height: 36vh;
+    max-height: auto;
     z-index: -1001;
     padding-left: 26%;
     gap: 20px;
