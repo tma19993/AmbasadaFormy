@@ -1,7 +1,8 @@
 <section class="button__container" [ngClass]="buttonId ? buttonId:''">
     <p-button 
     class="button__content"
-    [ngClass]="transparentButton ? 'transparent-button':''"
+    [ngClass]="{'transparent-button':transparentButton,
+    'white-button': whiteButton}"
       [label]="label.toUpperCase()"
       [iconPos]="iconPos"
       [icon]="'pi ' + iconClassName"

@@ -8,4 +8,17 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./homePage.component.scss']
 })
 export class HomePageComponent {
+  constructor( private router: Router, private translateService: TranslateService){
+    this.translateService.setDefaultLang(localStorage.getItem("language") || ("en"));
+  }
+
+  public gymPassButton():void{
+    console.log("ładuję podstronę karnety");
+    // this.router.navigate(['/gymPass']);
+  }
+
+  public trainersButton():void {
+    console.log("ładuję podstronę Trenerzy");
+    // this.router.navigate(['/treners']);
+    }
 }

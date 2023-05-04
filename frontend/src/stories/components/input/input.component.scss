@@ -3,9 +3,12 @@
 .input__container {
     width: 100%;
     height: 55px;
-    //tutaj margin do usunięcia póżniej 
     margin-top: 20px;
     
+    .p-float-label input:focus ~ label{
+        color: $input-text-accent;
+    }
+
     .input__content {
         width: 100%;
         &--icon{

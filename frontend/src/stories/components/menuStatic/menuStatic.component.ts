@@ -11,4 +11,10 @@ constructor(private translateService: TranslateService){
   this.translateService.setDefaultLang(localStorage.getItem("language") || ("en"));
 }
 
+public changeLanguage(id:string):void{
+    localStorage.setItem("language", id);
+    setTimeout(()=>{
+      window.location.reload();
+    },100);
+    }
 }
