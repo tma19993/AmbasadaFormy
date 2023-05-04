@@ -14,6 +14,7 @@ export class ButtonComponent implements AfterViewInit {
   @Input() public iconSize: number = 20;
   @Input() public buttonId: string = '';
   @Input() public disabled: boolean = false;
+  @Input() public whiteButton: boolean = false;
   @Input() public transparentButton: boolean = false;
   @Output() onClick: EventEmitter<void> = new EventEmitter();
 

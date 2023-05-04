@@ -25,7 +25,6 @@ export class LanguageChangerComponent {
   }
 
   changeLanguage(id: string) {
-  console.log(id);
   localStorage.setItem("language", id);
   setTimeout(()=>{
     window.location.reload();
