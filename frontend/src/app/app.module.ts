@@ -24,6 +24,7 @@ import { AfMessageService } from './services/message.service';
 import { MessageService } from 'primeng/api';
 import { LanguageChangerModule } from "../stories/components/languageChanger/languageChanger.module";
 import { MenuStaticModule } from "../stories/components/menuStatic/menuStatic.module";
+import { GymPassComponent } from './sites/gym-pass/gym-pass.component';
 
 @NgModule({
     declarations: [
@@ -32,6 +33,7 @@ import { MenuStaticModule } from "../stories/components/menuStatic/menuStatic.mo
         LoginComponent,
         RegisterComponent,
         HomePageComponent,
+        GymPassComponent,
     ],
     providers: [AfMessageService, MessageService],
     bootstrap: [AppComponent],
