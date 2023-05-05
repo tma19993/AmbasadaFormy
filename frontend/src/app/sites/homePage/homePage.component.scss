@@ -42,6 +42,7 @@
       h2 {
         width: 385px;
         font-size: 62px;
+        text-shadow: 1px 1px 3px $background-dark;
       }
 
       &--price-info {
@@ -64,6 +65,7 @@
         color: $input-text-light;
         width: 385px;
         font-size: 62px;
+        text-shadow: 1px 1px 3px $background-dark;
       }
 
       &__sliders {

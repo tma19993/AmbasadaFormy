@@ -1,0 +1,100 @@
+@import "../../../stories/constants/constants.scss";
+.gym-pass-page{
+    min-height: 100vh;
+    background-image: url('../../../assets/backgrounds/AF-desktop-main-background.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    .navi-bar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1001;
+      }
+      .gym-pass__container{
+        min-height: 100vh;
+
+        &--header{
+          &-logo {
+            padding-top: 100px;
+            text-align: center;
+            height: 40vh;
+      
+            img {
+              height: 270px;
+      
+            }
+          }
+          &-text{
+            font-size: 87px;
+          color: $input-text-light;
+          text-align: center;
+          text-shadow: 1px 1px 3px $background-dark;
+          }
+        }
+        &--gym-passes{
+          margin-top: 40px;
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+            &-content{
+              height: 710px;
+              width: 590px;
+
+              &-header{
+                box-shadow: 0 4px 10px -10px $darker-gray;
+                width: 100%;
+                background-color: $background-dark;
+                color: $input-text-accent;
+                font-weight: $font-weight-bold;
+                padding: 10px 40px 40px 40px;
+                h3{
+              
+                  text-align: center;
+                  font-size: 32px;
+                  color: $input-text-light;
+                }
+                .subtitle{
+                  padding-top: 5px;
+                  text-align: center;
+                  font-size: 18px;
+                }
+                .price{
+                  padding-top: 15px;
+                  font-size: 28px;
+                }
+                .type-of-gym-pass{
+                  padding-top:10px;
+                  font-size: 16px;
+                  color: $input-text-light;
+                }
+              }
+              &-content{
+                height: 55%;
+                p{
+                  font-weight: $font-weight-bold;
+                  font-size: 18px;
+                  padding: 0 160px 0 40px;
+                  line-height: 38px;
+                  i{
+                    font-weight: $font-weight-bold;
+                    color: $input-text-accent;
+                    padding-right: 10px;
+                  }
+                }
+              }
+              &-button{
+                display: flex;
+                justify-content: center;
+              }
+            }
+        }
+
+      }
+}
+.quotes{
+  color: $input-text-light;
+}
