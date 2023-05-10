@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,49 +15,63 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FooterModule } from 'src/stories/components/footer/footer.module';
 import { HomePageComponent } from './sites/homePage/homePage.component';
-import { AfCheckboxModule } from "../stories/components/checkbox/checkbox.module";
-import { AFRadiobuttonModule } from "../stories/components/radiobutton/radiobutton.module";
+import { AfCheckboxModule } from '../stories/components/checkbox/checkbox.module';
+import { AFRadiobuttonModule } from '../stories/components/radiobutton/radiobutton.module';
 import { MessagesModule } from 'primeng/messages';
 import { AfMessagesModule } from 'src/stories/components/messages/messages.module';
 import { AfPasswordModule } from 'src/stories/components/password/password.module';
 import { AfMessageService } from './services/message.service';
 import { MessageService } from 'primeng/api';
-import { LanguageChangerModule } from "../stories/components/languageChanger/languageChanger.module";
-import { MenuStaticModule } from "../stories/components/menuStatic/menuStatic.module";
+import { LanguageChangerModule } from '../stories/components/languageChanger/languageChanger.module';
+import { MenuStaticModule } from '../stories/components/menuStatic/menuStatic.module';
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+import { initializeKeycloak } from './init/keycloak-init.factory';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        WelcomePageComponent,
-        LoginComponent,
-        RegisterComponent,
-        HomePageComponent,
-    ],
-    providers: [AfMessageService, MessageService],
-    bootstrap: [AppComponent],
-    imports: [
-        AfPasswordModule,
-        AfMessagesModule,
-        MessagesModule,
-        FooterModule,
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        FormsModule,
-        AfCheckboxModule,
-        AFButtonModule,
-        InputModule,
-        AFTileModule,
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: (handler: HttpClient) => { return new TranslateHttpLoader(handler, './assets/i18n/', '.json'); },
-                deps: [HttpClient]
-            }
-        }),
-        AFRadiobuttonModule,
-        LanguageChangerModule,
-        MenuStaticModule
-    ]
+  declarations: [
+    AppComponent,
+    WelcomePageComponent,
+    LoginComponent,
+    RegisterComponent,
+    HomePageComponent,
+  ],
+  providers: [
+    AfMessageService,
+    MessageService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeKeycloak,
+      multi: true,
+      deps: [KeycloakService],
+    },
+  ],
+  bootstrap: [AppComponent],
+  imports: [
+    AfPasswordModule,
+    AfMessagesModule,
+    MessagesModule,
+    FooterModule,
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    AfCheckboxModule,
+    AFButtonModule,
+    InputModule,
+    AFTileModule,
+    KeycloakAngularModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (handler: HttpClient) => {
+          return new TranslateHttpLoader(handler, './assets/i18n/', '.json');
+        },
+        deps: [HttpClient],
+      },
+    }),
+    AFRadiobuttonModule,
+    LanguageChangerModule,
+    MenuStaticModule,
+  ],
 })
-export class AppModule { }
+export class AppModule {}

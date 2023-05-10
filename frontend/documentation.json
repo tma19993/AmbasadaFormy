@@ -503,7 +503,7 @@
         },
         {
             "name": "AFTableComponent",
-            "id": "component-AFTableComponent-9d84b2ad0e0ecf068b3e267be79169ca9b8354b129cd935ba638d035be16ab3dd7acb2accea50eee2e94b43c9dfc9c8ba9602a17f8e0accf6e40144b45e2ed5d",
+            "id": "component-AFTableComponent-b9ee9d51326aae03396e387c32a8199eef273cae825024633a27df6cf0c903c8a15684a34fa77d754d17a520c6d255fe72eddd8cbd7da745d288b13d744a12f0",
             "file": "src/stories/components/table/table.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -594,7 +594,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { TableHeaderModel } from 'src/stories/interfaces/table.model';\n\n@Component({\n  selector: 'af-table',\n  templateUrl: './table.component.html',\n  styleUrls: ['./table.component.scss']\n})\nexport class AFTableComponent implements OnInit {\n  @Input() public columns: TableHeaderModel[]=[];\n  @Input() public values: any;\n  @Input() public paginator: boolean = false; \n  @Input() public rows: number = 2;\n  public firstPage: number = 0;\nconstructor(){\n\n}\n public ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\r\nimport { TableHeaderModel } from 'src/stories/interfaces/table.model';\r\n\r\n@Component({\r\n  selector: 'af-table',\r\n  templateUrl: './table.component.html',\r\n  styleUrls: ['./table.component.scss']\r\n})\r\nexport class AFTableComponent implements OnInit {\r\n  @Input() public columns: TableHeaderModel[]=[];\r\n  @Input() public values: any;\r\n  @Input() public paginator: boolean = false; \r\n  @Input() public rows: number = 2;\r\n  public firstPage: number = 0;\r\nconstructor(){\r\n\r\n}\r\n public ngOnInit(): void {\r\n  }\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -614,7 +614,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<p-table \n[(first)]=\"firstPage\"\n[columns]=\"columns\" \n[value]=\"values\" \n[tableStyle]=\"{ 'min-width': '50rem' }\"  \n[paginator]=\"paginator\"\n[rows]=\"rows\">\n    <ng-template pTemplate=\"header\" let-columns>\n        <tr>\n            <th *ngFor=\"let header of columns\">\n                {{header.field}}\n            </th>\n        </tr>\n    </ng-template>\n    <ng-template pTemplate=\"body\" let-rowData  let-columns=\"columns\">\n        <tr> \n            <td *ngFor=\"let col of columns\">\n            {{ rowData[col.field] }}\n            </td>\n        </tr>\n    </ng-template>\n</p-table>"
+            "templateData": "<p-table \r\n[(first)]=\"firstPage\"\r\n[columns]=\"columns\" \r\n[value]=\"values\" \r\n[tableStyle]=\"{ 'min-width': '50rem' }\"  \r\n[paginator]=\"paginator\"\r\n[rows]=\"rows\">\r\n    <ng-template pTemplate=\"header\" let-columns>\r\n        <tr>\r\n            <th *ngFor=\"let header of columns\">\r\n                {{header.field}}\r\n            </th>\r\n        </tr>\r\n    </ng-template>\r\n    <ng-template pTemplate=\"body\" let-rowData  let-columns=\"columns\">\r\n        <tr> \r\n            <td *ngFor=\"let col of columns\">\r\n            {{ rowData[col.field] }}\r\n            </td>\r\n        </tr>\r\n    </ng-template>\r\n</p-table>"
         },
         {
             "name": "AppComponent",
@@ -1585,7 +1585,7 @@
                 "args": [],
                 "line": 20
             },
-            "templateData": "<div *ngIf=\"!isFloatlabel\">\n  <p-dropdown [(ngModel)]=\"selected\" \n  [options]=\"data\" \n  [optionLabel]=\"optionLabelName\" \n[placeholder]=\"placeholder\" \n[filter]=\"filter\" \n[filterBy]=\"filterName\" \n[showClear]=\"showClear\"\n[virtualScroll]=\"virtualScroll\" \n[virtualScrollItemSize]=\"virtualScrollItemSize\" \n[disabled]=\"disabled\">\n\n  </p-dropdown>\n</div>\n<div *ngIf=\"isFloatlabel\">\n  <span class=\"p-float-label\">\n    <p-dropdown [(ngModel)]=\"selected\" \n  [options]=\"data\" \n  [optionLabel]=\"optionLabelName\" \n[placeholder]=\"placeholder\" \n[filter]=\"filter\" \n[filterBy]=\"filterName\" \n[showClear]=\"showClear\"\n[virtualScroll]=\"virtualScroll\" \n[virtualScrollItemSize]=\"virtualScrollItemSize\" \n[disabled]=\"disabled\">\n\n  </p-dropdown>\n    <label for=\"float-label\">{{floatText}}</label>\n  </span>\n</div>\n"
+            "templateData": "<div *ngIf=\"!isFloatlabel\">\r\n  <p-dropdown [(ngModel)]=\"selected\" \r\n  [options]=\"data\" \r\n  [optionLabel]=\"optionLabelName\" \r\n[placeholder]=\"placeholder\" \r\n[filter]=\"filter\" \r\n[filterBy]=\"filterName\" \r\n[showClear]=\"showClear\"\r\n[virtualScroll]=\"virtualScroll\" \r\n[virtualScrollItemSize]=\"virtualScrollItemSize\" \r\n[disabled]=\"disabled\">\r\n\r\n  </p-dropdown>\r\n</div>\r\n<div *ngIf=\"isFloatlabel\">\r\n  <span class=\"p-float-label\">\r\n    <p-dropdown [(ngModel)]=\"selected\" \r\n  [options]=\"data\" \r\n  [optionLabel]=\"optionLabelName\" \r\n[placeholder]=\"placeholder\" \r\n[filter]=\"filter\" \r\n[filterBy]=\"filterName\" \r\n[showClear]=\"showClear\"\r\n[virtualScroll]=\"virtualScroll\" \r\n[virtualScrollItemSize]=\"virtualScrollItemSize\" \r\n[disabled]=\"disabled\">\r\n\r\n  </p-dropdown>\r\n    <label for=\"float-label\">{{floatText}}</label>\r\n  </span>\r\n</div>\r\n"
         },
         {
             "name": "FooterComponent",
@@ -1620,7 +1620,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"./../../constants/constants.scss\";\r\n\r\n.footer__container {\r\n  background-color: $darker-gray;\r\n  font-family: $font-family;\r\n  color: $input-main-color;\r\n  font-size: 16px;\r\n  display: flex;\r\n  justify-content: center;\r\n  box-shadow: 0px 0px 32px 32px rgba(34, 40, 49, 0.75);\r\n}\r\n\r\n.footer__content {\r\n  display: flex;\r\n  justify-content: center;\r\n  gap: 75px;\r\n  padding: 80px 0;\r\n  max-width: 1530px;\r\n  &--info {\r\n    max-width: 230px;\r\n  }\r\n\r\n  &--contact{\r\n    p{\r\n      max-width: 160px;\r\n      overflow-wrap: normal;\r\n    }\r\n  }\r\n\r\n  &--social-media {\r\n    text-align: center;\r\n\r\n    .links {\r\n      margin: 20px 0;\r\n\r\n      a {\r\n        text-decoration: none;\r\n        color: $input-main-color;\r\n\r\n        i {\r\n          font-size: 40px;\r\n        }\r\n      }\r\n    }\r\n  }\r\n\r\n  &--links {\r\n    text-align: center;\r\n    .links{\r\n        margin-top:45px ;\r\n        a{\r\n            text-decoration: none;\r\n            color: $input-main-color;\r\n        }\r\n    }\r\n  }\r\n  &--map{\r\n    text-align: center;\r\n    \r\n    &__content{\r\n      max-width: 500px;\r\n      width: 500px;\r\n      height: 180px;\r\n\r\n    iframe{\r\n      border:0;\r\n      border-radius: 15px;\r\n     width: 100%;\r\n     height: 100%;\r\n    }\r\n    }\r\n  }\r\n}\r\n\r\n.footer_header {\r\n  color: $input-background-color;\r\n  font-weight: $font-weight-bold;\r\n  margin-bottom: 20px;\r\n}\r\n",
+                    "data": "@import \"./../../constants/constants.scss\";\r\n\r\n.footer__container {\r\n  background-color: $darker-gray;\r\n  font-family: $font-family;\r\n  color: $input-main-color;\r\n  font-size: 16px;\r\n  display: flex;\r\n  justify-content: center;\r\n  box-shadow: 0px 0px 32px 16px rgba(34, 40, 49, 0.75);\r\n}\r\n\r\n.footer__content {\r\n  display: flex;\r\n  justify-content: center;\r\n  gap: 75px;\r\n  padding: 80px 0;\r\n  max-width: 1530px;\r\n\r\n  &--info {\r\n    max-width: 230px;\r\n  }\r\n\r\n  &--contact {\r\n    p {\r\n      max-width: 160px;\r\n      overflow-wrap: normal;\r\n    }\r\n  }\r\n\r\n  &--social-media {\r\n    text-align: center;\r\n\r\n    .links {\r\n      margin: 20px 0;\r\n\r\n      a {\r\n        text-decoration: none;\r\n        color: $input-main-color;\r\n\r\n        i {\r\n          font-size: 40px;\r\n        }\r\n      }\r\n    }\r\n  }\r\n\r\n  &--links {\r\n    text-align: center;\r\n\r\n    .links {\r\n      margin-top: 45px;\r\n\r\n      a {\r\n        text-decoration: none;\r\n        color: $input-main-color;\r\n      }\r\n    }\r\n  }\r\n\r\n  &--map {\r\n    text-align: center;\r\n\r\n    &__content {\r\n      max-width: 500px;\r\n      width: 500px;\r\n      height: 180px;\r\n\r\n      iframe {\r\n        border: 0;\r\n        border-radius: 15px;\r\n        width: 100%;\r\n        height: 100%;\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n.footer_header {\r\n  color: $input-background-color;\r\n  font-weight: $font-weight-bold;\r\n  margin-bottom: 20px;\r\n}\r\n\r\n@media (orientation:portrait) {\r\n  .footer__content {\r\n    padding: 20px;\r\n    margin: 20px;\r\n    gap: 20px;\r\n\r\n    &--info {\r\n      max-width: none;\r\n      text-align: center;\r\n    }\r\n\r\n    &--social-media {\r\n      display: block;\r\n\r\n      .links {\r\n        display: inline;\r\n        flex-wrap: wrap;\r\n        justify-content: center;\r\n        margin: 0;\r\n\r\n        a {\r\n          margin: 0 10px;\r\n        }\r\n      }\r\n\r\n      .icon {\r\n        width: 40px;\r\n        height: 40px;\r\n      }\r\n    }\r\n\r\n    &--links {\r\n      display: block;\r\n\r\n      .links {\r\n        display: inline;\r\n        flex-wrap: wrap;\r\n        justify-content: center;\r\n        margin: 20px 0;\r\n\r\n        a {\r\n          margin: 0 10px;\r\n        }\r\n      }\r\n    }\r\n    &--map {\r\n      text-align: center;\r\n\r\n      &__content {\r\n        max-width: 500px;\r\n        width: 500px;\r\n        height: 180px;\r\n\r\n        iframe {\r\n          border: 0;\r\n          border-radius: 15px;\r\n          width: 100%;\r\n          height: 100%;\r\n        }\r\n      }\r\n    }\r\n  }\r\n\r\n  @media (min-width: 769px) and (max-width: 1200px) {\r\n  .footer__content {\r\n    flex-wrap: wrap;\r\n    flex-direction: column;\r\n    align-items: center;\r\n\r\n    &--contact {\r\n      text-align: center;\r\n\r\n      p {\r\n        max-width: none;\r\n      }\r\n    }\r\n\r\n\r\n  }\r\n}\r\n\r\n@media (max-width: 768px) {\r\n  .footer__content {\r\n    flex-direction: column;\r\n    gap: 20px;\r\n    padding: 40px 0;\r\n    text-align: center;\r\n\r\n    &--info {\r\n      max-width: none;\r\n    }\r\n\r\n    &--contact {\r\n      p {\r\n        max-width: none;\r\n        overflow-wrap: break-word;\r\n      }\r\n    }\r\n\r\n    &--map {\r\n      display: none;\r\n    }\r\n  }\r\n}\r\n}\r\n\r\n\r\n",
                     "styleUrl": "./footer.component.scss"
                 }
             ],
@@ -1686,12 +1686,12 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".content-home{\r\n    width: 100%;\r\n    height: 100vh;\r\n}\r\n\r\nnav{\r\n    height: 10%;\r\n}",
+                    "data": ".navi-bar{\r\n    position: fixed;\r\n    top: 0;\r\n    right: 0;\r\n    left: 0;\r\n}\r\n.home-page__container{\r\n\r\n    height: 100vh;\r\n    background-image: url('../../../assets/backgrounds/background-mainPage.jpg');\r\n  background-position: center;\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n}",
                     "styleUrl": "./homePage.component.scss"
                 }
             ],
             "stylesData": "",
-            "templateData": " <section class=\"content-home\">\r\n    <nav>\r\n        <div class=\"brand\">\r\n            <div class=\"brand__icon\">\r\n                <a>\r\n                    <img src=\"/frontend/src/assets/logo/logo.svg\" alt=\"Ambasada Formy\">\r\n                </a>\r\n            </div>\r\n            <div class=\"brand__name\">\r\n                <h1>Ambasada Formy</h1>\r\n            </div>\r\n        </div>\r\n        <ul>\r\n            <li><a href=\"\">Start</a></li>\r\n            <li><a href=\"\">Karnety</a></li>\r\n            <li><a href=\"\">Trening</a></li>\r\n            <li><a href=\"\">Blog</a></li>\r\n        </ul>\r\n    </nav>\r\n </section>"
+            "templateData": "<div class=\"navi-bar\">\r\n    <af-menuStatic></af-menuStatic>\r\n</div>\r\n<div class=\"home-page__container\">\r\n\r\n</div>\r\n<af-footer></af-footer>"
         },
         {
             "name": "InputComponent",
@@ -1790,7 +1790,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"./../../constants/constants.scss\";\r\n\r\n.input__container {\r\n    width: 100%;\r\n    height: 55px;\r\n    //tutaj margin do usunięcia póżniej \r\n    margin-top: 20px;\r\n    \r\n    .input__content {\r\n        width: 100%;\r\n        &--icon{\r\n            font-size: 20px;\r\n        color: $input-main-color;\r\n        padding: 12px 16px;\r\n            top: 19%;\r\n            &-left{\r\n                left: 0;\r\n                border-right: 2px solid $input-border-color;\r\n            }\r\n            &-right {\r\n                right: 0;\r\n                border-left: 2px solid $input-border-color;\r\n            }\r\n        }\r\n\r\n        &--text {\r\n            padding-left: 75px;\r\n            width: 100%;\r\n            border: 2px solid $input-border-color;\r\n            border-radius: 15px;\r\n            background-color: $input-background-color;\r\n            font-family: $font-family;\r\n            &:focus {\r\n               box-shadow: none;\r\n            }\r\n        }\r\n\r\n        &--label{\r\n            font-family: $font-family;\r\n            font-weight: $font-weight-normal;\r\n            padding-left: 40px;\r\n            color: $input-text-color;\r\n        }\r\n    }\r\n}",
+                    "data": "@import \"./../../constants/constants.scss\";\r\n\r\n.input__container {\r\n    width: 100%;\r\n    height: 55px;\r\n    //tutaj margin do usunięcia póżniej \r\n    margin-top: 20px;\r\n    \r\n    .input__content {\r\n        width: 100%;\r\n        &--icon{\r\n            font-size: 20px;\r\n        color: $input-main-color;\r\n        padding: 12px 16px;\r\n            top: 19%;\r\n            &-left{\r\n                left: 0;\r\n                border-right: 2px solid $input-border-color;\r\n            }\r\n            &-right {\r\n                right: 0;\r\n                border-left: 2px solid $input-border-color;\r\n            }\r\n        }\r\n\r\n        &--text {\r\n            padding-left: 75px;\r\n            width: 100%;\r\n            border: 2px solid $input-border-color;\r\n            border-radius: 15px;\r\n            background-color: $input-background-color;\r\n            font-family: $font-family;\r\n            &:focus {\r\n               box-shadow: none;\r\n            }\r\n        }\r\n\r\n        &--label{\r\n            font-family: $font-family;\r\n            font-weight: $font-weight-normal;\r\n            padding-left: 40px;\r\n            color: $input-text-light;\r\n        }\r\n    }\r\n}",
                     "styleUrl": "./input.component.scss"
                 }
             ],
@@ -2436,6 +2436,72 @@
             "templateData": "<div class=\"bg-img\">\r\n  <section class=\"login-container\">\r\n    <div class=\"logo-section\">\r\n      <div class=\"logo-section__af\">\r\n        <img src=\"../../../assets/logo/logoFt_text.svg\" alt=\"test\">\r\n      </div>\r\n    </div>\r\n    <div class=\"login-section\">\r\n      <af-tile>\r\n        <div class=\"button__language\">\r\n          <af-languageChanger [fontSize]=\"22\"></af-languageChanger>\r\n        </div>\r\n        <div class=\"button__return-right\">\r\n          <af-button iconClassName=\"pi-undo\" iconPos=\"top\" [label]=\"'buttons.back' | translate\" buttonId=\"undo\" [fontSize]=\"10\" [iconSize]=\"18\"  [transparentButton]=\"true\" (click)=\"backToWelcomePage()\"></af-button>\r\n        </div>\r\n        <div class=\"login-section__justify\">\r\n          <form>\r\n            <div class=\"form-group\">\r\n              <af-input [iconConfig]=\"loginData\" [floatLabel]=\"true\" [floatLabelText]=\"'registerLogin.login' | translate\" (inputValue)=\"getLogin($event)\"></af-input>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <af-password [floatLabelText]=\"'registerLogin.password' | translate\" (inputValue)=\"getPassword($event)\"></af-password>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <div class=\"box-forgot\">\r\n                <div class=\"box-forgot__checkbox\">\r\n                  <af-checkbox (checkedToggler)=\"getRemeberPassword($event)\" [label]=\"'registerLogin.safePassword' | translate\"></af-checkbox>\r\n                </div>\r\n                <div class=\"box-forgot__forgot\">\r\n                  <p>{{'registerLogin.dontRememberPassword' | translate}} <a href=\"#\" class=\"form-group__forgot-password\">{{'registerLogin.RemindPassword' | translate}}</a></p>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"button__mid\">\r\n              <af-button [label]=\"'registerLogin.log_in' | translate\" buttonId=\"login\" [fontSize]=\"30\" (click)=\"onClickLogin()\"></af-button>\r\n            </div>\r\n            <div class=\"account-dont-exist\">\r\n              <p>{{'registerLogin.dontHaveAccount' | translate}} <a routerLink=\"/register\">{{'registerLogin.registerNow' | translate}}</a></p>\r\n            </div>\r\n          </form>\r\n        </div>\r\n      </af-tile>\r\n    </div>\r\n  </section>\r\n</div>\r\n\r\n<section class=\"validoation__container\">\r\n  <af-messages [closable]=\"true\"></af-messages>\r\n</section>"
         },
         {
+            "name": "MenuStaticComponent",
+            "id": "component-MenuStaticComponent-1e3067138a5023560914e25836067af838870c4cb13d106da48f98a06922f88064eb17039cb0eba6337619960ee321d02e4c88cbf0274dcd8c3fd7f04baf4293",
+            "file": "src/stories/components/menuStatic/menuStatic.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "af-menuStatic",
+            "styleUrls": [
+                "./menuStatic.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./menuStatic.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\r\nimport { TranslateService } from '@ngx-translate/core';\r\n\r\n@Component({\r\n  selector: 'af-menuStatic',\r\n  templateUrl: './menuStatic.component.html',\r\n  styleUrls: ['./menuStatic.component.scss']\r\n})\r\nexport class MenuStaticComponent {\r\nconstructor(private translateService: TranslateService){\r\n  this.translateService.setDefaultLang(localStorage.getItem(\"language\") || (\"en\"));\r\n}\r\n\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import \"./../../constants/constants.scss\";\r\n\r\n.navigation_container{\r\n    overflow: hidden;\r\n    box-sizing: border-box;\r\n    padding: 0 20px;\r\n    font-family: $font-family;\r\n    display: flex;\r\n    align-items: center;\r\n    width: 100%;\r\n    height: 80px;\r\n    background: $darker-gray;\r\n    color: $input-text-light;\r\n    margin: 0;\r\n    z-index: 1001;\r\n    box-shadow: 0px 0px 32px 16px rgba(34, 40, 49, 0.75);\r\n    &:hover{\r\n      box-shadow: none;\r\n      transition-delay: 0.2s;\r\n    }\r\n\r\n    &:hover .navigation_container--details{\r\n        top: 80px;\r\n        box-shadow: 0px 0px 32px 16px rgba(34, 40, 49, 0.75);\r\n    }\r\n\r\n    &--logo{\r\n        z-index: 1001;\r\n        background: $darker-gray;\r\n        width: 26%;\r\n        height: 100%;\r\n        display: flex;\r\n        align-items: center;\r\n        gap: 10px;\r\n      &__brand{\r\n\r\n        &__link{\r\n            &__photo{\r\n                height: 32px;\r\n            }\r\n        }\r\n      }\r\n      &__header{\r\n        h2{\r\n            font-size: 18px;\r\n            width: 90px;\r\n        }\r\n      }\r\n    }\r\n    .navigation_content{\r\n        background: $darker-gray;\r\n        z-index: 1001;\r\n        display: flex;\r\n    align-items: center;\r\n    gap: 20px;\r\n    width: 70%;\r\n    p{\r\n        font-size: 18px;\r\n        font-weight: $font-weight-bold;\r\n        width: 133px;\r\n        cursor: pointer;\r\n        transform: .2s;\r\n\r\n\r\n    }\r\n    }\r\n\r\n    .navigation_fetures{\r\n        background: $darker-gray;\r\n        z-index: 1001;\r\n        display: flex;\r\n        align-items: flex-end;\r\n\r\n        &--detail{\r\n            width: 40px;\r\n        }\r\n    }\r\n\r\n\r\n}\r\n.navigation_container--details{\r\n    display: flex;\r\n    top: -70vh;\r\n    left: 0;\r\n    position: absolute;\r\n    color: $input-text-light;\r\n    background: $darker-gray;\r\n    width: 100%;\r\n    padding: 0;\r\n    transition:.7s;\r\n    max-height: auto;\r\n    z-index: -1001;\r\n    padding-left: 26%;\r\n    gap: 20px;\r\n\r\n    p{\r\n        font-size: 18px;\r\n        font-weight: $font-weight-bold;\r\n        padding: 20px 0px;\r\n        width: 133px;\r\n    }\r\n\r\n    &__item{\r\n       margin-left: 1px;\r\n    }\r\n\r\n    &__profile{\r\n        color: $input-text-accent;\r\n        font-size: 27px;\r\n        text-align: center;\r\n        width: 100%;\r\n        display: flex;\r\n        justify-content: end;\r\n    }\r\n}\r\n",
+                    "styleUrl": "./menuStatic.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "translateService",
+                        "type": "TranslateService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 9,
+                "jsdoctags": [
+                    {
+                        "name": "translateService",
+                        "type": "TranslateService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "templateData": "<section class=\"navigation_container\">\r\n      <div class=\"navigation_container--logo\">\r\n          <div class=\"navigation_container--logo__brand\">\r\n              <a href=\"#\" class=\"navigation_container--logo__brand__link\">\r\n                  <img src=\"../../../assets/logo/logoLight.svg\" alt=\"Ambasada Formy\" class=\"navigation_container--logo__brand__link__photo\">\r\n              </a>\r\n          </div>\r\n          <div class=\"navigation_container--logo__header\">\r\n              <h2>Ambasada Formy</h2>\r\n          </div>\r\n      </div>\r\n     <div class=\"navigation_content\">\r\n        <p>Start</p>\r\n        <p>Karnety</p>\r\n        <p>Trening</p>\r\n        <p>Blog</p>\r\n     </div>\r\n     <div class=\"navigation_fetures\">\r\n        <div class=\"navigation_fetures--detail\">\r\n            <i class=\"pi pi-language\"></i>\r\n        </div>\r\n        <div class=\"navigation_fetures--detail\">\r\n            <i class=\"pi pi-user\"></i>\r\n        </div>\r\n     </div>\r\n     <div class=\"navigation_container--details\">\r\n        <div class=\"navigation_container--details__item\">\r\n            <p>Przegląd karnetów</p>\r\n            <p>Przegląd trenerów</p>\r\n            <p>Przegląd aktywności</p>\r\n            <p>Przegląd osiągnięć</p>\r\n         </div>\r\n         <div class=\"navigation_container--details__item\">\r\n            <p>Karnet ROZWÓJ</p>\r\n            <p>Karnet ZABAWA</p>\r\n            <p>Karnet ZDROWIE</p>\r\n         </div>\r\n         <div class=\"navigation_container--details__item\">\r\n            <p>Trenerzy</p>\r\n            <p>Trening</p>\r\n         </div>\r\n         <div class=\"navigation_container--details__item\">\r\n            <p>Diety</p>\r\n            <p>Dania</p>\r\n         </div>\r\n         <div class=\"navigation_container--details__profile\">\r\n            <p>Mój profil</p>\r\n         </div>\r\n         \r\n     </div>\r\n     \r\n</section>\r\n"
+        },
+        {
             "name": "MessagesComponent",
             "id": "component-MessagesComponent-eed0fe58502a03824b6ea70f28717591fc2c995e96ea74a51fd0ad3c1671ca5c18a3493cf9ec1bc559ce1a28d2dbaeebb101ee318867e607da20aa43f6f3def6",
             "file": "src/stories/components/messages/messages.component.ts",
@@ -2688,7 +2754,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"./../../constants/constants.scss\";\r\n\r\n.password__container {\r\n  width: 100%;\r\n  height: 55px;\r\n  margin-top: 20px;\r\n  .password__label{\r\n    width: 100%;\r\n  }\r\n  .password__content {\r\n    display: block;\r\n    \r\n\r\n    ::ng-deep .p-component {\r\n      width: 100%;\r\n\r\n      .p-inputtext {\r\n        width: 100%;\r\n        border: 2px solid $input-border-color;\r\n        border-radius: 15px;\r\n        font-family: $font-family;\r\n        background-color: $input-background-color;\r\n        &:focus {\r\n          box-shadow: none;\r\n        }\r\n      }\r\n      .p-password-input{\r\n        padding-left: 75px;\r\n      }\r\n      .p-password-panel {\r\n        background-color: $input-background-color;\r\n        box-shadow: 0 0 3px 1px $input-border-color;\r\n      }\r\n      .password__content--lock-icon {\r\n        position: absolute;\r\n        top: 9px;\r\n        font-size: 20px;\r\n        color: $input-main-color;\r\n        padding: 12px 16px;\r\n        border-right: 2px solid $input-border-color;\r\n    }\r\n      .p-password-clear-icon,\r\n      .password__icon {\r\n        padding: 0 22px;\r\n        color: $input-main-color;\r\n      }\r\n\r\n      .password__icon {\r\n        top: 22px;\r\n        font-size: 20px;\r\n        padding: 0 16px;\r\n      }\r\n    }\r\n\r\n\r\n    &--label {\r\n        padding-left: 40px;\r\n        font-family: $font-family;\r\n        color: $input-text-color;\r\n    }\r\n  }\r\n}\r\n",
+                    "data": "@import \"./../../constants/constants.scss\";\r\n\r\n.password__container {\r\n  width: 100%;\r\n  height: 55px;\r\n  margin-top: 20px;\r\n  .password__label{\r\n    width: 100%;\r\n  }\r\n  .password__content {\r\n    display: block;\r\n    \r\n\r\n    ::ng-deep .p-component {\r\n      width: 100%;\r\n\r\n      .p-inputtext {\r\n        width: 100%;\r\n        border: 2px solid $input-border-color;\r\n        border-radius: 15px;\r\n        font-family: $font-family;\r\n        background-color: $input-background-color;\r\n        &:focus {\r\n          box-shadow: none;\r\n        }\r\n      }\r\n      .p-password-input{\r\n        padding-left: 75px;\r\n      }\r\n      .p-password-panel {\r\n        background-color: $input-background-color;\r\n        box-shadow: 0 0 3px 1px $input-border-color;\r\n      }\r\n      .password__content--lock-icon {\r\n        position: absolute;\r\n        top: 9px;\r\n        font-size: 20px;\r\n        color: $input-main-color;\r\n        padding: 12px 16px;\r\n        border-right: 2px solid $input-border-color;\r\n    }\r\n      .p-password-clear-icon,\r\n      .password__icon {\r\n        padding: 0 22px;\r\n        color: $input-main-color;\r\n      }\r\n\r\n      .password__icon {\r\n        top: 22px;\r\n        font-size: 20px;\r\n        padding: 0 16px;\r\n      }\r\n    }\r\n\r\n\r\n    &--label {\r\n        padding-left: 40px;\r\n        font-family: $font-family;\r\n        color: $input-text-light;\r\n    }\r\n  }\r\n}\r\n",
                     "styleUrl": "./password.component.scss"
                 }
             ],
@@ -4036,13 +4102,13 @@
         },
         {
             "name": "AppModule",
-            "id": "module-AppModule-9230ae46587ac0498cc5587665fe2b02b52b2a573dbea05ca3575a7e556760d9b22dbff592dc692ce59cc4cff78e67ec7e0cde10145fe252ac2966ed4a2e1b89",
+            "id": "module-AppModule-906b14954935841efe133c8a379d1c66789193a88eb6b52bd299f61a0cbae23c7a66829b2386531bb8940b8f976c61d652e00f37fff372173e64a0550a3d3361",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/app.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { BrowserModule } from '@angular/platform-browser';\r\n\r\nimport { AppRoutingModule } from './app-routing.module';\r\nimport { AppComponent } from './app.component';\r\nimport { WelcomePageComponent } from './sites/welcomePage/welcomePage.component';\r\nimport { LoginComponent } from './sites/login/login.component';\r\nimport { RegisterComponent } from './sites/register/register.component';\r\nimport { FormsModule } from '@angular/forms';\r\nimport { AFButtonModule } from 'src/stories/components/button/button.module';\r\nimport { InputModule } from 'src/stories/components/input/input.module';\r\nimport { AFTileModule } from 'src/stories/components/tile/tile.module';\r\nimport { HttpClientModule, HttpClient } from '@angular/common/http';\r\nimport { TranslateModule, TranslateLoader } from '@ngx-translate/core';\r\nimport { TranslateHttpLoader } from '@ngx-translate/http-loader';\r\nimport { FooterModule } from 'src/stories/components/footer/footer.module';\r\nimport { HomePageComponent } from './sites/homePage/homePage.component';\r\nimport { AfCheckboxModule } from \"../stories/components/checkbox/checkbox.module\";\r\nimport { AFRadiobuttonModule } from \"../stories/components/radiobutton/radiobutton.module\";\r\nimport { MessagesModule } from 'primeng/messages';\r\nimport { AfMessagesModule } from 'src/stories/components/messages/messages.module';\r\nimport { AfPasswordModule } from 'src/stories/components/password/password.module';\r\nimport { AfMessageService } from './services/message.service';\r\nimport { MessageService } from 'primeng/api';\r\nimport { LanguageChangerModule } from \"../stories/components/languageChanger/languageChanger.module\";\r\n\r\n@NgModule({\r\n    declarations: [\r\n        AppComponent,\r\n        WelcomePageComponent,\r\n        LoginComponent,\r\n        RegisterComponent,\r\n        HomePageComponent,\r\n    ],\r\n    providers: [AfMessageService, MessageService],\r\n    bootstrap: [AppComponent],\r\n    imports: [\r\n        AfPasswordModule,\r\n        AfMessagesModule,\r\n        MessagesModule,\r\n        FooterModule,\r\n        BrowserModule,\r\n        AppRoutingModule,\r\n        HttpClientModule,\r\n        FormsModule,\r\n        AfCheckboxModule,\r\n        AFButtonModule,\r\n        InputModule,\r\n        AFTileModule,\r\n        TranslateModule.forRoot({\r\n            loader: {\r\n                provide: TranslateLoader,\r\n                useFactory: (handler: HttpClient) => { return new TranslateHttpLoader(handler, './assets/i18n/', '.json'); },\r\n                deps: [HttpClient]\r\n            }\r\n        }),\r\n        AFRadiobuttonModule,\r\n        LanguageChangerModule\r\n    ]\r\n})\r\nexport class AppModule { }\r\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { BrowserModule } from '@angular/platform-browser';\r\n\r\nimport { AppRoutingModule } from './app-routing.module';\r\nimport { AppComponent } from './app.component';\r\nimport { WelcomePageComponent } from './sites/welcomePage/welcomePage.component';\r\nimport { LoginComponent } from './sites/login/login.component';\r\nimport { RegisterComponent } from './sites/register/register.component';\r\nimport { FormsModule } from '@angular/forms';\r\nimport { AFButtonModule } from 'src/stories/components/button/button.module';\r\nimport { InputModule } from 'src/stories/components/input/input.module';\r\nimport { AFTileModule } from 'src/stories/components/tile/tile.module';\r\nimport { HttpClientModule, HttpClient } from '@angular/common/http';\r\nimport { TranslateModule, TranslateLoader } from '@ngx-translate/core';\r\nimport { TranslateHttpLoader } from '@ngx-translate/http-loader';\r\nimport { FooterModule } from 'src/stories/components/footer/footer.module';\r\nimport { HomePageComponent } from './sites/homePage/homePage.component';\r\nimport { AfCheckboxModule } from \"../stories/components/checkbox/checkbox.module\";\r\nimport { AFRadiobuttonModule } from \"../stories/components/radiobutton/radiobutton.module\";\r\nimport { MessagesModule } from 'primeng/messages';\r\nimport { AfMessagesModule } from 'src/stories/components/messages/messages.module';\r\nimport { AfPasswordModule } from 'src/stories/components/password/password.module';\r\nimport { AfMessageService } from './services/message.service';\r\nimport { MessageService } from 'primeng/api';\r\nimport { LanguageChangerModule } from \"../stories/components/languageChanger/languageChanger.module\";\r\nimport { MenuStaticModule } from \"../stories/components/menuStatic/menuStatic.module\";\r\n\r\n@NgModule({\r\n    declarations: [\r\n        AppComponent,\r\n        WelcomePageComponent,\r\n        LoginComponent,\r\n        RegisterComponent,\r\n        HomePageComponent,\r\n    ],\r\n    providers: [AfMessageService, MessageService],\r\n    bootstrap: [AppComponent],\r\n    imports: [\r\n        AfPasswordModule,\r\n        AfMessagesModule,\r\n        MessagesModule,\r\n        FooterModule,\r\n        BrowserModule,\r\n        AppRoutingModule,\r\n        HttpClientModule,\r\n        FormsModule,\r\n        AfCheckboxModule,\r\n        AFButtonModule,\r\n        InputModule,\r\n        AFTileModule,\r\n        TranslateModule.forRoot({\r\n            loader: {\r\n                provide: TranslateLoader,\r\n                useFactory: (handler: HttpClient) => { return new TranslateHttpLoader(handler, './assets/i18n/', '.json'); },\r\n                deps: [HttpClient]\r\n            }\r\n        }),\r\n        AFRadiobuttonModule,\r\n        LanguageChangerModule,\r\n        MenuStaticModule\r\n    ]\r\n})\r\nexport class AppModule { }\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -4104,6 +4170,9 @@
                         },
                         {
                             "name": "LanguageChangerModule"
+                        },
+                        {
+                            "name": "MenuStaticModule"
                         }
                     ]
                 },
@@ -4380,6 +4449,54 @@
                     "elements": []
                 }
             ]
+        },
+        {
+            "name": "MenuStaticModule",
+            "id": "module-MenuStaticModule-a04530b00c7af0f41b70a8a5fee391a3695626e9ee9e5a0904083e0368e45a77d73e1573b3d765aa72fc32f010e442c4e8b7b2a232fce2439942984dea8fbb5d",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/stories/components/menuStatic/menuStatic.module.ts",
+            "methods": [],
+            "sourceCode": "import {  NgModule} from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { MenuStaticComponent } from './menuStatic.component';\r\nimport { HttpClientModule, HttpClient } from '@angular/common/http';\r\nimport { TranslateModule, TranslateLoader } from '@ngx-translate/core';\r\nimport { TranslateHttpLoader } from '@ngx-translate/http-loader';\r\nimport { LanguageChangerModule } from \"../languageChanger/languageChanger.module\";\r\n\r\n@NgModule({\r\n    declarations: [\r\n        MenuStaticComponent\r\n    ],\r\n    exports: [\r\n        MenuStaticComponent\r\n    ],\r\n    imports: [\r\n        CommonModule,\r\n        HttpClientModule,\r\n        TranslateModule.forRoot({\r\n            loader: {\r\n                provide: TranslateLoader,\r\n                useFactory: (handler: HttpClient) => { return new TranslateHttpLoader(handler, './assets/i18n/', '.json'); },\r\n                deps: [HttpClient]\r\n            }\r\n        }),\r\n        LanguageChangerModule\r\n    ]\r\n})\r\nexport class MenuStaticModule { }\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "MenuStaticComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "LanguageChangerModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "MenuStaticComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
         }
     ],
     "miscellaneous": {
@@ -4578,16 +4695,6 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "() => ({\r\n  template: `\r\n<section \r\nstyle=\"\r\nheight: 70vh;  \r\nbackground-color: #0e0e0e;  \r\nbackground-image: \r\nlinear-gradient(0deg, #000 5%, transparent 5%, transparent 99%, #000 99%, #000), \r\nlinear-gradient(90deg, #000 5%, #0e0e0e 5%, #0e0e0e 99%, #000 99%, #000);  \r\nbackground-size: 50px 50px;\"\r\n></section>\r\n\r\n`,\r\n})"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/autocompete/autocomplete.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -4599,6 +4706,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/components/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/chart-bars/chart-bars.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -4628,7 +4745,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/chart-bars/chart-bars.component.stories.ts",
+                "file": "src/stories/components/footer/footer.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -4639,16 +4756,6 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/components/dropdown/dropdown.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/footer/footer.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -4698,6 +4805,16 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/menuStatic/menuStatic.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/password/password.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -4718,6 +4835,16 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/rating/rating.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/table/table.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -4728,11 +4855,11 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/rating/rating.component.stories.ts",
+                "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "Template.bind({})"
+                "defaultValue": "() => ({\r\n  template: `\r\n<section \r\nstyle=\"\r\nheight: 70vh;  \r\nbackground-color: #0e0e0e;  \r\nbackground-image: \r\nlinear-gradient(0deg, #000 5%, transparent 5%, transparent 99%, #000 99%, #000), \r\nlinear-gradient(90deg, #000 5%, #0e0e0e 5%, #0e0e0e 99%, #000 99%, #000);  \r\nbackground-size: 50px 50px;\"\r\n></section>\r\n\r\n`,\r\n})"
             },
             {
                 "name": "Readonly",
@@ -4828,16 +4955,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/avatar/avatar.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/autocompete/autocomplete.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -4848,11 +4965,31 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/avatar/avatar.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/button/button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/chart-bars/chart-bars.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
             },
             {
                 "name": "Template",
@@ -4878,7 +5015,7 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/chart-bars/chart-bars.component.stories.ts",
+                "file": "src/stories/components/footer/footer.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -4889,16 +5026,6 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/components/dropdown/dropdown.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/footer/footer.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -4948,7 +5075,7 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/messages/messages.component.stories.ts",
+                "file": "src/stories/components/languageChanger/languageChanger.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -4958,7 +5085,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/languageChanger/languageChanger.component.stories.ts",
+                "file": "src/stories/components/menuStatic/menuStatic.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/messages/messages.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -4988,7 +5125,7 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/table/table.component.stories.ts",
+                "file": "src/stories/components/rating/rating.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -4998,7 +5135,7 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/rating/rating.component.stories.ts",
+                "file": "src/stories/components/table/table.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -5674,16 +5811,26 @@
                     "defaultValue": "Template.bind({})"
                 }
             ],
-            "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts": [
+            "src/stories/components/chart-bars/chart-bars.component.stories.ts": [
                 {
                     "name": "Primary",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
+                    "file": "src/stories/components/chart-bars/chart-bars.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "() => ({\r\n  template: `\r\n<section \r\nstyle=\"\r\nheight: 70vh;  \r\nbackground-color: #0e0e0e;  \r\nbackground-image: \r\nlinear-gradient(0deg, #000 5%, transparent 5%, transparent 99%, #000 99%, #000), \r\nlinear-gradient(90deg, #000 5%, #0e0e0e 5%, #0e0e0e 99%, #000 99%, #000);  \r\nbackground-size: 50px 50px;\"\r\n></section>\r\n\r\n`,\r\n})"
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/chart-bars/chart-bars.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
                 }
             ],
             "src/stories/components/calendar/calendar.component.stories.ts": [
@@ -5800,28 +5947,6 @@
                     "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
                 }
             ],
-            "src/stories/components/chart-bars/chart-bars.component.stories.ts": [
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/chart-bars/chart-bars.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/chart-bars/chart-bars.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
-                }
-            ],
             "src/stories/components/footer/footer.component.stories.ts": [
                 {
                     "name": "Primary",
@@ -5910,6 +6035,28 @@
                     "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
                 }
             ],
+            "src/stories/components/menuStatic/menuStatic.component.stories.ts": [
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/menuStatic/menuStatic.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/menuStatic/menuStatic.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+                }
+            ],
             "src/stories/components/password/password.component.stories.ts": [
                 {
                     "name": "Primary",
@@ -5942,6 +6089,28 @@
                     "defaultValue": "(args) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n})"
                 }
             ],
+            "src/stories/components/rating/rating.component.stories.ts": [
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/rating/rating.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/rating/rating.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+                }
+            ],
             "src/stories/components/table/table.component.stories.ts": [
                 {
                     "name": "Primary",
@@ -5964,26 +6133,16 @@
                     "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
                 }
             ],
-            "src/stories/components/rating/rating.component.stories.ts": [
+            "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts": [
                 {
                     "name": "Primary",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/rating/rating.component.stories.ts",
+                    "file": "src/stories/backgrounds/checkered-background/checkered-background.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/rating/rating.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "args => ({\r\n  props:{\r\n    ...args\r\n  }\r\n})"
+                    "defaultValue": "() => ({\r\n  template: `\r\n<section \r\nstyle=\"\r\nheight: 70vh;  \r\nbackground-color: #0e0e0e;  \r\nbackground-image: \r\nlinear-gradient(0deg, #000 5%, transparent 5%, transparent 99%, #000 99%, #000), \r\nlinear-gradient(90deg, #000 5%, #0e0e0e 5%, #0e0e0e 99%, #000 99%, #000);  \r\nbackground-size: 50px 50px;\"\r\n></section>\r\n\r\n`,\r\n})"
                 }
             ]
         },
@@ -6902,6 +7061,35 @@
                 "name": "LanguageChangerComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/menuStatic/menuStatic.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/menuStatic/menuStatic.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/menuStatic/menuStatic.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "MenuStaticComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
                 "status": "low"
             },
             {

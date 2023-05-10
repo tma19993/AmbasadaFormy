@@ -72,7 +72,8 @@
               "browserTarget": "AmbasadaFormy-front:build:production"
             },
             "development": {
-              "browserTarget": "AmbasadaFormy-front:build:development"
+              "browserTarget": "AmbasadaFormy-front:build:development",
+              "disableHostCheck": true
             }
           },
           "defaultConfiguration": "development"

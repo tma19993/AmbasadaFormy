@@ -8,12 +8,13 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./welcomePage.component.scss']
 })
 export class WelcomePageComponent {
-  constructor(private router: Router, private translateService: TranslateService) { 
+  constructor(private router: Router, private translateService: TranslateService) {
     this.translateService.setDefaultLang(localStorage.getItem("language") || ("en"));
   }
 
   public goToLogin(): void {
-    this.router.navigate(['login']);
+    this.router.navigate(['/login']);
+    // window.location.href = 'http://keycloak:8080'
   }
 
   public goToRegister(): void {
