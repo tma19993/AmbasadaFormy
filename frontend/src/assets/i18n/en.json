@@ -45,8 +45,27 @@
             "firstPhoneNumber": "+48 000 000 000",
             "secondPhoneNumber": "(00) 000 00 00"
         }
+   
+    }, 
+    "MenuPage": {
+        "start": "Start",
+        "passes": "Passes",
+        "workouts": "Workouts",
+        "blog": "Blog",
+        "showpasses": "Show Passes",
+        "showtrainers": "Show Trainers",
+        "showactivities": "Show Activities",
+        "showachievements": "Show Achievements",
+        "passdevelopment": "Development Pass",
+        "passfun": " Fun Pass",
+        "passhealth": "Health Pass",
+        "Trainers": "Trainers",
+        "diet": "Diet",
+        "dishes": "Dishes",
+        "profile": "My Profile"  
     },
     "buttons": {
         "back": "Return"
     }
+    
 }
