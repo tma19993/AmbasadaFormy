@@ -1,0 +1,177 @@
+<section class="gym-pass-page">
+    <div class="navi-bar">
+        <af-menuStatic></af-menuStatic>
+    </div>
+    <section class="gym-pass__container">
+        <div class="gym-pass__container--header">
+            <div class="gym-pass__container--header-logo">
+                <img src="../../../assets/logo/logoLightText.svg" alt="logo">
+            </div>
+            <h2 class="gym-pass__container--header-text">Karnety</h2>
+        </div>
+        <div class="gym-pass__container--gym-passes">
+            <af-tile>
+                <div class="gym-pass__container--gym-passes-content">
+                <div class="gym-pass__container--gym-passes-content-header">
+                    <h3>Karnet Rozwój</h3>
+                    <p class="subtitle"><span class="quotes">&bdquo;</span> Nowy rok nowy ja <span class="quotes">&rdquo;</span></p>
+                    <p class="price">120zł</p>
+                    <p class="type-of-gym-pass">/ opłata miesięczna / subskrypcja /</p>
+                </div>
+                    <div class="gym-pass__container--gym-passes-content-content">
+                        <p><i class="pi pi-check"></i> Dostęp 9:00 - 17:00</p>
+                        <p><i class="pi pi-check"></i> 20 wejść na miesiąc</p>
+                        <p><i class="pi pi-check"></i> Opłata wpisowa jednorazowa 20zł</p>
+                        <p><i class="pi pi-check"></i> Darmowa woda</p>
+                    </div>
+                    <div class="gym-pass__container--gym-passes-content-button">
+                        <af-button label="Zamów Online" buttonId="rozwoj" [fontSize]="30"></af-button>
+                    </div>
+                </div>
+            </af-tile>
+            <af-tile>
+                <div class="gym-pass__container--gym-passes-content">
+                    <div class="gym-pass__container--gym-passes-content-header">
+                        <h3>Karnet Zabawa</h3>
+                        <p class="subtitle"><span class="quotes">&bdquo;</span> Stały Bywalec <span class="quotes">&rdquo;</span></p>
+                        <p class="price">140zł</p>
+                        <p class="type-of-gym-pass">/ subskrypcja /</p>
+                    </div>
+                        <div class="gym-pass__container--gym-passes-content-content">
+                            <p><i class="pi pi-check"></i> Nielimitowana ilość wejść</p>
+                            <p><i class="pi pi-check"></i> Dostęp 8:00 - 22:00</p>
+                            <p><i class="pi pi-check"></i> Gwarancja stałej ceny</p>
+                            <p><i class="pi pi-check"></i> Opłata wpisowa jednorazowa 20zł</p>
+                            <p><i class="pi pi-check"></i> Zamrożenie karnetu</p>
+                            <p><i class="pi pi-check"></i> Anulowanie karnetu</p>
+                            <p><i class="pi pi-check"></i> Darmowa woda</p>
+                        </div>
+                        <div class="gym-pass__container--gym-passes-content-button">
+                            <af-button label="Zamów Online" buttonId="zabawa" [fontSize]="30"></af-button>
+                        </div>
+                    </div>
+            </af-tile>
+            <af-tile>
+                <div class="gym-pass__container--gym-passes-content">
+                    <div class="gym-pass__container--gym-passes-content-header">
+                        <h3>Karnet Zdrowie</h3>
+                        <p class="subtitle"><span class="quotes">&bdquo;</span> Na zdrowie <span class="quotes">&rdquo;</span></p>
+                        <p class="price">180zł</p>
+                        <p class="type-of-gym-pass">/ subskrypcja /</p>
+                    </div>
+                        <div class="gym-pass__container--gym-passes-content-content">
+                            <p><i class="pi pi-check"></i> Nielimitowana ilość wejść</p>
+                            <p><i class="pi pi-check"></i> Dostęp 24h na dobę</p>
+                            <p><i class="pi pi-check"></i> Gwarancja stałej ceny</p>
+                            <p><i class="pi pi-check"></i> Brak opłaty wpisowej</p>
+                            <p><i class="pi pi-check"></i> 3 darmowe treningi do wykorzystania pod okiem trenera personalnego</p>
+                            <p><i class="pi pi-check"></i> Zamrożenie karnetu</p>
+                            <p><i class="pi pi-check"></i> Anulowanie karnetu</p>
+                            <p><i class="pi pi-check"></i> Darmowa woda</p>
+                        </div>
+                        <div class="gym-pass__container--gym-passes-content-button">
+                            <af-button label="Zamów Online" buttonId="zdrowie" [fontSize]="30"></af-button>
+                        </div>
+                    </div>
+            </af-tile>
+        </div>
+        <div class="gym-pass__container--gym-pass gym-pass__container--gym-pass-development">
+            <h2>Nowy rok nowy ja</h2>
+            <div class="gym-pass__container--gym-pass__info">
+                <af-tile>
+                    <div class="gym-pass__container--gym-pass__info-text">
+                        <p>Nowy rok nowy ja to karnet dla tych, którzy chcą zacząć ciwiczyć, ale jeszcze nie są pewni czy zostaną z nami na dłużej. </p>
+                        <p> Ten karnet to doskonała opcja budżetowa, a zarazem odpowiedni wybór dla kogoś, kto nie jest pewny, ale chce spróbować.</p>
+                    </div>
+                </af-tile>
+                <af-tile [darkMode]="true">
+                    <div  class="gym-pass__container--gym-pass__info-price">
+                        <p>120</p>
+                         <p>zł / msc</p>
+                    </div>
+                </af-tile>
+                <af-tile [darkMode]="true"></af-tile>
+                <af-tile [darkMode]="true">
+                    <div style="display: grid; place-items: center; height: 100%;">
+                        <af-button [label]="'Zamów Online'" buttonId="development-button" [fontSize]="52" ></af-button>
+                    </div>
+                </af-tile>
+            </div>
+            <af-tile>
+                <div class="gym-pass__container--gym-pass__details">
+                    <p>
+                        Dzięki temu karnetowi masz dostęp do naszej siłowni codziennie w godzinach 9:00 - 17:00 tak więc wpadaj śmiało na trening. 
+                    </p>
+                    <p>Pamiętaj, jednak że masz ograniczoną liczbę wejść do lokalu, ale nie przejmuj się 20 wejść na miesiąc to i tak dużo chyba, że potrzebujesz więcej. </p>
+                    <p>Jeśli tak to zerknij na nasze inne karnety. Zdecydowałeś się na ten karnet to super, aby zostać naszym członkiem będziesz musiał wpłacić 20 zł jednorazowej opłaty.</p>
+                </div>
+        </af-tile>
+        </div>
+        <div class="gym-pass__container--gym-pass gym-pass__container--gym-pass-fun">
+            <h2>Stały Bywalec</h2>
+            <div class="gym-pass__container--gym-pass__info">
+                <af-tile>
+                    <div class="gym-pass__container--gym-pass__info-text">
+                        <p>Stały Bywalec to karnet dla tych, którzy ćwiczą regularnie są już doświadczeni no i wiążą z nami dłuższa współprace. </p>
+                        <p> Ten karnet to świetna opcja zrównoważona budżetowo, a zarazem dająca kontrolę nad twoim karnetem.</p>
+                    </div>
+                </af-tile>
+                <af-tile [darkMode]="true">
+                    <div  class="gym-pass__container--gym-pass__info-price">
+                        <p>140</p>
+                         <p>zł / msc</p>
+                    </div>
+                </af-tile>
+                <af-tile [darkMode]="true"></af-tile>
+                <af-tile [darkMode]="true">
+                    <div style="display: grid; place-items: center; height: 100%;">
+                        <af-button [label]="'Zamów Online'" buttonId="fun-button" [fontSize]="52" ></af-button>
+                    </div>
+                </af-tile>
+            </div>
+            <af-tile>
+                <div class="gym-pass__container--gym-pass__details">
+                    <p>
+                        Dzięki temu karnetowi masz dostęp do naszej siłowni codziennie w godzinach 8:00 - 20:00 tak więc wpadaj śmiało na trening po szkole albo pracy. 
+                    </p>
+                    <p>Nie masz ograniczoną liczbę wejść do lokalu, tak więc możesz, siedzieć u nas ile chcesz no prawie, aby móc być z nami 24h na dobę zerknij na inne karnety.  </p>
+                    <p>Zdecydowałeś się na ten karnet to super, aby zostać naszym członkiem, będziesz musiał wpłacić 20 zł jednorazowej opłaty. Dodatkowo możesz kontrolować swój karnet. </p>
+                    <p>Gwarantujemy ci stałą kwotę po podpisaniu umowy, możliwość zamrożenia karnetu i jego anulowanie.</p>
+                </div>
+        </af-tile>
+        </div>
+        <div class="gym-pass__container--gym-pass gym-pass__container--gym-pass-health">
+            <h2>Na zdrowie</h2>
+            <div class="gym-pass__container--gym-pass__info">
+                <af-tile>
+                    <div class="gym-pass__container--gym-pass__info-text">
+                        <p>Na zdrowie to karnet dla tych, którzy ćwiczą cały czas i dbają o swoje zdrowie. Ten karnet to świetna opcja, aby ćwiczyć nie tylko samemu, ale i z trenerem.</p>
+                        <p>Karnet daję możliwości zarządzania nim.</p>
+                    </div>
+                </af-tile>
+                <af-tile [darkMode]="true">
+                    <div  class="gym-pass__container--gym-pass__info-price">
+                        <p>180</p>
+                         <p>zł / msc</p>
+                    </div>
+                </af-tile>
+                <af-tile [darkMode]="true"></af-tile>
+                <af-tile [darkMode]="true">
+                    <div style="display: grid; place-items: center; height: 100%;">
+                        <af-button [label]="'Zamów Online'" buttonId="health-button" [fontSize]="52" ></af-button>
+                    </div>
+                </af-tile>
+            </div>
+            <af-tile>
+                <div class="gym-pass__container--gym-pass__details">
+                    <p>Dzięki temu karnetowi masz dostęp do naszej siłowni codziennie 24h na dobę, tak więc wpadaj śmiało na trening, kiedy tylko chcesz.</p>
+                    <p>Nie masz ograniczonej liczbę wejść do lokalu, tak więc możesz, siedzieć u nas ile chcesz.</p>
+                    <p>Zdecydowałeś się na ten karnet to super, aby zostać naszym członkiem, nie musisz nic dopłacać. Dodatkowo możesz kontrolować swój karnet.</p>
+                    <p>Gwarantujemy ci stałą kwotę po podpisaniu umowy, możliwość zamrożenia karnetu i jego anulowanie.</p>
+                    <p>No i najważniejsze w cenie karnetu masz dostęp do naszych najlepszych trenerów, z którymi możesz wykonać 3 treningi.</p>
+                </div>
+        </af-tile>
+        </div>
+    </section>
+    <af-footer></af-footer>
+</section>

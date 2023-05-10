@@ -118,7 +118,7 @@
 
 ## W projekcie brali udział
 `Tomasz Mazurek`
-> Forontend, wsparcie merytoryczne
+> Frontend, wsparcie merytoryczne
 
 `Rafał Byczek`
 > UX/UI, utworzenie logo/mockup'ów dla wszystkich podstron itp.

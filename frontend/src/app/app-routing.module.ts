@@ -4,6 +4,7 @@ import { LoginComponent } from './sites/login/login.component';
 import { RegisterComponent } from './sites/register/register.component';
 import { WelcomePageComponent } from './sites/welcomePage/welcomePage.component';
 import { HomePageComponent } from './sites/homePage/homePage.component';
+import { GymPassComponent } from './sites/gym-pass/gym-pass.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
 { path: 'login', component: LoginComponent },
 { path: 'register', component: RegisterComponent },
 { path: 'home', component: HomePageComponent },
+{ path: 'gym-pass', component: GymPassComponent },
 ];
 
 @NgModule({

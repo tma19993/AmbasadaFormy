@@ -9,7 +9,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: url('../../../assets/backgrounds/background-welcomePage.jpg');
+  background-image: url('../../../assets/backgrounds/AF-desktop-wellcomePage-background.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -81,9 +81,7 @@
         ::ng-deep .button__content{
           .p-button{
             width: 440px;
-            // font-size: 27px !important;
             letter-spacing: 2px;
-            // padding:  !important;
           }
         }
     }
