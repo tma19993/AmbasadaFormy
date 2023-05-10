@@ -26,6 +26,7 @@ import { LanguageChangerModule } from '../stories/components/languageChanger/lan
 import { MenuStaticModule } from '../stories/components/menuStatic/menuStatic.module';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { initializeKeycloak } from './init/keycloak-init.factory';
+import { GymPassComponent } from './sites/gym-pass/gym-pass.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { initializeKeycloak } from './init/keycloak-init.factory';
     LoginComponent,
     RegisterComponent,
     HomePageComponent,
+        GymPassComponent,
   ],
   providers: [
     AfMessageService,

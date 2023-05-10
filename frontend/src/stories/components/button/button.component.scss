@@ -29,4 +29,25 @@
         }
 
     }
+    .white-button{
+      ::ng-deep .p-button{
+        background-color: $background-light;
+        border-color: transparent;
+        box-shadow: none;
+        font-family: $font-family;
+        font-weight: $font-weight-bold;
+        border-radius: 14px;
+        padding: 10px 40px;
+        transition: .2s;
+        color: $darker-gray;
+        .p-button-label{
+          transition-duration: 0s;
+        }
+        &:hover{
+          color:$input-main-color;
+        }
+
+    }
 }
+
+  }

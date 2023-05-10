@@ -24,7 +24,7 @@ const Template: Story = (args) => ({
     ...args,
   },
 });
-export const Cos:Story = ()=>({
+export const FewButtons:Story = ()=>({
   template:`
   <af-button [label]="label" [buttonId]="'pierwszy'" [fontSize]="30"></af-button>
   <br/>
@@ -41,6 +41,12 @@ Primary.args = {
   label: 'Button',
   iconPos: 'left',
   fontSize: 30
+};
+export const WhiteButton: Story = Template.bind({});
+WhiteButton.args = {
+  label: 'Button',
+  whiteButton:true,
+  fontSize: 50
 };
 
 export const Disabled: Story = Template.bind({});

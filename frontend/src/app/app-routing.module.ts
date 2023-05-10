@@ -4,6 +4,7 @@ import { LoginComponent } from './sites/login/login.component';
 import { RegisterComponent } from './sites/register/register.component';
 import { WelcomePageComponent } from './sites/welcomePage/welcomePage.component';
 import { HomePageComponent } from './sites/homePage/homePage.component';
+import { GymPassComponent } from './sites/gym-pass/gym-pass.component';
 import { AuthGuard } from './guard/auth.guard';
 
 
@@ -15,6 +16,7 @@ const routes: Routes = [
 { path: 'home', component: HomePageComponent, canActivate: [AuthGuard]},
 // { path: 'my/**', component: HomePageComponent, canActivate: [AuthGuard]},
 { path: '**', redirectTo: '' },
+{ path: 'gym-pass', component: GymPassComponent },
 ];
 
 @NgModule({
