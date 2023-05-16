@@ -1,7 +1,33 @@
 <section class="navigation_container">
-  <div class="navigation_container">
-    <div class="navigation_container__hamburger">
+  <div class="navigation_container--logo">
+    <div class="navigation_container__hamburger" (click)="toggleMenu($event)">
       <i class="pi pi-bars"></i>
+    </div>
+    <div class="navigation_container__hamburger__options" [class]="isMenuOpen ? 'navigation_container__hamburger__options--active':''">
+      <p>Moj profil</p>
+      <p (click)="toggleDetails('start')" [ngClass]="{'active': activeOption === 'start'}">Start <i class="pi pi-angle-right"></i></p>
+      <div class="navigation_container__hamburger__options--details" [ngClass]="{'active': activeOption === 'start'}">
+        <p>Przegląd karnetów</p>
+        <p>Przegląd trenerów</p>
+        <p>Przegląd aktywności</p>
+        <p>Przegląd osiągnięć</p>
+      </div>
+      <p (click)="toggleDetails('karnety')" [ngClass]="{'active': activeOption === 'karnety'}">Karnety <i class="pi pi-angle-right"></i></p>
+      <div class="navigation_container__hamburger__options--details" [ngClass]="{'active': activeOption === 'karnety'}">
+        <p>Karnet ROZWÓJ</p>
+        <p>Karnet ZABAWA</p>
+        <p>Karnet ZDROWIE</p>
+      </div>
+      <p (click)="toggleDetails('trening')" [ngClass]="{'active': activeOption === 'trening'}">Trening <i class="pi pi-angle-right"></i></p>
+      <div class="navigation_container__hamburger__options--details" [ngClass]="{'active': activeOption === 'trening'}">
+        <p>Trenerzy</p>
+        <p>Trening</p>
+      </div>
+      <p (click)="toggleDetails('blog')" [ngClass]="{'active': activeOption === 'blog'}">Blog <i class="pi pi-angle-right"></i></p>
+      <div class="navigation_container__hamburger__options--details" [ngClass]="{'active': activeOption === 'blog'}">
+        <p>Diety</p>
+        <p>Dania</p>
+      </div>
     </div>
     <div class="navigation_container--logo__brand">
       <a href="#" class="navigation_container--logo__brand__link">
@@ -19,6 +45,7 @@
     <p>Trening</p>
     <p>Blog</p>
   </div>
+
   <div class="navigation_fetures">
     <div class="navigation_fetures--detail">
       <i class="pi pi-language"></i>
@@ -48,65 +75,14 @@
       <p>Dania</p>
     </div>
     <div class="navigation_container--details__profile">
-      <p>Mój profil</p>
-    </div>
-
-  </div>
-
-      <div class="navigation_container--logo">
-          <div class="navigation_container--logo__brand">
-              <a href="#" class="navigation_container--logo__brand__link">
-                  <img src="../../../assets/logo/logoLight.svg" alt="Ambasada Formy" class="navigation_container--logo__brand__link__photo">
-              </a>
-          </div>
-          <div class="navigation_container--logo__header">
-              <h2>Ambasada Formy</h2>
-          </div>
+      <div>
+        <p>Mój profil</p>
+        <div class="navigation_container--details__language">
+          <button (click)="changeLanguage('pl')"><img src="../../../assets/backgrounds/flags/pl.png" alt="pl"></button>
+          <button (click)="changeLanguage('en')"><img src="../../../assets/backgrounds/flags/en.png" alt="en"></button>
+        </div>
       </div>
-     <div class="navigation_content">
-        <p>Start</p>
-        <p>Karnety</p>
-        <p>Trening</p>
-        <p>Blog</p>
-     </div>
-     <div class="navigation_fetures">
-        <div class="navigation_fetures--detail">
-            <i class="pi pi-language"></i>
-        </div>
-        <div class="navigation_fetures--detail">
-            <i class="pi pi-user"></i>
-        </div>
-     </div>
-     <div class="navigation_container--details">
-        <div class="navigation_container--details__item">
-            <p>Przegląd karnetów</p>
-            <p>Przegląd trenerów</p>
-            <p>Przegląd aktywności</p>
-            <p>Przegląd osiągnięć</p>
-         </div>
-         <div class="navigation_container--details__item">
-            <p>Karnet ROZWÓJ</p>
-            <p>Karnet ZABAWA</p>
-            <p>Karnet ZDROWIE</p>
-         </div>
-         <div class="navigation_container--details__item">
-            <p>Trenerzy</p>
-            <p>Trening</p>
-         </div>
-         <div class="navigation_container--details__item">
-            <p>Diety</p>
-            <p>Dania</p>
-         </div>
-         <div class="navigation_container--details__profile">
-           <div>
-            <p>Mój profil</p>
-            <div class="navigation_container--details__language">
-                <button (click)="changeLanguage('pl')"><img src="../../../assets/backgrounds/flags/pl.png" alt="pl"></button>
-                <button (click)="changeLanguage('en')"><img src="../../../assets/backgrounds/flags/en.png" alt="en"></button>
-            </div>
-           </div>
-         </div>
-
-     </div>
+    </div>
+  </div>
 
 </section>
