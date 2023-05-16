@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { LanguageModel } from './language.model';
 
@@ -7,13 +7,13 @@ import { LanguageModel } from './language.model';
   templateUrl: './languageChanger.component.html',
   styleUrls: ['./languageChanger.component.scss'],
 })
-export class LanguageChangerComponent implements OnInit, OnDestroy {
+export class LanguageChangerComponent {
   @Input() fontSize: number = 12;
   public languages: LanguageModel[];
   public showDropdownOption: boolean = false;
   public selectedLanguage: string;
 
-  constructor(private translateService: TranslateService) {
+  constructor(private translateService: TranslateService, private elementRef: ElementRef) {
     this.translateService.setDefaultLang(localStorage.getItem('language')!);
     this.selectedLanguage = localStorage.getItem('language')!;
     this.languages = [
@@ -21,29 +21,18 @@ export class LanguageChangerComponent implements OnInit, OnDestroy {
       { id: 'en', name: 'angielski' },
     ];
   }
+  @HostListener('document:click', ['$event.target'])
+  onClick(targetElement: any) {
+    const clickedInside = this.elementRef.nativeElement.contains(targetElement);
 
-  public ngOnInit(): void {
-    window.addEventListener('click', this.closeLanguageDialog.bind(this));
-  }
-
-  public ngOnDestroy(): void {
-    window.removeEventListener('click', this.closeLanguageDialog.bind(this));
+    if (!clickedInside) {
+      this.showDropdownOption = false;
+    }
   }
 
   public dropdownOptionsToggler(): void {
     this.showDropdownOption = !this.showDropdownOption;
-    // console.log(this.showDropdownOption);
-  }
 
-  public closeLanguageDialog(event: MouseEvent): void {
-    const clickedElement = event.target as HTMLElement;
-    const windowElement = document.querySelector('.dropdown__options');
-    const buttonElement = document.querySelector('.pi-language');
-
-    if (this.showDropdownOption && clickedElement != windowElement && clickedElement != buttonElement) {
-      this.showDropdownOption = false;
-    
-    }
   }
 
   changeLanguage(id: string) {

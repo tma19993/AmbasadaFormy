@@ -46,6 +46,23 @@
             "secondPhoneNumber": "(00) 000 00 00"
         }
     },
+    "MenuPage": {
+        "start": "Start",
+        "passes": "Karnety",
+        "workouts": "Treningi",
+        "blog": "Blog",
+        "showpasses": "Przegląd Karnetów",
+        "showtrainers": "Przegląd Trenerów",
+        "showactivities": "Przegląd Aktywności",
+        "showachievements": "Przegląd Osiągnięć",
+        "passdevelopment": "Karnet ROZWÓJ",
+        "passfun": "Karnet ZABAWA",
+        "passhealth": "Karnet ZDROWIE",
+        "Trainers": "Trenerzy",
+        "diet": "Diety",
+        "dishes": "Dania",
+        "profile": "Mój Profil"  
+    },
     "buttons": {
         "back": "Powrót"
     }

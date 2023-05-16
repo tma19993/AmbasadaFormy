@@ -33,7 +33,7 @@ export class LoginComponent {
     } else if (!this.password) {
       this.message.addErrorMessage('Uzupełnij hasło', 'Błąd');
     } else {
-      // this.router.navigate(['/home']);
+      this.router.navigate(['/home']);
     }
   }
 
