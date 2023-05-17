@@ -41,9 +41,14 @@
           justify-content: center;
           gap: 20px;
             &-content{
-              height: 710px;
-              width: 590px;
-
+              height: 75vh;
+              width: 32%;
+              af-tile{
+               ::ng-deep .tile_container{
+                width: 100%;
+                height: 100%;
+               }
+              }
               &-header{
                 box-shadow: 0 4px 10px -10px $darker-gray;
                 width: 100%;
@@ -153,4 +158,123 @@
 }
 .quotes{
   color: $input-text-light;
+}
+
+@media (orientation: landscape) and (max-width: 1024px){
+  .gym-pass-page{
+    .navi-bar { 
+      }
+      .gym-pass__container{
+        &--header{
+          &-logo {
+      
+            img {
+              height: 220px;
+            }
+          }
+          &-text{
+            font-size: 77px;
+            margin-bottom: 10px;
+          }
+        }
+        &--gym-passes{
+          max-width: 968px;
+          margin: 0 auto;
+            &-content{
+              height: 95vh;
+              &-header{
+                h3{
+              
+                  text-align: center;
+                  font-size: 30px;
+                  color: $input-text-light;
+                }
+                .subtitle{
+                  padding-top: 5px;
+                  text-align: center;
+                  font-size: 18px;
+                }
+                .price{
+                  padding-top: 15px;
+                  font-size: 24px;
+                }
+                .type-of-gym-pass{
+                  padding-top:10px;
+                  font-size: 13px;
+                  color: $input-text-light;
+                }
+              }
+              &-content{
+                height: 55%;
+                p{
+                  font-size: 15px;
+                  padding: 0 40px 0 40px;
+
+                }
+              }
+              &-button{
+                width: 70%;
+               margin: 0 auto 20px auto;
+               af-button{
+                ::ng-deep .button__container .p-element .p-button{
+                  .p-button-label{
+                    font-size: 29px !important;
+                  }
+                }
+              }
+              }
+            }        
+        }
+        &--gym-pass{
+          margin: 0 auto;
+          max-width: 968px;
+          h2{
+            color: $input-main-color;
+            font-size: 82px;
+            margin: 90px 0;
+          }
+          &__info{
+            display: flex;
+            gap: 15px;
+            margin-bottom:20px;
+            &-text{
+              padding: 20px;
+              p{
+                text-indent: 20px;
+                margin-bottom: 10px;
+                font-size: 15px;
+              }
+            }
+            &-price{
+ 
+              height: 100%;
+              p:first-of-type{
+                color:  $input-text-accent;
+                font-size: 82px;
+              }
+              p:last-of-type{
+                color:  $input-text-accent;
+                font-size: 26px;
+              }
+            }
+            af-tile{
+              width: 290px;
+              height: 290px;
+              ::ng-deep .tile_container{
+                height: 290px;
+              }
+            }
+          }
+          &__details{
+            padding: 30px 50px;
+            p{
+              font-size: 16px;
+            }
+          }
+          &-health{
+            margin-bottom: 100px;
+          }
+        }
+      }
+}
 }

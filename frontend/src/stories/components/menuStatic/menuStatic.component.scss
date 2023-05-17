@@ -18,12 +18,12 @@
   &__hamburger {
     display: none;
     cursor: pointer;
-
+   
 
     &__options {
       display: none;
       position: absolute;
-      height: 100vh;
+      min-height: 100vh;
       top: 75px;
       left: -100%;
       background-color: $darker-gray;
@@ -204,7 +204,7 @@
   }
 }
 
-@media (orientation:portrait) and (max-width: 1024px) {
+@media  (max-width: 1024px)  {
   .navigation_container {
     justify-content: space-between;
     &__hamburger {
@@ -212,6 +212,7 @@
 
       &__options {
         display: block;
+        // height: 140vh;
       }
     }
 
@@ -262,3 +263,36 @@
     display: none;
   }
 }
+
+@media  (max-width: 942px)  {
+  .navigation_container {
+    height: 70px;
+    &__hamburger {
+      
+
+      &__options {
+        height: 10000px;
+        top: 70px;
+      }
+    }
+
+   
+}
+}
+
+@media (max-width: 768px)  {
+  .navigation_container {
+    height: 65px;
+    &__hamburger {
+  
+      &__options {
+        top: 65px;
+        p{
+          font-size: 24px;
+        }
+
+        }
+      }
+    }
+}
+
