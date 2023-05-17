@@ -42,7 +42,6 @@
           position: relative;
           font-size: 30px;
           top: 3px;
-          // transform: rotate(90deg);
           transition: 0.2s;
         }
         &.active{
@@ -58,6 +57,7 @@
           color: $input-text-light;
           padding-right: 10px;
         }
+
       }
 
       &--details.active {
@@ -128,8 +128,25 @@
     display: flex;
     align-items: flex-end;
 
+
     &--detail {
       width: 40px;
+
+      &__language{
+        display: none;
+
+        button {
+          margin: 0 10px;
+          cursor: pointer;
+          padding: 0;
+          background-color: transparent;
+          border: none;
+
+          img {
+            width: 24px;
+          }
+        }
+      }
     }
   }
 
@@ -189,7 +206,7 @@
 
 @media (orientation:portrait) and (max-width: 1024px) {
   .navigation_container {
-
+    justify-content: space-between;
     &__hamburger {
       display: block;
 
@@ -222,14 +239,20 @@
 
     .navigation_content {
       display: none;
-
-      p {}
     }
 
     .navigation_fetures {
-      display: none;
+      margin-left: 15px;
+      &--detail {
 
-      &--detail {}
+
+        i{
+          display: none;
+        }
+        &__language{
+          display: block;
+        }
+      }
     }
 
 
@@ -237,11 +260,5 @@
 
   .navigation_container--details {
     display: none;
-
-    p {}
-
-    &__item {}
-
-    &__profile {}
   }
 }
