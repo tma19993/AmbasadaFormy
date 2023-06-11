@@ -1,10 +1,139 @@
-const express = require('express')
-const app = express()
-const port = 3000;
-app.get('/', function (req, res) {
-  res.send('Hello World')
-})
+const MongoClient = require("mongodb").MongoClient;
+const express = require("express");
+const app = express();
+const colors = require("colors");
+const bodyParser = require("body-parser");
 
-app.listen(port,()=>{
-    console.log("object");
+const port = 5000;
+
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET,HEAD,OPTIONS,POST,PUT"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
+  );
+  next();
+});
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+async function getData(collection) {
+  try {
+    const data = await collection.find({}).toArray();
+    return data;
+  } catch (err) {
+    return err;
+  }
+}
+
+MongoClient.connect("mongodb://127.0.0.1:27017", (error, data) => {
+  if (error) {
+    console.log(error);
+  } else {
+    const database = data.db("AmbasadaFormy");
+    const blog = database.collection("blog");
+    const gymPasses = database.collection("gym-passes");
+    const coaches = database.collection("trainers");
+    const users = database.collection("users");
+
+    app.get("/getBlog", async (req, res) => {
+      const blogData = await getData(blog);
+      res.send(blogData);
+    });
+
+    app.get("/getGymPasses", async (req, res) => {
+      const gymPassesData = await getData(gymPasses);
+      res.send(gymPassesData);
+    });
+
+    app.get("/getCoaches", async (req, res) => {
+      const coachesData = await getData(coaches);
+      res.send(coachesData);
+    });
+
+    app.get("/getUsers", async (req, res) => {
+      const usersData = await getData(users);
+      res.send(usersData);
+    });
+
+    app.get("/getUser", async (req, res) => {
+      const { userId } = req.body;
+      const userData = await users.findOne({ userId: userId });
+      res.send(userData);
+    });
+    
+    app.post("/addBlog", async (req, res) => {
+      const newBlogPost = req.body;
+      const result = await blog.insertOne(newBlogPost);
+      res.send(result);
+    });
+
+    app.post("/addUser", async (req, res) => {
+      const newUser = req.body;
+      const result = await users.insertOne(newUser);
+      res.send(result);
+    });
+
+    app.post("/addCoach", async (req, res) => {
+      const newCoach = req.body;
+      const result = await coaches.insertOne(newCoach);
+      res.send(result);
+    });
+
+    app.post("/login", async (req, res) => {
+      const { login, password } = req.body;
+      const user = await users.findOne({ login: login, password: password });
+      res.send(user ? user.userId: null);
+    });
+
+    app.put("/changeCoach/:id", async (req,res)=>{
+      const userId = req.params.id;
+      const {haveCoach ,coachFullName } = req.body;
+      try {
+        const result = await users.updateOne(
+          { userId: userId },
+          { $set: { haveCoach ,coachFullName } }
+        );
+    
+        if (result.modifiedCount === 1) {
+          res.send("Dane użytkownika zostały zaktualizowane.");
+        } else {
+          res.status(404).send("Nie znaleziono użytkownika o podanym ID.");
+        }
+      } catch (error) {
+        console.error(error);
+        res.status(500).send("Wystąpił błąd podczas aktualizacji danych użytkownika.");
+      }
+    });
+    app.put("/updateGymPass/:id", async (req,res)=>{
+      const userId = req.params.id;
+      const {activeGymPass,gympassName} = req.body;
+      try {
+        const result = await users.updateOne(
+          { userId: userId },
+          { $set: { activeGymPass,gympassName } }
+        );
+    
+        if (result.modifiedCount === 1) {
+          res.send("Dane użytkownika zostały zaktualizowane.");
+        } else {
+          res.status(404).send("Nie znaleziono użytkownika o podanym ID.");
+        }
+      } catch (error) {
+        console.error(error);
+        res.status(500).send("Wystąpił błąd podczas aktualizacji danych użytkownika.");
+      }
+    });
+  }
+});
+
+app.listen(port, () => {
+  console.log("Aplikacja działa".bold.green);
+  console.log(
+    "Aplikacja nasłuchuje na porcie: ".green + colors.bold.green(port)
+  );
 });
