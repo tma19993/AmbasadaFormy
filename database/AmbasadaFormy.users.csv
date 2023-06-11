@@ -1,0 +1,4 @@
+_id,userId,firstName,lastName,age,gender,login,password,email,haveCoach,permission,activeGymPass,gympassName,coachFullName
+6485c5733a0a45b56f3ddc36,1,Michał,Nowak,35,men,Admin,admin,loupummoukausau-7531@yopmail.com,false,admin,false,,
+6485c6013a0a45b56f3ddc3a,2,Rafał,Leszczyński,28,men,michal123,coach,quavacraffudi-5583@yopmail.com,false,coach,true,zdrowie,
+6485c65c3a0a45b56f3ddc3c,3,Adam,Kowalski,22,men,mada32,user,crecepimmeizoi-2214@yopmail.com,true,user,true,zdrowie,Rafał Leszczyński

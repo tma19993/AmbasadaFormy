@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { catchError, of } from 'rxjs';
+import { LoginService } from 'src/app/services/login.service';
 import { AfMessageService } from 'src/app/services/message.service';
 import { enumIconFloat } from 'src/stories/enums/input.enum';
 import { inputIconConfig } from 'src/stories/interfaces/input.model';
@@ -11,20 +13,20 @@ import { inputIconConfig } from 'src/stories/interfaces/input.model';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  private login: string | undefined;
-  private password: string | undefined;
+  private login: string;
+  private password: string;
 
-  @Input() public remember: boolean | undefined;
+  @Input() public remember: boolean;
 
   public loginData: inputIconConfig = {
     iconClassName: 'pi-user',
     iconFloat: enumIconFloat.left,
   };
 
-  constructor(private router: Router, private message: AfMessageService,private translateService: TranslateService) {
+  constructor(private router: Router, private message: AfMessageService,private translateService: TranslateService, private loginServ: LoginService) {
     this.translateService.setDefaultLang(localStorage.getItem("language") || ("en"));
   }
-
+  
   public onClickLogin(): void {
     if (!this.login && !this.password) {
       this.message.addErrorMessage('Uzupełnij Login lub hasło', 'Błąd');
@@ -33,7 +35,16 @@ export class LoginComponent {
     } else if (!this.password) {
       this.message.addErrorMessage('Uzupełnij hasło', 'Błąd');
     } else {
-      this.router.navigate(['/home']);
+      this.loginServ.login(this.login, this.password).subscribe(res=>{
+        if(res == null){
+          this.message.addErrorMessage('Błędny login lub hasło', 'Błąd');
+        }
+        else{
+          this.loginServ.setLoggedUserId(res);
+           this.router.navigate(['/home']);
+        }
+      });
+     
     }
   }
 

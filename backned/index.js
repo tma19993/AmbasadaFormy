@@ -73,7 +73,23 @@ MongoClient.connect("mongodb://127.0.0.1:27017", (error, data) => {
     });
 
     app.post("/addUser", async (req, res) => {
-      const newUser = req.body;
+      let lastId;
+      users.findOne({}, { sort: { indeks: -1 }, projection: { _id: 0, indeks: 1 } }, function(err, result) {
+        if (err) throw err;
+    
+        if (result) {
+           lastId = result.indeks;
+        }
+      });
+      const newUser = {
+        userId: lastId,
+        ...req.body,
+        permission: "user",
+        activeGymPass: false,
+        haveCoach: false
+      };
+    
+      
       const result = await users.insertOne(newUser);
       res.send(result);
     });

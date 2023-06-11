@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-homePage',
@@ -8,17 +9,19 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./homePage.component.scss']
 })
 export class HomePageComponent {
-  constructor( private router: Router, private translateService: TranslateService){
+  constructor( private router: Router, private translateService: TranslateService, private loginServ: LoginService){
     this.translateService.setDefaultLang(localStorage.getItem("language") || ("en"));
+
+    if(!this.loginServ.getLoggedUserId()){
+      // this.router.navigate(['/welcome']);
+    }
   }
 
   public gymPassButton():void{
-    console.log("ładuję podstronę karnety");
-    // this.router.navigate(['/gymPass']);
+    this.router.navigate(['/gym-pass']);
   }
 
   public trainersButton():void {
-    console.log("ładuję podstronę Trenerzy");
-    // this.router.navigate(['/treners']);
+    this.router.navigate(['/treners']);
     }
 }

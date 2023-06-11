@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { GenderModel, genderKey } from 'src/app/models/gender.model';
 import { registerData } from 'src/app/models/register.model';
 import { AfMessageService } from 'src/app/services/message.service';
+import { RegisterService } from 'src/app/services/register.service';
 import { enumIconFloat } from 'src/stories/enums/input.enum';
 import { inputIconConfig } from 'src/stories/interfaces/input.model';
 
@@ -30,15 +31,21 @@ export class RegisterComponent {
   constructor(
     private router: Router,
     private messageService: AfMessageService,
-    private translateService: TranslateService) {
+    private translateService: TranslateService,
+    private registerService: RegisterService) {
     this.translateService.setDefaultLang(localStorage.getItem("language") || ("en"));
     this.getTranslationGenderData();
   }
 
   public goToHomePage(): void {
     if(this.validation()){
-      console.log("logowanie udane");
-    // this.router.navigate(['/home']);
+      this.registerService.register(this.accountData).subscribe(res=>{
+        this.messageService.addErrorMessage('Zostałeś Zarejestrowany');
+        setTimeout(()=>{
+          this.router.navigate(['/home']);
+        },2000);
+      })
+    
     }
   }
 

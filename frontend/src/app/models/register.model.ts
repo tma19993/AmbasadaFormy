@@ -6,5 +6,6 @@ lastName?:string;
 login?:string;
 email?:string;
 gender?: genderKey;
-password?: string
+password?: string;
+permission?: string;
 }
