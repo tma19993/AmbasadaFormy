@@ -1,1 +1,98 @@
-<p>profile works!</p>
+<section class="profile__container">
+  <div class="main__nav">
+  </div>
+  <div class="profile__navigation">
+    <af-tile [darkMode]="true">
+      <div class="profile__navigatio--logo">
+        <img src="../../../assets/logo/logoLightText.svg">
+      </div>
+    </af-tile>
+    <af-tile>
+      <div class="profile__navigation--information">
+        <div class="profile__navigation--information--main">
+          <div class="profile__navigation--information--main--avatar">
+          </div>
+          <div class="profile__navigation--information--main--fullname">
+            <div class="profile__navigation--information--main--fullname--name">
+              IMIĘ
+            </div>
+            <div class="profile__navigation--information--main--fullname--lastname">
+              NAZWISKO
+            </div>
+          </div>
+        </div>
+        <div class="profile__navigation--information--other">
+          <div class="profile__navigation--information--other--login">
+            @LOGIN
+          </div>
+          <div class="profile__navigation--information--other--role">
+            KLIENT/TRENER
+          </div>
+        </div>
+      </div>
+    </af-tile>
+    <af-tile>
+      <div class="profile__navigation--navi-bar">
+        <div class="navi-item">
+          <i class="pi pi-user"></i> Mój profil
+        </div>
+        <div class="navi-item">
+          <i class="pi pi-ticket"></i> Moje karnety
+        </div>
+        <div class="navi-item">
+          <i class="pi pi-ticket"></i> Treningi personalne
+        </div>
+        <div class="navi-item">
+          <i class="pi pi-ticket"></i> Diety
+        </div>
+        <div class="navi-item-logout">
+          <af-button iconClassName="pi-sign-out" [label]="'Wyloguj'" [whiteButton]="true"></af-button>
+        </div>
+      </div>
+    </af-tile>
+  </div>
+  <div>
+    <af-tile>
+      <div class="profile__information">
+        <div class="profile__information--left">
+          <h1>Mój profil</h1>
+          <div class="profile__information--left--data">
+            <h2>Moje dane:</h2>
+            <ul>
+              <li>Imie Nazwisko</li>
+              <li>@login</li>
+              <li>email@email.pl</li>
+              <li>PESSEL: 21212121212</li>
+            </ul>
+          </div>
+          <div class="profile__information--left--contact">
+            <h2>Dane kontaktowe:</h2>
+            <ul>
+              <li>Imie Nazwisko</li>
+              <li>ul.</li>
+              <li>poczta</li>
+              <li>tel</li>
+            </ul>
+          </div>
+          <div class="profile__information--left--invoice">
+            <h2>Dane do faktury:</h2>
+            <ul>
+              <li>Imie Nazwisko</li>
+              <li>ul</li>
+              <li>poczta</li>
+              <li>email@email.pl</li>
+              <li>tel</li>
+            </ul>
+          </div>
+        </div>
+        <div class="profile__information--right">
+          <af-button [label]="'Zmień hasło'" [whiteButton]="true" class="btn-white"></af-button>
+          <af-button [label]="'Edytuj'"></af-button>
+        </div>
+      </div>
+      <div class="delete__account">
+        <af-button [whiteButton]="true" [label]="'USUŃ KONTO'" iconClassName="pi pi-user-minus" class="btn-white"></af-button>
+      </div>
+    </af-tile>
+  </div>
+</section>
