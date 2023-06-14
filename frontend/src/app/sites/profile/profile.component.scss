@@ -1,0 +1,174 @@
+@import "../../../stories/constants/constants.scss";
+
+* {
+  box-sizing: border-box;
+  font-family: $font-family;
+}
+
+.profile__container {
+  background-image: url("../../../assets/backgrounds/AF-profile-bg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+  padding: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .profile__navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-right: 20px;
+    width: 15%;
+    height: calc(100vh - 60px);
+
+    af-tile {
+
+      &:nth-child(2) {
+        .profile__navigation--information {
+          &--main {
+            padding: 20px;
+            display: flex;
+            align-items: flex;
+
+            &--avatar {
+              border: #222831 1px solid;
+              width: 128px;
+              height: 128px;
+              border-radius: 16px;
+            }
+
+            &--fullname {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              padding-left: 20px;
+              &--name{
+                display: flex;
+                flex-direction: column;
+                font-weight: $font-weight-bold;
+              }
+              &--lastname {
+                display: flex;
+                flex-direction: column;
+
+              }
+            }
+          }
+
+          &--other{
+            text-align: center;
+            font-size: 12px;
+            &--login,
+            &--role{
+              margin-bottom: 10px;
+            }
+          }
+        }
+      }
+
+      &:nth-child(3) {
+        .af-tile {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .profile__navigation--navi-bar {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-end;
+          padding: 20px;
+          height: 49vh;
+
+          .navi-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+          }
+
+          .navi-item-logout{
+            margin: 0 auto;
+            border: 2px solid #222831;
+            border-radius: 16px;
+            margin-top: auto;
+          }
+
+          i {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+
+
+
+  .profile__information {
+    display: flex;
+    padding: 40px;
+    width: 1240px;
+    height: 80vh;
+    .profile__information--left {
+      flex: 1;
+
+      h1 {
+        margin-bottom: 10px;
+        font-size: 27px;
+        font-weight: $font-weight-bold;
+      }
+
+      .profile__information--left--data,
+      .profile__information--left--contact,
+      .profile__information--left--invoice {
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        font-weight: $font-weight-bold;
+        font-size: 18px;
+      }
+
+      ul {
+        font-weight: $font-weight-normal;
+        font-size: 18px;
+      }
+
+      li {
+        list-style: none;
+      }
+    }
+
+    .profile__information--right {
+      display: flex;
+      align-items: flex-start;
+      gap: 40px;
+
+      padding-top: 40px;
+
+      .btn-white {
+        border: 2px solid #222831;
+        border-radius: 16px;
+      }
+
+      af-button {
+        font-size: 18px;
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+  .delete__account{
+    display: flex;
+    align-items: center;
+    padding: 40px 40%;
+    .btn-white {
+      border: 2px solid #222831;
+      border-radius: 16px;
+    }
+  }
+}
