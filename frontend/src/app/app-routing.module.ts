@@ -5,6 +5,7 @@ import { RegisterComponent } from './sites/register/register.component';
 import { WelcomePageComponent } from './sites/welcomePage/welcomePage.component';
 import { HomePageComponent } from './sites/homePage/homePage.component';
 import { GymPassComponent } from './sites/gym-pass/gym-pass.component';
+import { ProfileComponent } from './sites/profile/profile.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
 { path: 'register', component: RegisterComponent },
 { path: 'home', component: HomePageComponent },
 { path: 'gym-pass', component: GymPassComponent },
+{ path: 'profile', component: ProfileComponent },
 ];
 
 @NgModule({

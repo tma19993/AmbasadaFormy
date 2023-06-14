@@ -59,7 +59,7 @@
 >UX/UI, creation of logo/mockups for all subpages, etc.
 
 `Maciej Fim`
->Frontend, keycloak, readme
+>Frontend, readme
 
 `Bartek Rudko`
 >Databases
@@ -124,7 +124,7 @@
 > UX/UI, utworzenie logo/mockup'ów dla wszystkich podstron itp.
 
 `Maciej Fim`
-> Frontend, keycloak, readme
+> Frontend, readme
 
 `Bartek Rudko`
 > Bazy danych
