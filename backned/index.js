@@ -144,6 +144,28 @@ MongoClient.connect("mongodb://127.0.0.1:27017", (error, data) => {
         res.status(500).send("Wystąpił błąd podczas aktualizacji danych użytkownika.");
       }
     });
+
+    app.patch("/changeUserData/:id", async (req, res) => {
+      const userId = req.params.id;
+      const { name, email } = req.body;
+    
+      try {
+        const result = await users.updateOne(
+          { _id: ObjectId(userId) },
+          { $set: { name, email } }
+        );
+    
+        if (result.modifiedCount === 1) {
+          res.send("Dane użytkownika zostały zaktualizowane.");
+        } else {
+          res.status(404).send("Nie znaleziono użytkownika o podanym ID.");
+        }
+      } catch (error) {
+        console.error(error);
+        res.status(500).send("Wystąpił błąd podczas aktualizacji danych użytkownika.");
+      }
+    });
+
   }
 });
 

@@ -1,0 +1,23 @@
+<section class="blog">
+    <div class="navi-bar">
+        <af-menuStatic></af-menuStatic>
+    </div>
+    <section class="blog__container">
+        <h2 class="blog__container--header">Blog</h2>
+        <div *ngFor="let post of posts" class="blog__container--post">
+            <af-tile>
+           <div class="blog__container--post-content">
+            <div class="blog__container--post-content-img">
+                <img src="../../../assets/backgrounds/jedzonko.png" alt="image">
+            </div>
+            <div class="blog__container--post-content-text">
+                <h4 class="header">{{post.title}}</h4>
+                <p class="subheader"><span class="quotes">&bdquo;</span>{{post.userName}}<span class="quotes">&rdquo;</span></p>
+                <p class="content">{{post.content}}</p>
+            </div>
+           </div>
+            </af-tile>
+        </div>
+    </section>
+    <af-footer></af-footer>
+</section>

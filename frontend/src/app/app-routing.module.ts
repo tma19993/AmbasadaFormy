@@ -6,7 +6,7 @@ import { WelcomePageComponent } from './sites/welcomePage/welcomePage.component'
 import { HomePageComponent } from './sites/homePage/homePage.component';
 import { GymPassComponent } from './sites/gym-pass/gym-pass.component';
 import { ProfileComponent } from './sites/profile/profile.component';
-
+import { BlogComponent } from './sites/blog/blog.component';
 
 const routes: Routes = [
 { path: '', redirectTo: '/welcome', pathMatch: 'full' },
@@ -16,6 +16,7 @@ const routes: Routes = [
 { path: 'home', component: HomePageComponent },
 { path: 'gym-pass', component: GymPassComponent },
 { path: 'profile', component: ProfileComponent },
+{ path: 'blog', component: BlogComponent },
 ];
 
 @NgModule({

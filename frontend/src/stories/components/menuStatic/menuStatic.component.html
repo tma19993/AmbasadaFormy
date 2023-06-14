@@ -46,10 +46,10 @@
         </div>
       </div>
      <div class="navigation_content">
-        <p>{{"MenuPage.start"| translate}}</p>
-        <p>{{"MenuPage.passes"| translate}}</p>
-        <p>{{"MenuPage.workouts"| translate}}</p>
-        <p>{{"MenuPage.blog"| translate}}</p>
+        <p (click)="startEmit()">{{"MenuPage.start"| translate}}</p>
+        <p (click)="gymPassEmit()">{{"MenuPage.passes"| translate}}</p>
+        <p (click)="workoutsEmit()">{{"MenuPage.workouts"| translate}}</p>
+        <p (click)="blogEmit()">{{"MenuPage.blog"| translate}}</p>
 
      </div>
      <div class="navigation_fetures">
@@ -86,7 +86,7 @@
          </div>
          <div class="navigation_container--details__profile">
            <div>
-            <p>{{"MenuPage.profile"| translate}}</p>
+            <p (click)="profileEmit()">{{"MenuPage.profile"| translate}}</p>
             <div class="navigation_container--details__language">
                 <button (click)="changeLanguage('pl')"><img src="../../../assets/backgrounds/flags/pl.png" alt="pl"></button>
                 <button (click)="changeLanguage('en')"><img src="../../../assets/backgrounds/flags/en.png" alt="en"></button>

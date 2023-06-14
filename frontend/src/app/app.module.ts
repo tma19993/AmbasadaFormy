@@ -26,6 +26,7 @@ import { LanguageChangerModule } from "../stories/components/languageChanger/lan
 import { MenuStaticModule } from "../stories/components/menuStatic/menuStatic.module";
 import { GymPassComponent } from './sites/gym-pass/gym-pass.component';
 import { ProfileComponent } from './sites/profile/profile.component';
+import { BlogComponent } from './sites/blog/blog.component';
 
 @NgModule({
     declarations: [
@@ -36,6 +37,7 @@ import { ProfileComponent } from './sites/profile/profile.component';
         HomePageComponent,
         GymPassComponent,
         ProfileComponent,
+        BlogComponent,
     ],
     providers: [AfMessageService, MessageService],
     bootstrap: [AppComponent],

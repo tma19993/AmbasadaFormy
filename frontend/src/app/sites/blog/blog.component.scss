@@ -1,0 +1,55 @@
+@import "../../../stories/constants/constants.scss";
+.navi-bar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1001;
+  }
+
+
+.blog{
+    background-image: url('../../../assets/backgrounds/blogBackgorund.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+
+    &__container{
+        max-width: 1357px;
+        margin: 0 auto 80px auto;
+        min-height: 150vh;
+        &--header{
+            padding: 100px 0;
+            font-size: 87px;
+            color: $input-text-light;
+            text-align: center;
+            text-shadow: 1px 1px 3px $background-dark;
+        }
+        &--post{
+            margin-bottom: 60px;
+            &-content{
+                display: flex;
+                &-img{
+                  img{
+                    max-width: 250px;
+                  }
+                }
+                &-text{
+                    padding: 20px;
+                    .header{
+                        padding-left: 10px;
+                        font-size: 24px;
+                    }
+                    .subheader{
+                       margin-bottom: 10px;
+                    }
+                    .content{
+                        
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,8 +1,11 @@
 import {
   Component,
+  EventEmitter,
   Input,
-  OnInit
+  OnInit,
+  Output
 } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   TranslateService
 } from '@ngx-translate/core';
@@ -13,10 +16,18 @@ import {
   styleUrls: ['./menuStatic.component.scss'],
 })
 export class MenuStaticComponent {
+  @Output() startClick: EventEmitter<void> = new EventEmitter;
+  @Output() gymPassClick: EventEmitter<void> = new EventEmitter;
+  @Output() workoutsClick: EventEmitter<void> = new EventEmitter;
+  @Output() blogClick: EventEmitter<void> = new EventEmitter;
+  @Output() developPassClick: EventEmitter<void> = new EventEmitter;
+  @Output() funPassClick: EventEmitter<void> = new EventEmitter;
+  @Output() healtPassClick: EventEmitter<void> = new EventEmitter;
+
   public isMenuOpen: boolean = false;
   public activeOption: string = '';
 
-  constructor(private translateService: TranslateService) {
+  constructor(private translateService: TranslateService, private router: Router) {
     this.translateService.setDefaultLang(
       localStorage.getItem('language') || 'en'
     );
@@ -45,7 +56,6 @@ export class MenuStaticComponent {
       this.isMenuOpen = false;
     }
   }
-
   public toggleDetails(option: string): void {
     if (this.activeOption === option) {
       this.activeOption = '';
@@ -59,4 +69,21 @@ export class MenuStaticComponent {
       window.location.reload();
     }, 100);
   }
+
+public startEmit():void{
+  this.router.navigate(['/home']);
+}
+public gymPassEmit():void{
+  this.router.navigate(['/gym-pass']);
+}
+public blogEmit():void{
+  this.router.navigate(['/blog']);
+}
+public workoutsEmit():void{
+  this.router.navigate(['/home']);
+}
+public profileEmit():void{
+  this.router.navigate(['/profile']);
+}
+
 }
