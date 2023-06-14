@@ -66,6 +66,53 @@
     },
     "buttons": {
         "back": "Return"
+    },
+    "gymPass":{
+"passdevelop": "Development Pass",
+"newyear": "New year new me",
+"monthlyPay": "monthly payment",
+"sub": "subscription",
+"access": "Access",
+"perMonth": "entrances per month",
+"FirstPay":"One-time registration fee",
+"Water":"Free water",
+"Regular":"Regular customer",
+"FunPass":"Fun Pass",
+"Unlimited":"Unlimited number of entries",
+"guarantee":"Fixed price guarantee",
+"cancel":"Cancel pass",
+"freeze":"Freeze pass",
+"cheers":"To health",
+"allday":"Access 24 hours a day",
+"Lackfirstpay":"No entry fee",
+"freetraining":"3 free workouts to be used under the supervision of a personal trainer",
+"Text1":"New year new me is a pass for those who want to start exercising, but are not sure if they will stay with us for longer.",
+"Text2":"This pass is a great budget option and a good choice for someone who isn't sure but wants to give it a try.",
+"Text3":"Thanks to this pass, you have access to our gym every day from 9:00 to 17:00, so go ahead and train.",
+"Text4":"Remember, however, that you have a limited number of entrances to the premises, but don't worry, 20 entrances a month is still a lot, unless you need more.",
+"Text5":"If so, take a look at our other passes. You decided on this pass, it's great, to become our member you will have to pay PLN 20 one-time fee.",
+"Text6":"Constant Bywalec is a pass for those who exercise regularly, are already experienced and have long-term cooperation with us.",
+"Text7":"This pass is a great budget-balanced option that gives you control over your pass.",
+"Text8":"Thanks to this pass, you have access to our gym every day from 8:00 to 20:00, so go ahead and train after school or work.",
+"Text9":"You do not have a limited number of entrances to the premises, so you can stay with us as long as you want, well almost, to be with us 24 hours a day, take a look at other passes.",
+"Text10":"You have decided on this pass, it's great to become our member, you will have to pay PLN 20 one-time fee. In addition, you can control your pass.",
+"Text11":"We guarantee you a fixed amount after signing the contract, the possibility of freezing the subscription and canceling it.",
+"Text12":"Health is a ticket for those who exercise all the time and take care of their health. This pass is a great option to exercise not only alone, but also with a trainer.",
+"Text13":"The pass gives you the ability to manage it.",
+"Text14":"Thanks to this pass, you have access to our gym every day 24 hours a day, so go ahead and train whenever you want.",
+"Text15":"You do not have a limited number of entrances to the premises, so you can sit with us as long as you want.",
+"Text16":"You have decided on this pass, it's great to become our member, you don't have to pay anything extra. In addition, you can control your pass.",
+"Text17":"We guarantee you a fixed amount after signing the contract, the possibility of freezing the subscription and canceling it.",
+"Text18":"And most importantly, in the price of the subscription you have access to our best trainers with whom you can do 3 workouts."
+    },
+    "homepage": {
+        "startNow": "START NOW",
+        "from":"from ",
+        "texta1":"Press the passes button to check our offer. Choose a pass that meets your requirements. Start training with us, take care of your health and form, and above all, have fun. See you at training",
+        "trainers":"CHECK TRAINERS",
+        "texta2":"Our trainers are passionate and professionals, and each of them has their own specialization. You have really decent people to choose from, whether for cardio or for ordinary laymen. Do not wait and check the description and specializations of our trainers, familiarize yourself with their style, maybe this is someone perfect for you. Remember that the choice of trainer will be very important for you, so think about who suits you best, but don't worry, there are many of them and you can have anyone. Go ahead and browse through a few photos and hit the trainers button to find out even more.",
+        "texta3":"Remember, you can hire multiple trainers. Each trainer has a different specialization, pay attention to this when choosing. The rate will vary depending on the trainer. Please note that trainers can be busy, so plan your training schedule wisely so that both parties are happy."
+
     }
     
 }

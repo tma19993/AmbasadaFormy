@@ -7,9 +7,9 @@
         <img src="../../../assets/logo/logoLightText.svg" alt="logo">
        </div>
        <div class="home-page__container--gym-pass">
-        <h2>ZACZNIJ TERAZ</h2>
-        <p class="home-page__container--gym-pass--price-info">Już od 100zł/msc</p>
-        <p class="home-page__container--gym-pass--text">Naciśnij przycisk karnety, aby sprawdzić naszą ofertę. Wybierz karnet spełniający twoej wymagania. Zaczniej trenować razem z nami, dbaj o swoje zdrowie i formę, a przede wszystkim baw się dobrze. Do zobaczenia na treningu</p>
+        <h2>{{"homepage.startNow"| translate}}</h2>
+        <p class="home-page__container--gym-pass--price-info">{{"homepage.from"| translate}}100zł/msc</p>
+        <p class="home-page__container--gym-pass--text">{{"homepage.texta1"| translate}}</p>
         <af-button  buttonId="karnety" 
          [label]="'Karnety'" 
          [whiteButton]="true" 
@@ -17,7 +17,7 @@
          (onClick)="gymPassButton()"></af-button>
        </div>
        <div class="home-page__container--trainers">
-        <h2>SPRAWDŹ TRENERÓW</h2>
+        <h2>{{"homepage.trainers"| translate}}</h2>
         <div class="home-page__container--trainers__sliders">
             <af-tile>
                 <div class="home-page__container--trainers__sliders--photos">
@@ -26,8 +26,8 @@
             </af-tile>
             <af-tile>
                <div class="home-page__container--trainers__sliders--text">
-                <p>Nasi trenerzy to pasjonaci i profesjonaliści do tego każdy z nich ma swoją szczególną specjalizację. Do wyboru macie naprawdę porządnych ludzi czy to do cardio, czy dla zwykłych laików. Nie czekaj i sprawdź opis oraz specjalizacje naszych trenerów zapoznaj się z ich stylem może akurat to ktoś idealny dla ciebie. Pamiętaj, że wybór trenera będzie dla ciebie bardzo istotny, dlatego zastanów się, kto ci odpowiada najbardziej, ale nie martw się, jest ich wielu a ty, możesz mieć każdego. Śmiało przejrzyj kilka zdjęć i naciśnij przycisk trenerzy, aby dowiedzieć się jeszcze więcej.</p>
-               <p>Pamiętaj, możesz wynająć wielu trenerów. Każdy trener ma inna specjalizacje, zwróć na to uwagę przy wyborze. W zależności od trenera będzie się różnic jego stawka. Informujemy, że trenerzy mogą mieć zajęty czas więc zaplanujcie grafik treningów rozsądnie tak, aby dwie strony były zadowolone.</p>
+                <p>{{"homepage.texta2"| translate}}</p>
+               <p>{{"homepage.texta3"| translate}}</p>
                <div class="home-page__container--trainers__sliders--text__button-trainers">
                 <af-button  buttonId="trenerzy" 
                [label]="'Trenerzy'" 
