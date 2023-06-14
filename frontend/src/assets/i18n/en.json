@@ -65,7 +65,11 @@
         "profile": "My Profile"  
     },
     "buttons": {
-        "back": "Return"
+        "back": "Return",
+        "passess":"Passes",
+        "trainess":"Trenerzy",
+        "development":"Development",
+        "orderonline":"Order online"
     },
     "gymPass":{
 "passdevelop": "Development Pass",

@@ -10,15 +10,14 @@
         <h2>{{"homepage.startNow"| translate}}</h2>
         <p class="home-page__container--gym-pass--price-info">{{"homepage.from"| translate}}100zł/msc</p>
         <p class="home-page__container--gym-pass--text">{{"homepage.texta1"| translate}}</p>
-           <!-- tu  15 linika -->
         <af-button  buttonId="karnety" 
-         [label]="'Karnety'" 
+         [label]="'buttons.passess' | translate " 
          [whiteButton]="true" 
          [fontSize]="35"
          (onClick)="gymPassButton()"></af-button>
        </div>
        <div class="home-page__container--trainers">
-        <h2>{{"homepage.trainers"| translate}}</h2>
+        <h2>{{"homepage.trainers" | translate}}</h2>
         <div class="home-page__container--trainers__sliders">
             <af-tile>
                 <div class="home-page__container--trainers__sliders--photos">
@@ -30,9 +29,8 @@
                 <p>{{"homepage.texta2"| translate}}</p>
                <p>{{"homepage.texta3"| translate}}</p>
                <div class="home-page__container--trainers__sliders--text__button-trainers">
-                   <!-- tu  34 linika przykład działania: [label]="'registerLogin.log_in' | translate"-->
                 <af-button  buttonId="trenerzy" 
-               [label]="'Trenerzy'" 
+               [label]="'button.trainerss' | translate" 
                [fontSize]="40"
                (onClick)="trainersButton()"></af-button>
                </div>

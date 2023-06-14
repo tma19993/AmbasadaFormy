@@ -64,7 +64,11 @@
         "profile": "Mój Profil"  
     },
     "buttons": {
-        "back": "Powrót"
+        "back": "Powrót",
+        "passess":"Karnety",
+        "trainess":"Trenerzy",
+        "development":"Rozwój",
+        "orderonline":"Zamów online"
     },
     "gymPass":{
         "passdevelop": "Development Pass",
