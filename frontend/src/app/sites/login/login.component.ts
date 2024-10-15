@@ -36,6 +36,7 @@ export class LoginComponent {
       this.message.addErrorMessage('Uzupełnij hasło', 'Błąd');
     } else {
       this.loginServ.login(this.login, this.password).subscribe(res=>{
+        console.log(res);
         if(res == null){
           this.message.addErrorMessage('Błędny login lub hasło', 'Błąd');
         }

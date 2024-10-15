@@ -7,16 +7,17 @@ import { HomePageComponent } from './sites/homePage/homePage.component';
 import { GymPassComponent } from './sites/gym-pass/gym-pass.component';
 import { ProfileComponent } from './sites/profile/profile.component';
 import { BlogComponent } from './sites/blog/blog.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
 { path: '', redirectTo: '/welcome', pathMatch: 'full' },
 { path: 'welcome', component: WelcomePageComponent },
 { path: 'login', component: LoginComponent },
 { path: 'register', component: RegisterComponent },
-{ path: 'home', component: HomePageComponent },
-{ path: 'gym-pass', component: GymPassComponent },
-{ path: 'profile', component: ProfileComponent },
-{ path: 'blog', component: BlogComponent },
+{ path: 'home', component: HomePageComponent ,canActivate: [AuthGuard]},
+{ path: 'gym-pass', component: GymPassComponent,canActivate: [AuthGuard] },
+{ path: 'profile', component: ProfileComponent,canActivate: [AuthGuard] },
+{ path: 'blog', component: BlogComponent,canActivate: [AuthGuard] },
 ];
 
 @NgModule({

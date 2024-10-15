@@ -1,6 +1,8 @@
 const MongoClient = require("mongodb").MongoClient;
 const express = require("express");
 const app = express();
+const jwt = require('jsonwebtoken');
+const config = require('./config');
 const colors = require("colors");
 const bodyParser = require("body-parser");
 
@@ -30,10 +32,8 @@ async function getData(collection) {
   }
 }
 
-MongoClient.connect("mongodb://127.0.0.1:27017", (error, data) => {
-  if (error) {
-    console.log(error);
-  } else {
+MongoClient.connect('mongodb://localhost:27017/AmbasadaFormy')
+  .then((data) => {
     const database = data.db("AmbasadaFormy");
     const blog = database.collection("blog");
     const gymPasses = database.collection("gym-passes");
@@ -103,7 +103,14 @@ MongoClient.connect("mongodb://127.0.0.1:27017", (error, data) => {
     app.post("/login", async (req, res) => {
       const { login, password } = req.body;
       const user = await users.findOne({ login: login, password: password });
-      res.send(user ? user.userId: null);
+      if(!user){
+        res.status(401).json({ message: 'Logowanie nieudane' });
+      }
+      else{
+        const token = jwt.sign(user, config.SECRET, { expiresIn: '2h' });
+        res.json({ token: token, isAdmin: user.permission == "admin"}); 
+      }
+     
     });
 
     app.put("/changeCoach/:id", async (req,res)=>{
@@ -165,9 +172,8 @@ MongoClient.connect("mongodb://127.0.0.1:27017", (error, data) => {
         res.status(500).send("Wystąpił błąd podczas aktualizacji danych użytkownika.");
       }
     });
-
-  }
-});
+  })
+  .catch((err) => console.error('Error connecting to MongoDB:', err));
 
 app.listen(port, () => {
   console.log("Aplikacja działa".bold.green);
