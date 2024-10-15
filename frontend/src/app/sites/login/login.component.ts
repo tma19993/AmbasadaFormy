@@ -23,25 +23,23 @@ export class LoginComponent {
     iconFloat: enumIconFloat.left,
   };
 
-  constructor(private router: Router, private message: AfMessageService,private translateService: TranslateService, private loginServ: LoginService) {
-    this.translateService.setDefaultLang(localStorage.getItem("language") || ("en"));
+  constructor(private router: Router, 
+    private message: AfMessageService,
+    private translateService: TranslateService,
+    private loginServ: LoginService) {
+    this.translateService.setDefaultLang(sessionStorage.getItem("language") || ("en"));
   }
   
   public onClickLogin(): void {
-    if (!this.login && !this.password) {
+    if (!this.login || !this.password) {
       this.message.addErrorMessage('Uzupełnij Login lub hasło', 'Błąd');
-    } else if (!this.login) {
-      this.message.addErrorMessage('Uzupełnij login', 'Błąd');
-    } else if (!this.password) {
-      this.message.addErrorMessage('Uzupełnij hasło', 'Błąd');
     } else {
       this.loginServ.login(this.login, this.password).subscribe(res=>{
-        console.log(res);
         if(res == null){
           this.message.addErrorMessage('Błędny login lub hasło', 'Błąd');
         }
         else{
-          this.loginServ.setLoggedUserId(res);
+          this.loginServ.setLoggedUserId(res.id);
            this.router.navigate(['/home']);
         }
       });

@@ -62,7 +62,8 @@
         "Trainers": "Trainers",
         "diet": "Diet",
         "dishes": "Dishes",
-        "profile": "My Profile"  
+        "profile": "My Profile",
+        "logout": "Logout"  
     },
     "buttons": {
         "back": "Return",

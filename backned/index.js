@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 const config = require('./config');
 const colors = require("colors");
 const bodyParser = require("body-parser");
+const { ObjectId } = require('mongodb');
 
 const port = 5000;
 
@@ -60,10 +61,10 @@ MongoClient.connect('mongodb://localhost:27017/AmbasadaFormy')
       res.send(usersData);
     });
 
-    app.get("/getUser", async (req, res) => {
-      const { userId } = req.body;
-      const userData = await users.findOne({ userId: userId });
-      res.send(userData);
+    app.get("/getUser/:id", async (req, res) => {
+      const userId = req.params.id;
+      const user = await users.findOne({ _id: new ObjectId(userId) });
+      res.send(user);
     });
     
     app.post("/addBlog", async (req, res) => {
@@ -94,6 +95,22 @@ MongoClient.connect('mongodb://localhost:27017/AmbasadaFormy')
       res.send(result);
     });
 
+    app.delete("/deleteUser/:userId", async (req, res) => {
+      try {
+        const userId = parseInt(req.params.userId, 10); 
+        const result = await users.deleteOne({ userId: userId });
+    
+        if (result.deletedCount === 1) {
+          res.status(200).send({ message: `User with ID ${userId} has been deleted.` });
+        } else {
+          res.status(404).send({ message: `User with ID ${userId} not found.` });
+        }
+      } catch (err) {
+        console.error("Error deleting user:", err);
+        res.status(500).send({ message: "Error deleting user." });
+      }
+    });
+
     app.post("/addCoach", async (req, res) => {
       const newCoach = req.body;
       const result = await coaches.insertOne(newCoach);
@@ -108,7 +125,7 @@ MongoClient.connect('mongodb://localhost:27017/AmbasadaFormy')
       }
       else{
         const token = jwt.sign(user, config.SECRET, { expiresIn: '2h' });
-        res.json({ token: token, isAdmin: user.permission == "admin"}); 
+        res.json({ authToken: token, isAdmin: user.permission == "admin", id: user._id}); 
       }
      
     });

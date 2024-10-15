@@ -23,13 +23,14 @@ export class MenuStaticComponent {
   @Output() developPassClick: EventEmitter<void> = new EventEmitter;
   @Output() funPassClick: EventEmitter<void> = new EventEmitter;
   @Output() healtPassClick: EventEmitter<void> = new EventEmitter;
+  @Output() logoutClick: EventEmitter<void> = new EventEmitter;
 
   public isMenuOpen: boolean = false;
   public activeOption: string = '';
 
   constructor(private translateService: TranslateService, private router: Router) {
     this.translateService.setDefaultLang(
-      localStorage.getItem('language') || 'en'
+      sessionStorage.getItem('language') || 'en'
     );
   }
 
@@ -64,7 +65,7 @@ export class MenuStaticComponent {
     }
   }
   public changeLanguage(id: string): void {
-    localStorage.setItem('language', id);
+    sessionStorage.setItem('language', id);
     setTimeout(() => {
       window.location.reload();
     }, 100);
@@ -84,6 +85,9 @@ public workoutsEmit():void{
 }
 public profileEmit():void{
   this.router.navigate(['/profile']);
+}
+public logoutEmit():void{
+  this.logoutClick.emit();
 }
 
 }

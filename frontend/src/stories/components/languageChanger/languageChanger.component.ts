@@ -14,8 +14,8 @@ export class LanguageChangerComponent {
   public selectedLanguage: string;
 
   constructor(private translateService: TranslateService, private elementRef: ElementRef) {
-    this.translateService.setDefaultLang(localStorage.getItem('language')!);
-    this.selectedLanguage = localStorage.getItem('language')!;
+    this.translateService.setDefaultLang(sessionStorage.getItem('language')!);
+    this.selectedLanguage = sessionStorage.getItem('language')!;
     this.languages = [
       { id: 'pl', name: 'polski' },
       { id: 'en', name: 'angielski' },
@@ -36,7 +36,7 @@ export class LanguageChangerComponent {
   }
 
   changeLanguage(id: string) {
-    localStorage.setItem('language', id);
+    sessionStorage.setItem('language', id);
     setTimeout(() => {
       window.location.reload();
     }, 100);

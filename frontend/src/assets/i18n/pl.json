@@ -61,7 +61,8 @@
         "Trainers": "Trenerzy",
         "diet": "Diety",
         "dishes": "Dania",
-        "profile": "Mój Profil"  
+        "profile": "Mój Profil",
+        "logout": "Wyloguj"  
     },
     "buttons": {
         "back": "Powrót",

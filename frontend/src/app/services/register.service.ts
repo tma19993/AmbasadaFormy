@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { registerData } from '../models/register.model';
+import { userDataModel } from '../models/user.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -11,7 +11,7 @@ export class RegisterService {
 
   constructor(private http: HttpClient) {}
 
-  public register(data: registerData) : Observable<any>{
+  public register(data: userDataModel) : Observable<any>{
     return this.http.post<any>(this.loginUrl, data);
   }
 }

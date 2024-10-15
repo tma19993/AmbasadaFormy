@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { userDataModel } from 'src/app/models';
 import { GenderModel, genderKey } from 'src/app/models/gender.model';
-import { registerData } from 'src/app/models/register.model';
-import { AfMessageService } from 'src/app/services/message.service';
-import { RegisterService } from 'src/app/services/register.service';
+import { AfMessageService, RegisterService } from 'src/app/services';
+
 import { enumIconFloat } from 'src/stories/enums/input.enum';
 import { inputIconConfig } from 'src/stories/interfaces/input.model';
 
@@ -24,7 +24,7 @@ export class RegisterComponent {
     iconFloat: enumIconFloat.left,
   };
   public genderCheckboxDisabled: boolean = false;
-  public accountData: registerData = {};
+  public accountData: userDataModel = {};
   public genderArray: GenderModel[] =[];
   private repeatedPassword: string = "";
    
@@ -33,7 +33,7 @@ export class RegisterComponent {
     private messageService: AfMessageService,
     private translateService: TranslateService,
     private registerService: RegisterService) {
-    this.translateService.setDefaultLang(localStorage.getItem("language") || ("en"));
+    this.translateService.setDefaultLang(sessionStorage.getItem("language") || ("en"));
     this.getTranslationGenderData();
   }
 

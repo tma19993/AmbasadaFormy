@@ -8,7 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class FooterComponent {
 constructor(private translateService: TranslateService){
-  this.translateService.setDefaultLang(localStorage.getItem("language") || ("en"));
+  this.translateService.setDefaultLang(sessionStorage.getItem("language") || ("en"));
 }
 
 }

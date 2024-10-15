@@ -1,6 +1,4 @@
-<section class="profile__container">
-  <div class="main__nav">
-  </div>
+<section class="profile__container" *ngIf="userData$ | async as user">
   <div class="profile__navigation">
     <af-tile [darkMode]="true">
       <div class="profile__navigatio--logo">
@@ -14,26 +12,30 @@
           </div>
           <div class="profile__navigation--information--main--fullname">
             <div class="profile__navigation--information--main--fullname--name">
-              IMIĘ
+              {{user.firstName}}
             </div>
             <div class="profile__navigation--information--main--fullname--lastname">
-              NAZWISKO
+              {{user.lastName}}
             </div>
           </div>
         </div>
         <div class="profile__navigation--information--other">
           <div class="profile__navigation--information--other--login">
-            @LOGIN
+            {{user.email}}
           </div>
           <div class="profile__navigation--information--other--role">
-            KLIENT/TRENER
+            <ng-container [ngSwitch]="user.permission">
+              <p *ngSwitchCase="'coach'">Trener</p>
+              <p *ngSwitchCase="'admin'">Administrator</p>
+              <p *ngSwitchDefault>Klient</p>
+            </ng-container>
           </div>
         </div>
       </div>
     </af-tile>
     <af-tile>
       <div class="profile__navigation--navi-bar">
-        <div class="navi-item">
+        <!-- <div class="navi-item">
           <i class="pi pi-user"></i> Mój profil
         </div>
         <div class="navi-item">
@@ -44,9 +46,9 @@
         </div>
         <div class="navi-item">
           <i class="pi pi-ticket"></i> Diety
-        </div>
+        </div> -->
         <div class="navi-item-logout">
-          <af-button iconClassName="pi-sign-out" [label]="'Wyloguj'" [whiteButton]="true"></af-button>
+          <af-button iconClassName="pi-sign-out" [label]="'Wyloguj'" [whiteButton]="true" (onClick)="logout()"></af-button>
         </div>
       </div>
     </af-tile>
@@ -59,10 +61,9 @@
           <div class="profile__information--left--data">
             <h2>Moje dane:</h2>
             <ul>
-              <li>Imie Nazwisko</li>
-              <li>@login</li>
-              <li>email@email.pl</li>
-              <li>PESSEL: 21212121212</li>
+              <li>{{user.firstName}} {{user.lastName}}</li>
+              <li>{{user.login}}</li>
+              <li>{{user.email}}</li>
             </ul>
           </div>
           <div class="profile__information--left--contact">
@@ -91,8 +92,11 @@
         </div>
       </div>
       <div class="delete__account">
-        <af-button [whiteButton]="true" [label]="'USUŃ KONTO'" iconClassName="pi pi-user-minus" class="btn-white"></af-button>
+        <af-button [whiteButton]="true" [label]="'USUŃ KONTO'" iconClassName="pi pi-user-minus" class="btn-white" (onClick)="removeUser('1')"></af-button>
       </div>
     </af-tile>
   </div>
 </section>
+<ng-template #noData>
+  nie ma danych
+</ng-template>

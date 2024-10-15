@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, } from '@angular/router';
+import { CanActivate} from '@angular/router';
 import { LoginService } from '../services/login.service';
+import { AfMessageService } from '../services/message.service';
 
 
 @Injectable({
@@ -8,15 +9,13 @@ import { LoginService } from '../services/login.service';
 })
 export class AuthGuard implements CanActivate{
 
-  constructor(private loginService: LoginService, private router: Router) {}
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): boolean {
+  constructor(private loginService: LoginService, private message: AfMessageService) {}
+  canActivate(): boolean {
     const isLoggedIn = this.loginService.isLoggedIn(); 
     if (isLoggedIn) {
         return true;
     } else {
-        this.router.navigate(['/login']);
+        this.message.addErrorMessage("Wystąpił problem z logowaniem","Błąd")
         return false;
     }
   }

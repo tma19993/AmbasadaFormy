@@ -6,22 +6,29 @@ import { LoginService } from 'src/app/services/login.service';
 @Component({
   selector: 'app-homePage',
   templateUrl: './homePage.component.html',
-  styleUrls: ['./homePage.component.scss']
+  styleUrls: ['./homePage.component.scss'],
 })
 export class HomePageComponent {
-  constructor( private router: Router, private translateService: TranslateService, private loginServ: LoginService){
-    this.translateService.setDefaultLang(localStorage.getItem("language") || ("en"));
-
-    if(!this.loginServ.getLoggedUserId()){
-      // this.router.navigate(['/welcome']);
-    }
+  constructor(
+    private router: Router,
+    private translateService: TranslateService,
+    private loginService: LoginService
+  ) {
+    this.translateService.setDefaultLang(
+      sessionStorage.getItem('language') || 'en'
+    );
   }
 
-  public gymPassButton():void{
+  public gymPassButton(): void {
     this.router.navigate(['/gym-pass']);
   }
 
-  public trainersButton():void {
+  public trainersButton(): void {
     this.router.navigate(['/treners']);
-    }
+  }
+
+  public logout(): void {
+    console.log("object");
+    this.loginService.logout();
+  }
 }
