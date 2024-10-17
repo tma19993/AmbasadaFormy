@@ -1,8 +1,8 @@
 const express = require("express");
 const {getData} = require("../utils");
 const router = express.Router();
+
 module.exports = function (blog) {
-    const router = express.Router();
     router.get("/getBlog", async (req, res) => {
        try{
         const blogData = await getData(blog);

@@ -1,17 +1,12 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const config = require("../config");
-const {
-  ObjectId
-} = require("mongodb");
-const {
-  getData
-} = require("../utils");
+const { ObjectId } = require("mongodb");
+const { getData } = require("../utils");
 const router = express.Router();
 
 module.exports = function (users) {
-
-
+  
   router.get("/getUsers", async (req, res) => {
     const usersData = await getData(users);
     res.status(200).json(usersData);
