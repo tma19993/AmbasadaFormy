@@ -46,7 +46,6 @@ module.exports = function (users) {
   });
 
   router.delete("/deleteUser/:userId", async (req, res) => {
-    console.log("object");
     try {
       const userId = new ObjectId(req.params.userId);
       const result = await users.deleteOne({
