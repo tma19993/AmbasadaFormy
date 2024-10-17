@@ -19,7 +19,7 @@
     &__container{
         max-width: 1357px;
         margin: 0 auto 80px auto;
-        min-height: 150vh;
+        min-height: 100vh;
         &--header{
             padding: 100px 0;
             font-size: 87px;
@@ -48,6 +48,13 @@
                     .content{
                         
                     }
+                }
+            }
+        }
+        &--paginator{
+            p-paginator::ng-deep{
+                .p-paginator{
+                    background: rgba(255,255,255,0.8);
                 }
             }
         }

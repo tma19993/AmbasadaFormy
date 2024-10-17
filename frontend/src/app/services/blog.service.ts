@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
+import { ApiPostsModel, PostModel } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,8 @@ export class BlogService {
 
   constructor(private http: HttpClient) {}
 
-  public getBlogData() : Observable<any>{
-    return this.http.get<any>(this.getBlogUrl);
+  public getBlogData(page: number, size: number) : Observable<ApiPostsModel>{
+    const params = new HttpParams().set('page', page).set('size', size);
+    return this.http.get<ApiPostsModel>(this.getBlogUrl,{params});
   }
 }

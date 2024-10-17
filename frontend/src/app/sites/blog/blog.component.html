@@ -18,6 +18,13 @@
            </div>
             </af-tile>
         </div>
+        <div class="blog__container--paginator">
+            <p-paginator 
+        (onPageChange)="onPageChange($event)" 
+        [rows]="pageSize" 
+        [totalRecords]="totalRecords"  
+        />
+        </div>
     </section>
     <af-footer></af-footer>
 </section>

@@ -27,7 +27,7 @@ import { MenuStaticModule } from "../stories/components/menuStatic/menuStatic.mo
 import { GymPassComponent } from './sites/gym-pass/gym-pass.component';
 import { ProfileComponent } from './sites/profile/profile.component';
 import { BlogComponent } from './sites/blog/blog.component';
-
+import { PaginatorModule } from 'primeng/paginator';
 @NgModule({
     declarations: [
         AppComponent,
@@ -42,6 +42,7 @@ import { BlogComponent } from './sites/blog/blog.component';
     providers: [AfMessageService, MessageService],
     bootstrap: [AppComponent],
     imports: [
+        PaginatorModule,
         AfPasswordModule,
         AfMessagesModule,
         MessagesModule,

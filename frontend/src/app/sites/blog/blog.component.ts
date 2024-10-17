@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BlogModel } from 'src/app/models/blog.model';
+import { PostModel, PageEventModel } from 'src/app/models';
+
 import { BlogService } from 'src/app/services/blog.service';
 
 @Component({
@@ -8,15 +9,29 @@ import { BlogService } from 'src/app/services/blog.service';
   styleUrls: ['./blog.component.scss']
 })
 export class BlogComponent implements OnInit{
-  public posts: BlogModel[];
+  public posts: PostModel[];
+  public currentPage: number = 0;
+  public totalRecords: number;
+  public pageSize: number = 5;
+
   constructor(private blogService: BlogService){}
+  
  public ngOnInit(): void {
-  this.getData();
+  this.loadPosts();
   }
 
- public getData():void{
-  this.blogService.getBlogData().subscribe(res=>{
-    this.posts = res;
+ public loadPosts():void{
+  this.blogService.getBlogData(this.currentPage + 1, this.pageSize).subscribe(data=>{
+    this.posts = data.posts;
+    console.log(data);
+    this.totalRecords = data.totalRecords;
   })
   }
+
+  public onPageChange(event: PageEventModel) {
+    this.currentPage = event.page;
+    this.pageSize = event.rows;
+    this.loadPosts();
+}
+
 }
