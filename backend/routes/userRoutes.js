@@ -21,40 +21,36 @@ module.exports = function (users) {
   });
 
   router.post("/addUser", async (req, res) => {
-    let lastId;
-    users.findOne({}, {
-      sort: {
-        indeks: -1
-      },
-      projection: {
-        _id: 0,
-        indeks: 1
+    users.findOne({}, {sort: {indeks: -1}, projection: { _id: 0,indeks: 1},},
+      function (err) {
+        if (err) throw err;
       }
-    }, function (err, result) {
-      if (err) throw err;
-
-      if (result) {
-        lastId = result.indeks;
-      }
-    });
+    );
+  
     const newUser = {
-      userId: lastId,
       ...req.body,
       permission: "user",
       activeGymPass: false,
-      haveCoach: false
+      haveCoach: false,
+      
     };
-
-
     const result = await users.insertOne(newUser);
-    res.status(200).json(result);
+    const token = jwt.sign(result, config.SECRET, {
+      expiresIn: "2h"
+    });
+
+    res.status(200).json({
+      authToken: token,
+      id: result.insertedId
+    });
   });
 
   router.delete("/deleteUser/:userId", async (req, res) => {
+    console.log("object");
     try {
-      const userId = parseInt(req.params.userId, 10);
+      const userId = new ObjectId(req.params.userId);
       const result = await users.deleteOne({
-        userId: userId
+        _id: userId
       });
 
       if (result.deletedCount === 1) {

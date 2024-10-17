@@ -21,7 +21,7 @@ export class LoginService {
       login: login,
       password: password
     });
-    return this.http.post<LoginModel>(this.loginUrl,loginData, this.httpOptions).pipe(tap((res) => this.setToken(res.authToken)));;
+    return this.http.post<LoginModel>(this.loginUrl,loginData, this.httpOptions).pipe(tap((res) => this.setToken(res.authToken)));
   }
 
   public setLoggedUserId(id: string): void {
@@ -32,10 +32,12 @@ export class LoginService {
     const token = sessionStorage.getItem('authToken');
     return !!token;
   }
+  
   public logout(): void {
     sessionStorage.clear();
     this.router.navigate(['/welcome']);
   }
+
   private setToken(token: string) {
     sessionStorage.setItem('authToken', token);
   }

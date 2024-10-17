@@ -9,7 +9,7 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Credentials", "true");
   res.setHeader(
     "Access-Control-Allow-Methods",
-    "GET,HEAD,OPTIONS,POST,PUT"
+    "GET,HEAD,OPTIONS,POST,PUT,DELETE"
   );
   res.setHeader(
     "Access-Control-Allow-Headers",

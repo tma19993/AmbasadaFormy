@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { userDataModel } from 'src/app/models';
-import { LoginService, ProfileService } from 'src/app/services';
+import { AfMessageService, LoginService, ProfileService } from 'src/app/services';
 
 @Component({
   selector: 'af-profile',
@@ -22,7 +22,12 @@ export class ProfileComponent {
     this.loginService.logout();
   }
 
-  public removeUser(id: string): void {
-    this.profileService.removeUser(id);
+  public removeUser(): void {
+    this.profileService.removeUser().subscribe(()=>{
+        setTimeout(()=>{
+      this.logout();
+    },2000)
+    });
+  
   }
 }

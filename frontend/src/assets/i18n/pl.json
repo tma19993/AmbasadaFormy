@@ -17,6 +17,8 @@
             "other": "Inna"
         },
         "password": "Hasło",
+        "phoneNumber": "Numer telefonu",
+        "address": "Adres",
         "repeatPassowrd": "Powtórz hasło",
         "register": "Zarejestruj",
         "haveAccount": "Mam już konto",

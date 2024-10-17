@@ -3,10 +3,12 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { userDataModel } from 'src/app/models';
 import { GenderModel, genderKey } from 'src/app/models/gender.model';
-import { AfMessageService, RegisterService } from 'src/app/services';
+import { AfMessageService, LoginService, RegisterService } from 'src/app/services';
 
 import { enumIconFloat } from 'src/stories/enums/input.enum';
 import { inputIconConfig } from 'src/stories/interfaces/input.model';
+
+type UserField = "firstName" | "lastName" | "login" | "email" | "password" | "phoneNumber" | "address";
 
 @Component({
   selector: 'app-register',
@@ -24,7 +26,7 @@ export class RegisterComponent {
     iconFloat: enumIconFloat.left,
   };
   public genderCheckboxDisabled: boolean = false;
-  public accountData: userDataModel = {};
+  public accountData: userDataModel ={};
   public genderArray: GenderModel[] =[];
   private repeatedPassword: string = "";
    
@@ -32,7 +34,8 @@ export class RegisterComponent {
     private router: Router,
     private messageService: AfMessageService,
     private translateService: TranslateService,
-    private registerService: RegisterService) {
+    private registerService: RegisterService,
+    private loginServ: LoginService) {
     this.translateService.setDefaultLang(sessionStorage.getItem("language") || ("en"));
     this.getTranslationGenderData();
   }
@@ -40,7 +43,8 @@ export class RegisterComponent {
   public goToHomePage(): void {
     if(this.validation()){
       this.registerService.register(this.accountData).subscribe(res=>{
-        this.messageService.addErrorMessage('Zostałeś Zarejestrowany');
+        this.messageService.addSuccesMessage('Zostałeś Zarejestrowany');
+        this.loginServ.setLoggedUserId(res.id);
         setTimeout(()=>{
           this.router.navigate(['/home']);
         },2000);
@@ -61,13 +65,15 @@ export class RegisterComponent {
     this.accountData.gender = this.genderArray[id].key; 
   }
 
-  public getData(data: string, inputId: "firstName" | "lastName" | "login" | "email" | "password" ):void {
+  public getData(data: string, inputId: UserField ):void {
     switch (inputId){
       case 'firstName': this.accountData.firstName = data;break;
       case 'lastName':this.accountData.lastName = data;break;
       case 'login':this.accountData.login = data;break;
       case 'email':this.accountData.email = data;break;
       case 'password':this.accountData.password = data;break;
+      case 'phoneNumber':this.accountData.phoneNumber = data;break;
+      case 'address':this.accountData.address = data;break;
     }
   };
 

@@ -12,4 +12,11 @@ export class AfMessageService {
         this.messageService.clear();
       },2000);
   }
+
+  public addSuccesMessage(message:string,header?: string): void {
+    this.messageService.add({ severity: 'success',summary:header, detail: message });
+      setTimeout(()=>{
+        this.messageService.clear();
+      },2000);
+  }
 }

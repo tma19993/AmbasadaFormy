@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { finalize, Observable, of, tap } from 'rxjs';
 import { LoginService } from './login.service';
 import { userDataModel } from '../models';
 
@@ -11,9 +11,7 @@ export class ProfileService {
 
   private url: string = 'http://localhost:5000';
   private userId: string | null = sessionStorage.getItem("id");
-  constructor(private http: HttpClient,private login: LoginService) {
-
-  }
+  constructor(private http: HttpClient) {}
 
   public getUserData(): Observable<userDataModel>{
     return this.http.get<any>(`${this.url}/getUser/${this.userId}`);
@@ -23,8 +21,9 @@ export class ProfileService {
     return this.http.post<any>(this.url + "/changeUserData/"+this.userId,data);
   }
 
-  public removeUser(userId:string): Observable<any>{
-    return this.http.delete<any>(this.url + `/deleteUser/${userId}`);
+  public removeUser(): Observable<any>{
+    console.log(this.url + `/deleteUser/${this.userId}`);
+    return this.http.delete<any>(this.url + `/deleteUser/${this.userId}`);
   }
- 
+
 }

@@ -17,6 +17,8 @@
             "other": "Other"
         },
         "password": "password",
+        "phoneNumber": "phone number",
+        "address": "address",
         "repeatPassowrd": "repeat passowrd",
         "register": "register",
         "haveAccount": "You already have an account",

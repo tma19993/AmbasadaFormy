@@ -23,7 +23,6 @@ export class BlogComponent implements OnInit{
  public loadPosts():void{
   this.blogService.getBlogData(this.currentPage + 1, this.pageSize).subscribe(data=>{
     this.posts = data.posts;
-    console.log(data);
     this.totalRecords = data.totalRecords;
   })
   }

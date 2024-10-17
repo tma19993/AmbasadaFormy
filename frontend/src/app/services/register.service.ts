@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { userDataModel } from '../models/user.model';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,9 @@ export class RegisterService {
   constructor(private http: HttpClient) {}
 
   public register(data: userDataModel) : Observable<any>{
-    return this.http.post<any>(this.loginUrl, data);
+    return this.http.post<any>(this.loginUrl, data).pipe(tap((res) => this.setToken(res.authToken)));
+  }
+  private setToken(token: string) {
+    sessionStorage.setItem('authToken', token);
   }
 }

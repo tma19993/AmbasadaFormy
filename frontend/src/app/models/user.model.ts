@@ -1,7 +1,7 @@
 import { genderKey } from "./gender.model";
 
 export interface userDataModel {
-_id?: number,
+_id?: string,
 firstName?:string
 lastName?:string
 age?:string
@@ -12,5 +12,6 @@ email?:string
 haveCoach?:boolean
 permission?: string
 activeGymPass?:boolean
-
+phoneNumber?: string
+address?: string
 }
