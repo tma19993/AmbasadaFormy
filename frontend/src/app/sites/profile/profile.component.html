@@ -12,16 +12,16 @@
           </div>
           <div class="profile__navigation--information--main--fullname">
             <div class="profile__navigation--information--main--fullname--name">
-              {{user.firstName}}
+             Imię: {{user.firstName}}
             </div>
             <div class="profile__navigation--information--main--fullname--lastname">
-              {{user.lastName}}
+             Nazwisko: {{user.lastName}}
             </div>
           </div>
         </div>
         <div class="profile__navigation--information--other">
           <div class="profile__navigation--information--other--login">
-            {{user.email}}
+            &#64;email: {{user.email}}
           </div>
           <div class="profile__navigation--information--other--role">
             <ng-container [ngSwitch]="user.permission">

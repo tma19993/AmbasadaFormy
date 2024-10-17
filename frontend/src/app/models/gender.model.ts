@@ -5,7 +5,7 @@ export interface GenderModel {
 }
 
 export enum genderKey {
-  men = 'men',
-  woman = 'woman',
+  Male = 'male',
+  Female = 'female',
   other = 'other',
 }
