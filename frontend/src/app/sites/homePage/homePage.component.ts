@@ -24,7 +24,7 @@ export class HomePageComponent {
   }
 
   public trainersButton(): void {
-    this.router.navigate(['/treners']);
+    this.router.navigate(['/coaches']);
   }
 
   public logout(): void {

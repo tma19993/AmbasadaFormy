@@ -8,6 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   constructor() {}
  public ngOnInit(): void {
-  sessionStorage.setItem("language","en")
+  sessionStorage.setItem("language",sessionStorage.getItem("language") || ("en"))
   }
 }

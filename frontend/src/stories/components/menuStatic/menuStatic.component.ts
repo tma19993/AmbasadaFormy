@@ -28,10 +28,8 @@ export class MenuStaticComponent {
   public isMenuOpen: boolean = false;
   public activeOption: string = '';
 
-  constructor(private translateService: TranslateService, private router: Router) {
-    this.translateService.setDefaultLang(
-      sessionStorage.getItem('language') || 'en'
-    );
+  constructor( private router: Router) {
+
   }
 
   public toggleMenu(event: Event): void {
