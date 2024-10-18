@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { catchError, of } from 'rxjs';
+import { catchError, EMPTY, of, tap } from 'rxjs';
 import { LoginService } from 'src/app/services/login.service';
 import { AfMessageService } from 'src/app/services/message.service';
 import { enumIconFloat } from 'src/stories/enums/input.enum';
@@ -12,12 +13,9 @@ import { inputIconConfig } from 'src/stories/interfaces/input.model';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {
-  private login: string;
-  private password: string;
-
+export class LoginComponent implements OnInit{
   @Input() public remember: boolean;
-
+  public myForm: FormGroup;
   public loginData: inputIconConfig = {
     iconClassName: 'pi-user',
     iconFloat: enumIconFloat.left,
@@ -26,25 +24,34 @@ export class LoginComponent {
   constructor(private router: Router, 
     private message: AfMessageService,
     private translateService: TranslateService,
-    private loginServ: LoginService) {
+    private loginServ: LoginService,
+    private formBuilder: FormBuilder) {
     this.translateService.setDefaultLang(sessionStorage.getItem("language") || ("en"));
   }
+
+  public ngOnInit(): void {
+      this.myForm = this.formBuilder.group({
+        login:["",Validators.required],
+        password:["",Validators.required],
+      })
+  }
   
-  public onClickLogin(): void {
-    if (!this.login || !this.password) {
+  public submitLogin(): void {
+    if (this.myForm.invalid) {
       this.message.addErrorMessage('Uzupełnij Login lub hasło', 'Błąd');
-    } else {
-      this.loginServ.login(this.login, this.password).subscribe(res=>{
-        if(res == null){
-          this.message.addErrorMessage('Błędny login lub hasło', 'Błąd');
-        }
-        else{
-          this.loginServ.setLoggedUserId(res.id);
-           this.router.navigate(['/home']);
-        }
-      });
-     
+      return;
     }
+    const { login, password } = this.myForm.controls
+
+    this.loginServ.login(login.value, password.value).pipe(tap(res => {
+      this.loginServ.setLoggedUserId(res.id);
+      this.router.navigate(['/home']);
+    }),
+      catchError(err => {
+        this.message.addErrorMessage('Błędny login lub hasło', 'Błąd');
+        console.log(err);
+        return EMPTY;
+      })).subscribe();
   }
 
   public backToWelcomePage(): void {
@@ -55,10 +62,4 @@ export class LoginComponent {
     console.log(event);
   }
 
-  public getLogin(event: any): void {
-    this.login = event;
-  }
-  public getPassword(event: any): void {
-    this.password = event;
-  }
 }

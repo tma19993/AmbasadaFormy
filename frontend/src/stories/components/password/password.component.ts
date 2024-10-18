@@ -1,4 +1,5 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, } from '@angular/core';
+import { ControlValueAccessor } from '@angular/forms';
 
 @Component({
   selector: 'af-password',
@@ -6,7 +7,7 @@ import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input,
   styleUrls: ['./password.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PasswordComponent implements AfterViewInit {
+export class PasswordComponent implements AfterViewInit, ControlValueAccessor {
   @Input() public floatLabelText: string = '';
   @Input() public weakLabel: string = '';
   @Input() public mediumLabel: string = '';
@@ -18,16 +19,29 @@ export class PasswordComponent implements AfterViewInit {
   @Output() public inputValue:EventEmitter<string>= new EventEmitter();
 
 
-  public value: string | undefined;
+  public value: string;
   public showClear: boolean = false;
+  public onChange = (value: any) => {};
+  public onTouched = () => {};
   constructor() {}
+
+  writeValue(value: any): void {
+    this.value = value;
+  }
+
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
 
   public ngAfterViewInit(): void {
   setTimeout(()=>{
     this.addIconToPasswordInput();
     this.findIcon();
   },0);
-
   }
 
   public getValue():void{
