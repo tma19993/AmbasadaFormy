@@ -11,7 +11,7 @@ async function connectToDatabase() {
       const collections = {
         blog: database.collection("blog"),
         gymPasses: database.collection("gym-passes"),
-        coaches: database.collection("trainers"),
+        coaches: database.collection("users"),
         users: database.collection("users"),
       };
       return collections;

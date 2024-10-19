@@ -3,3 +3,4 @@ export * from "./login.service";
 export * from "./message.service";
 export * from "./profile.service";
 export * from "./register.service";
+export * from "./trainers.service";

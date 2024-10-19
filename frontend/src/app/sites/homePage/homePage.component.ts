@@ -24,11 +24,10 @@ export class HomePageComponent {
   }
 
   public trainersButton(): void {
-    this.router.navigate(['/coaches']);
+    this.router.navigate(['/trainers']);
   }
 
   public logout(): void {
-    console.log("object");
     this.loginService.logout();
   }
 }

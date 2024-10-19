@@ -1,53 +1,60 @@
 @import "./../../constants/constants.scss";
-.button__container{
-    .button__content{
-       ::ng-deep .p-button{
-        background-color: $darker-gray;
-        border-color: transparent;
-        box-shadow: 0 0 8px 1px $darker-gray;
-        font-family: $font-family;
-        font-weight: $font-weight-bold;
-        border-radius: 14px;
-        padding: 10px 40px;
-        transition: .2s;
-        .p-button-label{
-          transition-duration: 0s;
-        }
-        &:hover{
-          color:$input-main-color;
-        }
 
-       }
-    }
-    .transparent-button{
-        ::ng-deep .p-button{
-            background-color: transparent;
-            box-shadow: none;
-            color: $input-main-color;
-            padding: 0;
-            border-radius: 0;
-        }
+.button__container {
+  .button__content {
+    ::ng-deep .p-button {
+      background-color: $darker-gray;
+      border-color: transparent;
+      box-shadow: 0 0 8px 1px $darker-gray;
+      font-family: $font-family;
+      font-weight: $font-weight-bold;
+      border-radius: 14px;
+      padding: 10px 40px;
+      transition: .2s;
+
+      .p-button-label {
+        transition-duration: 0s;
+      }
+
+      &:hover {
+        color: $input-main-color;
+      }
 
     }
-    .white-button{
-      ::ng-deep .p-button{
-        background-color: $background-light;
-        border-color: transparent;
-        box-shadow: none;
-        font-family: $font-family;
-        font-weight: $font-weight-bold;
-        border-radius: 14px;
-        padding: 10px 40px;
-        transition: .2s;
-        color: $darker-gray;
-        .p-button-label{
-          transition-duration: 0s;
-        }
-        &:hover{
-          color:$input-main-color;
-        }
+  }
 
+  .transparent-button {
+    ::ng-deep .p-button {
+      background-color: transparent;
+      box-shadow: none;
+      color: $input-main-color;
+      padding: 0;
+      border-radius: 0;
     }
-}
 
   }
+
+  .white-button {
+    ::ng-deep .p-button {
+      background-color: $background-light;
+      border-color: transparent;
+      box-shadow: none;
+      font-family: $font-family;
+      font-weight: $font-weight-bold;
+      border-radius: 14px;
+      padding: 10px 40px;
+      transition: .2s;
+      color: $darker-gray;
+
+      .p-button-label {
+        transition-duration: 0s;
+      }
+
+      &:hover {
+        color: $input-main-color;
+      }
+
+    }
+  }
+
+}

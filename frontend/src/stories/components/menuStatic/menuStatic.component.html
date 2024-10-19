@@ -5,30 +5,11 @@
     </div>
     <div class="navigation_container__wrapper">
       <div class="navigation_container__hamburger__options" [class]="isMenuOpen ? 'navigation_container__hamburger__options--active':''">
-        <p>{{"MenuPage.profile"| translate}}</p>
-        <p (click)="toggleDetails('start')" [ngClass]="{'active': activeOption === 'start'}">{{"MenuPage.start"| translate}}<i class="pi pi-angle-right"></i></p>
-        <div class="navigation_container__hamburger__options--details" [ngClass]="{'active': activeOption === 'start'}">
-          <p>{{"MenuPage.showpasses"| translate}}</p>
-          <p>{{"MenuPage.showtrainers"| translate}}</p>
-          <p>{{"MenuPage.showactivities"| translate}}</p>
-          <p>{{"MenuPage.showachievements"| translate}}</p>
-        </div>
-        <p (click)="toggleDetails('karnety')" [ngClass]="{'active': activeOption === 'karnety'}">{{"MenuPage.passes"| translate}}<i class="pi pi-angle-right"></i></p>
-        <div class="navigation_container__hamburger__options--details" [ngClass]="{'active': activeOption === 'karnety'}">
-          <p>{{"MenuPage.passdevelopment"| translate}}</p>
-          <p>{{"MenuPage.passfun"| translate}}</p>
-          <p>{{"MenuPage.passhealth"| translate}}</p>
-        </div>
-        <p (click)="toggleDetails('trening')" [ngClass]="{'active': activeOption === 'trening'}">{{"MenuPage.workouts"| translate}}<i class="pi pi-angle-right"></i></p>
-        <div class="navigation_container__hamburger__options--details" [ngClass]="{'active': activeOption === 'trening'}">
-          <p>{{"MenuPage.Trainers"| translate}}</p>
-          <p>{{"MenuPage.workouts"| translate}}</p>
-        </div>
-        <p (click)="toggleDetails('blog')" [ngClass]="{'active': activeOption === 'blog'}">{{"MenuPage.blog"| translate}}<i class="pi pi-angle-right"></i></p>
-        <div class="navigation_container__hamburger__options--details" [ngClass]="{'active': activeOption === 'blog'}">
-          <p>{{"MenuPage.diet"| translate}}</p>
-          <p>{{"MenuPage.dishes"| translate}}</p>
-        </div>
+        <p (click)="profileRouter()" [ngClass]="{'active': activeOption === 'profile'}">{{"MenuPage.profile"| translate}}</p>
+        <p (click)="startRouter()" [ngClass]="{'active': activeOption === 'home'}">{{"MenuPage.start"| translate}}</p>
+        <p (click)="gymPassRouter()" [ngClass]="{'active': activeOption === 'gyp-pass'}">{{"MenuPage.passes"| translate}}</p>
+        <p (click)="workoutsRouter()" [ngClass]="{'active': activeOption === 'trainers'}">{{"MenuPage.trainers"| translate}}</p>
+        <p (click)="blogRouter()" [ngClass]="{'active': activeOption === 'blog'}">{{"MenuPage.blog"| translate}}</p>
       </div>
     </div>
 
@@ -46,10 +27,10 @@
         </div>
       </div>
      <div class="navigation_content">
-        <p (click)="startEmit()">{{"MenuPage.start"| translate}}</p>
-        <p (click)="gymPassEmit()">{{"MenuPage.passes"| translate}}</p>
-        <p (click)="workoutsEmit()">{{"MenuPage.workouts"| translate}}</p>
-        <p (click)="blogEmit()">{{"MenuPage.blog"| translate}}</p>
+        <p (click)="startRouter()">{{"MenuPage.start"| translate}}</p>
+        <p (click)="gymPassRouter()">{{"MenuPage.passes"| translate}}</p>
+        <p (click)="workoutsRouter()">{{"MenuPage.workouts"| translate}}</p>
+        <p (click)="blogRouter()">{{"MenuPage.blog"| translate}}</p>
 
      </div>
      <div class="navigation_fetures">
@@ -59,34 +40,20 @@
         <div class="navigation_fetures--detail">
             <i class="pi pi-user"></i>
         </div>
-        <div class="navigation_fetures--detail__language">
-          <button (click)="changeLanguage('pl')"><img src="../../../assets/backgrounds/flags/pl.png" alt="pl"></button>
-          <button (click)="changeLanguage('en')"><img src="../../../assets/backgrounds/flags/en.png" alt="en"></button>
-      </div>
      </div>
      <div class="navigation_container--details">
         <div class="navigation_container--details__item">
             <p>{{"MenuPage.showpasses"| translate}}</p>
             <p>{{"MenuPage.showtrainers"| translate}}</p>
-            <p>{{"MenuPage.showactivities"| translate}}</p>
-            <p>{{"MenuPage.showachievements"| translate}}</p>
          </div>
          <div class="navigation_container--details__item">
             <p>{{"MenuPage.passdevelopment"| translate}}</p>
             <p>{{"MenuPage.passfun"| translate}}</p>
             <p>{{"MenuPage.passhealth"| translate}}</p>
          </div>
-         <div class="navigation_container--details__item">
-            <p>{{"MenuPage.Trainers"| translate}}</p>
-            <p>{{"MenuPage.workouts"| translate}}</p>
-         </div>
-         <div class="navigation_container--details__item">
-            <p>{{"MenuPage.diet"| translate}}</p>
-            <p>{{"MenuPage.dishes"| translate}}</p>
-         </div>
          <div class="navigation_container--details__profile">
            <div>
-            <p (click)="profileEmit()">{{"MenuPage.profile"| translate}}</p>
+            <p (click)="profileRouter()">{{"MenuPage.profile"| translate}}</p>
             <div class="navigation_container--details__language">
                 <button (click)="changeLanguage('pl')"><img src="../../../assets/backgrounds/flags/pl.png" alt="pl"></button>
                 <button (click)="changeLanguage('en')"><img src="../../../assets/backgrounds/flags/en.png" alt="en"></button>

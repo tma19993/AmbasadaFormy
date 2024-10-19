@@ -1,51 +1,76 @@
 @import "../../../../stories/constants/constants.scss";
+
 .profile__information {
-    height: 90%;
-    display: flex;
-    justify-content: space-between;
-    .profile__information--left {
-      h1 {
-        margin-bottom: 10px;
-        font-size: 27px;
-        font-weight: $font-weight-bold;
-      }
-    
-      div {
-        margin-bottom: 20px;
-      }
+  height: 90%;
+  display: flex;
+  justify-content: space-between;
 
-      h2 {
-        font-weight: $font-weight-bold;
-        font-size: 18px;
-      }
-
-      ul {
-        font-weight: $font-weight-normal;
-        font-size: 18px;
-      }
-
-      li {
-        list-style: none;
-      }
+  .profile__information--left {
+    h1 {
+      margin-bottom: 10px;
+      font-size: 27px;
+      font-weight: $font-weight-bold;
     }
 
-    .profile__information--right {
-      display: flex;
-      align-items: flex-start;
-      gap: 40px;
-      padding-top: 80px;
-      
+    div {
+      margin-bottom: 20px;
+    }
 
-      af-button {
-        font-size: 18px;
-        font-weight: $font-weight-bold;
-      }
+    h2 {
+      font-weight: $font-weight-bold;
+      font-size: 18px;
+    }
+
+    ul {
+      font-weight: $font-weight-normal;
+      font-size: 18px;
+    }
+
+    li {
+      list-style: none;
     }
   }
-  .my-profile__menu{
+
+  .profile__information--right {
     display: flex;
-    gap: 20px;
-    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    padding-top: 80px;
+
+
+    af-button {
+      font-size: 18px;
+      font-weight: $font-weight-bold;
+    }
+  }
+}
+
+.my-profile__menu {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+
+  p-fileUpload {
+    ::ng-deep .p-button {
+      background-color: $darker-gray;
+      border-color: transparent;
+      box-shadow: 0 0 8px 1px $darker-gray;
+      font-family: $font-family;
+      font-weight: $font-weight-bold;
+      border-radius: 14px;
+      padding: 10px 40px;
+      transition: .2s;
+
+      .p-button-label {
+        transition-duration: 0s;
+      }
+
+      &:hover {
+        color: $input-main-color;
+      }
+
+
+    }
 
   }
-  
+}

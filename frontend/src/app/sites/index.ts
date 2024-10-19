@@ -5,3 +5,4 @@ export * from "./homePage/homePage.component";
 export * from "./login/login.component";
 export * from "./register/register.component";
 export * from "./welcomePage/welcomePage.component";
+export * from "./trainers/trainers.component";

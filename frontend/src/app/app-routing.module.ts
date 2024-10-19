@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from './auth/auth.guard';
-import { BlogComponent, DietsComponent, GymPassComponent, GymPassesComponent, HomePageComponent, LoginComponent, MyProfileComponent, PersonalTrainerComponent, ProfileComponent, RegisterComponent, WelcomePageComponent } from './sites';
+import { BlogComponent, DietsComponent, GymPassComponent, GymPassesComponent, HomePageComponent, LoginComponent, MyProfileComponent, PersonalTrainerComponent, ProfileComponent, RegisterComponent, TrainersComponent, WelcomePageComponent } from './sites';
 
 const routes: Routes = [
 { path: '', redirectTo: '/welcome', pathMatch: 'full' },
@@ -12,6 +12,7 @@ const routes: Routes = [
 { path: 'home', component: HomePageComponent ,canActivate: [AuthGuard]},
 { path: 'gym-pass', component: GymPassComponent,canActivate: [AuthGuard] },
 { path: 'blog', component: BlogComponent,canActivate: [AuthGuard] },
+{ path: 'trainers', component: TrainersComponent,canActivate: [AuthGuard] },
 { 
   path: 'profile',
   component: ProfileComponent, canActivate: [AuthGuard],

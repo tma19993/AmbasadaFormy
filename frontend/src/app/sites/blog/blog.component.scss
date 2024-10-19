@@ -1,62 +1,78 @@
 @import "../../../stories/constants/constants.scss";
+
 .navi-bar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 1001;
-  }
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1001;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto;
+  padding-top: 100px;
+  text-align: center;
+  height: 40vh;
+}
 
 
-.blog{
-    background-image: url('../../../assets/backgrounds/blogBackgorund.png');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+.blog {
+  background-image: url('../../../assets/backgrounds/blogBackgorund.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 
 
-    &__container{
-        max-width: 1357px;
-        margin: 0 auto 80px auto;
-        min-height: 100vh;
-        &--header{
-            padding: 100px 0;
-            font-size: 87px;
-            color: $input-text-light;
-            text-align: center;
-            text-shadow: 1px 1px 3px $background-dark;
-        }
-        &--post{
-            margin-bottom: 60px;
-            &-content{
-                display: flex;
-                &-img{
-                  img{
-                    max-width: 250px;
-                  }
-                }
-                &-text{
-                    padding: 20px;
-                    .header{
-                        padding-left: 10px;
-                        font-size: 24px;
-                    }
-                    .subheader{
-                       margin-bottom: 10px;
-                    }
-                    .content{
-                        
-                    }
-                }
-            }
-        }
-        &--paginator{
-            p-paginator::ng-deep{
-                .p-paginator{
-                    background: rgba(255,255,255,0.8);
-                }
-            }
-        }
+  &__container {
+    max-width: 1357px;
+    margin: 0 auto 80px auto;
+    min-height: 100vh;
+
+    &--header {
+        padding-bottom: 90px;
+      font-size: 50px;
+      color: $input-text-light;
+      text-align: center;
+      text-shadow: 1px 1px 3px $background-dark;
     }
+
+    &--post {
+      margin-bottom: 60px;
+
+      &-content {
+        display: flex;
+
+        &-img {
+          img {
+            max-width: 250px;
+          }
+        }
+
+        &-text {
+          padding: 20px;
+
+          .header {
+            padding-left: 10px;
+            font-size: 24px;
+          }
+
+          .subheader {
+            margin-bottom: 10px;
+          }
+
+          .content {}
+        }
+      }
+    }
+
+    &--paginator {
+      p-paginator::ng-deep {
+        .p-paginator {
+          background: rgba(255, 255, 255, 0.8);
+        }
+      }
+    }
+  }
 }

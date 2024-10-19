@@ -24,6 +24,7 @@ import { AFProfileMenuModule } from "../stories/components/profile-menu/profile-
 import { HttpLoaderFactory } from 'src/shared/untils';
 import {AvatarModule} from 'primeng/avatar';
 import {FileUploadModule} from 'primeng/fileupload';
+import { TrainersComponent } from './sites/trainers/trainers.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -38,6 +39,7 @@ import {FileUploadModule} from 'primeng/fileupload';
         GymPassesComponent,
         PersonalTrainerComponent,
         DietsComponent,
+        TrainersComponent,
     ],
     providers: [AfMessageService, MessageService],
     bootstrap: [AppComponent],

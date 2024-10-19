@@ -5,17 +5,18 @@ const {
 const router = express.Router();
 
 
-module.exports = function (coaches) {
+module.exports = function (users) {
   router.get("/getCoaches", async (req, res) => {
-    const coachesData = await getData(coaches);
-    res.status(200).json(coachesData);
+      const usersData = await getData(users);
+      const coaches = usersData.filter(user => user.permission === "coach");
+      res.status(200).json(coaches);
   });
 
-  router.post("/addCoach", async (req, res) => {
-    const newCoach = req.body;
-    const result = await coaches.insertOne(newCoach);
-    res.status(200).json(result);
-  });
+  // router.post("/addCoach", async (req, res) => {
+  //   const newCoach = req.body;
+  //   const result = await coaches.insertOne(newCoach);
+  //   res.status(200).json(result);
+  // });
 
   router.put("/changeCoach/:id", async (req, res) => {
     const userId = req.params.id;

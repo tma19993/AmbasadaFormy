@@ -30,7 +30,7 @@
         </div>
       </div>
       <div class="my-profile__menu">
-        <p-fileUpload chooseLabel="Dodaj Zdjęcie" name="photo" mode="basic" accept="image/*" (uploadHandler)="onUpload($event)" [customUpload]="true"></p-fileUpload>
+        <p-fileUpload [chooseLabel]="'Dodaj Zdjęcie'.toUpperCase()" name="photo" mode="basic" accept="image/*" (uploadHandler)="onUpload($event)" [customUpload]="true"></p-fileUpload>
         <af-button [label]="'Zmień hasło'" iconClassName="pi pi-unlock"></af-button>
           <af-button [label]="'Edytuj'" iconClassName="pi pi-user-edit"></af-button>
         <af-button [label]="'USUŃ KONTO'" iconClassName="pi pi-user-minus" (onClick)="removeUser()"></af-button>

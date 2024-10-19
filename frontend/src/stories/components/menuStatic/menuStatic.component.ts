@@ -47,13 +47,6 @@ export class MenuStaticComponent {
     }
   }
 
-  public toggleDetails(option: string): void {
-    if (this.activeOption === option) {
-      this.activeOption = '';
-    } else {
-      this.activeOption = option;
-    }
-  }
 
   public changeLanguage(id: string): void {
     sessionStorage.setItem('language', id);
@@ -62,19 +55,24 @@ export class MenuStaticComponent {
     }, 100);
   }
 
-  public startEmit(): void {
+  public startRouter(): void {
+    this.activeOption = "home";
     this.router.navigate(['/home']);
   }
-  public gymPassEmit(): void {
+  public gymPassRouter(): void {
+    this.activeOption = "gym-pass";
     this.router.navigate(['/gym-pass']);
   }
-  public blogEmit(): void {
+  public blogRouter(): void {
+    this.activeOption = "blog";
     this.router.navigate(['/blog']);
   }
-  public workoutsEmit(): void {
-    this.router.navigate(['/home']);
+  public workoutsRouter(): void {
+    this.activeOption = "trainers";
+    this.router.navigate(['/trainers']);
   }
-  public profileEmit(): void {
+  public profileRouter(): void {
+    this.activeOption = "profile";
     this.router.navigate(['/profile']);
   }
   public logoutEmit(): void {
