@@ -26,4 +26,12 @@ export class ProfileService {
     return this.http.delete<any>(this.url + `/deleteUser/${this.userId}`);
   }
 
+  public photoUpdate(event: any): Observable<any> {
+    const file = event.files[0];
+    const formData = new FormData();
+    formData.append('photo', file);
+
+   return this.http.put<any>(this.url +"/uploadPhoto/"+this.userId, formData)
+  }
+
 }

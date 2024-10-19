@@ -1,9 +1,13 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
+const mongoose = require('mongoose');
 const config = require("../config");
 const { ObjectId } = require("mongodb");
 const { getData } = require("../utils");
 const router = express.Router();
+const multer = require('multer');
+
+const upload = multer({ storage: multer.memoryStorage() });
 
 module.exports = function (users) {
   
@@ -66,6 +70,24 @@ module.exports = function (users) {
       res.status(500).send({
         message: "Error deleting user."
       });
+    }
+  });
+
+  router.put('/uploadPhoto/:id', upload.single('photo'), async (req, res) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({ error: 'No file uploaded' });
+      }
+      const photo = req.file.buffer.toString('base64'); 
+      const userId = req.params.id;
+        const result = await users.findOneAndUpdate(
+          { _id: new ObjectId(userId) },
+          { $set: { photo: photo } },  
+          { returnDocument: 'after' }
+        );
+      res.status(200).json(result);
+    } catch (err) {
+      res.status(500).send(err.message);
     }
   });
 

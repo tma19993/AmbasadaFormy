@@ -1,4 +1,4 @@
-_id,userId,firstName,lastName,age,gender,login,password,email,haveCoach,permission,activeGymPass,gympassId,gympassName,coachFullName,address,phoneNumber
+_id,userId,firstName,lastName,age,gender,login,password,email,haveCoach,permission,activeGymPass,gympassId,gympassName,coachFullName,address,phoneNumber,photo
 6485c5733a0a45b56f3ddc36,1,Michał,Nowak,35,Male,Admin,admin,loupummoukausau-7531@yopmail.com,false,admin,false,,,,Matthieu Scotting,Apt 1560,305-623-1069
 6485c6013a0a45b56f3ddc3a,2,Rafał,Leszczyński,28,Male,michal123,coach,quavacraffudi-5583@yopmail.com,false,coach,true,6485b0f83a0a45b56f3ddc1e,zdrowie,,PO Box 49113,576-937-8522
 6485c65c3a0a45b56f3ddc3c,3,Adam,Kowalski,22,Male,mada32,user,crecepimmeizoi-2214@yopmail.com,true,user,true,6485b0f83a0a45b56f3ddc1e,zdrowie,Rafał Leszczyński,Apt 623,709-137-1125

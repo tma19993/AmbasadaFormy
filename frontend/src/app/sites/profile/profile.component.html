@@ -8,8 +8,8 @@
     <af-tile>
       <div class="profile__navigation--information" *ngIf="userData$ | async as user">
         <div class="profile__navigation--information--main">
-          <div class="profile__navigation--information--main--avatar">
-            <img src="" alt="">
+          <div *ngIf="user.photo; else defaultAvatar" class="avatar">
+              <img class="custom-avatar" [src]="'data:image/jpeg;base64,' + user.photo" alt="User Photo" />
           </div>
           <div class="profile__navigation--information--main--fullname">
             <p class="first-name">{{user.firstName}}</p>
@@ -29,34 +29,24 @@
       </div>
     </af-tile>
     <af-tile>
-      <div class="profile__navigation--navi-bar">
-        <div class="navi-item" routerLink="my-profile" routerLinkActive="active">
-          <i class="fa-solid fa-user" style="font-size: 2rem"></i> Mój profil
-        </div>
-        <div class="navi-item" routerLink="gym-pass" routerLinkActive="active">
-          <i class="fa-solid fa-ticket"  style="font-size: 2rem"></i> Moje karnety
-        </div>
-        <div class="navi-item" routerLink="personal-trainers" routerLinkActive="active">
-          <i class="fa-solid fa-dumbbell"  style="font-size: 2rem"></i> Treningi personalne
-        </div>
-        <div class="navi-item" routerLink="diets" routerLinkActive="active">
-          <i class="fa-solid fa-utensils" style="font-size: 2rem"></i> Diety
-        </div>
-        <div class="navi-item--bottom">
-            <af-button iconClassName="pi-undo" [label]="'button.back' | translate" (onClick)="undo()"></af-button>
-            <af-button iconClassName="pi-sign-out"[label]="'button.logout' | translate" (onClick)="logout()"></af-button>
-        </div>
-      </div>
+        <af-profile-menu (BackEmmiter)="undo()" (LogoutEmmiter)="logout()" />
     </af-tile>
   </div>
-  <div>
     <af-tile class="strech_element--vertically">
       <section class="profile__container">
-        <router-outlet></router-outlet>
+          <router-outlet></router-outlet>
+        <div class="language-changer">
+          <af-languageChanger [fontSize]="22"/>
+        </div>
       </section>
     </af-tile>
-  </div>
 </section>
 <ng-template #noData>
   nie ma danych
 </ng-template>
+<ng-template #defaultAvatar>
+  <div class="avatar">
+    <img src="../../../assets/pictures/avatar.png" alt="User Photo" />
+</div>
+</ng-template>
+<!-- Image by <a href="https://pixabay.com/users/wanderercreative-855399/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=973460">Stephanie Edwards</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=973460">Pixabay</a> -->

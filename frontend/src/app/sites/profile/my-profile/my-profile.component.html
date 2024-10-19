@@ -2,38 +2,37 @@
     <div class="profile__information">
         <div class="profile__information--left">
           <h1>Mój profil</h1>
-          <div class="profile__information--left--data">
+          <div>
             <h2>Moje dane:</h2>
             <ul>
-              <li>{{user.firstName}} {{user.lastName}}</li>
-              <li>{{user.login}}</li>
-              <li>{{user.email}}</li>
+              <li><strong>Imie Nazwisko:</strong> {{user.firstName}} {{user.lastName}}</li>
+              <li><strong>Login:</strong> {{user.login}}</li>
+              <li><strong>Email:</strong> {{user.email}}</li>
             </ul>
           </div>
-          <div class="profile__information--left--contact">
+          <div>
             <h2>Dane kontaktowe:</h2>
             <ul>
-              <li>Imie Nazwisko: {{user.firstName}} {{user.lastName}}</li>
-              <li>adres: {{user.address}}</li>
-              <li>tel: {{user.phoneNumber}}</li>
+              <li><strong>Imie Nazwisko:</strong> {{user.firstName}} {{user.lastName}}</li>
+              <li><strong>adres:</strong> {{user.address}}</li>
+              <li><strong>tel:</strong> {{user.phoneNumber}}</li>
             </ul>
           </div>
-          <div class="profile__information--left--invoice">
+          <div>
             <h2>Dane do faktury:</h2>
             <ul>
-                <li>Imie Nazwisko: {{user.firstName}} {{user.lastName}}</li>
-                <li>adres: {{user.address}}</li>
-                <li>tel: {{user.phoneNumber}}</li>
-              <li>email: {{user.email}}</li>
+                <li><strong>Imie Nazwisko:</strong> {{user.firstName}} {{user.lastName}}</li>
+                <li><strong>adres:</strong> {{user.address}}</li>
+                <li><strong>tel:</strong> {{user.phoneNumber}}</li>
+              <li><strong>email:</strong> {{user.email}}</li>
             </ul>
           </div>
         </div>
-        <div class="profile__information--right">
-          <af-button [label]="'Zmień hasło'" [whiteButton]="true" class="btn-white"></af-button>
-          <af-button [label]="'Edytuj'"></af-button>
-        </div>
       </div>
-      <div class="delete__account">
-        <af-button [whiteButton]="true" [label]="'USUŃ KONTO'" iconClassName="pi pi-user-minus" class="btn-white" (onClick)="removeUser()"></af-button>
+      <div class="my-profile__menu">
+        <p-fileUpload chooseLabel="Dodaj Zdjęcie" name="photo" mode="basic" accept="image/*" (uploadHandler)="onUpload($event)" [customUpload]="true"></p-fileUpload>
+        <af-button [label]="'Zmień hasło'" iconClassName="pi pi-unlock"></af-button>
+          <af-button [label]="'Edytuj'" iconClassName="pi pi-user-edit"></af-button>
+        <af-button [label]="'USUŃ KONTO'" iconClassName="pi pi-user-minus" (onClick)="removeUser()"></af-button>
       </div>
 </ng-container>

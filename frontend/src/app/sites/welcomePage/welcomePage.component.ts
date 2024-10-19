@@ -9,7 +9,8 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class WelcomePageComponent {
   constructor(private router: Router, private translateService: TranslateService) { 
-    this.translateService.setDefaultLang(sessionStorage.getItem("language") || ("en"));
+    sessionStorage.setItem('language',sessionStorage.getItem("language") || ("en"));
+    this.translateService.setDefaultLang(sessionStorage.getItem("language")!);
   }
 
   public goToLogin(): void {

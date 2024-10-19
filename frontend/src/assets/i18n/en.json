@@ -71,7 +71,7 @@
         "trainess": "Trenerzy",
         "development": "Development",
         "orderonline": "Order online",
-        "logout": "Wyloguj"
+        "logout": "logout"
     },
     "gymPass": {
         "passhealth": "Health Pass",
@@ -120,7 +120,7 @@
         "texta2": "Our trainers are passionate and professionals, and each of them has their own specialization. You have really decent people to choose from, whether for cardio or for ordinary laymen. Do not wait and check the description and specializations of our trainers, familiarize yourself with their style, maybe this is someone perfect for you. Remember that the choice of trainer will be very important for you, so think about who suits you best, but don't worry, there are many of them and you can have anyone. Go ahead and browse through a few photos and hit the trainers button to find out even more.",
         "texta3": "Remember, you can hire multiple trainers. Each trainer has a different specialization, pay attention to this when choosing. The rate will vary depending on the trainer. Please note that trainers can be busy, so plan your training schedule wisely so that both parties are happy."
     },
-    "Profile":{
+    "profile":{
         "menu":{
             "my-profile": "My profile",
             "my-gym-pass": "My gym pass",

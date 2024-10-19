@@ -8,7 +8,6 @@ import { InputModule } from 'src/stories/components/input/input.module';
 import { AFTileModule } from 'src/stories/components/tile/tile.module';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FooterModule } from 'src/stories/components/footer/footer.module';
 import { AFRadiobuttonModule } from "../stories/components/radiobutton/radiobutton.module";
 import { MessagesModule } from 'primeng/messages';
@@ -21,7 +20,10 @@ import { MenuStaticModule } from "../stories/components/menuStatic/menuStatic.mo
 import { PaginatorModule } from 'primeng/paginator';
 import { AfCheckboxModule } from 'src/stories/components/checkbox/checkbox.module';
 import { WelcomePageComponent, LoginComponent, RegisterComponent, HomePageComponent, GymPassComponent, MyProfileComponent, BlogComponent, ProfileComponent, GymPassesComponent, PersonalTrainerComponent, DietsComponent } from './sites';
-
+import { AFProfileMenuModule } from "../stories/components/profile-menu/profile-menu.module";
+import { HttpLoaderFactory } from 'src/shared/untils';
+import {AvatarModule} from 'primeng/avatar';
+import {FileUploadModule} from 'primeng/fileupload';
 @NgModule({
     declarations: [
         AppComponent,
@@ -40,30 +42,33 @@ import { WelcomePageComponent, LoginComponent, RegisterComponent, HomePageCompon
     providers: [AfMessageService, MessageService],
     bootstrap: [AppComponent],
     imports: [
-        ReactiveFormsModule,
-        PaginatorModule,
-        AfPasswordModule,
-        AfMessagesModule,
-        MessagesModule,
-        FooterModule,
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        FormsModule,
-        AfCheckboxModule,
-        AFButtonModule,
-        InputModule,
-        AFTileModule,
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: (handler: HttpClient) => { return new TranslateHttpLoader(handler, './assets/i18n/', '.json'); },
-                deps: [HttpClient]
-            }
-        }),
-        AFRadiobuttonModule,
-        LanguageChangerModule,
-        MenuStaticModule
-    ]
+      FileUploadModule,
+      AvatarModule,
+    ReactiveFormsModule,
+    PaginatorModule,
+    AfPasswordModule,
+    AfMessagesModule,
+    MessagesModule,
+    FooterModule,
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    AfCheckboxModule,
+    AFButtonModule,
+    InputModule,
+    AFTileModule,
+    TranslateModule.forRoot({
+        loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+        }
+      }),
+    AFRadiobuttonModule,
+    LanguageChangerModule,
+    MenuStaticModule,
+    AFProfileMenuModule
+]
 })
 export class AppModule { }

@@ -13,5 +13,6 @@ haveCoach?:boolean
 permission?: string
 activeGymPass?:boolean
 phoneNumber?: string
-address?: string
+address?: string,
+photo?:string
 }

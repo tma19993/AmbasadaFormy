@@ -27,7 +27,12 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/@ngx-translate/i18n-polyfill/dist/assets",
+                "output": "/assets/i18n/"
+              }
             ],
             "styles": [
               "src/styles.scss",
@@ -95,7 +100,12 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/@ngx-translate/i18n-polyfill/dist/assets",
+                "output": "/assets/i18n/"
+              }
             ],
             "styles": [
               "node_modules/primeng/resources/themes/saga-blue/theme.css",

@@ -1,0 +1,18 @@
+<ul class="profile-menu">
+        <li class="navi-item" routerLink="my-profile" routerLinkActive="active">
+          <i class="fa-solid fa-user" style="font-size: 2rem"></i> {{"profile.menu.my-profile" | translate}}
+        </li>
+        <li class="navi-item" routerLink="gym-pass" routerLinkActive="active">
+          <i class="fa-solid fa-ticket"  style="font-size: 2rem"></i> {{"profile.menu.my-gym-pass" | translate}}
+        </li>
+        <li class="navi-item" routerLink="personal-trainers" routerLinkActive="active">
+          <i class="fa-solid fa-dumbbell"  style="font-size: 2rem"></i> {{"profile.menu.my-trainings" | translate}}
+        </li>
+        <li class="navi-item" routerLink="diets" routerLinkActive="active">
+          <i class="fa-solid fa-utensils" style="font-size: 2rem"></i> {{"profile.menu.my-diets" | translate}}
+        </li>
+        <li class="navi-item--bottom">
+            <af-button iconClassName="pi-undo" [label]="'button.back' | translate" (onClick)="undo()"></af-button>
+            <af-button iconClassName="pi-sign-out"[label]="'button.logout' | translate" (onClick)="logout()"></af-button>
+        </li>
+    </ul>

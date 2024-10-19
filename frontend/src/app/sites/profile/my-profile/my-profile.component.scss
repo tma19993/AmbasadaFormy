@@ -1,18 +1,16 @@
 @import "../../../../stories/constants/constants.scss";
 .profile__information {
-    padding: 30px;
+    height: 90%;
+    display: flex;
+    justify-content: space-between;
     .profile__information--left {
-      flex: 1;
-
       h1 {
         margin-bottom: 10px;
         font-size: 27px;
         font-weight: $font-weight-bold;
       }
-
-      .profile__information--left--data,
-      .profile__information--left--contact,
-      .profile__information--left--invoice {
+    
+      div {
         margin-bottom: 20px;
       }
 
@@ -35,13 +33,8 @@
       display: flex;
       align-items: flex-start;
       gap: 40px;
-
-      padding-top: 40px;
-
-      .btn-white {
-        border: 2px solid #222831;
-        border-radius: 16px;
-      }
+      padding-top: 80px;
+      
 
       af-button {
         font-size: 18px;
@@ -49,12 +42,10 @@
       }
     }
   }
-  .delete__account{
+  .my-profile__menu{
     display: flex;
-    align-items: center;
-    padding: 40px 40%;
-    .btn-white {
-      border: 2px solid #222831;
-      border-radius: 16px;
-    }
+    gap: 20px;
+    justify-content: center;
+
   }
+  

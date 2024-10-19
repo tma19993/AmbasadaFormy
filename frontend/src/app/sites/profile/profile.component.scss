@@ -14,15 +14,28 @@
   background-position: center;
   height: 100vh;
   width: 100%;
+  overflow: hidden;
   padding: 6vh 4vh 2vh 4vh;
   display: flex;
   align-items: stretch;
   justify-content: center;
 
   &__container {
-    width: 1240px;
-    height: 92vh;
+    padding: 30px 30px 0 30px;
+    width: 60vw;
+    position: relative;
+    .language-changer {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        ::ng-deep .dropdown{ 
+          .dropdown__options{
+            right:0
+          }
+        }
+    }
   }
+
 
   &__navigation {
     display: flex;
@@ -41,11 +54,25 @@
             display: flex;
             align-items: flex;
 
-            &--avatar {
-              border: #222831 1px solid;
-              width: 128px;
-              height: 128px;
-              border-radius: 16px;
+            .avatar {
+                width: 128px;
+                height: 128px;
+                border-radius: 16px;
+                border: #222831 1px solid;
+                .custom-avatar{
+                  border-radius: 16px;
+                    display: block;
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                    padding: 0;
+                }
+                img {
+                  display: block;
+                  height: 128px;
+                  padding: 10px;
+                  margin: 0 auto;
+                }
             }
 
             &--fullname {
@@ -85,45 +112,6 @@
           display: flex;
           flex-direction: column;
           align-items: flex-start;
-        }
-
-        .profile__navigation--navi-bar {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          justify-content: flex-end;
-          padding: 10px;
-          height: 49vh;
-
-          .navi-item {
-            padding: 10px;
-            display: flex;
-            align-items: center;
-            margin: 5px 0;
-            cursor: pointer;
-            width: 100%;
-            transition: .3s;
-            border-radius: 10px;
-            &:hover{
-              background-color: $darker-gray;
-              color: $input-text-light;
-            }
-
-            &--bottom {
-              width: 100%;
-              margin-top: auto;
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              gap: 10px;
-            }
-          }
-
-
-
-          i {
-            margin-right: 10px;
-          }
         }
       }
     }

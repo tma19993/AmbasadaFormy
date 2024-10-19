@@ -16,13 +16,7 @@ import { LanguageChangerModule } from "../languageChanger/languageChanger.module
     imports: [
         CommonModule,
         HttpClientModule,
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: (handler: HttpClient) => { return new TranslateHttpLoader(handler, './assets/i18n/', '.json'); },
-                deps: [HttpClient]
-            }
-        }),
+        TranslateModule.forChild(),
         LanguageChangerModule
     ]
 })
