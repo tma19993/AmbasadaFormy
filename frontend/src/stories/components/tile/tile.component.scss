@@ -1,5 +1,13 @@
 @import "./../../constants/constants.scss";
 
+:host(.strech_element--vertically) {
+  .tile_container{
+    display: block;
+    height: 100%;
+  }
+  
+  
+}
 .tile_container {
   overflow: hidden;
   box-shadow: 0 0 20px 1px $darker-gray;

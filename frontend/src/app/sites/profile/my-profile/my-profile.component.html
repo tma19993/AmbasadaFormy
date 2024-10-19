@@ -1,0 +1,39 @@
+<ng-container *ngIf="userData$ | async as user">
+    <div class="profile__information">
+        <div class="profile__information--left">
+          <h1>Mój profil</h1>
+          <div class="profile__information--left--data">
+            <h2>Moje dane:</h2>
+            <ul>
+              <li>{{user.firstName}} {{user.lastName}}</li>
+              <li>{{user.login}}</li>
+              <li>{{user.email}}</li>
+            </ul>
+          </div>
+          <div class="profile__information--left--contact">
+            <h2>Dane kontaktowe:</h2>
+            <ul>
+              <li>Imie Nazwisko: {{user.firstName}} {{user.lastName}}</li>
+              <li>adres: {{user.address}}</li>
+              <li>tel: {{user.phoneNumber}}</li>
+            </ul>
+          </div>
+          <div class="profile__information--left--invoice">
+            <h2>Dane do faktury:</h2>
+            <ul>
+                <li>Imie Nazwisko: {{user.firstName}} {{user.lastName}}</li>
+                <li>adres: {{user.address}}</li>
+                <li>tel: {{user.phoneNumber}}</li>
+              <li>email: {{user.email}}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="profile__information--right">
+          <af-button [label]="'Zmień hasło'" [whiteButton]="true" class="btn-white"></af-button>
+          <af-button [label]="'Edytuj'"></af-button>
+        </div>
+      </div>
+      <div class="delete__account">
+        <af-button [whiteButton]="true" [label]="'USUŃ KONTO'" iconClassName="pi pi-user-minus" class="btn-white" (onClick)="removeUser()"></af-button>
+      </div>
+</ng-container>

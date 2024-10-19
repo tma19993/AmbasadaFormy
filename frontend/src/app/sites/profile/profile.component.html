@@ -1,4 +1,4 @@
-<section class="profile__container" *ngIf="userData$ | async as user">
+<section class="profile" >
   <div class="profile__navigation">
     <af-tile [darkMode]="true">
       <div class="profile__navigatio--logo">
@@ -6,23 +6,18 @@
       </div>
     </af-tile>
     <af-tile>
-      <div class="profile__navigation--information">
+      <div class="profile__navigation--information" *ngIf="userData$ | async as user">
         <div class="profile__navigation--information--main">
           <div class="profile__navigation--information--main--avatar">
+            <img src="" alt="">
           </div>
           <div class="profile__navigation--information--main--fullname">
-            <div class="profile__navigation--information--main--fullname--name">
-             Imię: {{user.firstName}}
-            </div>
-            <div class="profile__navigation--information--main--fullname--lastname">
-             Nazwisko: {{user.lastName}}
-            </div>
+            <p class="first-name">{{user.firstName}}</p>
+            <p class="last-name">{{user.lastName}}</p>
           </div>
         </div>
         <div class="profile__navigation--information--other">
-          <div class="profile__navigation--information--other--login">
-            &#64;email: {{user.email}}
-          </div>
+          <p class="profile__navigation--information--other--login">{{user.email}}</p>
           <div class="profile__navigation--information--other--role">
             <ng-container [ngSwitch]="user.permission">
               <p *ngSwitchCase="'coach'">Trener</p>
@@ -35,65 +30,30 @@
     </af-tile>
     <af-tile>
       <div class="profile__navigation--navi-bar">
-        <!-- <div class="navi-item">
-          <i class="pi pi-user"></i> Mój profil
+        <div class="navi-item" routerLink="my-profile" routerLinkActive="active">
+          <i class="fa-solid fa-user" style="font-size: 2rem"></i> Mój profil
         </div>
-        <div class="navi-item">
-          <i class="pi pi-ticket"></i> Moje karnety
+        <div class="navi-item" routerLink="gym-pass" routerLinkActive="active">
+          <i class="fa-solid fa-ticket"  style="font-size: 2rem"></i> Moje karnety
         </div>
-        <div class="navi-item">
-          <i class="pi pi-ticket"></i> Treningi personalne
+        <div class="navi-item" routerLink="personal-trainers" routerLinkActive="active">
+          <i class="fa-solid fa-dumbbell"  style="font-size: 2rem"></i> Treningi personalne
         </div>
-        <div class="navi-item">
-          <i class="pi pi-ticket"></i> Diety
-        </div> -->
-        <div class="navi-item-logout">
-          <af-button iconClassName="pi-sign-out" [label]="'Wyloguj'" [whiteButton]="true" (onClick)="logout()"></af-button>
+        <div class="navi-item" routerLink="diets" routerLinkActive="active">
+          <i class="fa-solid fa-utensils" style="font-size: 2rem"></i> Diety
+        </div>
+        <div class="navi-item--bottom">
+            <af-button iconClassName="pi-undo" [label]="'button.back' | translate" (onClick)="undo()"></af-button>
+            <af-button iconClassName="pi-sign-out"[label]="'button.logout' | translate" (onClick)="logout()"></af-button>
         </div>
       </div>
     </af-tile>
   </div>
   <div>
-    <af-tile>
-      <div class="profile__information">
-        <div class="profile__information--left">
-          <h1>Mój profil</h1>
-          <div class="profile__information--left--data">
-            <h2>Moje dane:</h2>
-            <ul>
-              <li>{{user.firstName}} {{user.lastName}}</li>
-              <li>{{user.login}}</li>
-              <li>{{user.email}}</li>
-            </ul>
-          </div>
-          <div class="profile__information--left--contact">
-            <h2>Dane kontaktowe:</h2>
-            <ul>
-              <li>Imie Nazwisko</li>
-              <li>ul.</li>
-              <li>poczta</li>
-              <li>tel</li>
-            </ul>
-          </div>
-          <div class="profile__information--left--invoice">
-            <h2>Dane do faktury:</h2>
-            <ul>
-              <li>Imie Nazwisko</li>
-              <li>ul</li>
-              <li>poczta</li>
-              <li>email@email.pl</li>
-              <li>tel</li>
-            </ul>
-          </div>
-        </div>
-        <div class="profile__information--right">
-          <af-button [label]="'Zmień hasło'" [whiteButton]="true" class="btn-white"></af-button>
-          <af-button [label]="'Edytuj'"></af-button>
-        </div>
-      </div>
-      <div class="delete__account">
-        <af-button [whiteButton]="true" [label]="'USUŃ KONTO'" iconClassName="pi pi-user-minus" class="btn-white" (onClick)="removeUser()"></af-button>
-      </div>
+    <af-tile class="strech_element--vertically">
+      <section class="profile__container">
+        <router-outlet></router-outlet>
+      </section>
     </af-tile>
   </div>
 </section>

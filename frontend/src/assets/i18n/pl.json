@@ -70,7 +70,8 @@
         "passess": "Karnety",
         "trainess": "Trenerzy",
         "development": "Rozwój",
-        "orderonline": "Zamów online"
+        "orderonline": "Zamów online",
+        "logout": "Wyloguj"
     },
     "gymPass": {
         "passhealth": "Karnet Zdrowie",
@@ -118,5 +119,13 @@
         "trainers": "SPRAWDŹ TRENERÓW",
         "texta2": "Nasi trenerzy to pasjonaci i profesjonaliści do tego każdy z nich ma swoją szczególną specjalizację. Do wyboru macie naprawdę porządnych ludzi czy to do cardio, czy dla zwykłych laików. Nie czekaj i sprawdź opis oraz specjalizacje naszych trenerów zapoznaj się z ich stylem może akurat to ktoś idealny dla ciebie. Pamiętaj, że wybór trenera będzie dla ciebie bardzo istotny, dlatego zastanów się, kto ci odpowiada najbardziej, ale nie martw się, jest ich wielu a ty, możesz mieć każdego. Śmiało przejrzyj kilka zdjęć i naciśnij przycisk trenerzy, aby dowiedzieć się jeszcze więcej.",
         "texta3": "Pamiętaj, możesz wynająć wielu trenerów. Każdy trener ma inna specjalizacje, zwróć na to uwagę przy wyborze. W zależności od trenera będzie się różnic jego stawka. Informujemy, że trenerzy mogą mieć zajęty czas więc zaplanujcie grafik treningów rozsądnie tak, aby dwie strony były zadowolone."
+    },
+    "profile":{
+        "menu":{
+            "my-profile": "Mój profil",
+            "my-gym-pass": "Moje karnety",
+            "my-trainings": "Treningi personalne",
+            "my-diets": "Diety"
+        }
     }
 }

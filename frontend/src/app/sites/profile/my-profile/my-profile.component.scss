@@ -1,0 +1,60 @@
+@import "../../../../stories/constants/constants.scss";
+.profile__information {
+    padding: 30px;
+    .profile__information--left {
+      flex: 1;
+
+      h1 {
+        margin-bottom: 10px;
+        font-size: 27px;
+        font-weight: $font-weight-bold;
+      }
+
+      .profile__information--left--data,
+      .profile__information--left--contact,
+      .profile__information--left--invoice {
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        font-weight: $font-weight-bold;
+        font-size: 18px;
+      }
+
+      ul {
+        font-weight: $font-weight-normal;
+        font-size: 18px;
+      }
+
+      li {
+        list-style: none;
+      }
+    }
+
+    .profile__information--right {
+      display: flex;
+      align-items: flex-start;
+      gap: 40px;
+
+      padding-top: 40px;
+
+      .btn-white {
+        border: 2px solid #222831;
+        border-radius: 16px;
+      }
+
+      af-button {
+        font-size: 18px;
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+  .delete__account{
+    display: flex;
+    align-items: center;
+    padding: 40px 40%;
+    .btn-white {
+      border: 2px solid #222831;
+      border-radius: 16px;
+    }
+  }

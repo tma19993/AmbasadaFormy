@@ -16,21 +16,12 @@ import {
   styleUrls: ['./menuStatic.component.scss'],
 })
 export class MenuStaticComponent {
-  @Output() startClick: EventEmitter<void> = new EventEmitter;
-  @Output() gymPassClick: EventEmitter<void> = new EventEmitter;
-  @Output() workoutsClick: EventEmitter<void> = new EventEmitter;
-  @Output() blogClick: EventEmitter<void> = new EventEmitter;
-  @Output() developPassClick: EventEmitter<void> = new EventEmitter;
-  @Output() funPassClick: EventEmitter<void> = new EventEmitter;
-  @Output() healtPassClick: EventEmitter<void> = new EventEmitter;
   @Output() logoutClick: EventEmitter<void> = new EventEmitter;
 
   public isMenuOpen: boolean = false;
   public activeOption: string = '';
 
-  constructor( private router: Router) {
-
-  }
+  constructor(private router: Router) {}
 
   public toggleMenu(event: Event): void {
     const hamburger = document.querySelector(
@@ -55,6 +46,7 @@ export class MenuStaticComponent {
       this.isMenuOpen = false;
     }
   }
+
   public toggleDetails(option: string): void {
     if (this.activeOption === option) {
       this.activeOption = '';
@@ -62,6 +54,7 @@ export class MenuStaticComponent {
       this.activeOption = option;
     }
   }
+
   public changeLanguage(id: string): void {
     sessionStorage.setItem('language', id);
     setTimeout(() => {
@@ -69,23 +62,23 @@ export class MenuStaticComponent {
     }, 100);
   }
 
-public startEmit():void{
-  this.router.navigate(['/home']);
-}
-public gymPassEmit():void{
-  this.router.navigate(['/gym-pass']);
-}
-public blogEmit():void{
-  this.router.navigate(['/blog']);
-}
-public workoutsEmit():void{
-  this.router.navigate(['/home']);
-}
-public profileEmit():void{
-  this.router.navigate(['/profile']);
-}
-public logoutEmit():void{
-  this.logoutClick.emit();
-}
+  public startEmit(): void {
+    this.router.navigate(['/home']);
+  }
+  public gymPassEmit(): void {
+    this.router.navigate(['/gym-pass']);
+  }
+  public blogEmit(): void {
+    this.router.navigate(['/blog']);
+  }
+  public workoutsEmit(): void {
+    this.router.navigate(['/home']);
+  }
+  public profileEmit(): void {
+    this.router.navigate(['/profile']);
+  }
+  public logoutEmit(): void {
+    this.logoutClick.emit();
+  }
 
 }

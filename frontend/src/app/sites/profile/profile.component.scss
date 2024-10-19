@@ -1,30 +1,36 @@
 @import "../../../stories/constants/constants.scss";
+@import '~primeicons/primeicons.css';
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
 
 * {
   box-sizing: border-box;
   font-family: $font-family;
 }
 
-.profile__container {
+.profile {
   background-image: url("../../../assets/backgrounds/AF-profile-bg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   height: 100vh;
   width: 100%;
-  padding: 20px;
-
+  padding: 6vh 4vh 2vh 4vh;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
 
-  .profile__navigation {
+  &__container {
+    width: 1240px;
+    height: 92vh;
+  }
+
+  &__navigation {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 2vh;
     margin-right: 20px;
     width: 15%;
-    height: calc(100vh - 60px);
+    justify-content: space-between;
 
     af-tile {
 
@@ -47,12 +53,14 @@
               flex-direction: column;
               justify-content: center;
               padding-left: 20px;
-              &--name{
+
+              .name {
                 display: flex;
                 flex-direction: column;
                 font-weight: $font-weight-bold;
               }
-              &--lastname {
+
+              .lastname {
                 display: flex;
                 flex-direction: column;
 
@@ -60,11 +68,12 @@
             }
           }
 
-          &--other{
+          &--other {
             text-align: center;
             font-size: 12px;
+
             &--login,
-            &--role{
+            &--role {
               margin-bottom: 10px;
             }
           }
@@ -83,92 +92,40 @@
           flex-direction: column;
           align-items: flex-start;
           justify-content: flex-end;
-          padding: 20px;
+          padding: 10px;
           height: 49vh;
 
           .navi-item {
+            padding: 10px;
             display: flex;
             align-items: center;
-            margin-bottom: 20px;
+            margin: 5px 0;
+            cursor: pointer;
+            width: 100%;
+            transition: .3s;
+            border-radius: 10px;
+            &:hover{
+              background-color: $darker-gray;
+              color: $input-text-light;
+            }
+
+            &--bottom {
+              width: 100%;
+              margin-top: auto;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 10px;
+            }
           }
 
-          .navi-item-logout{
-            margin: 0 auto;
-            border: 2px solid #222831;
-            border-radius: 16px;
-            margin-top: auto;
-          }
+
 
           i {
             margin-right: 10px;
           }
         }
       }
-    }
-  }
-
-
-
-  .profile__information {
-    display: flex;
-    padding: 40px;
-    width: 1240px;
-    height: 80vh;
-    .profile__information--left {
-      flex: 1;
-
-      h1 {
-        margin-bottom: 10px;
-        font-size: 27px;
-        font-weight: $font-weight-bold;
-      }
-
-      .profile__information--left--data,
-      .profile__information--left--contact,
-      .profile__information--left--invoice {
-        margin-bottom: 20px;
-      }
-
-      h2 {
-        font-weight: $font-weight-bold;
-        font-size: 18px;
-      }
-
-      ul {
-        font-weight: $font-weight-normal;
-        font-size: 18px;
-      }
-
-      li {
-        list-style: none;
-      }
-    }
-
-    .profile__information--right {
-      display: flex;
-      align-items: flex-start;
-      gap: 40px;
-
-      padding-top: 40px;
-
-      .btn-white {
-        border: 2px solid #222831;
-        border-radius: 16px;
-      }
-
-      af-button {
-        font-size: 18px;
-        font-weight: $font-weight-bold;
-      }
-    }
-  }
-  .delete__account{
-    display: flex;
-    align-items: center;
-    padding: 40px 40%;
-    .btn-white {
-      border: 2px solid #222831;
-      border-radius: 16px;
     }
   }
 }

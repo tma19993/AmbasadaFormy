@@ -1,13 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './sites/login/login.component';
-import { RegisterComponent } from './sites/register/register.component';
-import { WelcomePageComponent } from './sites/welcomePage/welcomePage.component';
-import { HomePageComponent } from './sites/homePage/homePage.component';
-import { GymPassComponent } from './sites/gym-pass/gym-pass.component';
-import { ProfileComponent } from './sites/profile/profile.component';
-import { BlogComponent } from './sites/blog/blog.component';
+
 import { AuthGuard } from './auth/auth.guard';
+import { BlogComponent, DietsComponent, GymPassComponent, GymPassesComponent, HomePageComponent, LoginComponent, MyProfileComponent, PersonalTrainerComponent, ProfileComponent, RegisterComponent, WelcomePageComponent } from './sites';
 
 const routes: Routes = [
 { path: '', redirectTo: '/welcome', pathMatch: 'full' },
@@ -16,8 +11,18 @@ const routes: Routes = [
 { path: 'register', component: RegisterComponent },
 { path: 'home', component: HomePageComponent ,canActivate: [AuthGuard]},
 { path: 'gym-pass', component: GymPassComponent,canActivate: [AuthGuard] },
-{ path: 'profile', component: ProfileComponent,canActivate: [AuthGuard] },
 { path: 'blog', component: BlogComponent,canActivate: [AuthGuard] },
+{ 
+  path: 'profile',
+  component: ProfileComponent, canActivate: [AuthGuard],
+  children: [
+    { path: 'my-profile', component: MyProfileComponent },
+    { path: 'personal-trainers', component: PersonalTrainerComponent },
+    { path: 'gym-pass', component: GymPassesComponent },
+    { path: 'diets', component: DietsComponent },
+    { path: '', redirectTo: 'my-profile', pathMatch: 'full' } 
+  ]
+},
 ];
 
 @NgModule({
