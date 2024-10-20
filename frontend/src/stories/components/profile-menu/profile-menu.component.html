@@ -11,6 +11,9 @@
         <li class="navi-item" routerLink="diets" routerLinkActive="active">
           <i class="fa-solid fa-utensils" style="font-size: 2rem"></i> {{"profile.menu.my-diets" | translate}}
         </li>
+        <li *ngIf="isAdmin" class="navi-item" routerLink="admin" routerLinkActive="active">
+          <i class="fa-solid fa-screwdriver-wrench" style="font-size: 2rem"></i> {{"profile.menu.admin" | translate}}
+        </li>
         <li class="navi-item--bottom">
             <af-button iconClassName="pi-undo" [label]="'button.back' | translate" (onClick)="undo()"></af-button>
             <af-button iconClassName="pi-sign-out"[label]="'button.logout' | translate" (onClick)="logout()"></af-button>

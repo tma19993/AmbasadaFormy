@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from './auth/auth.guard';
-import { BlogComponent, DietsComponent, GymPassComponent, GymPassesComponent, HomePageComponent, LoginComponent, MyProfileComponent, PersonalTrainerComponent, ProfileComponent, RegisterComponent, TrainersComponent, WelcomePageComponent } from './sites';
+import { AdminPageComponent, BlogComponent, DietsComponent, GymPassComponent, GymPassesComponent, HomePageComponent, LoginComponent, MyProfileComponent, PersonalTrainerComponent, ProfileComponent, RegisterComponent, TrainersComponent, WelcomePageComponent } from './sites';
 
 const routes: Routes = [
 { path: '', redirectTo: '/welcome', pathMatch: 'full' },
@@ -21,6 +21,7 @@ const routes: Routes = [
     { path: 'personal-trainers', component: PersonalTrainerComponent },
     { path: 'gym-pass', component: GymPassesComponent },
     { path: 'diets', component: DietsComponent },
+    { path: 'admin', component: AdminPageComponent },
     { path: '', redirectTo: 'my-profile', pathMatch: 'full' } 
   ]
 },

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'af-profile-menu',
@@ -8,6 +8,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class  AFProfileMenuComponent {
 @Output() LogoutEmmiter: EventEmitter<void> = new EventEmitter();
 @Output() BackEmmiter: EventEmitter<void> = new EventEmitter();
+@Input() isAdmin: boolean = false;
 
   public logout(): void {
    this.LogoutEmmiter.emit();

@@ -25,6 +25,7 @@ import { HttpLoaderFactory } from 'src/shared/untils';
 import {AvatarModule} from 'primeng/avatar';
 import {FileUploadModule} from 'primeng/fileupload';
 import { TrainersComponent } from './sites/trainers/trainers.component';
+import { AdminPageComponent } from './sites/profile/admin-page/admin-page.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -40,6 +41,7 @@ import { TrainersComponent } from './sites/trainers/trainers.component';
         PersonalTrainerComponent,
         DietsComponent,
         TrainersComponent,
+        AdminPageComponent,
     ],
     providers: [AfMessageService, MessageService],
     bootstrap: [AppComponent],

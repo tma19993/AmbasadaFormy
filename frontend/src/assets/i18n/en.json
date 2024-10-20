@@ -125,7 +125,8 @@
             "my-profile": "My profile",
             "my-gym-pass": "My gym pass",
             "my-trainings": "Personal trainings",
-            "my-diets": "Diets"
+            "my-diets": "Diets",
+            "admin": "Administration Tools"
         }
     }
 }

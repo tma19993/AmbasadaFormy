@@ -1,15 +1,15 @@
-<section class="profile" >
-  <div class="profile__navigation">
+<section class="profile">
+  <div class="profile__navigation" *ngIf="userData$ | async as user">
     <af-tile [darkMode]="true">
       <div class="profile__navigatio--logo">
         <img src="../../../assets/logo/logoLightText.svg">
       </div>
     </af-tile>
     <af-tile>
-      <div class="profile__navigation--information" *ngIf="userData$ | async as user">
+      <div class="profile__navigation--information">
         <div class="profile__navigation--information--main">
           <div *ngIf="user.photo; else defaultAvatar" class="avatar">
-              <img class="custom-avatar" [src]="'data:image/jpeg;base64,' + user.photo" alt="User Photo" />
+            <img class="custom-avatar" [src]="'data:image/jpeg;base64,' + user.photo" alt="User Photo" />
           </div>
           <div class="profile__navigation--information--main--fullname">
             <p class="first-name">{{user.firstName}}</p>
@@ -29,17 +29,17 @@
       </div>
     </af-tile>
     <af-tile>
-        <af-profile-menu (BackEmmiter)="undo()" (LogoutEmmiter)="logout()" />
+      <af-profile-menu (BackEmmiter)="undo()" (LogoutEmmiter)="logout()" [isAdmin]="user.permission == 'admin'" />
     </af-tile>
   </div>
-    <af-tile class="strech_element--vertically">
-      <section class="profile__container">
-          <router-outlet></router-outlet>
-        <div class="language-changer">
-          <af-languageChanger [fontSize]="22"/>
-        </div>
-      </section>
-    </af-tile>
+  <af-tile class="strech_element--vertically">
+    <section class="profile__container">
+      <router-outlet></router-outlet>
+      <div class="language-changer">
+        <af-languageChanger [fontSize]="22" />
+      </div>
+    </section>
+  </af-tile>
 </section>
 <ng-template #noData>
   nie ma danych
@@ -47,6 +47,5 @@
 <ng-template #defaultAvatar>
   <div class="avatar">
     <img src="../../../assets/pictures/avatar.png" alt="User Photo" />
-</div>
+  </div>
 </ng-template>
-<!-- Image by <a href="https://pixabay.com/users/wanderercreative-855399/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=973460">Stephanie Edwards</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=973460">Pixabay</a> -->
