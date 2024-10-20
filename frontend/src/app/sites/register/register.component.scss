@@ -1,12 +1,12 @@
 @import "../../../stories/constants/constants.scss";
 
 .bg-img {
-  background: url('../../../assets/backgrounds/AF-desktop-registerPage-background.png');
+  background: url("../../../assets/backgrounds/AF-desktop-registerPage-background.png");
   background-size: 100%;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: 130vh;
 }
 
 .register-container {
@@ -50,13 +50,13 @@
               font-size: $checkbox-register;
               font-weight: $font-weight-bold;
             }
-            
-            &--checkbox{
+
+            &--checkbox {
               ::ng-deep .checkbox--container {
-                  label.p-checkbox-label{
-                    font-size: $checkbox-register;
-                  }
+                label.p-checkbox-label {
+                  font-size: $checkbox-register;
                 }
+              }
             }
           }
         }
@@ -68,7 +68,7 @@
     }
   }
 
-  .button__language{
+  .button__language {
     position: absolute;
     top: 20px;
     left: 20px;
@@ -106,8 +106,8 @@
   }
 }
 
-.validoation__container{
+.validoation__container {
   position: absolute;
   top: 20px;
-  right:20px;
-  }
+  right: 20px;
+}
