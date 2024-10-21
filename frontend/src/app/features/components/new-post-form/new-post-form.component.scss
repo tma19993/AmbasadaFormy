@@ -1,0 +1,16 @@
+.form{
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 50px;
+    af-inputTextarea{
+        display: block;
+        height: 200px;
+    }
+      
+}
+af-button{
+    display: grid;
+    place-items: center;
+}

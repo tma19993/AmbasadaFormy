@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./stories/constants/constants.scss";
+
+.p-dialog {
+  border: 2px solid $input-text-accent;
+border-radius: 22px;
+  .p-dialog-header {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  .p-dialog-content {
+    &:last-of-type{
+        border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    }
+    background: rgba(255, 255, 255, 0.9);
+  }
+}

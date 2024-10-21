@@ -4,7 +4,23 @@
     </div>
     <section class="blog__container">
         <img class="logo" src="../../../assets/logo/logoLightText.svg" alt="logo">
-        <h2 class="blog__container--header">Posty</h2>
+        <h2 class="blog__container--header">{{"blog.posts" | translate}}</h2>
+        <div class="blog__container--search">
+            <af-tile>
+                <form [formGroup]="searchForm">
+              <div class="blog__container--search--content">
+                <div class="inputs">
+                    <af-input ngDefaultControl formControlName="title" [iconConfig]="searchIconConfig" [floatLabel]="true" [floatLabelText]="'blog.search.title' | translate" ></af-input>
+                    <af-input ngDefaultControl formControlName="userName" [iconConfig]="searchIconConfig" [floatLabel]="true" [floatLabelText]="'blog.search.user' | translate" ></af-input>
+               </div>
+               <div class="buttons">
+                <af-button [label]="'blog.search.searchLabel' | translate" (onClick)="search()"></af-button>
+               <af-button [label]="'blog.addPost' | translate" iconClassName="pi pi-plus" (onClick)="addNewPost()"></af-button>
+               </div>
+              </div>
+            </form>
+            </af-tile>
+        </div>
         <div *ngFor="let post of posts" class="blog__container--post">
             <af-tile>
            <div class="blog__container--post-content">

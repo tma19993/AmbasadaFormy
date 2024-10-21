@@ -22,32 +22,36 @@ import { AfCheckboxModule } from 'src/stories/components/checkbox/checkbox.modul
 import { WelcomePageComponent, LoginComponent, RegisterComponent, HomePageComponent, GymPassComponent, MyProfileComponent, BlogComponent, ProfileComponent, GymPassesComponent, PersonalTrainerComponent, DietsComponent } from './sites';
 import { AFProfileMenuModule } from "../stories/components/profile-menu/profile-menu.module";
 import { HttpLoaderFactory } from 'src/shared/untils';
-import {AvatarModule} from 'primeng/avatar';
-import {FileUploadModule} from 'primeng/fileupload';
+import { AvatarModule } from 'primeng/avatar';
+import { FileUploadModule } from 'primeng/fileupload';
 import { TrainersComponent } from './sites/trainers/trainers.component';
 import { AdminPageComponent } from './sites/profile/admin-page/admin-page.component';
+import { AfInputTextareaModule } from 'src/stories/components/inputTextarea/inputtextarea.module';
+import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
+import { NewPostFormComponent } from './features/components';
 @NgModule({
-    declarations: [
-        AppComponent,
-        WelcomePageComponent,
-        LoginComponent,
-        RegisterComponent,
-        HomePageComponent,
-        GymPassComponent,
-        MyProfileComponent,
-        BlogComponent,
-        ProfileComponent,
-        GymPassesComponent,
-        PersonalTrainerComponent,
-        DietsComponent,
-        TrainersComponent,
-        AdminPageComponent,
-    ],
-    providers: [AfMessageService, MessageService],
-    bootstrap: [AppComponent],
-    imports: [
-      FileUploadModule,
-      AvatarModule,
+  declarations: [
+    AppComponent,
+    WelcomePageComponent,
+    LoginComponent,
+    RegisterComponent,
+    HomePageComponent,
+    GymPassComponent,
+    MyProfileComponent,
+    BlogComponent,
+    ProfileComponent,
+    GymPassesComponent,
+    PersonalTrainerComponent,
+    DietsComponent,
+    TrainersComponent,
+    AdminPageComponent,
+    NewPostFormComponent
+  ],
+  providers: [AfMessageService, MessageService, DialogService],
+  bootstrap: [AppComponent],
+  imports: [
+    FileUploadModule,
+    AvatarModule,
     ReactiveFormsModule,
     PaginatorModule,
     AfPasswordModule,
@@ -59,20 +63,22 @@ import { AdminPageComponent } from './sites/profile/admin-page/admin-page.compon
     HttpClientModule,
     FormsModule,
     AfCheckboxModule,
+    DynamicDialogModule,
     AFButtonModule,
     InputModule,
     AFTileModule,
+    AfInputTextareaModule,
     TranslateModule.forRoot({
-        loader: {
-          provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
-        }
-      }),
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     AFRadiobuttonModule,
     LanguageChangerModule,
     MenuStaticModule,
     AFProfileMenuModule
-]
+  ]
 })
 export class AppModule { }

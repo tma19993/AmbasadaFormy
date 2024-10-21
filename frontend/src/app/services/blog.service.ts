@@ -7,12 +7,16 @@ import { ApiPostsModel, PostModel } from '../models';
   providedIn: 'root'
 })
 export class BlogService {
-  private getBlogUrl: string = 'http://localhost:5000/getBlog';
+  private url: string = 'http://localhost:5000';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  public getBlogData(page: number, size: number) : Observable<ApiPostsModel>{
+  public getBlogData(page: number, size: number): Observable<ApiPostsModel> {
     const params = new HttpParams().set('page', page).set('size', size);
-    return this.http.get<ApiPostsModel>(this.getBlogUrl,{params});
+    return this.http.get<ApiPostsModel>(this.url + "/getBlog", { params });
+  }
+
+  public addNewPost(data: PostModel): Observable<PostModel> {
+    return this.http.post<PostModel>(this.url + "/addPost", data);
   }
 }

@@ -1,6 +1,6 @@
-import { enumIconFloat } from "../enums/input.enum";
+import { EnumIconFloat } from "../enums/input.enum";
 
 export interface inputIconConfig {
-    iconClassName?:string,
-    iconFloat?: enumIconFloat
+    iconClassName:string,
+    iconFloat: EnumIconFloat
 }

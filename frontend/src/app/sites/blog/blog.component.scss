@@ -16,7 +16,6 @@
   height: 40vh;
 }
 
-
 .blog {
   background-image: url('../../../assets/backgrounds/blogBackgorund.png');
   background-position: center;
@@ -36,6 +35,31 @@
       color: $input-text-light;
       text-align: center;
       text-shadow: 1px 1px 3px $background-dark;
+    }
+
+    &--search {
+      margin-bottom: 60px;
+      &--content{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100px;
+        margin: 0 30px;
+       .inputs{
+        width: 60%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap:20px;
+        margin-right: 10px;
+       }
+      }
+      .buttons{
+        width: 40%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 8px;
+      }
     }
 
     &--post {

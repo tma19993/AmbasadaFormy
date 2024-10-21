@@ -6,7 +6,7 @@ import { userDataModel } from 'src/app/models';
 import { GenderModel, genderKey } from 'src/app/models/gender.model';
 import { AfMessageService, LoginService, RegisterService } from 'src/app/services';
 
-import { enumIconFloat } from 'src/stories/enums/input.enum';
+import { EnumIconFloat } from 'src/stories/enums/input.enum';
 import { inputIconConfig } from 'src/stories/interfaces/input.model';
 
 type UserField = "firstName" | "lastName" | "login" | "email" | "password" | "phoneNumber" | "address";
@@ -19,12 +19,12 @@ type UserField = "firstName" | "lastName" | "login" | "email" | "password" | "ph
 export class RegisterComponent implements OnInit {
   public loginData: inputIconConfig = {
     iconClassName: 'pi-user',
-    iconFloat: enumIconFloat.left,
+    iconFloat: EnumIconFloat.left,
   };
 
   public mailData: inputIconConfig = {
     iconClassName: 'pi-envelope',
-    iconFloat: enumIconFloat.left,
+    iconFloat: EnumIconFloat.left,
   };
   public genderCheckboxDisabled: boolean = false;
   public accountData: userDataModel = {};

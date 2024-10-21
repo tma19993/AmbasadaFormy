@@ -1,3 +1,13 @@
+@import "./../../constants/constants.scss";
 .inputtextarea-container{
     margin-top: 20px;
+    div{
+        textarea{
+            border: 2px solid $input-border-color;
+            border-radius: 15px;
+            width: 100%;
+            height: 100%;
+            resize: none;
+        }
+    }
 }

@@ -9,6 +9,7 @@ import { inputIconConfig } from 'src/stories/interfaces/input.model';
 })
 export class InputComponent implements ControlValueAccessor {
   @Input() public floatLabelText: string = '';
+  @Input() public placeholderText: string = '';
   @Input() public floatLabel: boolean = false;
   @Input() public iconConfig: inputIconConfig | undefined;
   public value: string;

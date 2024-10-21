@@ -17,7 +17,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     ButtonModule,
     FormsModule,
-    BrowserModule,
     BrowserAnimationsModule,
   ],
 })

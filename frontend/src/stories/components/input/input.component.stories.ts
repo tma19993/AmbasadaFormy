@@ -5,11 +5,11 @@ import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { InputComponent } from './input.component';
 import { InputModule } from './input.module';
 import { inputIconConfig } from 'src/stories/interfaces/input.model';
-import { enumIconFloat } from 'src/stories/enums/input.enum';
+import { EnumIconFloat } from 'src/stories/enums/input.enum';
 
 const defaultData: inputIconConfig = {
   iconClassName: 'pi-search',
-  iconFloat: enumIconFloat.left,
+  iconFloat: EnumIconFloat.left,
 };
 
 export default {
@@ -41,6 +41,6 @@ export const Secondary: Story = Template.bind({});
 Secondary.args = {
   iconConfig: {
     iconClassName: 'pi-user',
-    iconFloat: enumIconFloat.right,
+    iconFloat: EnumIconFloat.right,
   },
 };

@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="button__mid">
-              <af-button [label]="'registerLogin.log_in' | translate" buttonId="login" [fontSize]="30" (click)="submitLogin()"></af-button>
+              <af-button [label]="'registerLogin.log_in' | translate" buttonId="login" [fontSize]="30" (keyup.enter)="submitLogin()" (click)="submitLogin()"></af-button>
             </div>
           </form>
             <div class="account-dont-exist">

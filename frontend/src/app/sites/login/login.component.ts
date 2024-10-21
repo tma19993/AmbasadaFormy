@@ -5,7 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { catchError, EMPTY, of, tap } from 'rxjs';
 import { LoginService } from 'src/app/services/login.service';
 import { AfMessageService } from 'src/app/services/message.service';
-import { enumIconFloat } from 'src/stories/enums/input.enum';
+import { EnumIconFloat } from 'src/stories/enums/input.enum';
 import { inputIconConfig } from 'src/stories/interfaces/input.model';
 
 @Component({
@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit{
   public myForm: FormGroup;
   public loginData: inputIconConfig = {
     iconClassName: 'pi-user',
-    iconFloat: enumIconFloat.left,
+    iconFloat: EnumIconFloat.left,
   };
 
   constructor(private router: Router, 

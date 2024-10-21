@@ -16,7 +16,7 @@ module.exports = function (blog) {
        }
     });
 
-    router.post("/addBlog", async (req, res) => {
+    router.post("/addPost", async (req, res) => {
         const newBlogPost = req.body;
         const result = await blog.insertOne(newBlogPost);
         res.status(200).json(result);
