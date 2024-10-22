@@ -16,7 +16,6 @@ import {
   styleUrls: ['./menuStatic.component.scss'],
 })
 export class MenuStaticComponent {
-  @Output() logoutClick: EventEmitter<void> = new EventEmitter;
 
   public isMenuOpen: boolean = false;
   public activeOption: string = '';
@@ -76,7 +75,8 @@ export class MenuStaticComponent {
     this.router.navigate(['/profile']);
   }
   public logoutEmit(): void {
-    this.logoutClick.emit();
+    sessionStorage.clear();
+    this.router.navigate(['/welcome']);
   }
 
 }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { inputIconConfig } from 'src/stories/interfaces/input.model';
 import { EnumIconFloat } from 'src/stories/enums/input.enum';
+import { BlogService } from 'src/app/services';
+import { PostModel } from 'src/app/models';
 
 @Component({
   selector: 'app-new-post-form',
@@ -14,10 +16,19 @@ export class NewPostFormComponent implements OnInit{
   iconClassName: "pi-search",
   iconFloat: EnumIconFloat.left
 }
- constructor(private formBulider: FormBuilder){}
+ constructor(
+  private formBulider: FormBuilder,
+  private blogService: BlogService
+){}
  public ngOnInit(): void {
    this.initForm();
   }
+
+  public addNewPost():void {
+    this.blogService.addNewPost(this.form.value).subscribe(res => {console.log(res)});
+    window.location.reload();
+  }
+
   private initForm():void {
    this.form = this.formBulider.group({
     title: ["",Validators.required],

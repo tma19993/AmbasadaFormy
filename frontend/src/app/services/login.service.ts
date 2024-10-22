@@ -33,11 +33,6 @@ export class LoginService {
     return !!token;
   }
   
-  public logout(): void {
-    sessionStorage.clear();
-    this.router.navigate(['/welcome']);
-  }
-
   private setToken(token: string) {
     sessionStorage.setItem('authToken', token);
   }

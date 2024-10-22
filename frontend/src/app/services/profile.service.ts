@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { finalize, Observable, of, tap } from 'rxjs';
-import { LoginService } from './login.service';
+import { Observable } from 'rxjs';
 import { userDataModel } from '../models';
 
 @Injectable({

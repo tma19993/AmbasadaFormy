@@ -11,7 +11,7 @@ export class InputTextareaComponent implements ControlValueAccessor {
   @Input() public autoResize: boolean = false;
   @Input() public floatLabel: boolean = false;
   @Input() public floatLabelText: string = "";
-  @Input() public labelText: string = "";
+  @Input() public placeholderText: string = "";
   @Input() public disabled: boolean = false;
   @Input() public size: InputTextareaSizeModel = {};
 

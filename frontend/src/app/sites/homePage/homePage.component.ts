@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-homePage',
@@ -11,8 +10,7 @@ import { LoginService } from 'src/app/services/login.service';
 export class HomePageComponent {
   constructor(
     private router: Router,
-    private translateService: TranslateService,
-    private loginService: LoginService
+    private translateService: TranslateService
   ) {
     this.translateService.setDefaultLang(
       sessionStorage.getItem('language') || 'en'
@@ -27,7 +25,4 @@ export class HomePageComponent {
     this.router.navigate(['/trainers']);
   }
 
-  public logout(): void {
-    this.loginService.logout();
-  }
 }

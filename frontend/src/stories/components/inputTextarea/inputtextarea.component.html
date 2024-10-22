@@ -1,7 +1,7 @@
 <section class="inputtextarea-container">
     <div *ngIf="!floatLabel">
         <textarea pInputTextarea [(ngModel)]="value"
-        [ariaLabel]="labelText"
+        [placeholder]="placeholderText"
         [rows]="size.rows"
         [cols]="size.cols" 
         [autoResize]="autoResize"

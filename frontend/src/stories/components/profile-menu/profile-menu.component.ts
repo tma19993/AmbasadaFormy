@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'af-profile-menu',
@@ -6,12 +7,14 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./profile-menu.component.scss']
 })
 export class  AFProfileMenuComponent {
-@Output() LogoutEmmiter: EventEmitter<void> = new EventEmitter();
 @Output() BackEmmiter: EventEmitter<void> = new EventEmitter();
 @Input() isAdmin: boolean = false;
 
+constructor(private router: Router){}
+
   public logout(): void {
-   this.LogoutEmmiter.emit();
+    sessionStorage.clear();
+    this.router.navigate(['/welcome']);
   }
 
   public undo(): void {

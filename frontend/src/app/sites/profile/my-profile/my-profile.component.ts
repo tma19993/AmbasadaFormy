@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { userDataModel } from 'src/app/models';
-import { LoginService, ProfileService } from 'src/app/services';
+import { ProfileService } from 'src/app/services';
 
 @Component({
   selector: 'app-profile',
@@ -12,7 +13,7 @@ export class MyProfileComponent implements OnInit{
   public userData$: Observable<userDataModel>;
 
 constructor(
-  private loginService: LoginService,
+  private router: Router,
   private profileService: ProfileService,
   ){}
 
@@ -24,7 +25,8 @@ constructor(
 public removeUser(): void {
   this.profileService.removeUser().subscribe(()=>{
       setTimeout(()=>{
-        this.loginService.logout();
+          sessionStorage.clear();
+          this.router.navigate(['/welcome']);
   },2000)
   });
 }

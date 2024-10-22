@@ -17,6 +17,8 @@ export class BlogService {
   }
 
   public addNewPost(data: PostModel): Observable<PostModel> {
+    const userId = sessionStorage.getItem("id")!;
+    data.userId = userId;
     return this.http.post<PostModel>(this.url + "/addPost", data);
   }
 }

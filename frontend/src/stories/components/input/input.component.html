@@ -1,8 +1,8 @@
 <section class="input__container">
   <div *ngIf="!floatLabel">
-    <span class="input__content" [class]="iconConfig ? iconConfig?.iconFloat:''">
-      <i *ngIf="iconConfig" class="pi {{ iconConfig?.iconClassName }} input__content--icon"
-        [ngClass]="iconConfig?.iconFloat == 'p-input-icon-right' ? 'input__content--icon-right':'input__content--icon-left'"></i>
+    <span class="input__content" [class]="iconConfig ? iconConfig.iconFloat:''">
+      <i *ngIf="iconConfig" class="pi {{ iconConfig.iconClassName }} input__content--icon"
+        [ngClass]="iconConfig.iconFloat == 'p-input-icon-right' ? 'input__content--icon-right':'input__content--icon-left'"></i>
       <input id="float-input" class="input__content--text" type="text" [placeholder]="placeholderText" pInputText [(ngModel)]="value" (ngModelChange)="onChange($event)"/>
     </span>
   </div>

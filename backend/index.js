@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 connectToDatabase().then((collections) => {
   const { blog, gymPasses, coaches, users } = collections;
 
-const blogRoutes = require("./routes/blogRoutes")(blog);
+const blogRoutes = require("./routes/blogRoutes")(blog, users);
 const gymPassesRoutes = require("./routes/gymPassesRoutes")(gymPasses);
 const userRoutes = require("./routes/userRoutes")(users);
 const coachRoutes = require("./routes/coachRoutes")(coaches);
