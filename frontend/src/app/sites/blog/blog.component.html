@@ -10,11 +10,12 @@
                 <form [formGroup]="searchForm">
               <div class="blog__container--search--content">
                 <div class="inputs">
-                    <af-input ngDefaultControl formControlName="title" [iconConfig]="searchIconConfig" [floatLabel]="true" [floatLabelText]="'blog.search.title' | translate" ></af-input>
-                    <af-input ngDefaultControl formControlName="userName" [iconConfig]="searchIconConfig" [floatLabel]="true" [floatLabelText]="'blog.search.user' | translate" ></af-input>
+                    <af-input formControlName="title" [iconConfig]="searchIconConfig" [floatLabel]="true" [floatLabelText]="'blog.search.title' | translate"></af-input>
+                    <af-input formControlName="userName" [iconConfig]="searchIconConfig" [floatLabel]="true" [floatLabelText]="'blog.search.user' | translate"></af-input>
                </div>
                <div class="buttons">
                 <af-button [label]="'blog.search.searchLabel' | translate" (onClick)="search()"></af-button>
+                <af-button [label]="'blog.search.loadDefault' | translate" (onClick)="loadDefault()"></af-button>
                <af-button [label]="'blog.addPost' | translate" iconClassName="pi pi-plus" (onClick)="addNewPost()"></af-button>
                </div>
               </div>

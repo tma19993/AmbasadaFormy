@@ -1,11 +1,18 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, } from '@angular/core';
-import { ControlValueAccessor } from '@angular/forms';
+import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, forwardRef, Input, Output } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'af-password',
   templateUrl: './password.component.html',
   styleUrls: ['./password.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers:[
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => PasswordComponent),
+      multi: true,
+    },
+  ]
 })
 export class PasswordComponent implements AfterViewInit, ControlValueAccessor {
   @Input() public floatLabelText: string = '';

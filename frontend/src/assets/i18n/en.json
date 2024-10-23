@@ -124,7 +124,7 @@
         "posts":"Posts",
         "addPost":"Add new post",
         "search": {
-            
+            "loadDefault":"Load every posts",
             "searchLabel": "Search",
             "user": "User name",
             "title": "Post title"

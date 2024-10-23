@@ -17,12 +17,12 @@
         <div class="register-content">
          <form [formGroup]="form">
           <div class="register-section__justify">
-            <af-input ngDefaultControl formControlName="firstName" id="firstName" [iconConfig]="loginData" [floatLabel]="true" [floatLabelText]="'registerLogin.firstName' | translate" />
-            <af-input ngDefaultControl formControlName="lastName" id="firstName" [iconConfig]="loginData" [floatLabel]="true" [floatLabelText]="'registerLogin.lastName' | translate" />
-            <af-input ngDefaultControl formControlName="phoneNumber" id="firstName" [iconConfig]="loginData" [floatLabel]="true" [floatLabelText]="'registerLogin.phoneNumber' | translate" />
-            <af-input ngDefaultControl formControlName="address" id="firstName" [iconConfig]="loginData" [floatLabel]="true" [floatLabelText]="'registerLogin.address' | translate" />
-            <af-input ngDefaultControl formControlName="login" id="firstName" [iconConfig]="loginData" [floatLabel]="true" [floatLabelText]="'registerLogin.login' | translate" />
-            <af-input ngDefaultControl formControlName="email" id="firstName" [iconConfig]="mailData" [floatLabel]="true" [floatLabelText]="'registerLogin.email' | translate" />
+            <af-input formControlName="firstName" id="firstName" [iconConfig]="loginData" [floatLabel]="true" [floatLabelText]="'registerLogin.firstName' | translate" />
+            <af-input formControlName="lastName" id="firstName" [iconConfig]="loginData" [floatLabel]="true" [floatLabelText]="'registerLogin.lastName' | translate" />
+            <af-input formControlName="phoneNumber" id="firstName" [iconConfig]="loginData" [floatLabel]="true" [floatLabelText]="'registerLogin.phoneNumber' | translate" />
+            <af-input formControlName="address" id="firstName" [iconConfig]="loginData" [floatLabel]="true" [floatLabelText]="'registerLogin.address' | translate" />
+            <af-input formControlName="login" id="firstName" [iconConfig]="loginData" [floatLabel]="true" [floatLabelText]="'registerLogin.login' | translate" />
+            <af-input formControlName="email" id="firstName" [iconConfig]="mailData" [floatLabel]="true" [floatLabelText]="'registerLogin.email' | translate" />
           <div class="register--gender__selection">
             <div class="register--gender__selection__buttons">
               <p class="register--gender__selection__buttons--header">{{'registerLogin.gender' | translate}}</p>
@@ -33,8 +33,8 @@
               </div>
           </div>
           </div>
-            <af-password ngDefaultControl formControlName="password" [floatLabelText]="'registerLogin.password' | translate"/>
-            <af-password ngDefaultControl formControlName="repeatPassowrd" [floatLabelText]="'registerLogin.repeatPassowrd' | translate"/>
+            <af-password formControlName="password" [floatLabelText]="'registerLogin.password' | translate"/>
+            <af-password formControlName="repeatPassowrd" [floatLabelText]="'registerLogin.repeatPassowrd' | translate"/>
           <div class="button__mid">
             <af-button [label]="'registerLogin.register' | translate" buttonId="register" [fontSize]="30" (click)="submit()"/>
           </div>

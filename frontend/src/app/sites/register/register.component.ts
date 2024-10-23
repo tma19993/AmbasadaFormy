@@ -2,14 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { AfMessageService } from 'src/app/features';
 import { userDataModel } from 'src/app/models';
 import { GenderModel, genderKey } from 'src/app/models/gender.model';
-import { AfMessageService, LoginService, RegisterService } from 'src/app/services';
+import { LoginService, RegisterService } from 'src/app/services';
 
 import { EnumIconFloat } from 'src/stories/enums/input.enum';
 import { inputIconConfig } from 'src/stories/interfaces/input.model';
-
-type UserField = "firstName" | "lastName" | "login" | "email" | "password" | "phoneNumber" | "address";
 
 @Component({
   selector: 'app-register',

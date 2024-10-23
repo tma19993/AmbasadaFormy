@@ -1,7 +1,7 @@
 <form [formGroup]="form">
-    <div class="form">
-        <af-input ngDefaultControl formControlName="title" id="firstName"  [placeholderText]="'wwww'" />
-    <af-inputTextarea ngDefaultControl formControlName="content" [placeholderText]="'content'"></af-inputTextarea>
-    </div>
-    <af-button [label]="'Send'" (onClick)="addNewPost()"></af-button>
+  <div class="form">
+    <af-input formControlName="title" id="firstName" [placeholderText]="'wwww'" />
+    <af-inputTextarea formControlName="content" [placeholderText]="'content'"></af-inputTextarea>
+  </div>
+  <af-button [label]="'Send'" (onClick)="addNewPost()"></af-button>
 </form>

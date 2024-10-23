@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate} from '@angular/router';
 import { LoginService } from '../services/login.service';
-import { AfMessageService } from '../services/message.service';
+import { AfMessageService } from '../features/services/message.service';
 
 
 @Injectable({

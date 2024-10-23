@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { catchError, EMPTY, of, tap } from 'rxjs';
 import { LoginService } from 'src/app/services/login.service';
-import { AfMessageService } from 'src/app/services/message.service';
+import { AfMessageService } from 'src/app/features/services/message.service';
 import { EnumIconFloat } from 'src/stories/enums/input.enum';
 import { inputIconConfig } from 'src/stories/interfaces/input.model';
 

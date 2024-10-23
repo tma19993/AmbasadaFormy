@@ -15,8 +15,8 @@
         </div>
         <div class="login-section__justify">
           <form [formGroup]="myForm">
-              <af-input ngDefaultControl formControlName="login" [iconConfig]="loginData" [floatLabel]="true" [floatLabelText]="'registerLogin.login' | translate" ></af-input>
-              <af-password ngDefaultControl formControlName="password" [floatLabelText]="'registerLogin.password' | translate" ></af-password>
+              <af-input formControlName="login" [iconConfig]="loginData" [floatLabel]="true" [floatLabelText]="'registerLogin.login' | translate" ></af-input>
+              <af-password formControlName="password" [floatLabelText]="'registerLogin.password' | translate" ></af-password>
               <div class="box-forgot">
                 <div class="box-forgot__checkbox">
                   <af-checkbox (checkedToggler)="getRemeberPassword($event)" [label]="'registerLogin.safePassword' | translate"></af-checkbox>

@@ -1,13 +1,12 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { PostModel, PageEventModel } from 'src/app/models';
-
-import { BlogService } from 'src/app/services/blog.service';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { PostModel, PageEventModel, PostSearchModel } from 'src/app/models';
 import { EnumIconFloat } from 'src/stories/enums/input.enum';
 import { inputIconConfig } from 'src/stories/interfaces/input.model';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { NewPostFormComponent } from 'src/app/features/components';
-import { AfMessageService } from 'src/app/services';
+import { BlogService } from 'src/app/services';
+import { AfMessageService } from 'src/app/features';
 @Component({
   selector: 'af-blog',
   templateUrl: './blog.component.html',
@@ -28,11 +27,12 @@ export class BlogComponent implements OnInit, OnDestroy {
   constructor(private blogService: BlogService,
     private formBuilder: FormBuilder,
     private dialogService: DialogService,
-    private messageService: AfMessageService) { }
+    private messageService: AfMessageService,
+    private DetectorRef: ChangeDetectorRef) { }
 
   public ngOnInit(): void {
-    this.loadPosts();
     this.initForm();
+    this.loadPosts();  
   }
 
   public ngOnDestroy():void {
@@ -41,14 +41,21 @@ export class BlogComponent implements OnInit, OnDestroy {
     }
 }
 
-  public onPageChange(event: PageEventModel) {
+  public onPageChange(event: PageEventModel):void {
     this.currentPage = event.page;
     this.pageSize = event.rows;
     this.loadPosts();
   }
 
+  public loadDefault():void {
+    this.searchForm.get('title')?.setValue("");
+    this.searchForm.get('userName')?.setValue("");
+    this.searchForm.updateValueAndValidity();
+    this.loadPosts();
+    }
+
   public search(): void {
-  console.log(this.searchForm.value);
+  this.loadPosts({...this.searchForm.value});
   }
 
   public addNewPost(): void {
@@ -60,17 +67,15 @@ export class BlogComponent implements OnInit, OnDestroy {
 
 })
 
-this.ref.onClose.subscribe((post:any)=>{
-  if(post){
-    this.messageService.addSuccesMessage("dodano")
-  }else{
-    this.messageService.addErrorMessage("nie dodano")
-  }
+this.ref.onClose.subscribe(()=>{
+  // to niżej nie działa
+  this.messageService.addSuccesMessage("dodano post");
+  window.location.reload();
 })
   }
 
-  private loadPosts(): void {
-    this.blogService.getBlogData(this.currentPage + 1, this.pageSize).subscribe(data => {
+  private loadPosts(searchData?: PostSearchModel): void {
+    this.blogService.getBlogData(this.currentPage + 1, this.pageSize, searchData).subscribe(data => {
       this.posts = data.posts;
       this.totalRecords = data.totalRecords;
     })

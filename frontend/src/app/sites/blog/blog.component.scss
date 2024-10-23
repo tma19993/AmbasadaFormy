@@ -46,7 +46,7 @@
         height: 100px;
         margin: 0 30px;
        .inputs{
-        width: 60%;
+        width: 50%;
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap:20px;
@@ -54,7 +54,7 @@
        }
       }
       .buttons{
-        width: 40%;
+        width: 50%;
         display: flex;
         justify-content: space-between;
         align-items: center;

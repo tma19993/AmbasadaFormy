@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { inputIconConfig } from 'src/stories/interfaces/input.model';
 import { EnumIconFloat } from 'src/stories/enums/input.enum';
 import { BlogService } from 'src/app/services';
-import { PostModel } from 'src/app/models';
+import { DynamicDialogRef } from 'primeng/dynamicdialog';
 
 @Component({
   selector: 'app-new-post-form',
   templateUrl: './new-post-form.component.html',
-  styleUrls: ['./new-post-form.component.scss']
+  styleUrls: ['./new-post-form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NewPostFormComponent implements OnInit{
  public form: FormGroup;
@@ -18,7 +19,8 @@ export class NewPostFormComponent implements OnInit{
 }
  constructor(
   private formBulider: FormBuilder,
-  private blogService: BlogService
+  private blogService: BlogService,
+  private dialogRef: DynamicDialogRef
 ){}
  public ngOnInit(): void {
    this.initForm();
@@ -26,7 +28,8 @@ export class NewPostFormComponent implements OnInit{
 
   public addNewPost():void {
     this.blogService.addNewPost(this.form.value).subscribe(res => {console.log(res)});
-    window.location.reload();
+    this.dialogRef.close(this.form.value);
+    this.dialogRef.destroy();
   }
 
   private initForm():void {

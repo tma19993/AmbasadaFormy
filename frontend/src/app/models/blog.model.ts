@@ -10,3 +10,8 @@ export interface ApiPostsModel {
     posts: PostModel[],
     totalRecords: number,
 }
+
+export type PostSearchModel = {
+    title?: string,
+    userName?: string
+  }

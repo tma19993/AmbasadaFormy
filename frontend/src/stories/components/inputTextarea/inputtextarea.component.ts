@@ -1,11 +1,18 @@
-import { Component, Input } from '@angular/core';
-import { ControlValueAccessor } from '@angular/forms';
+import { Component, forwardRef, Input } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { InputTextareaSizeModel } from 'src/stories/interfaces/inputtextarea.model';
 
 @Component({
   selector: 'af-inputTextarea',
   templateUrl: './inputtextarea.component.html',
   styleUrls: ['./inputtextarea.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => InputTextareaComponent),
+      multi: true,
+    },
+  ],
 })
 export class InputTextareaComponent implements ControlValueAccessor {
   @Input() public autoResize: boolean = false;

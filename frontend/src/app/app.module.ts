@@ -13,7 +13,7 @@ import { AFRadiobuttonModule } from "../stories/components/radiobutton/radiobutt
 import { MessagesModule } from 'primeng/messages';
 import { AfMessagesModule } from 'src/stories/components/messages/messages.module';
 import { AfPasswordModule } from 'src/stories/components/password/password.module';
-import { AfMessageService } from './services/message.service';
+import { AfMessageService } from './features/services/message.service';
 import { MessageService } from 'primeng/api';
 import { LanguageChangerModule } from "../stories/components/languageChanger/languageChanger.module";
 import { MenuStaticModule } from "../stories/components/menuStatic/menuStatic.module";
@@ -34,18 +34,18 @@ import { NewPostFormComponent } from './features/components';
     AppComponent,
     WelcomePageComponent,
     LoginComponent,
-    RegisterComponent,
     HomePageComponent,
     GymPassComponent,
     MyProfileComponent,
-    BlogComponent,
-    ProfileComponent,
+     ProfileComponent,
     GymPassesComponent,
     PersonalTrainerComponent,
     DietsComponent,
     TrainersComponent,
     AdminPageComponent,
-    NewPostFormComponent
+    NewPostFormComponent,
+    BlogComponent,
+    RegisterComponent
   ],
   providers: [AfMessageService, MessageService, DialogService],
   bootstrap: [AppComponent],

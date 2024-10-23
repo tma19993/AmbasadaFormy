@@ -124,6 +124,7 @@
         "posts":"Posty",
         "addPost":"Dodajnowy post",
         "search": {
+            "loadDefault":"Załaduj wszystkie posty",
             "searchLabel": "Wyszukaj",
             "user": "Nazwa użytkownika",
             "title": "Tytuł postu"
