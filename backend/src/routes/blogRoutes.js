@@ -1,23 +1,24 @@
 const express = require("express");
+
 const {
-  ObjectId
-} = require("mongodb");
+  mapDataFromCollection,
+  getPostsFromDB,
+  catchError,
+  findUserName
+} = require("../untils/exports.js");
 const {
-  getData,
-  getPostsFromDB
-} = require("../utils");
+  lastPostFinder
+} = require("./blogRoutesUntils/lastPost.js");
 const router = express.Router();
 
-module.exports = function (blog, user) {
+module.exports = function (blog, users) {
   router.get("/getBlog", async (req, res) => {
     const page = parseInt(req.query.page) || 1;
     const size = parseInt(req.query.size) || 5;
     const title = req.query.title || '';
     const userName = req.query.userName || '';
     let posts;
-    try {
-      const blogData = await getData(blog);
-
+      const blogData = await mapDataFromCollection(blog);
       if (title.length > 0 || userName.length > 0) {
         const filteredData = blogData.filter(post => {
           const postTitle = String(post.title || '').toLowerCase();
@@ -30,49 +31,26 @@ module.exports = function (blog, user) {
       } else {
         posts = getPostsFromDB(page, size, blogData.reverse());
       }
-
-
       res.status(200).json({
         posts: posts,
         totalRecords: blogData.length
       });
-    } catch (err) {
-      console.log(err);
-      res.status(500).send(err)
-    }
-  });
+    } 
+  );
 
   router.post("/addPost", async (req, res) => {
-    try {
       const newBlogPostRequest = req.body;
-      const lastPost = await blog.find({}, {
-        projection: {
-          postId: 1,
-          _id: 0
-        }
-      }).sort({
-        postId: -1
-      }).toArray();
-      const findedUserNameObject = await user.findOne({
-        _id: new ObjectId(newBlogPostRequest.userId)
-      }, {
-        projection: {
-          login: 1,
-          _id: 0
-        }
-      })
+      const lastPost = await lastPostFinder(blog,res);
+      const findedUserName =await findUserName(users,newBlogPostRequest.userId,res);
       const newPost = {
-        userName: findedUserNameObject.login,
+        userName: findedUserName,
         title: newBlogPostRequest.title,
         content: newBlogPostRequest.content,
         postId: lastPost[0].postId + 1
       }
-      const result = await blog.insertOne(newPost);
+      const result = await catchError(blog.insertOne(newPost));
       res.status(200).json(result);
-    } catch (err) {
-      console.log(err);
-      res.status(500).send(err);
-    }
+     
   });
 
   return router;

@@ -27,7 +27,7 @@ export class NewPostFormComponent implements OnInit{
   }
 
   public addNewPost():void {
-    this.blogService.addNewPost(this.form.value).subscribe(res => {console.log(res)});
+    this.blogService.addNewPost(this.form.value).subscribe();
     this.dialogRef.close(this.form.value);
     this.dialogRef.destroy();
   }

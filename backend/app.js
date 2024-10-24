@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const colors = require("colors");
 const port = 5000;
-const { connectToDatabase } = require("./db/mongoClient");
+const { connectToDatabase } = require("./src/db/mongoClient");
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Credentials", "true");
@@ -23,10 +23,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 connectToDatabase().then((collections) => {
   const { blog, gymPasses, coaches, users } = collections;
 
-const blogRoutes = require("./routes/blogRoutes")(blog, users);
-const gymPassesRoutes = require("./routes/gymPassesRoutes")(gymPasses);
-const userRoutes = require("./routes/userRoutes")(users);
-const coachRoutes = require("./routes/coachRoutes")(coaches);
+const blogRoutes = require("./src/routes/blogRoutes")(blog, users);
+const gymPassesRoutes = require("./src/routes/gymPassesRoutes")(gymPasses);
+const userRoutes = require("./src/routes/userRoutes")(users);
+const coachRoutes = require("./src/routes/coachRoutes")(coaches);
 
 app.use(blogRoutes);
 app.use(gymPassesRoutes);

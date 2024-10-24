@@ -3,14 +3,14 @@
     <span class="input__content" [class]="iconConfig ? iconConfig.iconFloat:''">
       <i *ngIf="iconConfig" class="pi {{ iconConfig.iconClassName }} input__content--icon"
         [ngClass]="iconConfig.iconFloat == 'p-input-icon-right' ? 'input__content--icon-right':'input__content--icon-left'"></i>
-      <input id="float-input" class="input__content--text" type="text" [placeholder]="placeholderText" pInputText [(ngModel)]="value" (ngModelChange)="onInputChange($event)" (blur)="onTouched()" (input)="onInputChange($event)"/>
+      <input id="float-input" class="input__content--text" type="text" [placeholder]="placeholderText" pInputText [(ngModel)]="value" (ngModelChange)="onChange($event)" (blur)="onTouched()" />
     </span>
   </div>
   <div *ngIf="floatLabel">
     <span class="p-float-label input__content" [class]="iconConfig?.iconFloat">
       <i class="pi {{ iconConfig?.iconClassName }} input__content--icon"
         [ngClass]="iconConfig?.iconFloat == 'p-input-icon-right' ? 'input__content--icon-right':'input__content--icon-left'"></i>
-      <input id="float-input" class="input__content--text" type="text" pInputText [(ngModel)]="value" (ngModelChange)="onInputChange($event)" (blur)="onTouched()"  (input)="onInputChange($event)"/>
+      <input id="float-input" class="input__content--text" type="text" pInputText [(ngModel)]="value" (ngModelChange)="onChange($event)" (blur)="onTouched()" />
       <label for="float-input" class="input__content--label">{{ floatLabelText }}</label>
     </span>
   </div>

@@ -1,13 +1,15 @@
 const express = require("express");
 const router = express.Router();
-const { getData } = require("../utils");
+const { mapDataFromCollection } = require("../untils/exports.js");
 
 module.exports = function (gymPasses){
   router.get("/getGymPasses", async (req, res) => {
-    const gymPassesData = await getData(gymPasses);
+    const gymPassesData = await mapDataFromCollection(gymPasses);
     res.status(200).json(gymPassesData);
   });
 
+
+  //pewnie do poprawy, jeśli nie to catchError do dodania
   router.put("/updateGymPass/:id", async (req,res)=>{
     const userId = req.params.id;
     const {activeGymPass,gympassName} = req.body;

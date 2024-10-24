@@ -25,8 +25,7 @@ export class InputComponent implements ControlValueAccessor {
   onTouched = () => { };
 
   public writeValue(value: string): void {
-    this.value = value || ''; // Upewnij się, że nie jest undefined
-    console.log('writeValue:', this.value);
+    this.value = value || '';
   }
 
   public registerOnChange(fn: any): void {
@@ -39,13 +38,5 @@ export class InputComponent implements ControlValueAccessor {
 
   public setDisabledState?(isDisabled: boolean): void {
   }
-
-  public onInputChange(event: Event) {
-    const inputValue = (event.target as HTMLInputElement).value;
-    this.value = inputValue;
-    this.onChange(inputValue); 
-    this.onTouched();
-  }
-
 
 }

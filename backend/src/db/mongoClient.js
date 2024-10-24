@@ -1,10 +1,16 @@
 const { MongoClient } = require("mongodb");
+const catchError = require("../untils/catchError");
 const url = "mongodb://localhost:27017";
 const dbName = "AmbasadaFormy";
 
 async function connectToDatabase() {
-    try {
-      const client = await MongoClient.connect(url);
+    
+      const [error,client] = await catchError(MongoClient.connect(url));
+     if(error){
+        console.error("Błąd połączenia MongoDB:".bold.red, err);
+      return null;
+     }
+     else{
       const database = client.db(dbName);
       console.log(`Połączono się z MongoDB: ${dbName}`.bold.green);
      
@@ -15,11 +21,9 @@ async function connectToDatabase() {
         users: database.collection("users"),
       };
       return collections;
+     }
       
-    } catch (err) {
-      console.error("Błąd połączenia MongoDB:".bold.red, err);
-      return null;
-    }
-  }
+    } 
+    
   module.exports = { connectToDatabase };
 
