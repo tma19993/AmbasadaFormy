@@ -5,6 +5,7 @@ export interface PostModel {
     content: string;
     userId?: string,
     _id?:string;
+    photo?:string;
 }
 export interface ApiPostsModel {
     posts: PostModel[],

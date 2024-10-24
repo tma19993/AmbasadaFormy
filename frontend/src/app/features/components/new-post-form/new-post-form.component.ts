@@ -4,6 +4,7 @@ import { inputIconConfig } from 'src/stories/interfaces/input.model';
 import { EnumIconFloat } from 'src/stories/enums/input.enum';
 import { BlogService } from 'src/app/services';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
+import { catchError, EMPTY } from 'rxjs';
 
 @Component({
   selector: 'app-new-post-form',
@@ -27,17 +28,30 @@ export class NewPostFormComponent implements OnInit{
   }
 
   public addNewPost():void {
-    this.blogService.addNewPost(this.form.value).subscribe();
-    this.dialogRef.close(this.form.value);
-    this.dialogRef.destroy();
+    if(this.form.valid){
+      const formData = new FormData();
+      formData.append('title', this.form.get('title')?.value);
+      formData.append('content', this.form.get('content')?.value);
+      formData.append('photo', this.form.get('photo')?.value);
+
+      this.blogService.addNewPost(formData).subscribe();
+      // this.dialogRef.close(this.form.value);
+      // this.dialogRef.destroy();
+    }
+  
+  }
+
+  public onFileSelected(event: any):void {
+    const file = event.files[0];
+    this.form.patchValue({ photo: file });
   }
 
   private initForm():void {
    this.form = this.formBulider.group({
     title: ["",Validators.required],
-    content:["",Validators.required]
+    content:["",Validators.required],
+    photo:[null]
    })
   }
-
 
 }

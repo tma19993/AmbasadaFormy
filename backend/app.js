@@ -19,6 +19,7 @@ app.use((req, res, next) => {
 });
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/uploads', express.static('uploads'));
 
 connectToDatabase().then((collections) => {
   const { blog, gymPasses, coaches, users } = collections;

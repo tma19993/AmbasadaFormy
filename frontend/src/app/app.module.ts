@@ -23,12 +23,12 @@ import { WelcomePageComponent, LoginComponent, RegisterComponent, HomePageCompon
 import { AFProfileMenuModule } from "../stories/components/profile-menu/profile-menu.module";
 import { HttpLoaderFactory } from 'src/shared/untils';
 import { AvatarModule } from 'primeng/avatar';
-import { FileUploadModule } from 'primeng/fileupload';
 import { TrainersComponent } from './sites/trainers/trainers.component';
 import { AdminPageComponent } from './sites/profile/admin-page/admin-page.component';
 import { AfInputTextareaModule } from 'src/stories/components/inputTextarea/inputtextarea.module';
 import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 import { NewPostFormComponent } from './features/components';
+import { AFPhotoUploaderModule } from 'src/stories/components/photo-uploader/photo-uploader.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +50,7 @@ import { NewPostFormComponent } from './features/components';
   providers: [AfMessageService, MessageService, DialogService],
   bootstrap: [AppComponent],
   imports: [
-    FileUploadModule,
+    AFPhotoUploaderModule,
     AvatarModule,
     ReactiveFormsModule,
     PaginatorModule,

@@ -1,0 +1,9 @@
+<p-fileUpload 
+mode="advanced" 
+[chooseLabel]="'Dodaj Zdjęcie'.toUpperCase()" 
+name="photo" 
+mode="basic"
+ accept="image/*" 
+ (onSelect)="onSelectEmitter($event)" 
+ (uploadHandler)="uploadHandlerEmitter($event)" 
+ [customUpload]="customUpload"/>

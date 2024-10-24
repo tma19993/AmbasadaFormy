@@ -1,5 +1,5 @@
 const express = require("express");
-
+const multer = require('multer');
 const {
   mapDataFromCollection,
   getPostsFromDB,
@@ -9,7 +9,10 @@ const {
 const {
   lastPostFinder
 } = require("./blogRoutesUntils/lastPost.js");
+const e = require("express");
 const router = express.Router();
+
+const upload = multer({ storage: multer.memoryStorage() });
 
 module.exports = function (blog, users) {
   router.get("/getBlog", async (req, res) => {
@@ -38,7 +41,10 @@ module.exports = function (blog, users) {
     } 
   );
 
-  router.post("/addPost", async (req, res) => {
+  router.post("/addPost", upload.single('photo'), async (req, res) => {
+    if (!req.file) {
+      return res.status(400).json({ error: 'No file uploaded' });
+    }
       const newBlogPostRequest = req.body;
       const lastPost = await lastPostFinder(blog,res);
       const findedUserName =await findUserName(users,newBlogPostRequest.userId,res);
@@ -46,10 +52,15 @@ module.exports = function (blog, users) {
         userName: findedUserName,
         title: newBlogPostRequest.title,
         content: newBlogPostRequest.content,
-        postId: lastPost[0].postId + 1
+        postId: lastPost[0].postId + 1,
+        photo:  req.file.buffer.toString('base64')
       }
-      const result = await catchError(blog.insertOne(newPost));
-      res.status(200).json(result);
+      const[error,result] = await catchError(blog.insertOne(newPost));
+      if (error){
+        res.status(500).send(error);
+      }else{
+        res.status(200).json(result);
+      }
      
   });
 

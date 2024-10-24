@@ -31,9 +31,6 @@ public removeUser(): void {
   });
 }
 public onUpload(event: any): void {
-  const file = event.files[0];
-  const formData = new FormData();
-  formData.append('photo', file);
   this.profileService.photoUpdate(event).subscribe(()=>{
     window.location.reload();
   });

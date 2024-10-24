@@ -28,7 +28,12 @@
             <af-tile>
            <div class="blog__container--post-content">
             <div class="blog__container--post-content-img">
-                <img src="../../../assets/backgrounds/jedzonko.png" alt="image">
+                <div *ngIf="post.photo; else defaultAvatar" class="avatar">
+                    <img class="custom-avatar" [src]="'data:image/jpeg;base64,' + post.photo" alt="Post Photo" />
+                  </div>
+                <ng-template #defaultAvatar>
+                    <img src="../../../assets/backgrounds/jedzonko.png" alt="image">
+                </ng-template>
             </div>
             <div class="blog__container--post-content-text">
                 <h4 class="header">{{post.title}}</h4>

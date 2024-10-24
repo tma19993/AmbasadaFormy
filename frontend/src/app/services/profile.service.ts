@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { EMPTY, Observable } from 'rxjs';
 import { userDataModel } from '../models';
 
 @Injectable({
@@ -29,7 +29,6 @@ export class ProfileService {
     const file = event.files[0];
     const formData = new FormData();
     formData.append('photo', file);
-
    return this.http.put<any>(this.url +"/uploadPhoto/"+this.userId, formData)
   }
 
