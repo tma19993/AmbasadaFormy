@@ -1,5 +1,6 @@
 const catchError = require("../../untils/catchError");
-module.exports = async function lastPostFinder(blogData, res) {
+
+ async function lastPostFinder(blogData, res) {
     const [error,data] = await catchError(blogData.find({}, {
         projection: {
           postId: 1,
@@ -16,4 +17,8 @@ module.exports = async function lastPostFinder(blogData, res) {
         return data;
       }
    
+}
+
+module.exports = {
+  lastPostFinder
 }

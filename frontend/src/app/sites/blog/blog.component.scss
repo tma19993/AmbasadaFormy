@@ -45,6 +45,9 @@
         align-items: center;
         height: 100px;
         margin: 0 30px;
+        .reset{
+          margin-top: 8px;
+        }
        .inputs{
         width: 50%;
         display: grid;
@@ -54,7 +57,7 @@
        }
       }
       .buttons{
-        width: 50%;
+        width: 40%;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -99,3 +102,9 @@
     }
   }
 }
+
+.validoation__container {
+  position: fixed;
+  top: 90px;
+  right:20px;
+  }

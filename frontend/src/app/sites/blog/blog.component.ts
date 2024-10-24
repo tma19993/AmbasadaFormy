@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { PostModel, PageEventModel, PostSearchModel } from 'src/app/models';
 import { EnumIconFloat } from 'src/stories/enums/input.enum';
@@ -7,6 +7,8 @@ import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { NewPostFormComponent } from 'src/app/features/components';
 import { BlogService } from 'src/app/services';
 import { AfMessageService } from 'src/app/features';
+import { OneRequiredValidator } from 'src/app/features/validators/one-required.validator';
+import { delay } from 'rxjs';
 @Component({
   selector: 'af-blog',
   templateUrl: './blog.component.html',
@@ -27,8 +29,7 @@ export class BlogComponent implements OnInit, OnDestroy {
   constructor(private blogService: BlogService,
     private formBuilder: FormBuilder,
     private dialogService: DialogService,
-    private messageService: AfMessageService,
-    private DetectorRef: ChangeDetectorRef) { }
+    private message: AfMessageService) { }
 
   public ngOnInit(): void {
     this.initForm();
@@ -47,31 +48,31 @@ export class BlogComponent implements OnInit, OnDestroy {
     this.loadPosts();
   }
 
-  public loadDefault():void {
-    this.searchForm.get('title')?.setValue("");
-    this.searchForm.get('userName')?.setValue("");
-    this.searchForm.updateValueAndValidity();
-    this.loadPosts();
+  public loadDefault(): void {
+    if (this.searchForm.valid) {
+      this.searchForm.reset();
+      this.searchForm.updateValueAndValidity();
+      this.loadPosts();
     }
+  }
 
   public search(): void {
-  this.loadPosts({...this.searchForm.value});
+    if (this.searchForm.valid) {
+      this.loadPosts({ ...this.searchForm.value });
+    }
   }
 
   public addNewPost(): void {
-  this.ref = this.dialogService.open(NewPostFormComponent,{
-    header: "Add new Post",
-    width: '50%',
-    contentStyle: { overflow: 'auto' },
-    baseZIndex: 10000,
-
-})
-
-this.ref.onClose.subscribe(()=>{
-  // to niżej nie działa
-  this.messageService.addSuccesMessage("dodano post");
-  window.location.reload();
-})
+    this.ref = this.dialogService.open(NewPostFormComponent, {
+      header: "Add new Post",
+      width: '50%',
+      contentStyle: { overflow: 'auto' },
+      baseZIndex: 10000,
+    })
+    this.ref.onClose.pipe(delay(1000)).subscribe(() => {
+      this.message.addSuccesMessage("dodano post");
+      this.loadPosts();
+    })
   }
 
   private loadPosts(searchData?: PostSearchModel): void {
@@ -83,9 +84,9 @@ this.ref.onClose.subscribe(()=>{
 
   private initForm(): void {
     this.searchForm = this.formBuilder.group({
-      title: [""],
-      userName: [""]
-    })
+      title: [null],
+      userName: [null]
+    },{validators: OneRequiredValidator()})
   }
 
 }
