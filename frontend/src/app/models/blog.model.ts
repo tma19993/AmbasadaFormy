@@ -6,6 +6,7 @@ export interface PostModel {
     userId?: string,
     _id?:string;
     photo?:string;
+    createdAt?: Date
 }
 export interface ApiPostsModel {
     posts: PostModel[],

@@ -42,9 +42,8 @@ module.exports = function (blog, users) {
   );
 
   router.post("/addPost", upload.single('photo'), async (req, res) => {
-    if (!req.file) {
-      return res.status(400).json({ error: 'No file uploaded' });
-    }
+    let file = req.file;
+ 
       const newBlogPostRequest = req.body;
       const lastPost = await lastPostFinder(blog,res);
       const findedUserName =await findUserName(users,newBlogPostRequest.userId,res);
@@ -53,7 +52,8 @@ module.exports = function (blog, users) {
         title: newBlogPostRequest.title,
         content: newBlogPostRequest.content,
         postId: lastPost[0].postId + 1,
-        photo:  req.file.buffer.toString('base64')
+        photo:  file ? file.buffer.toString('base64') : "",
+        createdAt: new Date()
       }
       const[error,result] = await catchError(blog.insertOne(newPost));
       if (error){

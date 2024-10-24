@@ -35,8 +35,8 @@ export class NewPostFormComponent implements OnInit{
       formData.append('photo', this.form.get('photo')?.value);
 
       this.blogService.addNewPost(formData).subscribe();
-      // this.dialogRef.close(this.form.value);
-      // this.dialogRef.destroy();
+      this.dialogRef.close(this.form.value);
+      this.dialogRef.destroy();
     }
   
   }

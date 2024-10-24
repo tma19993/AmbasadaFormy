@@ -36,7 +36,7 @@
                 </ng-template>
             </div>
             <div class="blog__container--post-content-text">
-                <h4 class="header">{{post.title}}</h4>
+                <h4 class="header">{{post.title}} ~ {{post.createdAt ? (post.createdAt | date: 'medium') : ("Dawno") }}</h4>
                 <p class="subheader"><span class="quotes">&bdquo;</span>{{post.userName}}<span class="quotes">&rdquo;</span></p>
                 <p class="content">{{post.content}}</p>
             </div>
