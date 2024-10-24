@@ -33,7 +33,6 @@ export class NewPostFormComponent implements OnInit{
       formData.append('title', this.form.get('title')?.value);
       formData.append('content', this.form.get('content')?.value);
       formData.append('photo', this.form.get('photo')?.value);
-
       this.blogService.addNewPost(formData).subscribe();
       this.dialogRef.close(this.form.value);
       this.dialogRef.destroy();

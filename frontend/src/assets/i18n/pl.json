@@ -128,6 +128,11 @@
             "searchLabel": "Wyszukaj",
             "user": "Nazwa użytkownika",
             "title": "Tytuł postu"
+        },
+        "post":{
+            "createAt":"Stworzony przez",
+            "date":"data",
+            "someTimeAgo":"Pewien czas temu"
         }
     },
     "profile":{

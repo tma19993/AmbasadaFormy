@@ -69,9 +69,11 @@ export class BlogComponent implements OnInit, OnDestroy {
       contentStyle: { overflow: 'auto' },
       baseZIndex: 10000,
     })
-    this.ref.onClose.pipe(delay(1000)).subscribe(() => {
+    this.ref.onClose.pipe(delay(1000)).subscribe((value) => {
+      if(value){
       this.message.addSuccesMessage("dodano post");
       this.loadPosts();
+      }
     })
   }
 
