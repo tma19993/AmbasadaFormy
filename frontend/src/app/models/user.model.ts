@@ -11,7 +11,8 @@ password?: string
 email?:string
 haveCoach?:boolean
 permission?: string
-activeGymPass?:boolean
+activeGymPass?:boolean,
+gymPassId?:string,
 phoneNumber?: string
 address?: string,
 photo?:string

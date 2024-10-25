@@ -9,12 +9,12 @@ const appConfig = require("./src/configs/appConfig")();
 app.use(appConfig)
 
 connectToDatabase().then((collections) => {
-  const { blog, gymPasses, coaches, users } = collections;
+  const { blog, gymPasses, users } = collections;
 
 const blogRoutes = require("./src/routes/blogRoutes")(blog, users);
 const gymPassesRoutes = require("./src/routes/gymPassesRoutes")(gymPasses);
 const userRoutes = require("./src/routes/userRoutes")(users);
-const coachRoutes = require("./src/routes/coachRoutes")(coaches);
+const coachRoutes = require("./src/routes/coachRoutes")(users);
 
 app.use(blogRoutes);
 app.use(gymPassesRoutes);

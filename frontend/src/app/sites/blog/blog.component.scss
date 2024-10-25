@@ -30,14 +30,11 @@
     min-height: 100vh;
 
     &--header {
-        padding-bottom: 90px;
-      font-size: 50px;
-      color: $input-text-light;
-      text-align: center;
-      text-shadow: 1px 1px 3px $background-dark;
+      @include header-style;
     }
 
     &--search {
+      margin-top: 40px;
       margin-bottom: 60px;
       &--content{
         display: flex;

@@ -19,3 +19,12 @@ $background-accent: #00adb5;
 $input-background-color: #fff;
 $background-white-opacity: rgba(255,255,255,0.8);
 $darker-gray: #222831;
+
+// mixins
+@mixin header-style {
+    font-size: 62px;
+    color: $input-text-light;
+    text-align: center;
+    text-shadow: 1px 1px 3px $background-dark
+  }
+  

@@ -1,9 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const { mapDataFromCollection } = require("../untils/exports.js");
+const { mapDataFromCollection, catchError } = require("../untils/exports.js");
+
 
 module.exports = function (gymPasses){
-  router.get("/getGymPasses", async (req, res) => {
+  router.get("/gym-passes", async (req, res) => {
     const gymPassesData = await mapDataFromCollection(gymPasses);
     res.status(200).json(gymPassesData);
   });

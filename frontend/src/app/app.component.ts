@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,8 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor() {}
- public ngOnInit(): void {
-  sessionStorage.setItem("language",sessionStorage.getItem("language") || ("en"))
+  constructor(private router: Router) { }
+  public ngOnInit(): void {
+    sessionStorage.setItem("language", sessionStorage.getItem("language") || ("en"));
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0, 0)
+    });
+
   }
 }

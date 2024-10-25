@@ -3,6 +3,7 @@
     <af-menuStatic></af-menuStatic>
   </div>
   <img class="logo" src="../../../assets/logo/logoLightText.svg" alt="logo">
+  <h1 class="header">{{"trainers.header" | translate}}</h1>
   <section class="trainers">
     <ng-container *ngIf="trainers$ | async as trainers">
       <af-tile *ngFor="let trainer of trainers">

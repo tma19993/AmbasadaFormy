@@ -2,185 +2,39 @@
     <div class="navi-bar">
         <af-menuStatic></af-menuStatic>
     </div>
-    <section class="gym-pass__container">
+    <section class="gym-pass__container" *ngIf="gymPasses$| async as gymPasses">
         <div class="gym-pass__container--header">
             <div class="gym-pass__container--header-logo">
                 <img src="../../../assets/logo/logoLightText.svg" alt="logo">
             </div>
             <h2 class="gym-pass__container--header-text">{{"MenuPage.passes" | translate}}</h2>
         </div>
-        <div class="gym-pass__container--gym-passes">
+        <div class="gym-pass__container--gym-passes" >
            
-                <div class="gym-pass__container--gym-passes-content">
-                    <af-tile>
-                <div class="gym-pass__container--gym-passes-content-header">
-                    <h3>{{"gymPass.passdevelop" | translate}}</h3>
-                    <p class="subtitle"><span class="quotes">&bdquo;</span>{{"gymPass.newyear" | translate }}<span class="quotes">&rdquo;</span></p>
-                    <p class="price">120zł</p>
-                    <p class="type-of-gym-pass">/ {{"gymPass.monthlyPay" | translate}} / {{"gymPass.sub" | translate}} /</p>
+            <div class="gym-pass-cards">
+                <ng-container *ngFor="let gymPass of gymPasses">
+                    <div class="gym-pass-card">
+                    <af-gym-pass-card 
+                    [title]="('gymPass.' + gymPass.name+'Pass' + '.header') | translate"
+                    [subtitle]="'gymPass.' + gymPass.name+'Pass' + '.subtitle' | translate" 
+                    [price]="gymPass.price + 'zł'"
+                    [options]="getOptions(gymPass.name)" 
+                    [buttonId]="gymPass.name">
+                  </af-gym-pass-card>
                 </div>
-                    <div class="gym-pass__container--gym-passes-content-content">
-                        <p><i class="pi pi-check"></i> {{"gymPass.access" | translate}} 9:00 - 17:00</p>
-                        <p><i class="pi pi-check"></i> 20 {{"gymPass.perMonth" | translate}}</p>
-                        <p><i class="pi pi-check"></i> {{"gymPass.FirstPay" | translate}} 20zł</p>
-                        <p><i class="pi pi-check"></i> {{"gymPass.Water" | translate}}</p>
-                    </div>
-                    <div class="gym-pass__container--gym-passes-content-button">
-                           
-                        <af-button [label]="'button.orderonline' | translate " buttonId="rozwoj" [fontSize]="30"></af-button>
-                    </div>
-                </af-tile>
-                </div>
-            
-           
-                <div class="gym-pass__container--gym-passes-content">
-                    <af-tile>
-                    <div class="gym-pass__container--gym-passes-content-header">
-                        <h3>{{"gymPass.FunPass"|translate}}</h3>
-                        <p class="subtitle"><span class="quotes">&bdquo;</span>{{"gymPass.Regular" | translate}}<span class="quotes">&rdquo;</span></p>
-                        <p class="price">140zł</p>
-                        <p class="type-of-gym-pass">/ {{"gymPass.sub" | translate}} /</p>
-                    </div>
-                        <div class="gym-pass__container--gym-passes-content-content">
-                            <p><i class="pi pi-check"></i> {{"gymPass.Unlimited" | translate}}</p>
-                            <p><i class="pi pi-check"></i> {{"gymPass.access" | translate}} 8:00 - 22:00</p>
-                            <p><i class="pi pi-check"></i> {{"gymPass.guarantee" | translate}}</p>
-                            <p><i class="pi pi-check"></i> {{"gymPass.FirstPay" | translate}} 20zł</p>
-                            <p><i class="pi pi-check"></i> {{"gymPass.freeze" | translate}}</p>
-                            <p><i class="pi pi-check"></i> {{"gymPass.cancel" | translate}}</p>
-                            <p><i class="pi pi-check"></i> {{"gymPass.Water" | translate}}</p>
-                        </div>
-                        <div class="gym-pass__container--gym-passes-content-button">
-                            <af-button [label]="'button.orderonline' | translate " buttonId="zabawa" [fontSize]="30"></af-button>
-                        </div>
-                    </af-tile>
-                    </div>
-            
-            
-                <div class="gym-pass__container--gym-passes-content">
-                    <af-tile>
-                    <div class="gym-pass__container--gym-passes-content-header">
-                        <h3>{{"gymPass.passhealth" | translate}}</h3>
-                        <p class="subtitle"><span class="quotes">&bdquo;</span> {{"gymPass.cheers" | translate}}<span class="quotes">&rdquo;</span></p>
-                        <p class="price">180zł</p>
-                        <p class="type-of-gym-pass">/ {{"gymPass.sub" | translate}} /</p>
-                    </div>
-                        <div class="gym-pass__container--gym-passes-content-content">
-                            <p><i class="pi pi-check"></i> {{"gymPass.Unlimited" | translate}}</p>
-                            <p><i class="pi pi-check"></i> {{"gymPass.allday" | translate}}</p>
-                            <p><i class="pi pi-check"></i> {{"gymPass.guarantee" | translate}}</p>
-                            <p><i class="pi pi-check"></i> {{"gymPass.Lackfirstpay" | translate}}</p>
-                            <p><i class="pi pi-check"></i> {{"gymPass.freetraining" | translate}}</p>
-                            <p><i class="pi pi-check"></i> {{"gymPass.freeze" | translate}}</p>
-                            <p><i class="pi pi-check"></i> {{"gymPass.cancel" | translate}}</p>
-                            <p><i class="pi pi-check"></i> {{"gymPass.Water" | translate}}</p>
-                        </div>
-                        <div class="gym-pass__container--gym-passes-content-button">
-                            
-                            <af-button [label]="'button.orderonline' | translate " buttonId="zdrowie" [fontSize]="30"></af-button>
-                        </div>
-                    </af-tile>
-                    </div>
-        </div>
-        <div class="gym-pass__container--gym-pass gym-pass__container--gym-pass-development">
-            <h2>{{"gymPass.newyear" | translate}}</h2>
-            <div class="gym-pass__container--gym-pass__info">
-                <af-tile>
-                    <div class="gym-pass__container--gym-pass__info-text">
-                        <p>{{"gymPass.Text1" | translate}}</p>
-                        <p>{{"gymPass.Text2" | translate}}</p>
-                    </div>
-                </af-tile>
-                <af-tile [darkMode]="true">
-                    <div  class="gym-pass__container--gym-pass__info-price">
-                        <p>120</p>
-                         <p>zł / msc</p>
-                    </div>
-                </af-tile>
-                <af-tile [darkMode]="true"></af-tile>
-                <af-tile [darkMode]="true">
-                    <div style="display: grid; place-items: center; height: 100%;" class="">
-                        
-                        <af-button [label]="'button.orderonline' | translate " buttonId="development-button" [fontSize]="52" ></af-button>
-                    </div>
-                </af-tile>
+                </ng-container>
             </div>
-            <af-tile>
-                <div class="gym-pass__container--gym-pass__details">
-                    <p>
-                        {{"gymPass.Text3" | translate}} 
-                    </p>
-                    <p>{{"gymPass.Text4" | translate}}</p>
-                    <p>{{"gymPass.Text5" | translate}}</p>
-                </div>
-        </af-tile>
         </div>
-        <div class="gym-pass__container--gym-pass gym-pass__container--gym-pass-fun">
-            <h2>{{"gymPass.Regular" | translate}}</h2>
-            <div class="gym-pass__container--gym-pass__info">
-                <af-tile>
-                    <div class="gym-pass__container--gym-pass__info-text">
-                        <p>{{"gymPass.Text6" | translate}}</p>
-                        <p>{{"gymPass.Text7" | translate}}</p>
-                    </div>
-                </af-tile>
-                <af-tile [darkMode]="true">
-                    <div  class="gym-pass__container--gym-pass__info-price">
-                        <p>140</p>
-                         <p>zł / msc</p>
-                    </div>
-                </af-tile>
-                <af-tile [darkMode]="true"></af-tile>
-                <af-tile [darkMode]="true">
-                    <div style="display: grid; place-items: center; height: 100%;">
-                           
-                        <af-button [label]="'button.orderonline' | translate " buttonId="fun-button" [fontSize]="52" ></af-button>
-                    </div>
-                </af-tile>
-            </div>
-            <af-tile>
-                <div class="gym-pass__container--gym-pass__details">
-                    <p>
-                        {{"gymPass.Text8" | translate}}
-                    </p>
-                    <p>{{"gymPass.Text9" | translate}}</p>
-                    <p>{{"gymPass.Text10" | translate}}</p>
-                    <p>{{"gymPass.Text11" | translate}}</p>
-                </div>
-        </af-tile>
-        </div>
-        <div class="gym-pass__container--gym-pass gym-pass__container--gym-pass-health">
-            <h2>{{"gymPass.cheers" | translate}}</h2>
-            <div class="gym-pass__container--gym-pass__info">
-                <af-tile>
-                    <div class="gym-pass__container--gym-pass__info-text">
-                        <p>{{"gymPass.Text12" | translate}}</p>
-                        <p>{{"gymPass.Text13" | translate}}</p>
-                    </div>
-                </af-tile>
-                <af-tile [darkMode]="true">
-                    <div  class="gym-pass__container--gym-pass__info-price">
-                        <p>180</p>
-                         <p>zł / msc</p>
-                    </div>
-                </af-tile>
-                <af-tile [darkMode]="true"></af-tile>
-                <af-tile [darkMode]="true">
-                    <div style="display: grid; place-items: center; height: 100%;">
-                          
-                        <af-button [label]="'button.orderonline' | translate " buttonId="health-button" [fontSize]="52" ></af-button>
-                    </div>
-                </af-tile>
-            </div>
-            <af-tile>
-                <div class="gym-pass__container--gym-pass__details">
-                    <p>{{"gymPass.Text14" | translate}}</p>
-                    <p>{{"gymPass.Text15" | translate}}</p>
-                    <p>{{"gymPass.Text16" | translate}}</p>
-                    <p>{{"gymPass.Text17" | translate}}</p>
-                    <p>{{"gymPass.Text18" | translate}}</p>
-                </div>
-        </af-tile>
+        <div class="gym-pass__container--gym-pass">
+            <ng-container *ngFor="let gymPass of gymPasses">
+                <af-gym-pass-info
+                [title]="('gymPass.' + gymPass.name+'Pass' + '.labelHeader') | translate"
+                [price]="gymPass.price"
+                [buttonId]="gymPass.name"
+                [label1]="('gymPass.' + gymPass.name+'Pass' + '.label1') | translate"
+                [label2]="('gymPass.' + gymPass.name+'Pass' + '.label2') | translate"
+                ></af-gym-pass-info>
+            </ng-container>
         </div>
     </section>
     <af-footer></af-footer>

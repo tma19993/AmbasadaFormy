@@ -1,0 +1,27 @@
+<div class="gym-pass">
+  <h2>{{title }}</h2>
+  <div class="gym-pass__info">
+    <af-tile>
+      <div class="gym-pass__info-text">
+        <p>{{ label1 }}</p>
+      </div>
+    </af-tile>
+    <af-tile [darkMode]="true">
+      <div class="gym-pass__info-price">
+        <p>{{price}}</p>
+        <p>zł / msc</p>
+      </div>
+    </af-tile>
+    <af-tile [darkMode]="true"></af-tile>
+    <af-tile [darkMode]="true">
+      <div style="display: grid; place-items: center; height: 100%;" class="">
+        <af-button [label]="'button.orderonline' | translate " [buttonId]="buttonId+'info'" [fontSize]="52"></af-button>
+      </div>
+    </af-tile>
+  </div>
+  <af-tile>
+    <div class="gym-pass__details">
+      <p>{{ label2 }}</p>
+    </div>
+  </af-tile>
+</div>

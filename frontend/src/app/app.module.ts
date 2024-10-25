@@ -29,6 +29,8 @@ import { AfInputTextareaModule } from 'src/stories/components/inputTextarea/inpu
 import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 import { NewPostFormComponent } from './features/components';
 import { AFPhotoUploaderModule } from 'src/stories/components/photo-uploader/photo-uploader.module';
+import { AFGymPassCardModule } from 'src/stories/components/gym-pass-card/gym-pass-card.module';
+import { GymPassInfoModule } from 'src/stories/components/gym-pass-info/gym-pass-info.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,7 +80,9 @@ import { AFPhotoUploaderModule } from 'src/stories/components/photo-uploader/pho
     AFRadiobuttonModule,
     LanguageChangerModule,
     MenuStaticModule,
-    AFProfileMenuModule
+    AFProfileMenuModule,
+    AFGymPassCardModule,
+    GymPassInfoModule
   ]
 })
 export class AppModule { }
