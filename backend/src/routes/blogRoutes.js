@@ -9,7 +9,6 @@ const {
 const {
   lastPostFinder
 } = require("./blogRoutesUntils/lastPost.js");
-const e = require("express");
 const router = express.Router();
 
 const upload = multer({ storage: multer.memoryStorage() });

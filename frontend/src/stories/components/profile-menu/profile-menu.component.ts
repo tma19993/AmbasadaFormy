@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { ProfileService } from 'src/app/api';
 import { userDataModel } from 'src/app/models';
 
 @Component({
@@ -7,12 +8,16 @@ import { userDataModel } from 'src/app/models';
   templateUrl: './profile-menu.component.html',
   styleUrls: ['./profile-menu.component.scss']
 })
-export class  AFProfileMenuComponent {
-@Output() BackEmmiter: EventEmitter<void> = new EventEmitter();
-@Input() isAdmin: boolean = false;
-@Input() userData: userDataModel = {}; 
+export class AFProfileMenuComponent implements OnInit {
+  @Output() BackEmmiter: EventEmitter<void> = new EventEmitter();
+  @Input() isAdmin: boolean = false;
+  @Input() userData: userDataModel = {};
 
-constructor(private router: Router){}
+  constructor(private router: Router, private proflieService: ProfileService) { }
+
+  public ngOnInit(): void {
+    this.proflieService.setUserData(this.userData);
+  }
 
   public logout(): void {
     sessionStorage.clear();
@@ -20,8 +25,7 @@ constructor(private router: Router){}
   }
 
   public navigateWithData(route: string): void {
-    console.log(this.userData);
-    this.router.navigate([`/profile/${route}`], { state: { userData: this.userData } });
+    this.router.navigate([`/profile/${route}`]);
   }
 
   public undo(): void {

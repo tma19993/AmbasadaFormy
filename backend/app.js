@@ -1,25 +1,12 @@
-const bodyParser = require("body-parser");
-const express = require("express");
-const app = express();
 const colors = require("colors");
-const port = 5000;
+const express = require("express");
 const { connectToDatabase } = require("./src/db/mongoClient");
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET,HEAD,OPTIONS,POST,PUT,DELETE","PATCH"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
-  );
-  next();
-});
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/uploads', express.static('uploads'));
+
+const app = express();
+const port = 5000;
+
+const appConfig = require("./src/configs/appConfig")();
+app.use(appConfig)
 
 connectToDatabase().then((collections) => {
   const { blog, gymPasses, coaches, users } = collections;
@@ -35,8 +22,7 @@ app.use(userRoutes);
 app.use(coachRoutes);
 
 app.listen(port, () => {
-  console.log("Aplikacja działa".bold.green);
-  console.log("Aplikacja nasłuchuje na porcie: ".green + colors.bold.green(port));
-  console.log(`Przykładowy endpoint: http://localhost:${port}/getBlog`);
+  console.log("Aplikacja nasłuchuje".bold.green);
+  console.log("Przykładowy endpoint: ".green + `http://localhost:${port}/getBlog`);
 });
 });
