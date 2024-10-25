@@ -1,4 +1,4 @@
-export interface PostModel {
+export type PostModel = {
     postId?: number;
     userName?: string;
     title: string;
@@ -8,7 +8,7 @@ export interface PostModel {
     photo?:string;
     createdAt?: Date
 }
-export interface ApiPostsModel {
+export type ApiPostsModel = {
     posts: PostModel[],
     totalRecords: number,
 }

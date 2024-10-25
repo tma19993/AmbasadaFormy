@@ -1,17 +1,17 @@
 <ul class="profile-menu">
-        <li class="navi-item" routerLink="my-profile" routerLinkActive="active">
+        <li class="navi-item" (click)="navigateWithData('my-profile')">
           <i class="fa-solid fa-user" style="font-size: 2rem"></i> {{"profile.menu.my-profile" | translate}}
         </li>
-        <li class="navi-item" routerLink="gym-pass" routerLinkActive="active">
+        <li class="navi-item" (click)="navigateWithData('gym-pass')">
           <i class="fa-solid fa-ticket"  style="font-size: 2rem"></i> {{"profile.menu.my-gym-pass" | translate}}
         </li>
-        <li class="navi-item" routerLink="personal-trainers" routerLinkActive="active">
+        <li class="navi-item" (click)="navigateWithData('personal-trainers')">
           <i class="fa-solid fa-dumbbell"  style="font-size: 2rem"></i> {{"profile.menu.my-trainings" | translate}}
         </li>
-        <li class="navi-item" routerLink="diets" routerLinkActive="active">
+        <li class="navi-item" (click)="navigateWithData('diets')">
           <i class="fa-solid fa-utensils" style="font-size: 2rem"></i> {{"profile.menu.my-diets" | translate}}
         </li>
-        <li *ngIf="isAdmin" class="navi-item" routerLink="admin" routerLinkActive="active">
+        <li *ngIf="isAdmin" class="navi-item" (click)="navigateWithData('admin')">
           <i class="fa-solid fa-screwdriver-wrench" style="font-size: 2rem"></i> {{"profile.menu.admin" | translate}}
         </li>
         <li class="navi-item--bottom">

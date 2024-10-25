@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { userDataModel } from 'src/app/models';
-import { TrainersService } from 'src/app/services';
+import { TrainersService } from 'src/app/api';
 
 @Component({
   selector: 'app-trainers',

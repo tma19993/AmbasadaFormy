@@ -1,4 +1,4 @@
-export interface GenderModel {
+export type GenderModel = {
   name: string;
   key: genderKey;
   checked: boolean;

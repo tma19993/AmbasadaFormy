@@ -1,4 +1,4 @@
-export interface LoginModel {
+export type LoginModel = {
    login: string,
    passowrd: string,
    authToken: string,

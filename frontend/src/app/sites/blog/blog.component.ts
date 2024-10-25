@@ -5,7 +5,7 @@ import { EnumIconFloat } from 'src/stories/enums/input.enum';
 import { inputIconConfig } from 'src/stories/interfaces/input.model';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { NewPostFormComponent } from 'src/app/features/components';
-import { BlogService } from 'src/app/services';
+import { BlogService } from 'src/app/api';
 import { AfMessageService } from 'src/app/features';
 import { OneRequiredValidator } from 'src/app/features/validators/one-required.validator';
 import { delay } from 'rxjs';

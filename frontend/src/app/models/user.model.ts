@@ -1,6 +1,6 @@
 import { genderKey } from "./gender.model";
 
-export interface userDataModel {
+export type userDataModel = {
 _id?: string,
 firstName?:string
 lastName?:string

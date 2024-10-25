@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { inputIconConfig } from 'src/stories/interfaces/input.model';
 import { EnumIconFloat } from 'src/stories/enums/input.enum';
-import { BlogService } from 'src/app/services';
+import { BlogService } from 'src/app/api';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
 import { catchError, EMPTY } from 'rxjs';
 

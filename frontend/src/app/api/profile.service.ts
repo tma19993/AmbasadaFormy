@@ -1,12 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { EMPTY, Observable } from 'rxjs';
+import {  Observable, of, tap } from 'rxjs';
 import { userDataModel } from '../models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
+
+  public profileData: userDataModel;
 
   private url: string = 'http://localhost:5000';
   private userId: string | null = sessionStorage.getItem("id");
@@ -32,4 +34,7 @@ export class ProfileService {
    return this.http.put<any>(this.url +"/uploadPhoto/"+this.userId, formData)
   }
 
+ public returnUserDataAfterDownload(): Observable<userDataModel>{
+  return of(this.profileData);
+ }
 }

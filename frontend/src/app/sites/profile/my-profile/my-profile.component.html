@@ -1,38 +1,36 @@
-<ng-container *ngIf="userData$ | async as user">
-  <div class="profile__information">
-    <div class="profile__information--left">
-      <h1>Mój profil</h1>
-      <div>
-        <h2>Moje dane:</h2>
-        <ul>
-          <li><strong>Imie Nazwisko:</strong> {{user.firstName}} {{user.lastName}}</li>
-          <li><strong>Login:</strong> {{user.login}}</li>
-          <li><strong>Email:</strong> {{user.email}}</li>
-        </ul>
-      </div>
-      <div>
-        <h2>Dane kontaktowe:</h2>
-        <ul>
-          <li><strong>Imie Nazwisko:</strong> {{user.firstName}} {{user.lastName}}</li>
-          <li><strong>adres:</strong> {{user.address}}</li>
-          <li><strong>tel:</strong> {{user.phoneNumber}}</li>
-        </ul>
-      </div>
-      <div>
-        <h2>Dane do faktury:</h2>
-        <ul>
-          <li><strong>Imie Nazwisko:</strong> {{user.firstName}} {{user.lastName}}</li>
-          <li><strong>adres:</strong> {{user.address}}</li>
-          <li><strong>tel:</strong> {{user.phoneNumber}}</li>
-          <li><strong>email:</strong> {{user.email}}</li>
-        </ul>
-      </div>
+<div class="profile__information">
+  <div class="profile__information--left">
+    <h1>Mój profil</h1>
+    <div>
+      <h2>Moje dane:</h2>
+      <ul>
+        <li><strong>Imie Nazwisko:</strong> {{user.firstName}} {{user.lastName}}</li>
+        <li><strong>Login:</strong> {{user.login}}</li>
+        <li><strong>Email:</strong> {{user.email}}</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Dane kontaktowe:</h2>
+      <ul>
+        <li><strong>Imie Nazwisko:</strong> {{user.firstName}} {{user.lastName}}</li>
+        <li><strong>adres:</strong> {{user.address}}</li>
+        <li><strong>tel:</strong> {{user.phoneNumber}}</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Dane do faktury:</h2>
+      <ul>
+        <li><strong>Imie Nazwisko:</strong> {{user.firstName}} {{user.lastName}}</li>
+        <li><strong>adres:</strong> {{user.address}}</li>
+        <li><strong>tel:</strong> {{user.phoneNumber}}</li>
+        <li><strong>email:</strong> {{user.email}}</li>
+      </ul>
     </div>
   </div>
-  <div class="my-profile__menu">
-    <af-photo-uploader (uploadHandler)="onUpload($event)" [customUpload]="true"/>
-    <af-button [label]="'Zmień hasło'" iconClassName="pi pi-unlock" />
-    <af-button [label]="'Edytuj'" iconClassName="pi pi-user-edit" />
-    <af-button [label]="'USUŃ KONTO'" iconClassName="pi pi-user-minus" (onClick)="removeUser()" />
-  </div>
-</ng-container>
+</div>
+<div class="my-profile__menu">
+  <af-photo-uploader (uploadHandler)="onUpload($event)" [customUpload]="true" />
+  <af-button [label]="'Zmień hasło'" iconClassName="pi pi-unlock" />
+  <af-button [label]="'Edytuj'" iconClassName="pi pi-user-edit" />
+  <af-button [label]="'USUŃ KONTO'" iconClassName="pi pi-user-minus" (onClick)="removeUser()" />
+</div>

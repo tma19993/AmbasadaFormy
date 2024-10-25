@@ -1,4 +1,4 @@
-export interface PageEventModel { 
+export type PageEventModel = { 
     first: number;
     rows: number;
     page: number;
