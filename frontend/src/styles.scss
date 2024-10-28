@@ -10,17 +10,25 @@ body, * {
 .p-dialog {
   border: 2px solid $input-text-accent;
 border-radius: 22px;
+
   .p-dialog-header {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
   }
 
   .p-dialog-content {
+    padding: 20px;
     &:last-of-type{
         border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     }
     background: rgba(255, 255, 255, 0.9);
+  }
+  .p-dialog-footer{
+    padding: 0 20px 20px 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
   }
 }

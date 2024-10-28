@@ -7,7 +7,6 @@ import { MessageService } from 'primeng/api';
 export class AfMessageService {
   constructor(private messageService: MessageService) { }
   public addErrorMessage(message:string,header?: string): void {
-    console.log(message);
     this.messageService.add({ severity: 'error',summary:header, detail: message });
       setTimeout(()=>{
         this.messageService.clear();

@@ -32,6 +32,7 @@ import { AFPhotoUploaderModule } from 'src/stories/components/photo-uploader/pho
 import { AFGymPassCardModule } from 'src/stories/components/gym-pass-card/gym-pass-card.module';
 import { GymPassInfoModule } from 'src/stories/components/gym-pass-info/gym-pass-info.module';
 import { PostDetailsComponent } from './features/components/post-details/post-details.component';
+import { DatePipe } from '@angular/common';
 @NgModule({ declarations: [
         AppComponent,
         WelcomePageComponent,
@@ -50,7 +51,8 @@ import { PostDetailsComponent } from './features/components/post-details/post-de
         RegisterComponent,
         PostDetailsComponent
     ],
-    bootstrap: [AppComponent], imports: [AFPhotoUploaderModule,
+    bootstrap: [AppComponent], 
+    imports: [AFPhotoUploaderModule,
         AvatarModule,
         ReactiveFormsModule,
         PaginatorModule,
@@ -79,5 +81,10 @@ import { PostDetailsComponent } from './features/components/post-details/post-de
         MenuStaticModule,
         AFProfileMenuModule,
         AFGymPassCardModule,
-        GymPassInfoModule], providers: [AfMessageService, MessageService, DialogService, provideHttpClient(withInterceptorsFromDi())] })
+        GymPassInfoModule], 
+        providers: [
+            AfMessageService, 
+            MessageService, 
+            DialogService, 
+            provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }

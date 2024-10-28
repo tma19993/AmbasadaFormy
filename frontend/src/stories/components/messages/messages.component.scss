@@ -7,8 +7,11 @@ p-messages ::ng-deep{
         background-color: $darker-gray;
         color:$input-background-color;
         border:none;
+        padding: 10px 30px;
         &-wrapper{
-          padding: 10px;
+          display: flex;
+          justify-content: space-between;
+          gap: 14px;
         }
         &-icon{
           color:$input-main-color;

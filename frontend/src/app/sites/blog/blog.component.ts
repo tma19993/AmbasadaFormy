@@ -6,9 +6,11 @@ import { inputIconConfig } from 'src/stories/interfaces/input.model';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { NewPostFormComponent } from 'src/app/features/components';
 import { BlogService } from 'src/app/api';
-import { AfMessageService, OneRequiredValidator } from 'src/app/features';
+import { AfMessageService, dialogConfig, OneRequiredValidator } from 'src/app/features';
 import { delay } from 'rxjs';
 import { PostDetailsComponent } from 'src/app/features/components/post-details/post-details.component';
+import { TranslateService } from '@ngx-translate/core';
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'af-blog',
   templateUrl: './blog.component.html',
@@ -56,14 +58,11 @@ export class BlogComponent implements OnInit, OnDestroy {
     }
   }
 
-  public openPost(post: PostModel): void{
+  public openPost(post: PostModel): void {
     this.dialogService.open(PostDetailsComponent,{
       data: post,
       header: post.title,
-      width: '50%',
-      contentStyle: { overflow: 'auto' },
-      baseZIndex: 10000,
-      closeOnEscape: true
+      ...dialogConfig
     })
   }
 
@@ -76,9 +75,7 @@ export class BlogComponent implements OnInit, OnDestroy {
   public addNewPost(): void {
     this.ref = this.dialogService.open(NewPostFormComponent, {
       header: "Add new Post",
-      width: '50%',
-      contentStyle: { overflow: 'auto' },
-      baseZIndex: 10000,
+      ...dialogConfig
     })
     this.ref.onClose.pipe(delay(1000)).subscribe((value) => {
       if(value){

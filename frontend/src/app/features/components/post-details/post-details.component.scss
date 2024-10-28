@@ -11,14 +11,20 @@
 }
 .content{
     min-height: 30vh;
+    position: relative;
+    .createAt{
+      float: right;
+      margin: 20px 0;
+      font-style: italic;
+    }
 }
 
 ::ng-deep .p-dialog {
-
   .p-dialog-header,
   .p-dialog-content {
-    @include transparentBackgroundColorMixin(0.5, $background-dark);
+    @include transparentBackgroundColorMixin(0.6, $background-dark);
     color: white;
+    text-shadow: 1px 1px 2px $background-dark;
   }
 
   .p-dialog-header .p-dialog-header-icon {
