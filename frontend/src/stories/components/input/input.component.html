@@ -8,10 +8,14 @@
   </div>
   <div *ngIf="floatLabel">
     <span class="p-float-label input__content" [class]="iconConfig?.iconFloat">
-      <i class="pi {{ iconConfig?.iconClassName }} input__content--icon"
-        [ngClass]="iconConfig?.iconFloat == 'p-input-icon-right' ? 'input__content--icon-right':'input__content--icon-left'"></i>
-      <input id="float-input" class="input__content--text" type="text" pInputText [(ngModel)]="value" (ngModelChange)="onChange($event)" (blur)="onTouched()" />
-      <label for="float-input" class="input__content--label">{{ floatLabelText }}</label>
+      
+      <p-floatLabel>
+        <i class="pi {{ iconConfig?.iconClassName }} input__content--icon"
+      [ngClass]="iconConfig?.iconFloat == 'p-input-icon-right' ? 'input__content--icon-right':'input__content--icon-left'"></i>
+        <input id="float-input" class="input__content--text" type="text" pInputText [(ngModel)]="value"
+          (ngModelChange)="onChange($event)" (blur)="onTouched()" />
+        <label for="float-input" class="input__content--label">{{ floatLabelText }}</label>
+      </p-floatLabel>
     </span>
   </div>
 </section>

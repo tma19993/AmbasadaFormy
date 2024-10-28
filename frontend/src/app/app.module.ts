@@ -6,7 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AFButtonModule } from 'src/stories/components/button/button.module';
 import { InputModule } from 'src/stories/components/input/input.module';
 import { AFTileModule } from 'src/stories/components/tile/tile.module';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { FooterModule } from 'src/stories/components/footer/footer.module';
 import { AFRadiobuttonModule } from "../stories/components/radiobutton/radiobutton.module";
@@ -32,59 +32,52 @@ import { AFPhotoUploaderModule } from 'src/stories/components/photo-uploader/pho
 import { AFGymPassCardModule } from 'src/stories/components/gym-pass-card/gym-pass-card.module';
 import { GymPassInfoModule } from 'src/stories/components/gym-pass-info/gym-pass-info.module';
 import { PostDetailsComponent } from './features/components/post-details/post-details.component';
-@NgModule({
-  declarations: [
-    AppComponent,
-    WelcomePageComponent,
-    LoginComponent,
-    HomePageComponent,
-    GymPassComponent,
-    MyProfileComponent,
-     ProfileComponent,
-    GymPassesComponent,
-    PersonalTrainerComponent,
-    DietsComponent,
-    TrainersComponent,
-    AdminPageComponent,
-    NewPostFormComponent,
-    BlogComponent,
-    RegisterComponent,
-    PostDetailsComponent
-  ],
-  providers: [AfMessageService, MessageService, DialogService],
-  bootstrap: [AppComponent],
-  imports: [
-    AFPhotoUploaderModule,
-    AvatarModule,
-    ReactiveFormsModule,
-    PaginatorModule,
-    AfPasswordModule,
-    AfMessagesModule,
-    MessagesModule,
-    FooterModule,
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    AfCheckboxModule,
-    DynamicDialogModule,
-    AFButtonModule,
-    InputModule,
-    AFTileModule,
-    AfInputTextareaModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    }),
-    AFRadiobuttonModule,
-    LanguageChangerModule,
-    MenuStaticModule,
-    AFProfileMenuModule,
-    AFGymPassCardModule,
-    GymPassInfoModule
-  ]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        WelcomePageComponent,
+        LoginComponent,
+        HomePageComponent,
+        GymPassComponent,
+        MyProfileComponent,
+        ProfileComponent,
+        GymPassesComponent,
+        PersonalTrainerComponent,
+        DietsComponent,
+        TrainersComponent,
+        AdminPageComponent,
+        NewPostFormComponent,
+        BlogComponent,
+        RegisterComponent,
+        PostDetailsComponent
+    ],
+    bootstrap: [AppComponent], imports: [AFPhotoUploaderModule,
+        AvatarModule,
+        ReactiveFormsModule,
+        PaginatorModule,
+        AfPasswordModule,
+        AfMessagesModule,
+        MessagesModule,
+        FooterModule,
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        AfCheckboxModule,
+        DynamicDialogModule,
+        AFButtonModule,
+        InputModule,
+        AFTileModule,
+        AfInputTextareaModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        }),
+        AFRadiobuttonModule,
+        LanguageChangerModule,
+        MenuStaticModule,
+        AFProfileMenuModule,
+        AFGymPassCardModule,
+        GymPassInfoModule], providers: [AfMessageService, MessageService, DialogService, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }

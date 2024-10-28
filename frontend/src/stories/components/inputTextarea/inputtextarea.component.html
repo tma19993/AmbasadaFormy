@@ -10,6 +10,7 @@
     </div>
     <div *ngIf="floatLabel">
     <span class="p-float-label">
+       <p-floatLabel>
         <textarea id="float-inputtextarea" pInputTextarea 
         [(ngModel)]="value"
         [rows]="size.rows"
@@ -18,6 +19,7 @@
         [disabled]="disabled"
         (ngModelChange)="onChange($event)"></textarea>
         <label for="float-inputtextarea">{{floatLabelText}}</label>
+       </p-floatLabel>
     </span>
     </div>
 </section>

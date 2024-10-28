@@ -1,23 +1,17 @@
 import {  NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MenuStaticComponent } from './menuStatic.component';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LanguageChangerModule } from "../languageChanger/languageChanger.module";
 
-@NgModule({
-    declarations: [
+@NgModule({ declarations: [
         MenuStaticComponent
     ],
     exports: [
         MenuStaticComponent
-    ],
-    imports: [
-        CommonModule,
-        HttpClientModule,
+    ], imports: [CommonModule,
         TranslateModule.forChild(),
-        LanguageChangerModule
-    ]
-})
+        LanguageChangerModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class MenuStaticModule { }

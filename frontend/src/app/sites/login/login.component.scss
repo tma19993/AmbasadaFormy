@@ -45,6 +45,12 @@
     &__justify {
     padding: 40px 200px;
     width: 100%;
+    form{
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin-bottom: 20px;
+    }
   }
 }
 
@@ -68,7 +74,6 @@
   .button__mid {
     display: flex;
     justify-content:center;
-    padding: 20px;
   }
 
 
@@ -79,7 +84,6 @@
 }
 
 .box-forgot{
-  margin-top: 10px;
   width: 100%;
   display: flex;
 

@@ -12,6 +12,22 @@
       padding: 10px 40px;
       transition: .2s;
 
+      .p-button-icon-top {
+        margin-bottom: 0.5rem;
+      }
+
+      .p-button-icon-bottom {
+        margin-top: 0.5rem;
+      }
+
+      .p-button-icon-left {
+        margin-right: 0.5rem;
+      }
+
+      .p-button-icon-right {
+        margin-left: 0.5rem;
+      }
+
       .p-button-label {
         transition-duration: 0s;
       }

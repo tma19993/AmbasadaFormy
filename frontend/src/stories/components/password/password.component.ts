@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, forwardRef, Input, Output } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, forwardRef, Input, OnInit, Output } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -14,7 +14,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     },
   ]
 })
-export class PasswordComponent implements AfterViewInit, ControlValueAccessor {
+export class PasswordComponent implements OnInit, ControlValueAccessor {
   @Input() public floatLabelText: string = '';
   @Input() public weakLabel: string = '';
   @Input() public mediumLabel: string = '';
@@ -44,11 +44,11 @@ export class PasswordComponent implements AfterViewInit, ControlValueAccessor {
     this.onTouched = fn;
   }
 
-  public ngAfterViewInit(): void {
-  setTimeout(()=>{
-    this.addIconToPasswordInput();
-    this.findIcon();
-  },0);
+  public ngOnInit(): void {
+    setTimeout(()=>{
+      this.addIconToPasswordInput();
+      this.findIcon();
+    },0);
   }
 
   public getValue():void{
@@ -62,10 +62,12 @@ export class PasswordComponent implements AfterViewInit, ControlValueAccessor {
   }
 
   private addIconToPasswordInput(): void {
+    
     document.querySelectorAll("p-password .p-password")?.forEach(element => {
-      const classList: string[] = ["pi", "pi-lock", "password__content--lock-icon"];
-      const lockIcon:HTMLElement = document.createElement("i");
-    lockIcon.classList.add(...classList);
+    const classList: string[] = ["pi", "pi-lock", "password__content--lock-icon"];
+    const lockIcon:HTMLElement = document.createElement("i");
+    if(element)
+      lockIcon.classList.add(...classList);
       element.prepend(lockIcon)
     });
   }

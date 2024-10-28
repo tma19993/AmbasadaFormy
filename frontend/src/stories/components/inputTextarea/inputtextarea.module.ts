@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { InputTextareaComponent } from './inputtextarea.component';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { FormsModule } from '@angular/forms';
+import { FloatLabelModule } from 'primeng/floatlabel';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     InputTextareaModule,
-    FormsModule
+    FormsModule,
+    FloatLabelModule
   ],
 })
 export class AfInputTextareaModule { }
