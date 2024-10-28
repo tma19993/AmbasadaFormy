@@ -1,0 +1,13 @@
+<ng-container *ngIf="postData">
+    <img *ngIf="postData.photo; else defaultAvatar" class="post-photo" [src]="'data:image/jpeg;base64,' + postData.photo" alt="Post Photo" />
+      <div class="content">
+        <p class="subheader">{{"blog.post.createAt" | translate}}: {{postData.userName}},
+            {{"blog.post.date" | translate}}:
+            {{postData.createdAt ? (postData.createdAt | date: 'dd-MM-yyyy hh:mm'): ("blog.post.someTimeAgo" | translate) }}
+          </p>
+      </div>
+
+</ng-container>
+<ng-template #defaultAvatar>
+    <img class="post-photo" src="../../../assets/backgrounds/jedzonko.png" alt="image">
+  </ng-template>

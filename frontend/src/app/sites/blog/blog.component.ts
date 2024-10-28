@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { PostModel, PageEventModel, PostSearchModel } from 'src/app/models';
+import { PostModel, PageEventModel, PostSearchModel } from 'src/app/features/models';
 import { EnumIconFloat } from 'src/stories/enums/input.enum';
 import { inputIconConfig } from 'src/stories/interfaces/input.model';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
@@ -9,6 +9,7 @@ import { BlogService } from 'src/app/api';
 import { AfMessageService } from 'src/app/features';
 import { OneRequiredValidator } from 'src/app/features/validators/one-required.validator';
 import { delay } from 'rxjs';
+import { PostDetailsComponent } from 'src/app/features/components/post-details/post-details.component';
 @Component({
   selector: 'af-blog',
   templateUrl: './blog.component.html',
@@ -54,6 +55,17 @@ export class BlogComponent implements OnInit, OnDestroy {
       this.searchForm.updateValueAndValidity();
       this.loadPosts();
     }
+  }
+
+  public openPost(post: PostModel): void{
+    this.dialogService.open(PostDetailsComponent,{
+      data: post,
+      header: post.title,
+      width: '50%',
+      contentStyle: { overflow: 'auto' },
+      baseZIndex: 10000,
+      closeOnEscape: true
+    })
   }
 
   public search(): void {

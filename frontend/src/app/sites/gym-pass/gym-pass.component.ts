@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GymPassesService } from 'src/app/api';
-import { GymPassModel } from 'src/app/models';
+import { GymPassModel } from 'src/app/features/models';
 
 @Component({
   selector: 'app-gym-pass',

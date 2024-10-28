@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'af-gym-pass-card',
@@ -11,5 +12,9 @@ export class AFGymPassCardComponent  {
   @Input() price: string;
   @Input() options: string[];
   @Input() buttonId: string;
-  constructor() {}
+  constructor(private router: Router){}
+
+  public routeToGymPasses(): void  {
+    this.router.navigate(["profile/gym-pass"]);
+    }
 }

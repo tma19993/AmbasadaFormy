@@ -63,14 +63,18 @@
     }
 
     &--post {
+      cursor: pointer;
       margin-bottom: 60px;
+      animation:appear linear;
+      animation-timeline: view();
+      animation-range: entry 0% cover 20%;
 
       &-content {
         display: flex;
 
         &-img {
           img {
-            max-width: 250px;
+            width: 250px;
           }
         }
 

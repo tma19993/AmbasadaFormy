@@ -25,23 +25,26 @@
             </af-tile>
         </div>
         <div *ngFor="let post of posts" class="blog__container--post">
-            <af-tile>
-           <div class="blog__container--post-content">
-            <div class="blog__container--post-content-img">
+          <af-tile>
+            <div class="blog__container--post-content" (click)="openPost(post)">
+              <div class="blog__container--post-content-img">
                 <div *ngIf="post.photo; else defaultAvatar" class="avatar">
-                    <img class="custom-avatar" [src]="'data:image/jpeg;base64,' + post.photo" alt="Post Photo" />
-                  </div>
+                  <img class="custom-avatar" [src]="'data:image/jpeg;base64,' + post.photo" alt="Post Photo" />
+                </div>
                 <ng-template #defaultAvatar>
-                    <img src="../../../assets/backgrounds/jedzonko.png" alt="image">
+                  <img src="../../../assets/backgrounds/jedzonko.png" alt="image">
                 </ng-template>
-            </div>
-            <div class="blog__container--post-content-text">
+              </div>
+              <div class="blog__container--post-content-text">
                 <h4 class="header">{{post.title}}</h4>
-                <p class="subheader">{{"blog.post.createAt" | translate}}: {{post.userName}}, {{"blog.post.date" | translate}}: {{post.createdAt ? (post.createdAt | date: 'shortDate'): ("blog.post.someTimeAgo" | translate) }}</p>
+                <p class="subheader">{{"blog.post.createAt" | translate}}: {{post.userName}},
+                  {{"blog.post.date" | translate}}:
+                  {{post.createdAt ? (post.createdAt | date: 'dd-MM-yyyy hh:mm'): ("blog.post.someTimeAgo" | translate) }}
+                </p>
                 <p class="content">{{post.content}}</p>
+              </div>
             </div>
-           </div>
-            </af-tile>
+          </af-tile>
         </div>
         <div class="blog__container--paginator">
             <p-paginator 

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-
+type shapeType = "square" | "circle" | undefined;
 @Component({
   selector: 'app-floatlabel',
   templateUrl: './avatar.component.html',
@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class AvatarComponent implements OnInit {
   @Input() public login: string ="";
   @Input() public size: string = "";
-  @Input() public shape: string = "";
+  @Input() public shape:shapeType = undefined;
   public letterOfLogin:string = "";
   constructor() {}
 

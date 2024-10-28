@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
-import { userDataModel } from 'src/app/models';
+import { userDataModel } from 'src/app/features/models';
 import { ProfileService } from 'src/app/api';
 
 @Component({

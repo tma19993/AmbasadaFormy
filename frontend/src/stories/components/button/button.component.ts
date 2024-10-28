@@ -25,7 +25,7 @@ export class ButtonComponent implements AfterViewInit {
     setTimeout(()=>{
       this.changeFontsize();
       this.changeIconsize();
-    },5);
+    });
     }
   }
 

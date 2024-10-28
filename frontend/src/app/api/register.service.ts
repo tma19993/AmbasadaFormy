@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { userDataModel } from '../models/user.model';
+import { userDataModel } from '../features/models/user.model';
 import { Observable, tap } from 'rxjs';
 
 @Injectable({

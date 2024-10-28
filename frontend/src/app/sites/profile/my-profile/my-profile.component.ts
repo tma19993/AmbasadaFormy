@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { userDataModel } from 'src/app/models';
+import { userDataModel } from 'src/app/features/models';
 import { ProfileService } from 'src/app/api';
 @Component({
   selector: 'app-profile',

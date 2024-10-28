@@ -1,1 +1,12 @@
-<p>gym-passes works!</p>
+<ng-container *ngIf="user.activeGymPass;else noActivePass">
+<div>
+    {{user.activeGymPass}}
+</div>
+
+</ng-container>
+<ng-template #noActivePass>
+<div class="no-active-pass">
+    <p>There is no active gym pass</p>
+    <af-button [label]="'Buy gym pass'" [fontSize]="32" buttonId="noActiveButton"></af-button>
+</div>
+</ng-template>

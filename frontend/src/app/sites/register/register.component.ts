@@ -3,8 +3,8 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AfMessageService } from 'src/app/features';
-import { userDataModel } from 'src/app/models';
-import { GenderModel, genderKey } from 'src/app/models/gender.model';
+import { userDataModel } from 'src/app/features/models';
+import { GenderModel, genderKey } from 'src/app/features/models/gender.model';
 import { LoginService, RegisterService } from 'src/app/api';
 
 import { EnumIconFloat } from 'src/stories/enums/input.enum';

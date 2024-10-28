@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProfileService } from 'src/app/api';
-import { userDataModel } from 'src/app/models';
+import { userDataModel } from 'src/app/features/models';
 
 @Component({
   selector: 'af-profile-menu',
