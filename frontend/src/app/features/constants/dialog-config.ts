@@ -5,9 +5,8 @@ export const dialogConfig: DynamicDialogConfig = {
     contentStyle: { overflow: 'auto' },
     baseZIndex: 10000,
     modal:true,
-    resizable:true
+    breakpoints: {
+    '960px': '75vw',
+    '640px': '90vw'
+},
 }
-// breakpoints: {
-//     '960px': '75vw',
-//     '640px': '90vw'
-// },
