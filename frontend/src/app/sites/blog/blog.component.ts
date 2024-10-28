@@ -44,8 +44,8 @@ export class BlogComponent implements OnInit, OnDestroy {
 }
 
   public onPageChange(event: PageEventModel):void {
-    this.currentPage = event.page;
-    this.pageSize = event.rows;
+    this.currentPage = event.page!;
+    this.pageSize = event.rows!;
     this.loadPosts();
   }
 

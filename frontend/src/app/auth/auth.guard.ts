@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate} from '@angular/router';
+
 import { LoginService } from '../api/login.service';
 import { AfMessageService } from '../features/services/message.service';
 
@@ -7,7 +7,7 @@ import { AfMessageService } from '../features/services/message.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate{
+export class AuthGuard {
 
   constructor(private loginService: LoginService, private message: AfMessageService) {}
   canActivate(): boolean {
