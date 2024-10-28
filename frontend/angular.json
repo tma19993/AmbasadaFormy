@@ -75,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "AmbasadaFormy-front:build:production"
+              "buildTarget": "AmbasadaFormy-front:build:production"
             },
             "development": {
-              "browserTarget": "AmbasadaFormy-front:build:development"
+              "buildTarget": "AmbasadaFormy-front:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "AmbasadaFormy-front:build"
+            "buildTarget": "AmbasadaFormy-front:build"
           }
         },
         "test": {
