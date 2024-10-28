@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ProfileService } from 'src/app/api';
+import { userDataModel } from 'src/app/features';
 
 @Component({
   selector: 'app-personal-trainer',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class PersonalTrainerComponent {
 
+constructor(private profileService: ProfileService){}
+
+  public get userData(): userDataModel {
+    return this.profileService.userData;
+  }
 }

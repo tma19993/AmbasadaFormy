@@ -4,26 +4,26 @@
     <div>
       <h2>Moje dane:</h2>
       <ul>
-        <li><strong>Imie Nazwisko:</strong> {{user.firstName}} {{user.lastName}}</li>
-        <li><strong>Login:</strong> {{user.login}}</li>
-        <li><strong>Email:</strong> {{user.email}}</li>
+        <li><strong>Imie Nazwisko:</strong> {{userData.firstName}} {{userData.lastName}}</li>
+        <li><strong>Login:</strong> {{userData.login}}</li>
+        <li><strong>Email:</strong> {{userData.email}}</li>
       </ul>
     </div>
     <div>
       <h2>Dane kontaktowe:</h2>
       <ul>
-        <li><strong>Imie Nazwisko:</strong> {{user.firstName}} {{user.lastName}}</li>
-        <li><strong>adres:</strong> {{user.address}}</li>
-        <li><strong>tel:</strong> {{user.phoneNumber}}</li>
+        <li><strong>Imie Nazwisko:</strong> {{userData.firstName}} {{userData.lastName}}</li>
+        <li><strong>adres:</strong> {{userData.address}}</li>
+        <li><strong>tel:</strong> {{userData.phoneNumber}}</li>
       </ul>
     </div>
     <div>
       <h2>Dane do faktury:</h2>
       <ul>
-        <li><strong>Imie Nazwisko:</strong> {{user.firstName}} {{user.lastName}}</li>
-        <li><strong>adres:</strong> {{user.address}}</li>
-        <li><strong>tel:</strong> {{user.phoneNumber}}</li>
-        <li><strong>email:</strong> {{user.email}}</li>
+        <li><strong>Imie Nazwisko:</strong> {{userData.firstName}} {{userData.lastName}}</li>
+        <li><strong>adres:</strong> {{userData.address}}</li>
+        <li><strong>tel:</strong> {{userData.phoneNumber}}</li>
+        <li><strong>email:</strong> {{userData.email}}</li>
       </ul>
     </div>
   </div>
@@ -31,6 +31,6 @@
 <div class="my-profile__menu">
   <af-photo-uploader (uploadHandler)="onUpload($event)" [customUpload]="true" />
   <af-button [label]="'Zmień hasło'" iconClassName="pi pi-unlock" />
-  <af-button [label]="'Edytuj'" iconClassName="pi pi-user-edit" />
-  <af-button [label]="'USUŃ KONTO'" iconClassName="pi pi-user-minus" (onClick)="removeUser()" />
+  <af-button [label]="'Edytuj'" iconClassName="pi pi-userData-edit" />
+  <af-button [label]="'USUŃ KONTO'" iconClassName="pi pi-userData-minus" (onClick)="removeUser()" />
 </div>

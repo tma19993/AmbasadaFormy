@@ -1,5 +1,31 @@
 @import "../../../../stories/constants/constants.scss";
 
+.active-pass{
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    p {
+        color: $input-text-dark;
+        font-weight: $font-weight-bold;
+        font-size: 42px;
+        text-align: center;
+        margin-bottom:30px ;
+        .active-pass-name{
+            color: $input-main-color;
+        }
+    }
+    .gym-pass-cards{
+        display: flex;
+
+        width: 100%;
+        gap: 30px;
+       .gym-pass-card{
+        width: 30%;
+       }
+    }
+}
+
 .no-active-pass {
     height: 100%;
     display: flex;
@@ -10,5 +36,11 @@
     p {
         font-size: 54px;
         font-weight: $font-weight-bold;
+        &.change-gyp-pass-button{
+            cursor: pointer;
+            color: $input-text-dark;
+            font-weight: $font-weight-bold;
+        }
     }
+
 }

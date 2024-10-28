@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProfileService } from 'src/app/api';
-import { userDataModel } from 'src/app/features/models';
+import { GymPassesService, ProfileService } from 'src/app/api';
+import { GymPassModel, userDataModel } from 'src/app/features/models';
 
 @Component({
   selector: 'app-gym-passes',
@@ -9,15 +9,32 @@ import { userDataModel } from 'src/app/features/models';
   styleUrls: ['./gym-passes.component.scss']
 })
 export class GymPassesComponent {
-  public user: userDataModel;
   constructor(
     private profileService: ProfileService,
+    private gymPassesService: GymPassesService
     ){}
   
     public ngOnInit(): void {
-      this.profileService.userData$.subscribe(data => {
-        this.user = data;
-      });
+      this.getGymPasses();
+    }
+
+    public changeGymPass(): void {
+      
+    }
+
+    private getGymPasses(): void{
+      if(this.gymPassesService.gymPasses.length == 0){
+        this.gymPassesService.getGymPasses();
+      }
+      
+    }
+
+    public get userData(): userDataModel {
+      return this.profileService.userData;
+    }
+
+    public get gymPasses(): GymPassModel[]{
+      return this.gymPassesService.gymPasses;
     }
   
 }

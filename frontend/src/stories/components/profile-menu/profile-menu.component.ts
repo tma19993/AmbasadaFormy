@@ -11,12 +11,11 @@ import { userDataModel } from 'src/app/features/models';
 export class AFProfileMenuComponent implements OnInit {
   @Output() BackEmmiter: EventEmitter<void> = new EventEmitter();
   @Input() isAdmin: boolean = false;
-  @Input() userData: userDataModel = {};
 
   constructor(private router: Router, private proflieService: ProfileService) { }
 
   public ngOnInit(): void {
-    this.proflieService.setUserData(this.userData);
+   
   }
 
   public logout(): void {

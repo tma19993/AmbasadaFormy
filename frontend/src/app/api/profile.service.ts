@@ -1,25 +1,22 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Injectable, signal, WritableSignal } from '@angular/core';
+import { Observable } from 'rxjs';
 import { userDataModel } from '../features/models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
-
-  public userData$: Observable<userDataModel>;
-
-  private userDataSubject = new BehaviorSubject<userDataModel>({});
+  private userDataSignal: WritableSignal<userDataModel>  = signal<userDataModel>({} as userDataModel)
   private url: string = 'http://localhost:5000';
   private userId: string | null = sessionStorage.getItem("id");
 
-  constructor(private http: HttpClient) {
-    this.userData$ = this.userDataSubject.asObservable()
-  }
+  constructor(private http: HttpClient) {}
 
-  public getUserData(): Observable<userDataModel> {
-    return this.http.get<any>(`${this.url}/getUser/${this.userId}`);
+  public getUserData(): void {
+    this.http.get<any>(`${this.url}/getUser/${this.userId}`).subscribe(val=>{
+      this.userDataSignal.set(val);
+    });
   }
 
   public changeUserData(data: any): Observable<any> {
@@ -38,7 +35,7 @@ export class ProfileService {
     return this.http.put<any>(this.url + "/uploadPhoto/" + this.userId, formData)
   }
 
-  public setUserData(userData: userDataModel): void {
-    this.userDataSubject.next(userData);
+  public get userData():userDataModel {
+    return this.userDataSignal();
   }
 }

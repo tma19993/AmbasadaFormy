@@ -2,7 +2,7 @@
     <div class="navi-bar">
         <af-menuStatic></af-menuStatic>
     </div>
-    <section class="gym-pass__container" *ngIf="gymPasses$| async as gymPasses">
+    <section class="gym-pass__container" *ngIf="gymPasses">
         <div class="gym-pass__container--header">
             <div class="gym-pass__container--header-logo">
                 <img src="../../../assets/logo/logoLightText.svg" alt="logo">
@@ -17,7 +17,7 @@
                     [title]="('gymPass.' + gymPass.name+'Pass' + '.header') | translate"
                     [subtitle]="'gymPass.' + gymPass.name+'Pass' + '.subtitle' | translate" 
                     [price]="gymPass.price + 'zł'"
-                    [options]="getOptions(gymPass.name)" 
+                    [name]="gymPass.name" 
                     [buttonId]="gymPass.name">
                   </af-gym-pass-card>
                 </div>

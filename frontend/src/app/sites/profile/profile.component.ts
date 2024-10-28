@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { Observable } from 'rxjs';
 import { userDataModel } from 'src/app/features/models';
 import { ProfileService } from 'src/app/api';
 
@@ -11,20 +10,22 @@ import { ProfileService } from 'src/app/api';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
-  public userData$: Observable<userDataModel>;
-
   constructor(
     private profileService: ProfileService,
     private router: Router,
     private translate: TranslateService) {
-    this.userData$ = this.profileService.getUserData();
   }
 
   public ngOnInit(): void {
+    this.profileService.getUserData();
     this.translate.use(sessionStorage.getItem("language")!);
   }
   
   public undo(): void {
     this.router.navigate(['/home']);
+  }
+
+  public get userData(): userDataModel {
+    return this.profileService.userData;
   }
 }

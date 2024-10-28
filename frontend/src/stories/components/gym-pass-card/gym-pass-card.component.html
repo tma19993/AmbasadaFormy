@@ -1,5 +1,5 @@
 <af-tile>
-    <div class="gym-pass-content-header">
+    <div class="gym-pass-content-header" [ngClass]="{'gym-pass-content-header-small': smallerCard}">
       <h3>{{ title | translate }}</h3>
       <p class="subtitle"><span class="quotes">&bdquo;</span>{{ subtitle | translate }}<span class="quotes">&rdquo;</span></p>
       <p class="price">{{ price }}</p>
@@ -7,12 +7,12 @@
         <span *ngIf="buttonId == 'development'">/ {{"gymPass.developmentPass.monthlyPay" | translate}}</span> 
         / {{"gymPass.shared.sub" | translate}} /</p>
     </div>
-    <div class="gym-pass-content-content">
+    <div class="gym-pass-content-content" [ngClass]="{'gym-pass-content-content-small': smallerCard}">
       <p *ngFor="let option of options">
         <i class="pi pi-check"></i> {{ option | translate }}
       </p>
     </div>
-    <div class="gym-pass-content-button">
-      <af-button [label]="'button.orderonline' | translate" [buttonId]="buttonId" [fontSize]="30" (onClick)="routeToGymPasses()"></af-button>
+    <div class="gym-pass-content-button" [ngClass]="{'gym-pass-content-button-small': smallerCard}">
+      <af-button [label]="'button.orderonline' | translate" [buttonId]="buttonId" [fontSize]="smallerCard ? 20 : 30" (onClick)="routeToGymPasses()"></af-button>
     </div>
   </af-tile>

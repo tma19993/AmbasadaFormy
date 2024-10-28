@@ -7,31 +7,29 @@ import { ProfileService } from 'src/app/api';
   templateUrl: './my-profile.component.html',
   styleUrls: ['./my-profile.component.scss']
 })
-export class MyProfileComponent implements OnInit {
-  public user: userDataModel
+export class MyProfileComponent {
 
-constructor(
-  private router: Router,
-  private profileService: ProfileService,
-  ){}
+  constructor(
+    private router: Router,
+    private profileService: ProfileService,
+  ) {}
 
-  public ngOnInit(): void {
-    this.profileService.userData$.subscribe(data => {
-      this.user = data;
+
+  public removeUser(): void {
+    this.profileService.removeUser().subscribe(() => {
+      setTimeout(() => {
+        sessionStorage.clear();
+        this.router.navigate(['/welcome']);
+      }, 2000)
+    });
+  }
+  public onUpload(event: any): void {
+    this.profileService.photoUpdate(event).subscribe(() => {
+      window.location.reload();
     });
   }
 
-public removeUser(): void {
-  this.profileService.removeUser().subscribe(()=>{
-      setTimeout(()=>{
-          sessionStorage.clear();
-          this.router.navigate(['/welcome']);
-  },2000)
-  });
-}
-public onUpload(event: any): void {
-  this.profileService.photoUpdate(event).subscribe(()=>{
-    window.location.reload();
-  });
-}
+  public get userData(): userDataModel {
+    return this.profileService.userData;
+  }
 }
