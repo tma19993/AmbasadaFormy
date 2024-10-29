@@ -1,37 +1,36 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
-import {DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
-import { FooterModule } from './footer.module';
-import { FooterComponent } from './footer.component';
+import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
+import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
+import { FooterModule } from "./footer.module";
+import { FooterComponent } from "./footer.component";
+import { TranslateModule } from "@ngx-translate/core";
 
-export default {
-  title: 'Core/Footer',
-  decorators:[
-    moduleMetadata({
-      imports: [
-        FooterModule,
-        BrowserAnimationsModule,
-      ],
-    })
-  ],
+const meta: Meta<FooterComponent> = {
+  title: "Views/Footer",
   component: FooterComponent,
-  parameters:{
-    viewport: DEFAULT_VIEWPORT
-  },
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA,
-    NO_ERRORS_SCHEMA
+  decorators: [
+    moduleMetadata({
+      imports: [FooterModule, BrowserAnimationsModule, TranslateModule.forRoot()],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
+    }),
   ],
-} as Meta;
+  parameters: {
+    viewport: DEFAULT_VIEWPORT,
+  },
+};
 
-const Template: Story  = args => ({
-  props:{
-    ...args
-  }
-})
+export default meta;
 
-export const Primary: Story = Template.bind({});
-Primary.args={
-}
+type Story = StoryObj<FooterComponent>;
 
+const Template: Story = {
+  render: (args) => ({
+    props: args,
+  }),
+};
+
+export const Primary: Story = {
+  ...Template,
+  args: {},
+};

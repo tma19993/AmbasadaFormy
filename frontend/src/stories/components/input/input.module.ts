@@ -15,7 +15,6 @@ import { FloatLabelModule } from 'primeng/floatlabel';
     InputTextModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
     FloatLabelModule
   ],
   exports: [

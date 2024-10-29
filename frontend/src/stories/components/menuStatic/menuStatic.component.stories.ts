@@ -1,16 +1,17 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
-import {DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
-import { MenuStaticModule } from './menuStatic.module';
-import { MenuStaticComponent } from './menuStatic.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { HttpLoaderFactory } from 'src/shared/untils';
+import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
+import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
+import { MenuStaticModule } from "./menuStatic.module";
+import { MenuStaticComponent } from "./menuStatic.component";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
+import { HttpLoaderFactory } from "src/shared/untils";
 
-export default {
-  title: 'Core/MenuStatic',
-  decorators:[
+const meta: Meta<MenuStaticComponent> = {
+  title: "Views/MenuStatic",
+  component: MenuStaticComponent,
+  decorators: [
     moduleMetadata({
       imports: [
         MenuStaticModule,
@@ -24,25 +25,25 @@ export default {
           },
         }),
       ],
-    })
+      schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
+    }),
   ],
-  component: MenuStaticComponent,
-  parameters:{
-    viewport: DEFAULT_VIEWPORT
+  parameters: {
+    viewport: DEFAULT_VIEWPORT,
   },
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA,
-    NO_ERRORS_SCHEMA
-  ],
-} as Meta;
+};
 
-const Template: Story  = args => ({
-  props:{
-    ...args
-  }
-})
+export default meta;
 
-export const Primary: Story = Template.bind({});
-Primary.args={
-}
+type Story = StoryObj<MenuStaticComponent>;
 
+const Template: Story = {
+  render: (args) => ({
+    props: args,
+  }),
+};
+
+export const Primary: Story = {
+  ...Template,
+  args: {},
+};

@@ -15,10 +15,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CheckboxComponent
   ],
   imports: [
-    CommonModule,
+    
     FormsModule,
     CheckboxModule,
-    BrowserAnimationsModule
+    
   ],
 })
 export class AfCheckboxModule {

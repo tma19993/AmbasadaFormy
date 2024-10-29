@@ -1,75 +1,94 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryObj } from '@storybook/angular';
 import { DEFAULT_VIEWPORT } from '@storybook/addon-viewport';
 import { ButtonComponent } from './button.component';
 import { AFButtonModule } from './button.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 
-export default {
+const meta: Meta<ButtonComponent> = {
   title: 'Core/Button',
+  component: ButtonComponent,
   decorators: [
     moduleMetadata({
-      imports: [AFButtonModule, BrowserAnimationsModule],
+      imports: [AFButtonModule],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     }),
   ],
-  component: ButtonComponent,
   parameters: {
     viewport: DEFAULT_VIEWPORT,
   },
-  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-} as Meta;
+};
 
-const Template: Story = (args) => ({
-  props: {
-    ...args,
-  },
-});
-export const FewButtons:Story = ()=>({
-  template:`
-  <af-button [label]="label" [buttonId]="'pierwszy'" [fontSize]="30"></af-button>
-  <br/>
-  <af-button [label]="label" [buttonId]="'drugi'" [fontSize]="10"></af-button>
-  `,
-  props:{
+export default meta;
+
+type Story = StoryObj<ButtonComponent>;
+
+const Template: Story = {
+  render: (args) => ({
+    props: args,
+  }),
+};
+
+export const FewButtons: Story = {
+  render: () => ({
+    template: `
+      <af-button [label]="label" [buttonId]="'pierwszy'" [fontSize]="30"></af-button>
+      <br />
+      <af-button [label]="label" [buttonId]="'drugi'" [fontSize]="10"></af-button>
+    `,
+    props: {
+      label: 'Button',
+      fontSize: 30,
+    },
+  }),
+};
+
+export const Primary: Story = {
+  ...Template,
+  args: {
     label: 'Button',
-    fontSize: 30
-  }
-})
-
-export const Primary: Story = Template.bind({});
-Primary.args = {
-  label: 'Button',
-  iconPos: 'left',
-  fontSize: 30
-};
-export const WhiteButton: Story = Template.bind({});
-WhiteButton.args = {
-  label: 'Button',
-  whiteButton:true,
-  fontSize: 50
+    iconPos: 'left',
+    fontSize: 30,
+  },
 };
 
-export const Disabled: Story = Template.bind({});
-Disabled.args = {
-  label: 'Button',
-  iconPos: 'left',
-  fontSize: 30,
-  disabled:true
+export const WhiteButton: Story = {
+  ...Template,
+  args: {
+    label: 'Button',
+    whiteButton: true,
+    fontSize: 50,
+  },
 };
 
-export const TransparentButton: Story = Template.bind({});
-TransparentButton.args = {
-  label: 'Button',
-  iconPos: 'left',
-  fontSize: 30,
-  transparentButton: true
+export const Disabled: Story = {
+  ...Template,
+  args: {
+    label: 'Button',
+    iconPos: 'left',
+    fontSize: 30,
+    disabled: true,
+  },
 };
-export const TransparentButtonWithIconOnTop: Story = Template.bind({});
-TransparentButtonWithIconOnTop.args = {
-  label: 'Button',
-  iconPos: 'top',
-  iconClassName:"pi-undo",
-  fontSize: 15,
-  iconSize:30,
-  transparentButton: true
+
+export const TransparentButton: Story = {
+  ...Template,
+  args: {
+    label: 'Button',
+    iconPos: 'left',
+    fontSize: 30,
+    transparentButton: true,
+  },
+};
+
+export const TransparentButtonWithIconOnTop: Story = {
+  ...Template,
+  args: {
+    label: 'Button',
+    iconPos: 'top',
+    iconClassName: "pi-undo",
+    fontSize: 15,
+    iconSize: 30,
+    transparentButton: true,
+  },
 };

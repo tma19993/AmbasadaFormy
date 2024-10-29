@@ -11,13 +11,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     ],
     exports: [
         LanguageChangerComponent
-    ], imports: [CommonModule,
+    ], imports: [
+        CommonModule,
         FormsModule,
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: (handler: HttpClient) => { return new TranslateHttpLoader(handler, './assets/i18n/', '.json'); },
-                deps: [HttpClient]
-            }
-        })], providers: [provideHttpClient(withInterceptorsFromDi())] })
+       ], 
+       providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class LanguageChangerModule { }

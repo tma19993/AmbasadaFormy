@@ -14,10 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ButtonComponent
   ],
   imports: [
-    CommonModule,
     ButtonModule,
     FormsModule,
-    BrowserAnimationsModule,
   ],
 })
 export class AFButtonModule { }

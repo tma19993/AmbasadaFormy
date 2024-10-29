@@ -1,56 +1,68 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
-import { DEFAULT_VIEWPORT } from '@storybook/addon-viewport';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
-import { AFRadiobuttonModule } from './radiobutton.module';
-import { RadioButtonComponent } from './radiobutton.component';
-import { FormsModule } from '@angular/forms';
-import { Categories } from 'src/stories/interfaces/radiobutton.model';
+import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
+import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
+import { AFRadiobuttonModule } from "./radiobutton.module";
+import { RadioButtonComponent } from "./radiobutton.component";
+import { FormsModule } from "@angular/forms";
+import { Categories } from "src/stories/interfaces/radiobutton.model";
 
-
-export default {
-  title: 'Core/RadioButton',
+const meta: Meta<RadioButtonComponent> = {
+  title: "Core/RadioButton",
+  component: RadioButtonComponent,
   decorators: [
     moduleMetadata({
       imports: [AFRadiobuttonModule, BrowserAnimationsModule, FormsModule],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     }),
   ],
-  component: RadioButtonComponent,
   parameters: {
     viewport: DEFAULT_VIEWPORT,
   },
-  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-} as Meta;
+};
 
-const Template: Story = (args) => ({
-  props: {
-    ...args,
+export default meta;
+
+type Story = StoryObj<RadioButtonComponent>;
+
+const Template: Story = {
+  render: (args) => ({
+    props: {
+      ...args,
+    },
+  }),
+};
+
+export const Primary: Story = {
+  ...Template,
+  args: {
+    categories: [
+      { name: "Option 1", key: "male" },
+      { name: "Option 2", key: "female" },
+      { name: "Option 3", key: "other" },
+    ],
   },
-});
-
-export const Primary: Story = Template.bind({});
-Primary.args = {
-  categories: [
-    { name: 'Option 1', key: 'option1' },
-    { name: 'Option 2', key: 'option2' },
-    { name: 'Option 3', key: 'option3' },
-  ],
-};
-export const Secondary: Story = Template.bind({});
-Secondary.args = {
-  categories: [
-    { name: 'Option 1', key: 'option1' },
-    { name: 'Option 2', key: 'option2' },
-    { name: 'Option 3', key: 'option3' },
-  ],
-  disabled: true,
 };
 
-export const CustomLabels = Template.bind({});
-CustomLabels.args = {
-  categories: [
-    { name: 'Male', key: 'M' },
-    { name: 'Female', key: 'F' },
-    { name: 'Other', key: 'O' },
-  ],
+export const Secondary: Story = {
+  ...Template,
+  args: {
+    categories: [
+      { name: "Option 1", key: "male" },
+      { name: "Option 2", key: "female" },
+      { name: "Option 3", key: "other" },
+    ],
+    disabled: true,
+  },
+};
+
+export const CustomLabels: Story = {
+  ...Template,
+  args: {
+    categories: [
+      { name: "Male", key: "male" },
+      { name: "Female", key: "female" },
+      { name: "Other", key: "other" },
+    ],
+  },
 };

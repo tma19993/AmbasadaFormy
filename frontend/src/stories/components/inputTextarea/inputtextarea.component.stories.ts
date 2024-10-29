@@ -1,45 +1,44 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
-import {DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
-import { InputTextareaComponent } from './inputtextarea.component';
-import { AfInputTextareaModule } from './inputtextarea.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
+import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
+import { InputTextareaComponent } from "./inputtextarea.component";
+import { AfInputTextareaModule } from "./inputtextarea.module";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
 
-export default {
-  title: 'Core/InputTextarea',
-  decorators:[
-    moduleMetadata({
-      imports: [
-        AfInputTextareaModule,
-        BrowserAnimationsModule,
-      ],
-    })
-  ],
+const meta: Meta<InputTextareaComponent> = {
+  title: "Core/InputTextarea",
   component: InputTextareaComponent,
-  parameters:{
-    viewport: DEFAULT_VIEWPORT
-  },
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA,
-    NO_ERRORS_SCHEMA
+  decorators: [
+    moduleMetadata({
+      imports: [AfInputTextareaModule, BrowserAnimationsModule],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
+    }),
   ],
-} as Meta;
-
-const Template: Story  = args => ({
-  props:{
-    ...args
-  }
-})
-
-export const Primary: Story = Template.bind({});
-Primary.args={
-  size:{
-    rows:5,
-    cols:20
+  parameters: {
+    viewport: DEFAULT_VIEWPORT,
   },
-  autoResize:true,
-  disabled:false,
-  floatLabel:true,
-  floatLabelText: "Text"
-}
+};
 
+export default meta;
+
+type Story = StoryObj<InputTextareaComponent>;
+
+const Template: Story = {
+  render: (args) => ({
+    props: args,
+  }),
+};
+
+export const Primary: Story = {
+  ...Template,
+  args: {
+    size: {
+      rows: 5,
+      cols: 20,
+    },
+    autoResize: true,
+    disabled: false,
+    floatLabel: true,
+    floatLabelText: "Text",
+  },
+};

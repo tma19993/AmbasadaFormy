@@ -14,6 +14,10 @@
         .active-pass-name{
             color: $input-main-color;
         }
+       
+    }
+    &-inactive{
+        color: red;
     }
     .gym-pass-cards{
         display: flex;

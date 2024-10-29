@@ -1,38 +1,31 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
-import {DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
-import { LanguageChangerComponent } from './languageChanger.component';
-import { LanguageChangerModule } from './languageChanger.module';
-
+import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
+import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
+import { LanguageChangerComponent } from "./languageChanger.component";
+import { LanguageChangerModule } from "./languageChanger.module";
+import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
+import { HttpLoaderFactory } from "src/shared/untils";
+import { HttpClient } from "@angular/common/http";
 
 export default {
-  title: 'Core/Language Changer',
-  decorators:[
+  title: "Core/Language Changer",
+  decorators: [
     moduleMetadata({
-      imports: [
-        LanguageChangerModule,
-        BrowserAnimationsModule,
+      imports: [LanguageChangerModule, 
+        
       ],
-    })
+    }),
   ],
   component: LanguageChangerComponent,
-  parameters:{
-    viewport: DEFAULT_VIEWPORT
+  parameters: {
+    viewport: DEFAULT_VIEWPORT,
   },
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA,
-    NO_ERRORS_SCHEMA
-  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 } as Meta;
 
-const Template: Story  = args => ({
-  props:{
-    ...args
-  }
-})
+type Story = StoryObj<typeof LanguageChangerComponent>
 
-export const Primary: Story = Template.bind({});
-Primary.args={
+export const Primary: Story = {
+  args:{}
 }
-

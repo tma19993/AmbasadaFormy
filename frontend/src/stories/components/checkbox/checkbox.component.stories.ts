@@ -1,48 +1,47 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
-import {DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
-import { CheckboxComponent } from './checkbox.component';
-import { AfCheckboxModule } from './checkbox.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { Binary } from '@angular/compiler';
+import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
+import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
+import { CheckboxComponent } from "./checkbox.component";
+import { AfCheckboxModule } from "./checkbox.module";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 
-export default {
-  title: 'Core/Checkbox',
-  decorators:[
-    moduleMetadata({
-      imports: [
-        AfCheckboxModule,
-        BrowserAnimationsModule,
-        FormsModule
-      ],
-    })
-  ],
+const meta: Meta<CheckboxComponent> = {
+  title: "Core/Checkbox",
   component: CheckboxComponent,
-  parameters:{
-    viewport: DEFAULT_VIEWPORT
-  },
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA,
-    NO_ERRORS_SCHEMA
+  decorators: [
+    moduleMetadata({
+      imports: [AfCheckboxModule, BrowserAnimationsModule, FormsModule],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
+    }),
   ],
-} as Meta;
+  parameters: {
+    viewport: DEFAULT_VIEWPORT,
+  },
+};
 
-const Template: Story  = args => ({
-  props:{
-    ...args
-  }
-})
+export default meta;
 
-export const Primary: Story = Template.bind({});
-Primary.args={
-  label: "Value1",
-  binary: false,
-  disabled: false
-}
-export const Secondary: Story = Template.bind({});
-Primary.args={
-  label: "Value1",
-  binary: true,
-  disabled: true
-}
+type Story = StoryObj<CheckboxComponent>;
+
+const Template: Story = {
+  render: (args) => ({
+    props: args,
+  }),
+};
+
+export const Primary: Story = {
+  ...Template,
+  args: {
+    label: "Value1",
+    disabled: false,
+  },
+};
+
+export const Secondary: Story = {
+  ...Template,
+  args: {
+    label: "Value1",
+    disabled: true,
+  },
+};

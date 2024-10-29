@@ -1,6 +1,7 @@
 import { NgStyle } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { examplePersonalTrainerModel } from '../../interfaces/autocomplete.model';
+import { examplePersonalTrainerModel } from 'src/stories/interfaces/autocomplete.model';
+
 
 @Component({
   selector: 'af-autocomplete',
@@ -11,7 +12,7 @@ export class AutocompleteComponent {
 
 @Input() public suggestions: examplePersonalTrainerModel[] = [];
 @Input() public dropdown: boolean = false;
-@Input() public filedName: string = "name";
+@Input() public fieldName: string = "name";
 @Input() public minLength: number = 1;
 @Input() public maxLength: number = 255;
 @Input() public multiple: boolean = false; 

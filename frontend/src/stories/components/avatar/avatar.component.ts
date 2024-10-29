@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 type shapeType = "square" | "circle" | undefined;
 @Component({
-  selector: 'app-floatlabel',
+  selector: 'af-avatar',
   templateUrl: './avatar.component.html',
   styleUrls: ['./avatar.component.scss'],
 })
