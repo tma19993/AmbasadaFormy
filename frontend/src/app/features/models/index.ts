@@ -4,3 +4,4 @@ export * from "./login.model";
 export * from "./user.model";
 export * from "./page-event.model";
 export * from "./gym-pass.model";
+export * from "./gym-pass-requests.model";

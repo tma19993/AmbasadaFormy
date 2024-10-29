@@ -124,11 +124,10 @@ module.exports = function (users) {
 
   });
 
-  router.patch("/updataUserData/:id", async (req, res) => {
+  router.put("/updateUserData/:id", async (req, res) => {
     const userId = req.params.id;
-    
       const [error,result] = await catchError(users.updateOne({
-        _id: ObjectId(userId)
+        _id: new ObjectId(userId)
       }, {
         $set: {
           ...req.body
@@ -140,11 +139,12 @@ module.exports = function (users) {
     }
     else { 
       if (result.modifiedCount === 1) {
-        res.status(200).send("Dane użytkownika zostały zaktualizowane.");
+        res.status(200);
       } else {
         res.status(404).send("Nie znaleziono użytkownika o podanym ID.");
       }
     }
   });
+
   return router;
 }

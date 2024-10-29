@@ -32,8 +32,10 @@ import { AFPhotoUploaderModule } from 'src/stories/components/photo-uploader/pho
 import { AFGymPassCardModule } from 'src/stories/components/gym-pass-card/gym-pass-card.module';
 import { GymPassInfoModule } from 'src/stories/components/gym-pass-info/gym-pass-info.module';
 import { PostDetailsComponent } from './features/components/post-details/post-details.component';
-import { DatePipe } from '@angular/common';
+import { OrderGymPassComponent } from './features/components/order-gym-pass/order-gym-pass.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({ declarations: [
+    OrderGymPassComponent,
         AppComponent,
         WelcomePageComponent,
         LoginComponent,
@@ -81,6 +83,7 @@ import { DatePipe } from '@angular/common';
         MenuStaticModule,
         AFProfileMenuModule,
         AFGymPassCardModule,
+        BrowserAnimationsModule, 
         GymPassInfoModule], 
         providers: [
             AfMessageService, 

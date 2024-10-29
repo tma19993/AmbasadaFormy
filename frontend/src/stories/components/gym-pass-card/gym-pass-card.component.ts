@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'af-gym-pass-card',
@@ -13,17 +12,20 @@ export class AFGymPassCardComponent implements OnInit{
   @Input() public name: string;
   @Input() public buttonId: string;
   @Input() public smallerCard: boolean = false;
+  @Input() public passId: string;
+
+  @Output() public emitOrder:EventEmitter<{passId: string}> = new EventEmitter();
 
   public options: string[];
 
-  constructor(private router: Router){}
+  constructor(){}
 
   public ngOnInit(): void {
       this.options = this.getOptions(this.name);
   }
 
-  public routeToGymPasses(): void  {
-    this.router.navigate(["profile/gym-pass"]);
+  public orderGymPass(): void  {
+    this.emitOrder.emit({passId: this.passId})
     }
     private getOptions(name: string): string[] {
   switch (name) {

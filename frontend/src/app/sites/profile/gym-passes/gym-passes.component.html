@@ -1,6 +1,6 @@
 
   <div class="active-pass">
-    <p>Your active gym pass: <span class="active-pass-name" *ngIf="!userData.activeGymPass; else noActivePass">{{('gymPass.' + userData.gympassName+'Pass' + '.header') | translate }}</span></p>
+    <p>Your active gym pass: <span class="active-pass-name" *ngIf="userData.activeGymPass; else noActivePass">{{('gymPass.' + userData.gympassName+'Pass' + '.header') | translate }}</span></p>
     <div class="gym-pass-cards">
       <ng-container *ngFor="let gymPass of gymPasses">
         <div class="gym-pass-card">
@@ -10,12 +10,17 @@
             [price]="gymPass.price + 'zł'"
             [name]="gymPass.name" 
             [buttonId]="gymPass.name"
-            [smallerCard]="true"></af-gym-pass-card>
+            [smallerCard]="true"
+            (emitOrder)="changeGymPass(gymPass)"></af-gym-pass-card>
         </div>
       </ng-container>
     </div>
   </div>
+  <p>If you want to deactive your gym pass <af-button label="click here" (onClick)="DeactivePass()"/></p>
 
 <ng-template #noActivePass>
     <span class="active-pass-inactive">no active gym pass</span>
   </ng-template>
+  <div class="validoation__container">
+    <af-messages [closable]="true"></af-messages>
+</div>

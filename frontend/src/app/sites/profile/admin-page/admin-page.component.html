@@ -1,1 +1,5 @@
-<p>admin-page works!</p>
+@if(!!requestsData){
+    @for(request of requestsData; track request.userName){
+        {{request.userName}}
+    }
+}

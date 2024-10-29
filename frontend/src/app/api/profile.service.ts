@@ -19,8 +19,8 @@ export class ProfileService {
     });
   }
 
-  public changeUserData(data: any): Observable<any> {
-    return this.http.post<any>(this.url + "/changeUserData/" + this.userId, data);
+  public updateUserData(data: userDataModel): Observable<userDataModel> {
+    return this.http.put<userDataModel>(this.url + "/updateUserData/" + this.userId, data);
   }
 
   public removeUser(): Observable<any> {
