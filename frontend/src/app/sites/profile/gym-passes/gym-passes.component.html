@@ -1,6 +1,6 @@
 
   <div class="active-pass">
-    <p>Your active gym pass: <span class="active-pass-name" *ngIf="userData.activeGymPass; else noActivePass">{{('gymPass.' + userData.gympassName+'Pass' + '.header') | translate }}</span></p>
+    <p class="active-pass-label">Your active gym pass: <span class="active-pass-name" *ngIf="userData.activeGymPass; else noActivePass">{{('gymPass.' + userData.gympassName+'Pass' + '.header') | translate }}</span></p>
     <div class="gym-pass-cards">
       <ng-container *ngFor="let gymPass of gymPasses">
         <div class="gym-pass-card">
@@ -15,8 +15,11 @@
         </div>
       </ng-container>
     </div>
+    @if(userData.activeGymPass){
+    <p class="deactive-pass">If you want to deactive your gym pass <af-button style="margin-top: 2px;" label="click here" (onClick)="DeactivePass()" [fontSize]="12" [transparentButton]="true"/></p>
+    }
   </div>
-  <p>If you want to deactive your gym pass <af-button label="click here" (onClick)="DeactivePass()"/></p>
+  
 
 <ng-template #noActivePass>
     <span class="active-pass-inactive">no active gym pass</span>

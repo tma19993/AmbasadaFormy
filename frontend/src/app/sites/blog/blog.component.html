@@ -10,14 +10,14 @@
                 <form [formGroup]="searchForm">
               <div class="blog__container--search--content">
                <div class="reset">
-                <af-button [label]="'blog.search.reset' | translate" (onClick)="loadDefault()" [fontSize]="10" iconClassName="pi-undo" iconPos="top" [transparentButton]="true"></af-button>
+                <af-button [label]="'blog.search.reset' | translate" type="reset" [disabled]="submitted() || searchForm.pristine" [fontSize]="13" iconClassName="pi-undo" iconPos="top" [transparentButton]="true"></af-button>
                </div>
                 <div class="inputs">
                     <af-input formControlName="title" [iconConfig]="searchIconConfig" [floatLabel]="true" [floatLabelText]="'blog.search.title' | translate"></af-input>
                     <af-input formControlName="userName" [iconConfig]="searchIconConfig" [floatLabel]="true" [floatLabelText]="'blog.search.user' | translate"></af-input>
                </div>
                <div class="buttons">
-                <af-button [label]="'blog.search.searchLabel' | translate" (onClick)="search()"></af-button>
+                <af-button [label]="'blog.search.searchLabel' | translate" (onClick)="search()" [disabled]="submitted() || searchForm.pristine"></af-button>
                <af-button [label]="'blog.addPost' | translate" iconClassName="pi pi-plus" (onClick)="addNewPost()"></af-button>
                </div>
               </div>
@@ -49,6 +49,7 @@
         <div class="blog__container--paginator">
             <p-paginator 
         (onPageChange)="onPageChange($event)" 
+        [first]="firstPosts"
         [rows]="pageSize" 
         [totalRecords]="totalRecords"  
         />

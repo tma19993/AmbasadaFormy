@@ -1,12 +1,22 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { ProfileService } from 'src/app/api';
-import { userDataModel } from 'src/app/features/models';
+import { AppRoutingModule } from 'src/app/app-routing.module';
+import { AFButtonComponent } from '../button/button.component';
 
 @Component({
   selector: 'af-profile-menu',
   templateUrl: './profile-menu.component.html',
-  styleUrls: ['./profile-menu.component.scss']
+  styleUrls: ['./profile-menu.component.scss'],
+  standalone: true,
+  imports:[
+    CommonModule,
+    AFButtonComponent,
+    TranslateModule,
+    AppRoutingModule,
+  ]
 })
 export class AFProfileMenuComponent implements OnInit {
   @Output() BackEmmiter: EventEmitter<void> = new EventEmitter();

@@ -1,13 +1,14 @@
 <section class="button__container" [class]="buttonId ? buttonId:''">
     <p-button 
-    class="button__content"
-    [ngClass]="{'transparent-button':transparentButton,
-    'white-button': whiteButton}"
+      class="button__content"
+      [type]="type"
+      [ngClass]="{'transparent-button':transparentButton,
+      'white-button': whiteButton}"
+      [style]="{'fontSize': fontSize + 'px'}"
       [label]="label.toUpperCase()"
       [iconPos]="iconPos"
       [icon]="'pi ' + iconClassName"
       (click)="click()"
-      [disabled]="disabled"
-      >
+      [disabled]="disabled">
     </p-button>
   </section>

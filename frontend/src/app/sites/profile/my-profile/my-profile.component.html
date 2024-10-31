@@ -29,8 +29,8 @@
   </div>
 </div>
 <div class="my-profile__menu">
-  <af-photo-uploader (uploadHandler)="onUpload($event)" [customUpload]="true" />
-  <af-button [label]="'Zmień hasło'" iconClassName="pi pi-unlock" />
-  <af-button [label]="'Edytuj'" iconClassName="pi pi-userData-edit" />
+  <af-photo-uploader (uploadHandler)="onUpload($event)" [customUpload]="true" [fontSize]="20"/>
+  <af-button [label]="'Zmień hasło'" iconClassName="pi pi-unlock" (onClick)="changePassword()"/>
+  <af-button [label]="'Edytuj'" iconClassName="pi pi-userData-edit" (onClick)="editProfileData()"/>
   <af-button [label]="'USUŃ KONTO'" iconClassName="pi pi-userData-minus" (onClick)="removeUser()" />
 </div>

@@ -2,17 +2,16 @@ import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
-import { AFRadiobuttonModule } from "./radiobutton.module";
-import { RadioButtonComponent } from "./radiobutton.component";
+import { RadioButtonsComponent } from "./radiobutton.component";
 import { FormsModule } from "@angular/forms";
 import { Categories } from "src/stories/interfaces/radiobutton.model";
 
-const meta: Meta<RadioButtonComponent> = {
+const meta: Meta<RadioButtonsComponent> = {
   title: "Core/RadioButton",
-  component: RadioButtonComponent,
+  component: RadioButtonsComponent,
   decorators: [
     moduleMetadata({
-      imports: [AFRadiobuttonModule, BrowserAnimationsModule, FormsModule],
+      imports: [BrowserAnimationsModule, FormsModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     }),
   ],
@@ -23,7 +22,7 @@ const meta: Meta<RadioButtonComponent> = {
 
 export default meta;
 
-type Story = StoryObj<RadioButtonComponent>;
+type Story = StoryObj<RadioButtonsComponent>;
 
 const Template: Story = {
   render: (args) => ({

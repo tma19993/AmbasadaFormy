@@ -1,13 +1,22 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Input,  Output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { ButtonModule } from 'primeng/button';
 import { ButtonIconPosition } from 'src/stories/enums/button.enum';
 @Component({
   selector: 'af-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports:[
+    CommonModule,
+    ButtonModule,
+    FormsModule,
+  ]
 })
-export class ButtonComponent implements AfterViewInit {
+export class AFButtonComponent {
   @Input() public label: string = '';
+  @Input() public type: string = "button";
   @Input() public iconClassName: string = '';
   @Input() public iconPos: ButtonIconPosition = 'left';
   @Input() public fontSize: number = 20;
@@ -20,25 +29,8 @@ export class ButtonComponent implements AfterViewInit {
 
   constructor() {
   }
-  public ngAfterViewInit(): void {
-    if(!!this.buttonId){
-    setTimeout(()=>{
-      this.changeFontsize();
-      this.changeIconsize();
-    });
-    }
-  }
-
   public click(): void {
     this.onClick.emit();
   }
-  public changeFontsize():void {
-   const element: HTMLElement= document.querySelector(`.${this.buttonId} p-button button.p-button span.p-button-label`) as HTMLElement;
-   element.style.fontSize = this.fontSize + "px";
-  };
 
-  public changeIconsize():void {
-    const element: HTMLElement= document.querySelector(`.${this.buttonId} p-button button.p-button span.p-button-icon`) as HTMLElement;
-    element.style.fontSize = this.iconSize + "px";
-  }
 }

@@ -62,7 +62,6 @@ export class PasswordComponent implements OnInit, ControlValueAccessor {
   }
 
   private addIconToPasswordInput(): void {
-    
     document.querySelectorAll("p-password .p-password")?.forEach(element => {
     const classList: string[] = ["pi", "pi-lock", "password__content--lock-icon"];
     const lockIcon:HTMLElement = document.createElement("i");

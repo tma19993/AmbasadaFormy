@@ -14,30 +14,32 @@ const router = express.Router();
 const upload = multer({ storage: multer.memoryStorage() });
 
 module.exports = function (blog, users) {
+
   router.get("/getBlog", async (req, res) => {
     const page = parseInt(req.query.page) || 1;
     const size = parseInt(req.query.size) || 5;
     const title = req.query.title || '';
     const userName = req.query.userName || '';
-    let posts;
-      const blogData = await mapDataFromCollection(blog);
-      if (title.length > 0 || userName.length > 0) {
-        const filteredData = blogData.filter(post => {
-          const postTitle = String(post.title || '').toLowerCase();
-          const postUserName = String(post.userName || '').toLowerCase();
-          const matchesTitle = postTitle.includes(title.toLowerCase());
-          const matchesUserName = postUserName.includes(userName.toLowerCase());
-          return matchesTitle && matchesUserName;
-        });
-        posts = getPostsFromDB(page, size, filteredData.reverse());
-      } else {
-        posts = getPostsFromDB(page, size, blogData.reverse());
-      }
+    const blogData = await mapDataFromCollection(blog);
+    if (title.length > 0 || userName.length > 0) {
+      const filteredData = blogData.filter(post => {
+        const postTitle = String(post.title || '').toLowerCase();
+        const postUserName = String(post.userName || '').toLowerCase();
+        const matchesTitle = postTitle.includes(title.toLowerCase());
+        const matchesUserName = postUserName.includes(userName.toLowerCase());
+        return matchesTitle || matchesUserName;
+      });
       res.status(200).json({
-        posts: posts,
+        posts: getPostsFromDB(page, size, filteredData.reverse()),
+        totalRecords: filteredData.length
+      });
+    } else {
+      res.status(200).json({
+        posts: getPostsFromDB(page, size, blogData.reverse()),
         totalRecords: blogData.length
       });
-    } 
+    }
+  }
   );
 
   router.post("/addPost", upload.single('photo'), async (req, res) => {

@@ -13,7 +13,7 @@ export class BlogService {
 
   public getBlogData(page: number, size: number, searchData?: PostSearchModel): Observable<ApiPostsModel> {
     let params;
-    if(searchData){
+    if(searchData && (searchData.title != null  || searchData.userName != null )){
       const {title, userName } = searchData;
       params = new HttpParams().set("title",title!).set("userName",userName!).set('page', page).set('size', size);
     }

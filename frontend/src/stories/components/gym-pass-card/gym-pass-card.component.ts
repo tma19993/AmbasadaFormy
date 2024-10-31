@@ -1,9 +1,20 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AFTileComponent } from '../tile/tile.component';
+import { TranslateModule } from '@ngx-translate/core';
+import { AFButtonComponent } from '../button/button.component';
+
 
 @Component({
   selector: 'af-gym-pass-card',
   templateUrl: "./gym-pass-card.component.html",
   styleUrls: ['./gym-pass-card.component.scss'],
+  standalone: true,
+  imports: [CommonModule,
+    AFButtonComponent,
+    AFTileComponent,
+    TranslateModule
+  ],
 })
 export class AFGymPassCardComponent implements OnInit{
   @Input() public title: string;

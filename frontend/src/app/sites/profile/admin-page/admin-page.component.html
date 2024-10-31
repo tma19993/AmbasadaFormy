@@ -1,5 +1,7 @@
 @if(!!requestsData){
     @for(request of requestsData; track request.userName){
-        {{request.userName}}
+        <div>
+            {{request.userName}}
+        </div>
     }
 }

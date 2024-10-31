@@ -1,5 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
+import { FormGroup, FormResetEvent, NonNullableFormBuilder, PristineChangeEvent, ValueChangeEvent } from '@angular/forms';
 import { PostModel, PageEventModel, PostSearchModel } from 'src/app/features/models';
 import { EnumIconFloat } from 'src/stories/enums/input.enum';
 import { inputIconConfig } from 'src/stories/interfaces/input.model';
@@ -7,35 +7,41 @@ import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { NewPostFormComponent } from 'src/app/features/components';
 import { BlogService } from 'src/app/api';
 import { AfMessageService, dialogConfig, OneRequiredValidator } from 'src/app/features';
-import { delay } from 'rxjs';
+import { delay, every } from 'rxjs';
 import { PostDetailsComponent } from 'src/app/features/components/post-details/post-details.component';
-import { TranslateService } from '@ngx-translate/core';
-import { DatePipe } from '@angular/common';
+
 @Component({
   selector: 'af-blog',
   templateUrl: './blog.component.html',
   styleUrls: ['./blog.component.scss']
 })
 export class BlogComponent implements OnInit, OnDestroy {
+  private fb = inject(NonNullableFormBuilder)
+  private blogService = inject(BlogService);
+  private dialogService = inject(DialogService);
+  private message = inject(AfMessageService);
+
+  public submitted = signal(false);
+
   public posts: PostModel[];
   public currentPage: number = 0;
+  public firstPosts: number = 0;
   public totalRecords: number;
   public pageSize: number = 5;
-  public searchForm: FormGroup;
+  public searchForm: FormGroup =  this.fb.group({
+    title: [null],
+    userName: [null]
+  },{validators: OneRequiredValidator()})
+
   public searchIconConfig: inputIconConfig = {
     iconClassName: "pi-search",
     iconFloat: EnumIconFloat.left
   }
-  private  ref: DynamicDialogRef | undefined;
-
-  constructor(private blogService: BlogService,
-    private formBuilder: FormBuilder,
-    private dialogService: DialogService,
-    private message: AfMessageService) { }
-
+  private  ref: DynamicDialogRef;
+  
   public ngOnInit(): void {
-    this.initForm();
     this.loadPosts();  
+    this.setFormEvents();
   }
 
   public ngOnDestroy():void {
@@ -46,16 +52,10 @@ export class BlogComponent implements OnInit, OnDestroy {
 
   public onPageChange(event: PageEventModel):void {
     this.currentPage = event.page!;
+    this.firstPosts = event.first!;
     this.pageSize = event.rows!;
-    this.loadPosts();
-  }
-
-  public loadDefault(): void {
-    if (this.searchForm.valid) {
-      this.searchForm.reset();
-      this.searchForm.updateValueAndValidity();
-      this.loadPosts();
-    }
+    const searchData =  this.searchForm.value ? { ...this.searchForm.value } : undefined;
+    this.loadPosts(searchData);
   }
 
   public openPost(post: PostModel): void {
@@ -68,6 +68,8 @@ export class BlogComponent implements OnInit, OnDestroy {
 
   public search(): void {
     if (this.searchForm.valid) {
+      this.currentPage = 0;
+      this.firstPosts = 0;
       this.loadPosts({ ...this.searchForm.value });
     }
   }
@@ -80,6 +82,8 @@ export class BlogComponent implements OnInit, OnDestroy {
     this.ref.onClose.pipe(delay(1000)).subscribe((value) => {
       if(value){
       this.message.addSuccesMessage("dodano post");
+      this.currentPage = 0;
+      this.firstPosts = 0;
       this.loadPosts();
       }
     })
@@ -92,11 +96,15 @@ export class BlogComponent implements OnInit, OnDestroy {
     })
   }
 
-  private initForm(): void {
-    this.searchForm = this.formBuilder.group({
-      title: [null],
-      userName: [null]
-    },{validators: OneRequiredValidator()})
+  private setFormEvents():void{
+    this.searchForm.events.subscribe(event=>{
+      if((event instanceof FormResetEvent)){
+        this.submitted.set(false);
+        this.currentPage = 0;
+        this.firstPosts = 0;
+          this.loadPosts();
+      }
+    })
   }
 
 }
