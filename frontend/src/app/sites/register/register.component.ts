@@ -25,6 +25,21 @@ export class RegisterComponent implements OnInit {
     iconClassName: 'pi-envelope',
     iconFloat: EnumIconFloat.left,
   };
+
+  public phoneIconConfig: inputIconConfig = {
+    iconClassName: 'pi-phone',
+    iconFloat: EnumIconFloat.left,
+  };
+
+  public emailIconConfig: inputIconConfig = {
+    iconClassName: 'pi-at',
+    iconFloat: EnumIconFloat.left,
+  };
+  public nameIconConfig: inputIconConfig = {
+    iconClassName: 'pi-id-card',
+    iconFloat: EnumIconFloat.left,
+  };
+
   public genderCheckboxDisabled: boolean = false;
   public accountData: userDataModel = {};
   public form: FormGroup;
@@ -51,20 +66,19 @@ export class RegisterComponent implements OnInit {
     this.buildForm();
   }
 
-
   public submit(): void {
     this.beforeSubmit();
-    if(this.form.invalid){
+    if (this.form.invalid) {
       this.messageService.addErrorMessage('Nie wszystkie pola są wypełnione');
       return;
     }
-      this.registerService.register(this.form.value).subscribe(res=>{
-        this.messageService.addSuccesMessage('Zostałeś Zarejestrowany');
-        this.loginServ.setLoggedUserId(res.id);
-        setTimeout(()=>{
-          this.router.navigate(['/home']);
-        },2000);
-      })
+    this.registerService.register(this.form.value).subscribe((res) => {
+      this.messageService.addSuccesMessage('Zostałeś Zarejestrowany');
+      this.loginServ.setLoggedUserId(res.id);
+      setTimeout(() => {
+        this.router.navigate(['/home']);
+      }, 2000);
+    });
   }
 
   public goToWelcomePage(): void {
@@ -76,33 +90,32 @@ export class RegisterComponent implements OnInit {
     this.genderCheckboxDisabled = this.genderArray.some(
       (gender) => gender.checked
     );
-    this.form.controls["gender"].setValue(this.genderArray[id].key);  
+    this.form.controls['gender'].setValue(this.genderArray[id].key);
   }
-
 
   private beforeSubmit(): void {
     if (this.validReapeatedPassword()) {
       this.messageService.addErrorMessage('Podane hasła nie są identyczne');
-     return;
-    } 
+      return;
+    }
   }
 
   private validReapeatedPassword(): boolean {
-    const {password, repeatedPassword} = this.form.value;
+    const { password, repeatedPassword } = this.form.value;
     return password === repeatedPassword;
   }
 
   private buildForm(): void {
     this.form = this.formBuilder.group({
-      firstName: ["", Validators.required],
-      lastName: ["", Validators.required],
-      login: ["", Validators.required],
-      email: ["", Validators.required],
-      password: ["", Validators.required],
-      repeatPassowrd: ["", Validators.required],
-      phoneNumber: ["", Validators.required],
-      address: ["", Validators.required],
-      gender: ["", Validators.required],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      login: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+      repeatPassowrd: ['', Validators.required],
+      phoneNumber: ['', Validators.required],
+      address: ['', Validators.required],
+      gender: ['', Validators.required],
     });
   }
 }
