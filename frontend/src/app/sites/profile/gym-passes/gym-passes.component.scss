@@ -5,7 +5,6 @@
     display: flex;
     flex-direction: column;
     gap: 50px;
-    // justify-content: space-between;
     &-label {
         color: $input-text-dark;
         font-weight: $font-weight-bold;
@@ -20,12 +19,11 @@
     &-inactive{
         color: red;
     }
-    .gym-pass-cards{
+    .gym-pass-cards {
         display: flex;
-
+        justify-content: space-around;
         width: 100%;
-        gap: 30px;
-       .gym-pass-card{
+       .gym-pass-card {
         width: 30%;
        }
     }
@@ -59,6 +57,7 @@
     align-items: center;
 
 }
+
 .validoation__container {
     position: fixed;
     top: 50px;

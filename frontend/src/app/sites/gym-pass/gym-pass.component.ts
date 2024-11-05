@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { GymPassesService } from 'src/app/api';
-import { GymPassModel } from 'src/app/features/models';
+import { GymPassesService } from 'src/app/shared/services/api';
+import { GymPassModel } from 'src/app/shared/models';
 
 @Component({
   selector: 'app-gym-pass',

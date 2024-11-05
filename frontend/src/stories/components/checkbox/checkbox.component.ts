@@ -10,8 +10,9 @@ export class CheckboxComponent {
   
   @Input() public label: string = "";
   @Input() public disabled: boolean = false;
+  @Input() public checked: boolean = false;
   @Output() public checkedToggler: EventEmitter<boolean> = new EventEmitter();
-  public checked: boolean = false;
+  
   constructor() {
   }
 

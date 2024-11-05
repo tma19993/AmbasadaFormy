@@ -6,21 +6,21 @@
         "workEffectsGoals": "Work Effects Goals"
     },
     "registerLogin": {
-        "firstName": "first name",
-        "lastName": "last name",
-        "login": "login",
-        "email": "e-mail",
+        "firstName": "First name",
+        "lastName": "Last name",
+        "login": "Login",
+        "email": "E-mail",
         "gender": "Gender",
         "genderType": {
             "men": "Men",
             "woman": "Woman",
             "other": "Other"
         },
-        "password": "password",
-        "phoneNumber": "phone number",
-        "address": "address",
-        "repeatPassowrd": "repeat passowrd",
-        "register": "register",
+        "password": "Password",
+        "phoneNumber": "Phone number",
+        "address": "Address",
+        "repeatPassowrd": "Repeat passowrd",
+        "register": "Register",
         "haveAccount": "You already have an account",
         "dontHaveAccount": "You do not have an account?",
         "log_in": "Log in",
@@ -34,7 +34,7 @@
         "info": "We are a group of people who want you to make progress using our offer. Remember, however, that everything depends on your commitment. We give you opportunities and the right tools.",
         "contact": "Contact",
         "address": "St. Konstantynów 1H 20-708 Lublin, Polska",
-        "mail": "e-mail",
+        "mail": "E-mail",
         "phone": "Phone",
         "socialMedia": "Social Media",
         "links": "Links",
@@ -75,8 +75,8 @@
     },
     "gymPass": {
         "shared":{
-        "sub": "subscription",
-        "perMonth": "entrances per month",
+        "sub": "Subscription",
+        "perMonth": "Entrances per month",
         "FirstPay": "One-time registration fee 20zł",
         "Water": "Free water",
         "Unlimited": "Unlimited number of entries",
@@ -140,11 +140,22 @@
     },
     "profile":{
         "menu":{
-            "my-profile": "My profile",
-            "my-gym-pass": "My gym pass",
-            "my-trainings": "Personal trainings",
-            "my-diets": "Diets",
+            "myProfile": "My profile",
+            "myGymPass": "My gym pass",
+            "myTrainings": "Personal trainings",
+            "myDiets": "Diets",
             "admin": "Administration Tools"
+        },
+        "myProfile":{
+            "changePassword":{
+                "label": "Change password",
+                "oldPassword": "Old password",
+                "newPassword": "New password",
+                "repeatPassowrd": "Repeat new passowrd",
+                "checkNewPasswords": "Please make sure your passwords match",
+                "incorrectPassword": "Incorrect password"
+                
+            }
         }
     }
 }

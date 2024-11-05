@@ -140,11 +140,21 @@
     },
     "profile":{
         "menu":{
-            "my-profile": "Mój profil",
-            "my-gym-pass": "Moje karnety",
-            "my-trainings": "Treningi personalne",
-            "my-diets": "Diety",
+            "myProfile": "Mój profil",
+            "myGymPass": "Moje karnety",
+            "myTrainings": "Treningi personalne",
+            "myDiets": "Diety",
             "admin":"Narzędzia Administratorskie"
+        },
+        "myProfile":{
+            "changePassword":{
+                "label": "Zmień hasło",
+                "oldPassword": "Stare hasło",
+                "newPassword": "Nowe hasło",
+                "repeatPassowrd": "Powtórz nowe hasło",
+                "checkNewPasswords": "Upewnij się, że Twoje hasła są zgodne",
+                "incorrectPassword": "Hasło nieprawidłowe"
+            }
         }
     }
 }

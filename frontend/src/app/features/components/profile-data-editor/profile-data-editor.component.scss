@@ -1,0 +1,16 @@
+.validoation__container {
+    height: 55px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    .gender__selection{
+        display: flex;
+        gap: 20px;
+    }
+    .submit{
+        align-self: center;
+    }
+}

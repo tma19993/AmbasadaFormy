@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ProfileService } from 'src/app/api';
+import { ProfileService } from 'src/app/shared/services/api';
 import { userDataModel } from 'src/app/features';
 
 @Component({

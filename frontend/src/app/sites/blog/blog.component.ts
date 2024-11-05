@@ -1,11 +1,11 @@
 import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormGroup, FormResetEvent, NonNullableFormBuilder, PristineChangeEvent, ValueChangeEvent } from '@angular/forms';
-import { PostModel, PageEventModel, PostSearchModel } from 'src/app/features/models';
-import { EnumIconFloat } from 'src/stories/enums/input.enum';
-import { inputIconConfig } from 'src/stories/interfaces/input.model';
+import { PostModel, PageEventModel, PostSearchModel } from 'src/app/shared/models';
+import { EnumIconFloat } from 'src/app/shared/enums/input.enum';
+import { inputIconConfig } from 'src/app/shared/models/input.model';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { NewPostFormComponent } from 'src/app/features/components';
-import { BlogService } from 'src/app/api';
+import { BlogService } from 'src/app/shared/services/api';
 import { AfMessageService, dialogConfig, OneRequiredValidator } from 'src/app/features';
 import { delay, every } from 'rxjs';
 import { PostDetailsComponent } from 'src/app/features/components/post-details/post-details.component';

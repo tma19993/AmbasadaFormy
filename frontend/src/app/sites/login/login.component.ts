@@ -3,10 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { catchError, EMPTY, of, tap } from 'rxjs';
-import { LoginService } from 'src/app/api/login.service';
-import { AfMessageService } from 'src/app/features/services/message.service';
-import { EnumIconFloat } from 'src/stories/enums/input.enum';
-import { inputIconConfig } from 'src/stories/interfaces/input.model';
+import { LoginService } from 'src/app/shared/services/api/login.service';
+import { AfMessageService } from 'src/app/shared/services/message/message.service';
+import { EnumIconFloat } from 'src/app/shared/enums/input.enum';
+import { inputIconConfig } from 'src/app/shared/models/input.model';
 
 @Component({
   selector: 'app-login',

@@ -1,1 +1,20 @@
-<p>profile-data-editor works!</p>
+<div class="validoation__container">
+    <af-messages [closable]="true"></af-messages>
+</div>
+<form [formGroup]="form" class="form">
+        <af-input formControlName="firstName" id="firstName" [iconConfig]="loginData" [floatLabel]="true" [floatLabelText]="'registerLogin.firstName' | translate" />
+        <af-input formControlName="lastName" id="lastName" [iconConfig]="loginData" [floatLabel]="true" [floatLabelText]="'registerLogin.lastName' | translate" />
+        <af-input formControlName="phoneNumber" id="phoneNumber" [iconConfig]="loginData" [floatLabel]="true" [floatLabelText]="'registerLogin.phoneNumber' | translate" />
+        <af-input formControlName="address" id="address" [iconConfig]="loginData" [floatLabel]="true" [floatLabelText]="'registerLogin.address' | translate" />
+        <af-input formControlName="login" id="login" [iconConfig]="loginData" [floatLabel]="true" [floatLabelText]="'registerLogin.login' | translate" />
+        <af-input formControlName="email" id="email" [iconConfig]="mailData" [floatLabel]="true" [floatLabelText]="'registerLogin.email' | translate" />
+      <div class="gender__selection">
+          <p class="buttons--header">{{'registerLogin.gender' | translate}}:</p>
+          <div *ngFor="let gender of genderArray;  index as id" [attr.data-index]="id">
+            <af-checkbox (checkedToggler)="getGender($event, id)"
+              [disabled]="genderCheckboxDisabled && !gender.checked" [label]="gender.name" [checked]="gender.checked"
+              class="buttons--checkbox"></af-checkbox>
+          </div>
+      </div>
+      <af-button class="submit" label="Change Data" type="submit"/>
+</form>

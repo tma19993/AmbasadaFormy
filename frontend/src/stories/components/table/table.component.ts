@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
-import { TableHeaderModel } from 'src/stories/interfaces/table.model';
+import { TableHeaderModel } from 'src/app/shared/models/table.model';
 
 @Component({
   selector: 'af-table',

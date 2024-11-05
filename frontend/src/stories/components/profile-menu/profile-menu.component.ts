@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-import { ProfileService } from 'src/app/api';
+import { ProfileService } from 'src/app/shared/services/api';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { AFButtonComponent } from '../button/button.component';
 

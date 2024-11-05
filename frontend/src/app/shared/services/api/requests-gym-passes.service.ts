@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, signal, WritableSignal } from '@angular/core';
-import { RequestModel } from '../features';
+import { RequestModel } from '../../../features';
 
 @Injectable({
   providedIn: 'root'

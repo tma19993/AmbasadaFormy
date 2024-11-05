@@ -1,6 +1,6 @@
 import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { InputTextareaSizeModel } from 'src/stories/interfaces/inputtextarea.model';
+import { InputTextareaSizeModel } from 'src/app/shared/models/inputtextarea.model';
 
 @Component({
   selector: 'af-inputTextarea',

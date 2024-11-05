@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ChartBarsType } from 'src/stories/interfaces/chartBars.model';
+import { ChartBarsType } from 'src/app/shared/models/chartBars.model';
 
 @Component({
   selector: 'af-chartBars',

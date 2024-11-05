@@ -1,6 +1,6 @@
 import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { inputIconConfig } from 'src/stories/interfaces/input.model';
+import { inputIconConfig } from 'src/app/shared/models/input.model';
 
 @Component({
   selector: 'af-input',

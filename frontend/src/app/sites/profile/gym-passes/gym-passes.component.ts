@@ -1,10 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { delay } from 'rxjs';
-import { GymPassesService, ProfileService } from 'src/app/api';
+import { GymPassesService, ProfileService } from 'src/app/shared/services/api';
 import { AfMessageService, dialogConfig } from 'src/app/features';
 import { OrderGymPassComponent } from 'src/app/features/components/order-gym-pass/order-gym-pass.component';
-import { GymPassModel, userDataModel } from 'src/app/features/models';
+import { GymPassModel, userDataModel } from 'src/app/shared/models';
 
 @Component({
   selector: 'app-gym-passes',

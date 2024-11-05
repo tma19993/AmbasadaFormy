@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, signal, WritableSignal } from '@angular/core';
 import { Observable, shareReplay } from 'rxjs';
-import { GymPassModel } from '../features/models';
+import { GymPassModel } from '../../models';
 
 @Injectable({
   providedIn: 'root'

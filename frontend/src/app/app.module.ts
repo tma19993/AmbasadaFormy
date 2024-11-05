@@ -10,7 +10,7 @@ import { FooterModule } from 'src/stories/components/footer/footer.module';
 import { MessagesModule } from 'primeng/messages';
 import { AfMessagesModule } from 'src/stories/components/messages/messages.module';
 import { AfPasswordModule } from 'src/stories/components/password/password.module';
-import { AfMessageService } from './features/services/message.service';
+import { AfMessageService } from './shared/services/message/message.service';
 import { MessageService } from 'primeng/api';
 import { LanguageChangerModule } from "../stories/components/languageChanger/languageChanger.module";
 import { MenuStaticModule } from "../stories/components/menuStatic/menuStatic.module";

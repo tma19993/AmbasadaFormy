@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, tap } from 'rxjs';
 import { Router } from '@angular/router';
-import { LoginModel, userDataModel } from '../features/models';
+import { LoginModel, userDataModel } from '../../models';
 
 @Injectable({
   providedIn: 'root',

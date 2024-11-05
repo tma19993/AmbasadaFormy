@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RadioButtonModule } from 'primeng/radiobutton';
-import { Categories } from 'src/stories/interfaces/radiobutton.model';
+import { Categories } from 'src/app/shared/models/radiobutton.model';
 
 @Component({
   selector: 'af-radio-buttons',

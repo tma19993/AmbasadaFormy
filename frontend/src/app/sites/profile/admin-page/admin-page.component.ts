@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RequestsGymPassesService } from 'src/app/api';
+import { RequestsGymPassesService } from 'src/app/shared/services/api';
 import { RequestModel } from 'src/app/features';
 
 @Component({

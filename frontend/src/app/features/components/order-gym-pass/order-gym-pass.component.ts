@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { GymPassModel, userDataModel } from '../../models';
-import { ProfileService } from 'src/app/api';
+import { GymPassModel, userDataModel } from '../../../shared/models';
+import { ProfileService } from 'src/app/shared/services/api';
 
 @Component({
   selector: 'app-order-gym-pass',

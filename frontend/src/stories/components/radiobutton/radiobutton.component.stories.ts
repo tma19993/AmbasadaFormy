@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
 import { RadioButtonsComponent } from "./radiobutton.component";
 import { FormsModule } from "@angular/forms";
-import { Categories } from "src/stories/interfaces/radiobutton.model";
+import { Categories } from "src/app/shared/models/radiobutton.model";
 
 const meta: Meta<RadioButtonsComponent> = {
   title: "Core/RadioButton",

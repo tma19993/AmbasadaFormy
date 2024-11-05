@@ -3,7 +3,7 @@
 import { AutocompleteComponent } from "./autocomplete.component";
 // import { AutocompeteModule } from "./autocomplete.module";
 // import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { examplePersonalTrainerModel } from "src/stories/interfaces/autocomplete.model";
+import { examplePersonalTrainerModel } from "src/app/shared/models/autocomplete.model";
 
 const exampleData: examplePersonalTrainerModel[] = [
   {

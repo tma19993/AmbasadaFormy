@@ -1,24 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { userDataModel } from 'src/app/features/models';
-import { ProfileService } from 'src/app/api';
-import { DialogService } from 'primeng/dynamicdialog';
+import { userDataModel } from 'src/app/shared/models';
+import { ProfileService } from 'src/app/shared/services/api';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { PasswordChangerComponent } from 'src/app/features/components/password-changer/password-changer.component';
-import { dialogConfig } from 'src/app/features';
+import { AfMessageService, dialogConfig } from 'src/app/features';
 import { ProfileDataEditorComponent } from 'src/app/features/components/profile-data-editor/profile-data-editor.component';
+import { delay } from 'rxjs';
 @Component({
   selector: 'app-profile',
   templateUrl: './my-profile.component.html',
   styleUrls: ['./my-profile.component.scss']
 })
 export class MyProfileComponent {
+  private router = inject(Router);
+  private profileService = inject(ProfileService);
+  private dialogService = inject(DialogService);
+  private message = inject(AfMessageService);
 
-  constructor(
-    private router: Router,
-    private profileService: ProfileService,
-    private dialogService: DialogService
-  ) {}
+  private ref: DynamicDialogRef;
 
+  public ngOnDestroy(): void {
+    if (this.ref) {
+      this.ref.close();
+    }
+  }
 
   public removeUser(): void {
     this.profileService.removeUser().subscribe(() => {
@@ -36,20 +42,33 @@ export class MyProfileComponent {
   }
 
   public changePassword():void {
-    this.dialogService.open(PasswordChangerComponent,{
+   this.ref = this.dialogService.open(PasswordChangerComponent,{
       ...dialogConfig,
       header: "Change Password"
     })
+    this.closeDialogs("Zmieniono Hasło");
   }
 
   public editProfileData():void {
-    this.dialogService.open(ProfileDataEditorComponent,{
+   this.ref = this.dialogService.open(ProfileDataEditorComponent,{
       ...dialogConfig,
       header: "Edit Profile Data"
-    })
+    });
+    this.closeDialogs("Zmieniono Dane Użytkownika")
   }
 
   public get userData(): userDataModel {
     return this.profileService.userData;
   }
-}
+
+  private closeDialogs(message: string): void{
+    this.ref.onClose.pipe(
+      delay(1000)
+    ).subscribe((val) => {
+      if(val){
+        this.message.addSuccesMessage(message);
+        this.profileService.getUserData()
+      }
+    })
+  }
+  }

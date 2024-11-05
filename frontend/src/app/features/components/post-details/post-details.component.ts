@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DynamicDialogConfig } from 'primeng/dynamicdialog';
-import { PostModel } from 'src/app/features/models';
+import { PostModel } from 'src/app/shared/models';
 
 @Component({
   selector: 'af-post-details',

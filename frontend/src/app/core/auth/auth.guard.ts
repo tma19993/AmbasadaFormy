@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
+import { AfMessageService, LoginService } from 'src/app/shared';
 
-import { LoginService } from '../api/login.service';
-import { AfMessageService } from '../features/services/message.service';
 
 
 @Injectable({
