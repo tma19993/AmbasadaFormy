@@ -1,0 +1,5 @@
+export * from "./new-post-form/new-post-form.component"
+export * from "./order-gym-pass/order-gym-pass.component"
+export * from "./password-changer/password-changer.component"
+export * from "./post-details/post-details.component"
+export * from "./profile-data-editor/profile-data-editor.component"

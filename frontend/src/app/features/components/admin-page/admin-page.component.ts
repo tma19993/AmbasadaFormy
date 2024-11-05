@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { RequestsGymPassesService } from 'src/app/shared/services/api';
-import { RequestModel } from 'src/app/features';
+import { Component, inject, OnInit } from '@angular/core';
+import { RequestsGymPassesService } from 'src/app/core/services';
+import { RequestModel } from 'src/app/shared/models';
+
 
 @Component({
   selector: 'af-admin-page',
@@ -8,9 +9,7 @@ import { RequestModel } from 'src/app/features';
   styleUrls: ['./admin-page.component.scss']
 })
 export class AdminPageComponent implements OnInit{
-
-  constructor(private requestService: RequestsGymPassesService){
-  }
+  private requestService: RequestsGymPassesService = inject(RequestsGymPassesService)
 
   public ngOnInit(): void {
     this.requestService.getRequests();

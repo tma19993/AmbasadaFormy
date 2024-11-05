@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { inputIconConfig } from 'src/app/shared/models/input.model';
-import { EnumIconFloat } from 'src/app/shared/enums/input.enum';
-import { BlogService } from 'src/app/shared/services/api';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
-import { catchError, EMPTY } from 'rxjs';
+import { BlogService } from 'src/app/core/services';
+import { EnumIconFloat } from 'src/app/shared/enums';
+import { inputIconConfig } from 'src/app/shared/models';
+
 
 @Component({
   selector: 'app-new-post-form',

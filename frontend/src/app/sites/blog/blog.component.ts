@@ -8,7 +8,7 @@ import { NewPostFormComponent } from 'src/app/features/components';
 import { BlogService } from 'src/app/shared/services/api';
 import { AfMessageService, dialogConfig, OneRequiredValidator } from 'src/app/features';
 import { delay, every } from 'rxjs';
-import { PostDetailsComponent } from 'src/app/features/components/post-details/post-details.component';
+import { PostDetailsComponent } from 'src/app/features/dialogs/post-details/post-details.component';
 
 @Component({
   selector: 'af-blog',

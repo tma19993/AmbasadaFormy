@@ -1,12 +1,12 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { userDataModel } from 'src/app/shared/models';
-import { ProfileService } from 'src/app/shared/services/api';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { PasswordChangerComponent } from 'src/app/features/components/password-changer/password-changer.component';
-import { AfMessageService, dialogConfig } from 'src/app/features';
-import { ProfileDataEditorComponent } from 'src/app/features/components/profile-data-editor/profile-data-editor.component';
+
 import { delay } from 'rxjs';
+import { AfMessageService, ProfileService } from 'src/app/core/services';
+import { PasswordChangerComponent, ProfileDataEditorComponent } from '../../dialogs';
+import { dialogConfig } from 'src/app/shared/constants';
 @Component({
   selector: 'app-profile',
   templateUrl: './my-profile.component.html',

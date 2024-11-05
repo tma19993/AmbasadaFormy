@@ -1,4 +1,4 @@
-export * from "./profile/index";
+export * from "../features/components/index";
 export * from "./blog/blog.component";
 export * from "./gym-pass/gym-pass.component";
 export * from "./homePage/homePage.component";

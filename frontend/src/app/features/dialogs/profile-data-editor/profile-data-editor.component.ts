@@ -1,13 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { genderKey, GenderModel, userDataModel, UserDataPublic } from '../../../shared/models';
 import { FormGroup, FormSubmittedEvent, NonNullableFormBuilder } from '@angular/forms';
-import { inputIconConfig } from 'src/app/shared/models/input.model';
-import { EnumIconFloat } from 'src/app/shared/enums/input.enum';
-import { ProfileService } from 'src/app/shared/services/api';
-import { DynamicDialogRef } from 'primeng/dynamicdialog';
+import { AfMessageService, ProfileService } from 'src/app/core/services';
+import { MapToPublicUserData } from 'src/app/core/untils';
+import { EnumIconFloat } from 'src/app/shared/enums';
+import { genderKey, GenderModel, inputIconConfig, UserDataPublic } from 'src/app/shared/models';
 
-import { AfMessageService } from '../../../shared/services/message';
-import { MapToPublicUserData } from 'src/app/shared';
+
+
 
 @Component({
   selector: 'app-profile-data-editor',
@@ -17,7 +16,6 @@ import { MapToPublicUserData } from 'src/app/shared';
 export class ProfileDataEditorComponent implements OnInit {
   private fb = inject(NonNullableFormBuilder);
   private profileService = inject(ProfileService);
-  private dialogRef = inject(DynamicDialogRef);
   private message = inject(AfMessageService);
 
 

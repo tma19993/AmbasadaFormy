@@ -1,10 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FormGroup, FormSubmittedEvent, NonNullableFormBuilder, Validators } from '@angular/forms';
-import { AfMessageService } from '../../../shared/services/message';
+
 import { TranslateService } from '@ngx-translate/core';
-import { userDataModel } from '../../../shared/models';
-import { ProfileService } from 'src/app/shared/services/api';
+
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
+import { AfMessageService, ProfileService } from 'src/app/core/services';
+import { userDataModel } from 'src/app/shared/models';
 
 @Component({
   selector: 'app-password-changer',

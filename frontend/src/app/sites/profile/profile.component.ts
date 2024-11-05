@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { ProfileService } from 'src/app/core/services';
 import { userDataModel } from 'src/app/shared/models';
-import { ProfileService } from 'src/app/shared/services/api';
 
 @Component({
   selector: 'af-profile',

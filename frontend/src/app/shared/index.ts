@@ -1,5 +1,0 @@
-export * from "./services/api/index"
-export * from "./services/message/index"
-export * from "./constants/index"
-export * from "./validators/index"
-export * from "../core/untils/index"

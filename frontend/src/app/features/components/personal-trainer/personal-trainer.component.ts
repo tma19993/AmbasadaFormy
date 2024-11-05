@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { ProfileService } from 'src/app/shared/services/api';
-import { userDataModel } from 'src/app/features';
+import { Component, inject } from '@angular/core';
+import { ProfileService } from 'src/app/core/services';
+import { userDataModel } from 'src/app/shared/models';
+
 
 @Component({
   selector: 'app-personal-trainer',
@@ -8,8 +9,8 @@ import { userDataModel } from 'src/app/features';
   styleUrls: ['./personal-trainer.component.scss']
 })
 export class PersonalTrainerComponent {
+  private profileService: ProfileService = inject(ProfileService)
 
-constructor(private profileService: ProfileService){}
 
   public get userData(): userDataModel {
     return this.profileService.userData;

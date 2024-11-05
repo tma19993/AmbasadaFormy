@@ -6,3 +6,9 @@ export * from "./page-event.model";
 export * from "./gym-pass.model";
 export * from "./gym-pass-requests.model";
 export * from "./user-data-public.model";
+export * from "./autocomplete.model"
+export * from "./chartBars.model"
+export * from "./input.model"
+export * from "./inputtextarea.model"
+export * from "./radiobutton.model"
+export * from "./table.model"

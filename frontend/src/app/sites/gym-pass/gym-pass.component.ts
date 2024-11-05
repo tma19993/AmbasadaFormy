@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { GymPassesService } from 'src/app/shared/services/api';
+import { GymPassesService } from 'src/app/core/services';
 import { GymPassModel } from 'src/app/shared/models';
 
 @Component({

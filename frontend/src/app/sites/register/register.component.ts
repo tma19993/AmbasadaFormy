@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {  FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { AfMessageService } from 'src/app/features';
-import { userDataModel } from 'src/app/shared/models';
-import { GenderModel, genderKey } from 'src/app/shared/models/gender.model';
-import { LoginService, RegisterService } from 'src/app/shared/services/api';
+import { AfMessageService, LoginService, RegisterService } from 'src/app/core/services';
+import { EnumIconFloat } from 'src/app/shared/enums';
+import { genderKey, GenderModel, inputIconConfig, userDataModel } from 'src/app/shared/models';
 
-import { EnumIconFloat } from 'src/app/shared/enums/input.enum';
-import { inputIconConfig } from 'src/app/shared/models/input.model';
+
 
 @Component({
   selector: 'app-register',

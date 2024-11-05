@@ -1,7 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { GymPassModel, userDataModel } from '../../../shared/models';
-import { ProfileService } from 'src/app/shared/services/api';
+import { ProfileService } from 'src/app/core/services';
+
 
 @Component({
   selector: 'app-order-gym-pass',
@@ -9,10 +10,10 @@ import { ProfileService } from 'src/app/shared/services/api';
   styleUrl: './order-gym-pass.component.scss'
 })
 export class OrderGymPassComponent implements OnInit {
+  private  profileSerivce: ProfileService = inject(ProfileService);
+  private  dialogRef: DynamicDialogRef = inject(DynamicDialogRef);
   private config: DynamicDialogConfig<any> = inject(DynamicDialogConfig);
   public deactiveGymPass: boolean = false;
-  constructor(private profileSerivce: ProfileService,
-    private dialogRef: DynamicDialogRef) { }
 
   public ngOnInit(): void {
     if(this.config.data.deactiveGymPass) this.deactiveGymPass = this.config.data.deactiveGymPass

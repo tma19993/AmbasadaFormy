@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-import { ProfileService } from 'src/app/shared/services/api';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { AFButtonComponent } from '../button/button.component';
 
@@ -22,7 +21,7 @@ export class AFProfileMenuComponent implements OnInit {
   @Output() BackEmmiter: EventEmitter<void> = new EventEmitter();
   @Input() isAdmin: boolean = false;
 
-  constructor(private router: Router, private proflieService: ProfileService) { }
+  constructor(private router: Router) { }
 
   public ngOnInit(): void {
    
