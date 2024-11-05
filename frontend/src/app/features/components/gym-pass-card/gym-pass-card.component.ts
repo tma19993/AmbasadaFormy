@@ -1,8 +1,4 @@
-import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { AFTileComponent } from '../../../shared/components/tile/tile.component';
-import { TranslateModule } from '@ngx-translate/core';
-import { AFButtonComponent } from '../../../shared/components/button/button.component';
 
 
 @Component({

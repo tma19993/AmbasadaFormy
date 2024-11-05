@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GymPassInfoComponent } from './gym-pass-info.component';
+import { AFGymPassInfoComponent } from './gym-pass-info.component';
 
 describe('GymPassInfoComponent', () => {
-  let component: GymPassInfoComponent;
-  let fixture: ComponentFixture<GymPassInfoComponent>;
+  let component: AFGymPassInfoComponent;
+  let fixture: ComponentFixture<AFGymPassInfoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GymPassInfoComponent ]
+      declarations: [ AFGymPassInfoComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(GymPassInfoComponent);
+    fixture = TestBed.createComponent(AFGymPassInfoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

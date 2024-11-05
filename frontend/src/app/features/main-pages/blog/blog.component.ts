@@ -1,14 +1,16 @@
 import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
-import { FormGroup, FormResetEvent, NonNullableFormBuilder, PristineChangeEvent, ValueChangeEvent } from '@angular/forms';
+import { FormGroup, FormResetEvent, NonNullableFormBuilder } from '@angular/forms';
 import { PostModel, PageEventModel, PostSearchModel } from 'src/app/shared/models';
 import { EnumIconFloat } from 'src/app/shared/enums/input.enum';
 import { inputIconConfig } from 'src/app/shared/models/input.model';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { NewPostFormComponent } from 'src/app/features/components';
-import { BlogService } from 'src/app/shared/services/api';
-import { AfMessageService, dialogConfig, OneRequiredValidator } from 'src/app/features';
-import { delay, every } from 'rxjs';
+
+import { delay } from 'rxjs';
 import { PostDetailsComponent } from 'src/app/features/dialogs/post-details/post-details.component';
+import { AfMessageService, BlogService } from 'src/app/core/services';
+import { OneRequiredValidator } from 'src/app/core';
+import { dialogConfig } from 'src/app/shared/constants';
+import { NewPostFormComponent } from '../../dialogs';
 
 @Component({
   selector: 'af-blog',

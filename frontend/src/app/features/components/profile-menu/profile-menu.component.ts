@@ -1,9 +1,5 @@
-import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { TranslateModule } from '@ngx-translate/core';
-import { AppRoutingModule } from 'src/app/app-routing.module';
-import { AFButtonComponent } from '../../../shared/components/button/button.component';
 
 @Component({
   selector: 'af-profile-menu',

@@ -1,7 +1,7 @@
-@import "../../../stories/constants/constants.scss";
+@import "../../../shared/styles/constants.scss";;
 
 .bg-img{
-  background: url('../../../assets/backgrounds/background-loginPage.jpg');
+  background: url('../../../../assets/backgrounds/background-loginPage.jpg');
   background-size: 100%;
   background-position: center;
   background-size: cover;

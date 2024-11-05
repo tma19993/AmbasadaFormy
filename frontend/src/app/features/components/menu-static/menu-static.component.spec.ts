@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MenuStaticComponent } from './menu-static.component';
+import { AFMenuStaticComponent } from './menu-static.component';
 
 
 describe('ButtonComponent', () => {
-  let component: MenuStaticComponent;
-  let fixture: ComponentFixture<MenuStaticComponent>;
+  let component: AFMenuStaticComponent;
+  let fixture: ComponentFixture<AFMenuStaticComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MenuStaticComponent ]
+      declarations: [ AFMenuStaticComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MenuStaticComponent);
+    fixture = TestBed.createComponent(AFMenuStaticComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

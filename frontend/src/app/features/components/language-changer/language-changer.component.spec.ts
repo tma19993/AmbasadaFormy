@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { LanguageChangerComponent } from './language-changer.component';
+import { AFLanguageChangerComponent } from './language-changer.component';
 
 
 describe('ZalogowanoComponent', () => {
-  let component: LanguageChangerComponent;
-  let fixture: ComponentFixture<LanguageChangerComponent>;
+  let component: AFLanguageChangerComponent;
+  let fixture: ComponentFixture<AFLanguageChangerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LanguageChangerComponent ]
+      declarations: [ AFLanguageChangerComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LanguageChangerComponent);
+    fixture = TestBed.createComponent(AFLanguageChangerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

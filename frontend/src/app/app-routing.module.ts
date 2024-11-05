@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AuthGuard } from './auth/auth.guard';
-import { AdminPageComponent, BlogComponent, DietsComponent, GymPassComponent, GymPassesComponent, HomePageComponent, LoginComponent, MyProfileComponent, PersonalTrainerComponent, ProfileComponent, RegisterComponent, TrainersComponent, WelcomePageComponent } from './features/main-pages';
+import { BlogComponent, AFDietsComponent, GymPassComponent, AFGymPassesComponent, HomePageComponent, LoginComponent, AFMyProfileComponent, AFPersonalTrainerComponent,AFAdminPageComponent, RegisterComponent, TrainersComponent, WelcomePageComponent } from './features/main-pages';
+import { AuthGuard } from './core';
+import { ProfileComponent } from './features/main-pages/profile/profile.component';
 
 const routes: Routes = [
 { path: '', redirectTo: '/welcome', pathMatch: 'full' },
@@ -17,11 +18,11 @@ const routes: Routes = [
   path: 'profile',
   component: ProfileComponent, canActivate: [AuthGuard],
   children: [
-    { path: 'my-profile', component: MyProfileComponent },
-    { path: 'personal-trainers', component: PersonalTrainerComponent },
-    { path: 'gym-pass', component: GymPassesComponent },
-    { path: 'diets', component: DietsComponent },
-    { path: 'admin', component: AdminPageComponent },
+    { path: 'my-profile', component: AFMyProfileComponent },
+    { path: 'personal-trainers', component: AFPersonalTrainerComponent },
+    { path: 'gym-pass', component: AFGymPassesComponent },
+    { path: 'diets', component: AFDietsComponent },
+    { path: 'admin', component: AFAdminPageComponent },
     { path: '', redirectTo: 'my-profile', pathMatch: 'full' } 
   ]
 },

@@ -1,20 +1,18 @@
 import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
-import { MenuStaticModule } from "./menuStatic.module";
-import { MenuStaticComponent } from "./menu-static.component";
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";;
+import { AFMenuStaticComponent } from "./menu-static.component";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { HttpLoaderFactory } from "src/shared/untils";
 
 const meta: Meta<MenuStaticComponent> = {
   title: "Views/MenuStatic",
-  component: MenuStaticComponent,
+  component: AFMenuStaticComponent,
   decorators: [
     moduleMetadata({
       imports: [
-        MenuStaticModule,
         BrowserAnimationsModule,
         HttpClientModule,
         TranslateModule.forRoot({
@@ -35,7 +33,7 @@ const meta: Meta<MenuStaticComponent> = {
 
 export default meta;
 
-type Story = StoryObj<MenuStaticComponent>;
+type Story = StoryObj<AFMenuStaticComponent>;
 
 const Template: Story = {
   render: (args) => ({

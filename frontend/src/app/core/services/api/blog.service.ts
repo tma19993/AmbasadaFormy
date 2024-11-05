@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { ApiPostsModel, PostModel, PostSearchModel } from '../../models';
+import { ApiPostsModel, PostSearchModel } from 'src/app/shared/models';
 
 @Injectable({
   providedIn: 'root'
