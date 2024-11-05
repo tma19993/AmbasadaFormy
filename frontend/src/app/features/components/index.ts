@@ -3,3 +3,9 @@ export * from "./gym-passes/gym-passes.component";
 export * from "./my-profile/my-profile.component";
 export * from "./personal-trainer/personal-trainer.component";
 export * from "./admin-page/admin-page.component";
+export * from "./gym-pass-card/gym-pass-card.component";
+export * from "./gym-pass-info/gym-pass-info.component";
+export * from "./language-changer/language-changer.component";
+export * from "./menu-static/menu-static.component";
+export * from "./profile-menu/profile-menu.component"
+export * from "./footer/footer.component"

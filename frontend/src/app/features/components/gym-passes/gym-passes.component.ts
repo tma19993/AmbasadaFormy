@@ -7,11 +7,11 @@ import { GymPassModel, userDataModel } from 'src/app/shared/models';
 import { OrderGymPassComponent } from '../../dialogs';
 
 @Component({
-  selector: 'app-gym-passes',
+  selector: 'af-gym-passes',
   templateUrl: './gym-passes.component.html',
   styleUrls: ['./gym-passes.component.scss']
 })
-export class GymPassesComponent implements OnInit, OnDestroy {
+export class AFGymPassesComponent implements OnInit, OnDestroy {
 
   private ref: DynamicDialogRef | undefined;
 

@@ -1,0 +1,43 @@
+<div class="bg-img" (keyup.enter)="submitLogin()">
+  <section class="login-container">
+    <div class="logo-section">
+      <div class="logo-section__af">
+        <img src="../../../assets/logo/logoFt_text.svg" alt="test">
+      </div>
+    </div>
+    <div class="login-section">
+      <af-tile>
+        <div class="button__language">
+          <af-language-changer [fontSize]="22"></af-language-changer>
+        </div>
+        <div class="button__return-right">
+          <af-button iconClassName="pi-undo" iconPos="top" [label]="'button.back' | translate" buttonId="undo" [fontSize]="10" [iconSize]="18"  [transparentButton]="true" (click)="backToWelcomePage()"></af-button>
+        </div>
+        <div class="login-section__justify">
+          <form [formGroup]="myForm">
+              <af-input formControlName="login" [iconConfig]="loginData" [floatLabel]="true" [floatLabelText]="'registerLogin.login' | translate" ></af-input>
+              <af-password formControlName="password" [floatLabelText]="'registerLogin.password' | translate" ></af-password>
+              <div class="box-forgot">
+                <div class="box-forgot__checkbox">
+                  <af-checkbox (checkedToggler)="getRemeberPassword($event)" [label]="'registerLogin.safePassword' | translate"></af-checkbox>
+                </div>
+                <div class="box-forgot__forgot">
+                  <p>{{'registerLogin.dontRememberPassword' | translate}} <a href="#" class="form-group__forgot-password">{{'registerLogin.RemindPassword' | translate}}</a></p>
+                </div>
+            </div>
+            <div class="button__mid">
+              <af-button [label]="'registerLogin.log_in' | translate" buttonId="login" [fontSize]="30"  (click)="submitLogin()"></af-button>
+            </div>
+          </form>
+            <div class="account-dont-exist">
+              <p>{{'registerLogin.dontHaveAccount' | translate}} <a routerLink="/register">{{'registerLogin.registerNow' | translate}}</a></p>
+            </div>
+        </div>
+      </af-tile>
+    </div>
+  </section>
+</div>
+
+<section class="validoation__container">
+  <af-messages [closable]="true"></af-messages>
+</section>

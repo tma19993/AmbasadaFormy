@@ -8,7 +8,7 @@ import { RequestModel } from 'src/app/shared/models';
   templateUrl: './admin-page.component.html',
   styleUrls: ['./admin-page.component.scss']
 })
-export class AdminPageComponent implements OnInit{
+export class AFAdminPageComponent implements OnInit{
   private requestService: RequestsGymPassesService = inject(RequestsGymPassesService)
 
   public ngOnInit(): void {

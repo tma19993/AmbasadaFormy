@@ -8,11 +8,11 @@ import { AfMessageService, ProfileService } from 'src/app/core/services';
 import { PasswordChangerComponent, ProfileDataEditorComponent } from '../../dialogs';
 import { dialogConfig } from 'src/app/shared/constants';
 @Component({
-  selector: 'app-profile',
+  selector: 'af-profile',
   templateUrl: './my-profile.component.html',
   styleUrls: ['./my-profile.component.scss']
 })
-export class MyProfileComponent {
+export class AFMyProfileComponent {
   private router = inject(Router);
   private profileService = inject(ProfileService);
   private dialogService = inject(DialogService);

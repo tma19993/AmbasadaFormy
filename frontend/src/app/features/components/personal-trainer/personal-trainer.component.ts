@@ -8,7 +8,7 @@ import { userDataModel } from 'src/app/shared/models';
   templateUrl: './personal-trainer.component.html',
   styleUrls: ['./personal-trainer.component.scss']
 })
-export class PersonalTrainerComponent {
+export class AFPersonalTrainerComponent {
   private profileService: ProfileService = inject(ProfileService)
 
 

@@ -10,21 +10,22 @@ import { DynamicDialogModule, DialogService } from 'primeng/dynamicdialog';
 import { MessagesModule } from 'primeng/messages';
 import { PaginatorModule } from 'primeng/paginator';
 import { HttpLoaderFactory } from 'src/shared/untils';
-import { AFTableComponent, AFTileComponent, AFPhotoUploaderComponent, AFButtonComponent, AFProfileMenuComponent, AFGymPassCardComponent, AFGymPassInfoComponent } from 'src/stories/components';
-import { AfCheckboxModule } from 'src/stories/components/checkbox/checkbox.module';
-import { FooterModule } from 'src/stories/components/footer/footer.module';
-import { InputModule } from 'src/stories/components/input/input.module';
-import { AfInputTextareaModule } from 'src/stories/components/inputTextarea/inputtextarea.module';
-import { LanguageChangerModule } from 'src/stories/components/languageChanger/languageChanger.module';
-import { MenuStaticModule } from 'src/stories/components/menuStatic/menuStatic.module';
-import { AfMessagesModule } from 'src/stories/components/messages/messages.module';
-import { AfPasswordModule } from 'src/stories/components/password/password.module';
+import { AfCheckboxModule } from 'src/app/shared/components/checkbox/checkbox.module';
+import { InputModule } from 'src/app/shared/components/input/input.module';
+import { AfInputTextareaModule } from 'src/app/shared/components/inputTextarea/inputtextarea.module';
+
+import { AfMessagesModule } from 'src/app/shared/components/messages/messages.module';
+import { AfPasswordModule } from 'src/app/shared/components/password/password.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AfMessageService } from './core/services';
 import { OrderGymPassComponent, NewPostFormComponent, PostDetailsComponent, PasswordChangerComponent, ProfileDataEditorComponent } from './features/dialogs';
-import { WelcomePageComponent, LoginComponent, HomePageComponent, GymPassComponent, MyProfileComponent, GymPassesComponent, PersonalTrainerComponent, DietsComponent, TrainersComponent, AdminPageComponent, BlogComponent, RegisterComponent } from './sites';
-import { ProfileComponent } from './sites/profile/profile.component';
+import { WelcomePageComponent, LoginComponent, HomePageComponent, GymPassComponent,TrainersComponent, BlogComponent, RegisterComponent, AFMenuStaticComponent, AFProfileMenuComponent, AFGymPassCardComponent, AFGymPassInfoComponent, AFPersonalTrainerComponent, AFMyProfileComponent, AFLanguageChangerComponent, AFGymPassesComponent, AFFooterComponent, AFDietsComponent, AFAdminPageComponent } from './features/main-pages';
+import { ProfileComponent } from './features/main-pages/profile/profile.component';
+import { AFButtonComponent } from './shared/components/button/button.component';
+import { AFPhotoUploaderComponent } from './shared/components/photo-uploader/photo-uploader.component';
+import { AFTableComponent } from './shared/components/table/table.component';
+import { AFTileComponent } from './shared/components/tile/tile.component';
 
 @NgModule({ declarations: [
     OrderGymPassComponent,
@@ -33,19 +34,25 @@ import { ProfileComponent } from './sites/profile/profile.component';
         LoginComponent,
         HomePageComponent,
         GymPassComponent,
-        MyProfileComponent,
+        AFMyProfileComponent,
         ProfileComponent,
-        GymPassesComponent,
-        PersonalTrainerComponent,
-        DietsComponent,
+        AFPersonalTrainerComponent,
         TrainersComponent,
-        AdminPageComponent,
         NewPostFormComponent,
         BlogComponent,
         RegisterComponent,
         PostDetailsComponent,
         PasswordChangerComponent,
-        ProfileDataEditorComponent
+        ProfileDataEditorComponent,
+        AFProfileMenuComponent,
+        AFMenuStaticComponent,
+        AFLanguageChangerComponent,
+        AFGymPassesComponent,
+        AFGymPassInfoComponent,
+        AFGymPassCardComponent,
+        AFFooterComponent,
+        AFDietsComponent,
+        AFAdminPageComponent
     ],
     bootstrap: [AppComponent], 
     imports: [
@@ -58,7 +65,6 @@ import { ProfileComponent } from './sites/profile/profile.component';
         AfPasswordModule,
         AfMessagesModule,
         MessagesModule,
-        FooterModule,
         BrowserModule,
         AppRoutingModule,
         FormsModule,
@@ -74,12 +80,8 @@ import { ProfileComponent } from './sites/profile/profile.component';
                 deps: [HttpClient]
             }
         }),
-        LanguageChangerModule,
-        MenuStaticModule,
-        AFProfileMenuComponent,
-        AFGymPassCardComponent,
         BrowserAnimationsModule, 
-        AFGymPassInfoComponent], 
+        ], 
         providers: [
             AfMessageService, 
             MessageService, 
