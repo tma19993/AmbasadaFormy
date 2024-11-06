@@ -2,14 +2,16 @@ import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
-import { AFAvatarModule } from "./avatar.module";
 import { AvatarComponent } from "./avatar.component";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+import { AvatarModule } from "primeng/avatar";
 
 const meta: Meta<typeof AvatarComponent> = {
   title: "Core/Avatar",
   decorators: [
     moduleMetadata({
-      imports: [AFAvatarModule, BrowserAnimationsModule],
+      imports: [CommonModule, AvatarModule, FormsModule, BrowserAnimationsModule],
     }),
   ],
   component: AvatarComponent,

@@ -1,16 +1,21 @@
 import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
 import { DropdownComponent } from "./dropdown.component";
-import { AFDropdownModule } from "./dropdown.model";
+
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+import { DropdownModule } from "primeng/dropdown";
 
 const meta: Meta<DropdownComponent> = {
   title: "Core/Dropdown",
   component: DropdownComponent,
   decorators: [
     moduleMetadata({
-      imports: [AFDropdownModule],
+      imports: [
+        CommonModule,
+        DropdownModule,
+        FormsModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     }),
   ],

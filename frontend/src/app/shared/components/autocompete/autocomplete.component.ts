@@ -1,14 +1,21 @@
-import { NgStyle } from '@angular/common';
+import { CommonModule, NgStyle } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 import { examplePersonalTrainerModel } from 'src/app/shared/models/autocomplete.model';
 
 
 @Component({
   selector: 'af-autocomplete',
   templateUrl: './autocomplete.component.html',
-  styleUrls: ['./autocomplete.component.scss']
+  styleUrls: ['./autocomplete.component.scss'],
+  standalone: true,
+  imports:[CommonModule,
+    AutoCompleteModule,
+    FormsModule,
+    ReactiveFormsModule]
 })
-export class AutocompleteComponent {
+export class AFAutocompleteComponent {
 
 @Input() public suggestions: examplePersonalTrainerModel[] = [];
 @Input() public dropdown: boolean = false;

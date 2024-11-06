@@ -2,15 +2,18 @@ import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
-import { AfPasswordModule } from "./password.module";
-import { PasswordComponent } from "./password.component";
+import { AFPasswordComponent } from "./password.component";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+import { DividerModule } from "primeng/divider";
+import { PasswordModule } from "primeng/password";
 
-const meta: Meta<PasswordComponent> = {
+const meta: Meta<AFPasswordComponent> = {
   title: "Core/Password",
-  component: PasswordComponent,
+  component: AFPasswordComponent,
   decorators: [
     moduleMetadata({
-      imports: [AfPasswordModule, BrowserAnimationsModule],
+      imports: [CommonModule, PasswordModule, FormsModule,DividerModule, BrowserAnimationsModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     }),
   ],
@@ -21,7 +24,7 @@ const meta: Meta<PasswordComponent> = {
 
 export default meta;
 
-type Story = StoryObj<PasswordComponent>;
+type Story = StoryObj<AFPasswordComponent>;
 
 const Template: Story = {
   render: (args) => ({

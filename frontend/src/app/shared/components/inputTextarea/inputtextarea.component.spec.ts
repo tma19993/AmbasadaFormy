@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InputTextareaComponent } from './inputtextarea.component';
+import { AFInputTextareaComponent } from './inputtextarea.component';
 
 describe('ButtonComponent', () => {
-  let component: InputTextareaComponent;
-  let fixture: ComponentFixture<InputTextareaComponent>;
+  let component: AFInputTextareaComponent;
+  let fixture: ComponentFixture<AFInputTextareaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InputTextareaComponent ]
+      declarations: [ AFInputTextareaComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(InputTextareaComponent);
+    fixture = TestBed.createComponent(AFInputTextareaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

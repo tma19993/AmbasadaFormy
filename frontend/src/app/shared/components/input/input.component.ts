@@ -1,5 +1,8 @@
+import { CommonModule } from '@angular/common';
 import { Component, forwardRef, Input } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
+import { FloatLabelModule } from 'primeng/floatlabel';
+import { InputTextModule } from 'primeng/inputtext';
 import { inputIconConfig } from 'src/app/shared/models/input.model';
 
 @Component({
@@ -9,12 +12,20 @@ import { inputIconConfig } from 'src/app/shared/models/input.model';
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => InputComponent),
+      useExisting: forwardRef(() => AFInputComponent),
       multi: true,
     },
   ],
+  standalone: true,
+  imports:[
+    CommonModule,
+    InputTextModule,
+    FormsModule,
+    ReactiveFormsModule,
+    FloatLabelModule
+  ]
 })
-export class InputComponent implements ControlValueAccessor {
+export class AFInputComponent implements ControlValueAccessor {
   @Input() public floatLabelText: string = '';
   @Input() public placeholderText: string = '';
   @Input() public floatLabel: boolean = false;

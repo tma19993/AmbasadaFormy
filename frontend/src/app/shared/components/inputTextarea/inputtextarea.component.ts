@@ -1,5 +1,8 @@
+import { CommonModule } from '@angular/common';
 import { Component, forwardRef, Input } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { FloatLabelModule } from 'primeng/floatlabel';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputTextareaSizeModel } from 'src/app/shared/models/inputtextarea.model';
 
 @Component({
@@ -9,12 +12,19 @@ import { InputTextareaSizeModel } from 'src/app/shared/models/inputtextarea.mode
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => InputTextareaComponent),
+      useExisting: forwardRef(() => AFInputTextareaComponent),
       multi: true,
     },
   ],
+  standalone: true,
+  imports:[
+    CommonModule,
+    InputTextareaModule,
+    FormsModule,
+    FloatLabelModule
+  ]
 })
-export class InputTextareaComponent implements ControlValueAccessor {
+export class AFInputTextareaComponent implements ControlValueAccessor {
   @Input() public autoResize: boolean = false;
   @Input() public floatLabel: boolean = false;
   @Input() public floatLabelText: string = "";

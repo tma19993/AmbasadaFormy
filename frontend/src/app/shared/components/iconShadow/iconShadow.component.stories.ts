@@ -3,14 +3,14 @@ import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
 import { AFIconShadowComponent } from "./iconShadow.component";
-import { AFIconShadowModule } from "./iconShadow.module";
+import { CommonModule } from "@angular/common";
 
 const meta: Meta<AFIconShadowComponent> = {
   title: "Core/Icon Shadow",
   component: AFIconShadowComponent,
   decorators: [
     moduleMetadata({
-      imports: [AFIconShadowModule, BrowserAnimationsModule],
+      imports: [CommonModule, BrowserAnimationsModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     }),
   ],

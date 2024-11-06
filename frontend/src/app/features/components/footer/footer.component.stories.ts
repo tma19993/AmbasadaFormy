@@ -2,16 +2,15 @@ import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
-import { FooterModule } from "./footer.module";
-import { FooterComponent } from "./footer.component";
+import { AFFooterComponent } from "./footer.component";
 import { TranslateModule } from "@ngx-translate/core";
 
-const meta: Meta<FooterComponent> = {
+const meta: Meta<AFFooterComponent> = {
   title: "Views/Footer",
-  component: FooterComponent,
+  component: AFFooterComponent,
   decorators: [
     moduleMetadata({
-      imports: [FooterModule, BrowserAnimationsModule, TranslateModule.forRoot()],
+      imports: [ BrowserAnimationsModule, TranslateModule.forRoot()],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     }),
   ],
@@ -22,7 +21,7 @@ const meta: Meta<FooterComponent> = {
 
 export default meta;
 
-type Story = StoryObj<FooterComponent>;
+type Story = StoryObj<AFFooterComponent>;
 
 const Template: Story = {
   render: (args) => ({

@@ -10,25 +10,25 @@ import { DynamicDialogModule, DialogService } from 'primeng/dynamicdialog';
 import { MessagesModule } from 'primeng/messages';
 import { PaginatorModule } from 'primeng/paginator';
 import { HttpLoaderFactory } from 'src/shared/untils';
-import { AfCheckboxModule } from 'src/app/shared/components/checkbox/checkbox.module';
-import { InputModule } from 'src/app/shared/components/input/input.module';
-import { AfInputTextareaModule } from 'src/app/shared/components/inputTextarea/inputtextarea.module';
-
-import { AfMessagesModule } from 'src/app/shared/components/messages/messages.module';
-import { AfPasswordModule } from 'src/app/shared/components/password/password.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AfMessageService } from './core/services';
 import { OrderGymPassComponent, NewPostFormComponent, PostDetailsComponent, PasswordChangerComponent, ProfileDataEditorComponent } from './features/dialogs';
-import { WelcomePageComponent, LoginComponent, HomePageComponent, GymPassComponent,TrainersComponent, BlogComponent, RegisterComponent, AFMenuStaticComponent, AFProfileMenuComponent, AFGymPassCardComponent, AFGymPassInfoComponent, AFPersonalTrainerComponent, AFMyProfileComponent, AFLanguageChangerComponent, AFGymPassesComponent, AFFooterComponent, AFDietsComponent, AFAdminPageComponent } from './features/main-pages';
+import { WelcomePageComponent, LoginComponent, HomePageComponent, GymPassComponent, TrainersComponent, BlogComponent, RegisterComponent, AFMenuStaticComponent, AFProfileMenuComponent, AFGymPassCardComponent, AFGymPassInfoComponent, AFPersonalTrainerComponent, AFMyProfileComponent, AFLanguageChangerComponent, AFGymPassesComponent, AFFooterComponent, AFDietsComponent, AFAdminPageComponent } from './features/main-pages';
 import { ProfileComponent } from './features/main-pages/profile/profile.component';
 import { AFButtonComponent } from './shared/components/button/button.component';
 import { AFPhotoUploaderComponent } from './shared/components/photo-uploader/photo-uploader.component';
 import { AFTableComponent } from './shared/components/table/table.component';
 import { AFTileComponent } from './shared/components/tile/tile.component';
+import { AFPasswordComponent } from './shared/components/password/password.component';
+import { AFMessagesComponent } from './shared/components/messages/messages.component';
+import { AFCheckboxComponent } from './shared/components/checkbox/checkbox.component';
+import { AFInputComponent } from './shared/components/input/input.component';
+import { AFInputTextareaComponent } from './shared/components/inputTextarea/inputtextarea.component';
 
-@NgModule({ declarations: [
-    OrderGymPassComponent,
+@NgModule({
+    declarations: [
+        OrderGymPassComponent,
         AppComponent,
         WelcomePageComponent,
         LoginComponent,
@@ -54,25 +54,26 @@ import { AFTileComponent } from './shared/components/tile/tile.component';
         AFDietsComponent,
         AFAdminPageComponent
     ],
-    bootstrap: [AppComponent], 
+    bootstrap: [AppComponent],
     imports: [
+        AFPasswordComponent,
+        AFMessagesComponent,
+        AFCheckboxComponent,
+        AFInputComponent,
+        AFInputTextareaComponent,
         AFTableComponent,
         AFTileComponent,
         AFPhotoUploaderComponent,
         AvatarModule,
         ReactiveFormsModule,
         PaginatorModule,
-        AfPasswordModule,
-        AfMessagesModule,
         MessagesModule,
         BrowserModule,
         AppRoutingModule,
         FormsModule,
-        AfCheckboxModule,
         DynamicDialogModule,
         AFButtonComponent,
-        InputModule,
-        AfInputTextareaModule,
+        BrowserAnimationsModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
@@ -80,11 +81,12 @@ import { AFTileComponent } from './shared/components/tile/tile.component';
                 deps: [HttpClient]
             }
         }),
-        BrowserAnimationsModule, 
-        ], 
-        providers: [
-            AfMessageService, 
-            MessageService, 
-            DialogService, 
-            provideHttpClient(withInterceptorsFromDi())] })
+    ],
+    providers: [
+        AfMessageService,
+        MessageService,
+        DialogService,
+        provideHttpClient(withInterceptorsFromDi())
+    ]
+})
 export class AppModule { }

@@ -5,13 +5,15 @@ import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
 import { RadioButtonsComponent } from "./radiobutton.component";
 import { FormsModule } from "@angular/forms";
 import { Categories } from "src/app/shared/models/radiobutton.model";
+import { RadioButtonModule } from "primeng/radiobutton";
+import { CommonModule } from "@angular/common";
 
 const meta: Meta<RadioButtonsComponent> = {
   title: "Core/RadioButton",
   component: RadioButtonsComponent,
   decorators: [
     moduleMetadata({
-      imports: [BrowserAnimationsModule, FormsModule],
+      imports: [CommonModule, RadioButtonModule, BrowserAnimationsModule, FormsModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     }),
   ],

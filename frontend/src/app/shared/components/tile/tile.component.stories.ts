@@ -2,13 +2,13 @@ import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
-import { AFTileModule } from "./tile.module";
+import { CommonModule } from "@angular/common";
 
 const meta: Meta = {
   title: "Core/Tile",
   decorators: [
     moduleMetadata({
-      imports: [AFTileModule, BrowserAnimationsModule],
+      imports: [CommonModule, BrowserAnimationsModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     }),
   ],

@@ -3,7 +3,6 @@ import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
 import { AFGymPassCardComponent } from "./gym-pass-card.component";
-import { AFGymPassCardModule } from "./gym-pass-card.module";
 import { TranslateModule } from "@ngx-translate/core";
 
 const meta: Meta<AFGymPassCardComponent> = {
@@ -11,7 +10,7 @@ const meta: Meta<AFGymPassCardComponent> = {
   component: AFGymPassCardComponent,
   decorators: [
     moduleMetadata({
-      imports: [AFGymPassCardModule, BrowserAnimationsModule, TranslateModule.forRoot()],
+      imports: [ BrowserAnimationsModule, TranslateModule.forRoot()],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     }),
   ],

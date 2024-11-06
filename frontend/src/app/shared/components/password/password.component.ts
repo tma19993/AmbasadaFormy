@@ -1,20 +1,24 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, forwardRef, Input, OnInit, Output } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, forwardRef, Input, OnInit, Output } from '@angular/core';
+import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { DividerModule } from 'primeng/divider';
+import { PasswordModule } from 'primeng/password';
 
 @Component({
   selector: 'af-password',
   templateUrl: './password.component.html',
   styleUrls: ['./password.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   providers:[
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => PasswordComponent),
+      useExisting: forwardRef(() => AFPasswordComponent),
       multi: true,
     },
-  ]
+  ],
+  standalone: true,
+  imports: [CommonModule, PasswordModule, FormsModule,DividerModule],
 })
-export class PasswordComponent implements OnInit, ControlValueAccessor {
+export class AFPasswordComponent implements OnInit, ControlValueAccessor {
   @Input() public floatLabelText: string = '';
   @Input() public weakLabel: string = '';
   @Input() public mediumLabel: string = '';

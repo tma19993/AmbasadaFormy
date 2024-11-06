@@ -1,16 +1,20 @@
 import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
 import { CalendarComponent } from "./calendar.component";
-import { AppCalendarModule } from "./calendar.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+import { CalendarModule } from "primeng/calendar";
 
 const meta: Meta<CalendarComponent> = {
   title: "Core/Calendar",
   component: CalendarComponent,
   decorators: [
     moduleMetadata({
-      imports: [AppCalendarModule, BrowserAnimationsModule],
+      imports: [CommonModule,
+        CalendarModule,
+        FormsModule,, BrowserAnimationsModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     }),
   ],

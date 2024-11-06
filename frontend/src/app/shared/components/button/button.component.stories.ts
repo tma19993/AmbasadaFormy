@@ -1,16 +1,19 @@
 import { Meta, moduleMetadata, StoryObj } from '@storybook/angular';
 import { DEFAULT_VIEWPORT } from '@storybook/addon-viewport';
-import { ButtonComponent } from './button.component';
-import { AFButtonModule } from './button.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AFButtonComponent } from './button.component';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ButtonModule } from 'primeng/button';
+import { FormsModule } from '@angular/forms';
 
-const meta: Meta<ButtonComponent> = {
+const meta: Meta<AFButtonComponent> = {
   title: 'Core/Button',
-  component: ButtonComponent,
+  component: AFButtonComponent,
   decorators: [
     moduleMetadata({
-      imports: [AFButtonModule],
+      imports: [CommonModule,
+        ButtonModule,
+        FormsModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     }),
   ],
@@ -21,7 +24,7 @@ const meta: Meta<ButtonComponent> = {
 
 export default meta;
 
-type Story = StoryObj<ButtonComponent>;
+type Story = StoryObj<AFButtonComponent>;
 
 const Template: Story = {
   render: (args) => ({

@@ -1,16 +1,24 @@
 import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
-import { InputTextareaComponent } from "./inputtextarea.component";
-import { AfInputTextareaModule } from "./inputtextarea.module";
+import { AFInputTextareaComponent } from "./inputtextarea.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+import { FloatLabelModule } from "primeng/floatlabel";
+import { InputTextareaModule } from "primeng/inputtextarea";
 
-const meta: Meta<InputTextareaComponent> = {
+const meta: Meta<AFInputTextareaComponent> = {
   title: "Core/InputTextarea",
-  component: InputTextareaComponent,
+  component: AFInputTextareaComponent,
   decorators: [
     moduleMetadata({
-      imports: [AfInputTextareaModule, BrowserAnimationsModule],
+      imports: [
+        CommonModule,
+        InputTextareaModule,
+        FormsModule,
+        FloatLabelModule,
+        BrowserAnimationsModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     }),
   ],
@@ -21,7 +29,7 @@ const meta: Meta<InputTextareaComponent> = {
 
 export default meta;
 
-type Story = StoryObj<InputTextareaComponent>;
+type Story = StoryObj<AFInputTextareaComponent>;
 
 const Template: Story = {
   render: (args) => ({

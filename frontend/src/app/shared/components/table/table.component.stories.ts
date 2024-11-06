@@ -3,14 +3,18 @@ import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
 import { AFTableComponent } from "./table.component";
-import { AFTableModule } from "./table.module";
+import { CommonModule } from "@angular/common";
+import { TableModule } from "primeng/table";
+import { FormsModule } from "@angular/forms";
 
 const meta: Meta<AFTableComponent> = {
   title: "Core/Table",
   component: AFTableComponent,
   decorators: [
     moduleMetadata({
-      imports: [AFTableModule, BrowserAnimationsModule],
+      imports: [CommonModule,
+        TableModule,
+        FormsModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     }),
   ],

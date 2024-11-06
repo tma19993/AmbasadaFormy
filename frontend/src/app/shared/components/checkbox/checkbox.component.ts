@@ -1,11 +1,18 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { CheckboxModule } from 'primeng/checkbox';
 
 @Component({
   selector: 'af-checkbox',
   templateUrl: './checkbox.component.html',
-  styleUrls: ['./checkbox.component.scss']
+  styleUrls: ['./checkbox.component.scss'],
+  standalone: true,
+  imports:[
+    FormsModule,
+    CheckboxModule,
+  ]
 })
-export class CheckboxComponent {
+export class AFCheckboxComponent {
 
   
   @Input() public label: string = "";

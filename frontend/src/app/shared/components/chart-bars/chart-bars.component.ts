@@ -1,10 +1,17 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
+import { ChartModule } from 'primeng/chart';
 import { ChartBarsType } from 'src/app/shared/models/chartBars.model';
 
 @Component({
   selector: 'af-chartBars',
   templateUrl: './chart-bars.component.html',
-  styleUrls: ['./chart-bars.component.scss']
+  styleUrls: ['./chart-bars.component.scss'],
+  standalone: true,
+  imports:[
+    CommonModule,
+    ChartModule,
+  ]
 })
 export class ChartBarsComponent implements OnInit {
 @Input() public type: ChartBarsType | undefined;

@@ -1,17 +1,18 @@
 import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
-import { CheckboxComponent } from "./checkbox.component";
-import { AfCheckboxModule } from "./checkbox.module";
+import { AFCheckboxComponent } from "./checkbox.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
 import { FormsModule } from "@angular/forms";
+import { CheckboxModule } from "primeng/checkbox";
 
-const meta: Meta<CheckboxComponent> = {
+const meta: Meta<AFCheckboxComponent> = {
   title: "Core/Checkbox",
-  component: CheckboxComponent,
+  component: AFCheckboxComponent,
   decorators: [
     moduleMetadata({
-      imports: [AfCheckboxModule, BrowserAnimationsModule, FormsModule],
+      imports: [
+        CheckboxModule, BrowserAnimationsModule, FormsModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     }),
   ],
@@ -22,7 +23,7 @@ const meta: Meta<CheckboxComponent> = {
 
 export default meta;
 
-type Story = StoryObj<CheckboxComponent>;
+type Story = StoryObj<AFCheckboxComponent>;
 
 const Template: Story = {
   render: (args) => ({

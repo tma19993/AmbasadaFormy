@@ -8,7 +8,7 @@ import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { delay } from 'rxjs';
 import { PostDetailsComponent } from 'src/app/features/dialogs/post-details/post-details.component';
 import { AfMessageService, BlogService } from 'src/app/core/services';
-import { OneRequiredValidator } from 'src/app/core';
+import { OneRequiredValidator } from 'src/app/core/validators';
 import { dialogConfig } from 'src/app/shared/constants';
 import { NewPostFormComponent } from '../../dialogs';
 

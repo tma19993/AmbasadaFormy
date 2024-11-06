@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { BlogComponent, AFDietsComponent, GymPassComponent, AFGymPassesComponent, HomePageComponent, LoginComponent, AFMyProfileComponent, AFPersonalTrainerComponent,AFAdminPageComponent, RegisterComponent, TrainersComponent, WelcomePageComponent } from './features/main-pages';
-import { AuthGuard } from './core';
+
 import { ProfileComponent } from './features/main-pages/profile/profile.component';
+import { AuthGuard } from './core/auth/auth.guard';
 
 const routes: Routes = [
 { path: '', redirectTo: '/welcome', pathMatch: 'full' },

@@ -2,22 +2,31 @@ import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
-import { InputComponent } from "./input.component";
-import { InputModule } from "./input.module";
+import { AFInputComponent } from "./input.component";
 import { inputIconConfig } from "src/app/shared/models/input.model";
 import { EnumIconFloat } from "src/app/shared/enums/input.enum";
+import { CommonModule } from "@angular/common";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { FloatLabelModule } from "primeng/floatlabel";
+import { InputTextModule } from "primeng/inputtext";
 
 const defaultData: inputIconConfig = {
   iconClassName: "pi-search",
   iconFloat: EnumIconFloat.left,
 };
 
-const meta: Meta<InputComponent> = {
+const meta: Meta<AFInputComponent> = {
   title: "Core/Input",
-  component: InputComponent,
+  component: AFInputComponent,
   decorators: [
     moduleMetadata({
-      imports: [InputModule, BrowserAnimationsModule],
+      imports: [
+        CommonModule,
+        InputTextModule,
+        FormsModule,
+        ReactiveFormsModule,
+        FloatLabelModule, 
+        BrowserAnimationsModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     }),
   ],
@@ -28,7 +37,7 @@ const meta: Meta<InputComponent> = {
 
 export default meta;
 
-type Story = StoryObj<InputComponent>;
+type Story = StoryObj<AFInputComponent>;
 
 const Template: Story = {
   render: (args) => ({

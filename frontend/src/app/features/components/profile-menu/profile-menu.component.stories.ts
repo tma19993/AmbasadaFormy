@@ -4,11 +4,10 @@ import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
 import { AFProfileMenuComponent } from "./profile-menu.component";
-import { AFProfileMenuModule } from "./profile-menu.module";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
-import { AFTileModule } from "../../../app/shared/components/tile/tile.module";
 import { HttpLoaderFactory } from "src/shared/untils";
+import { AFTileComponent } from "src/app/shared/components/tile/tile.component";
 
 const meta: Meta<AFProfileMenuComponent> = {
   title: "Views/Profile/Menu",
@@ -16,7 +15,7 @@ const meta: Meta<AFProfileMenuComponent> = {
   decorators: [
     moduleMetadata({
       imports: [
-        AFProfileMenuModule,
+        AFTileComponent,
         BrowserAnimationsModule,
         HttpClientModule,
         TranslateModule.forRoot({
@@ -26,7 +25,7 @@ const meta: Meta<AFProfileMenuComponent> = {
             deps: [HttpClient],
           },
         }),
-        AFTileModule,
+        
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     }),
