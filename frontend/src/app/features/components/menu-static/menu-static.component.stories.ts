@@ -1,13 +1,12 @@
 import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";;
 import { AFMenuStaticComponent } from "./menu-static.component";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
-import { HttpLoaderFactory } from "src/shared/untils";
+import { HttpLoaderFactory } from "src/app/core/untils/http-loader-factory";
 
-const meta: Meta<MenuStaticComponent> = {
+const meta: Meta<AFMenuStaticComponent> = {
   title: "Views/MenuStatic",
   component: AFMenuStaticComponent,
   decorators: [
@@ -22,8 +21,7 @@ const meta: Meta<MenuStaticComponent> = {
             deps: [HttpClient],
           },
         }),
-      ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
+      ]
     }),
   ],
   parameters: {

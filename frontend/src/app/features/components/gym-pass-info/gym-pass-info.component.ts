@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { Router } from "@angular/router";
 
 @Component({
@@ -13,6 +13,7 @@ export class AFGymPassInfoComponent {
 @Input() label2: string;
 @Input() price: number;
 @Input() buttonId: string;
+
 
 constructor(private router: Router){}
 

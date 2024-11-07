@@ -15,7 +15,7 @@
     <af-tile [darkMode]="true"></af-tile>
     <af-tile [darkMode]="true">
       <div style="display: grid; place-items: center; height: 100%;" class="">
-        <af-button [label]="'button.orderonline' | translate " [buttonId]="buttonId+'info'" [fontSize]="52"></af-button>
+        <af-button [label]="'button.orderonline' | translate " [buttonId]="buttonId+'info'" [fontSize]="52" (onClick)="routeToGymPasses()"></af-button>
       </div>
     </af-tile>
   </div>

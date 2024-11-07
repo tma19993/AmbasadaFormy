@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-
+import { Component, EventEmitter, inject, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'af-gym-pass-card',
@@ -7,7 +7,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./gym-pass-card.component.scss'],
 
 })
-export class AFGymPassCardComponent implements OnInit{
+export class AFGymPassCardComponent implements OnInit {
+
+  private router: Router = inject(Router);
+
   @Input() public title: string;
   @Input() public subtitle: string;
   @Input() public price: string;
@@ -16,20 +19,17 @@ export class AFGymPassCardComponent implements OnInit{
   @Input() public smallerCard: boolean = false;
   @Input() public passId: string;
 
-  @Output() public emitOrder:EventEmitter<{passId: string}> = new EventEmitter();
-
   public options: string[];
-
-  constructor(){}
 
   public ngOnInit(): void {
       this.options = this.getOptions(this.name);
   }
 
   public orderGymPass(): void  {
-    this.emitOrder.emit({passId: this.passId})
-    }
-    private getOptions(name: string): string[] {
+    this.router.navigate(["profile/gym-pass"]);
+  }
+  
+  private getOptions(name: string): string[] {
   switch (name) {
     case 'development':
       return ['gymPass.developmentPass.access', 'gymPass.developmentPass.monthlyPay', 'gymPass.shared.FirstPay', 'gymPass.shared.Water'];

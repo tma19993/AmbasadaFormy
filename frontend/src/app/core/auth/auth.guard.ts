@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { LoginService } from '../services/api';
-import { AfMessageService } from '../services/message';
+import { inject, Injectable } from '@angular/core';
+import { AfMessageService, LoginService } from '../services';
+
 
 
 
@@ -9,8 +9,9 @@ import { AfMessageService } from '../services/message';
   providedIn: 'root'
 })
 export class AuthGuard {
+  private loginService: LoginService = inject(LoginService)
+  private message: AfMessageService = inject(AfMessageService)
 
-  constructor(private loginService: LoginService, private message: AfMessageService) {}
   canActivate(): boolean {
     const isLoggedIn = this.loginService.isLoggedIn(); 
     if (isLoggedIn) {

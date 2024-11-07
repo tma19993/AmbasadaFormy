@@ -9,7 +9,7 @@ import { AvatarModule } from 'primeng/avatar';
 import { DynamicDialogModule, DialogService } from 'primeng/dynamicdialog';
 import { MessagesModule } from 'primeng/messages';
 import { PaginatorModule } from 'primeng/paginator';
-import { HttpLoaderFactory } from 'src/shared/untils';
+import { HttpLoaderFactory } from 'src/app/core/untils/http-loader-factory';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AfMessageService } from './core/services';
@@ -25,6 +25,7 @@ import { AFMessagesComponent } from './shared/components/messages/messages.compo
 import { AFCheckboxComponent } from './shared/components/checkbox/checkbox.component';
 import { AFInputComponent } from './shared/components/input/input.component';
 import { AFInputTextareaComponent } from './shared/components/inputTextarea/inputtextarea.component';
+import { AFPreviousRouteService } from './core/services/previous-route/previous-route.service';
 
 @NgModule({
     declarations: [
@@ -85,6 +86,7 @@ import { AFInputTextareaComponent } from './shared/components/inputTextarea/inpu
     providers: [
         AfMessageService,
         MessageService,
+        AFPreviousRouteService,
         DialogService,
         provideHttpClient(withInterceptorsFromDi())
     ]

@@ -1,33 +1,39 @@
 import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
-import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
-
+import { importProvidersFrom } from '@angular/core';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
 import { AFProfileMenuComponent } from "./profile-menu.component";
-import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
-import { HttpClient, HttpClientModule } from "@angular/common/http";
-import { HttpLoaderFactory } from "src/shared/untils";
+import { HttpClient, HttpClientModule, provideHttpClient } from "@angular/common/http";
+import { Router } from "@angular/router";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { AFTileComponent } from "src/app/shared/components/tile/tile.component";
+import { AFButtonComponent } from "src/app/shared/components/button/button.component";
+import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
+
+
+ function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, '/i18n/', '.json');
+}
+
 
 const meta: Meta<AFProfileMenuComponent> = {
-  title: "Views/Profile/Menu",
+  title: 'Views/Profile/Menu',
   component: AFProfileMenuComponent,
   decorators: [
     moduleMetadata({
       imports: [
         AFTileComponent,
-        BrowserAnimationsModule,
+        AFButtonComponent,
         HttpClientModule,
+        BrowserAnimationsModule,
         TranslateModule.forRoot({
           loader: {
             provide: TranslateLoader,
             useFactory: HttpLoaderFactory,
             deps: [HttpClient],
           },
-        }),
-        
+        })
       ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
+      providers: [Router], 
     }),
   ],
 };
@@ -39,10 +45,10 @@ type Story = StoryObj<AFProfileMenuComponent>;
 const Template: Story = {
   render: (args) => ({
     template: `
-      <section style="background-color: grey; height: 100vh;">
+      <section style=" height: 100vh;">
         <div style="width: 25%; padding: 40px">
           <af-tile>
-            <af-profile-menu [isAdmin]="args.isAdmin" />
+            <af-profile-menu [isAdmin]="isAdmin" />
           </af-tile>
         </div>
       </section>

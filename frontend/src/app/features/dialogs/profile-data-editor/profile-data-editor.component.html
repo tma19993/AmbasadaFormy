@@ -16,5 +16,5 @@
               class="buttons--checkbox"></af-checkbox>
           </div>
       </div>
-      <af-button class="submit" label="Change Data" type="submit"/>
+      <af-button [disabled]="form.pristine" class="submit" label="Change Data" type="submit"/>
 </form>

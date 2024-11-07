@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,15 +6,11 @@ import { Router } from '@angular/router';
   templateUrl: './profile-menu.component.html',
   styleUrls: ['./profile-menu.component.scss'],
 })
-export class AFProfileMenuComponent implements OnInit {
+export class AFProfileMenuComponent {
   @Output() BackEmmiter: EventEmitter<void> = new EventEmitter();
   @Input() isAdmin: boolean = false;
 
   constructor(private router: Router) { }
-
-  public ngOnInit(): void {
-   
-  }
 
   public logout(): void {
     sessionStorage.clear();

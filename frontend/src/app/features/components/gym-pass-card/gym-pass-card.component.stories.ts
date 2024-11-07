@@ -3,14 +3,25 @@ import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
 import { AFGymPassCardComponent } from "./gym-pass-card.component";
-import { TranslateModule } from "@ngx-translate/core";
+import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
+import { HttpLoaderFactory } from "src/app/core/untils/http-loader-factory";
+import { HttpClient } from "@angular/common/http";
 
 const meta: Meta<AFGymPassCardComponent> = {
   title: "Core/Gym Pass Card",
   component: AFGymPassCardComponent,
   decorators: [
     moduleMetadata({
-      imports: [ BrowserAnimationsModule, TranslateModule.forRoot()],
+      imports: [ 
+        BrowserAnimationsModule, 
+        TranslateModule.forRoot({
+          loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient],
+          },
+        })
+      ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     }),
   ],

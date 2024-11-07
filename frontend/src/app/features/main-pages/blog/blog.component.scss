@@ -65,9 +65,9 @@
     &--post {
       cursor: pointer;
       margin-bottom: 60px;
-      animation:appear linear;
+      animation: appear linear;
       animation-timeline: view();
-      animation-range: entry 0% cover 15%;
+      animation-range: entry 0% cover 17%;
 
       &-content {
         display: flex;

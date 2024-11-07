@@ -13,10 +13,6 @@ export class GymPassComponent  {
     this.gymPassesService.getGymPasses();
   }
   
-  public changeGymPass(): void {
-    this.router.navigate(["profile/gym-pass"]);
-  }
-
   public get gymPasses(): GymPassModel[]{
     return this.gymPassesService.gymPasses
   }
