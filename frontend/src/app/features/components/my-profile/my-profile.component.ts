@@ -1,16 +1,19 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { userDataModel } from 'src/app/shared/models';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 
 import { delay } from 'rxjs';
 import { AfMessageService, ProfileService } from 'src/app/core/services';
-import { PasswordChangerComponent, ProfileDataEditorComponent } from '../../dialogs';
+import {
+  PasswordChangerComponent,
+  ProfileDataEditorComponent,
+} from '../../dialogs';
 import { dialogConfig } from 'src/app/shared/constants';
 @Component({
   selector: 'af-profile',
   templateUrl: './my-profile.component.html',
-  styleUrls: ['./my-profile.component.scss']
+  styleUrls: ['./my-profile.component.scss'],
 })
 export class AFMyProfileComponent {
   private router = inject(Router);
@@ -20,6 +23,9 @@ export class AFMyProfileComponent {
 
   private ref: DynamicDialogRef;
 
+  // Pozmieniać w całej aplikacji na signals, przekazywa signal do komponentu i wywoływać go w html'u
+
+  public userData: Signal<userDataModel> = this.profileService.userDataSignal;
   public ngOnDestroy(): void {
     if (this.ref) {
       this.ref.close();
@@ -31,7 +37,7 @@ export class AFMyProfileComponent {
       setTimeout(() => {
         sessionStorage.clear();
         this.router.navigate(['/welcome']);
-      }, 2000)
+      }, 2000);
     });
   }
 
@@ -41,34 +47,28 @@ export class AFMyProfileComponent {
     });
   }
 
-  public changePassword():void {
-   this.ref = this.dialogService.open(PasswordChangerComponent,{
+  public changePassword(): void {
+    this.ref = this.dialogService.open(PasswordChangerComponent, {
       ...dialogConfig,
-      header: "Change Password"
-    })
-    this.closeDialogs("Zmieniono Hasło");
-  }
-
-  public editProfileData():void {
-   this.ref = this.dialogService.open(ProfileDataEditorComponent,{
-      ...dialogConfig,
-      header: "Edit Profile Data"
+      header: 'Change Password',
     });
-    this.closeDialogs("Zmieniono Dane Użytkownika")
+    this.closeDialogs('Zmieniono Hasło');
   }
 
-  public get userData(): userDataModel {
-    return this.profileService.userData;
+  public editProfileData(): void {
+    this.ref = this.dialogService.open(ProfileDataEditorComponent, {
+      ...dialogConfig,
+      header: 'Edit Profile Data',
+    });
+    this.closeDialogs('Zmieniono Dane Użytkownika');
   }
 
-  private closeDialogs(message: string): void{
-    this.ref.onClose.pipe(
-      delay(1000)
-    ).subscribe((val) => {
-      if(val){
+  private closeDialogs(message: string): void {
+    this.ref.onClose.pipe(delay(1000)).subscribe((val) => {
+      if (val) {
         this.message.addSuccesMessage(message);
-        this.profileService.getUserData()
+        this.profileService.getUserData();
       }
-    })
+    });
   }
-  }
+}
