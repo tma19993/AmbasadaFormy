@@ -4,7 +4,6 @@ import { TranslateService } from '@ngx-translate/core';
 import docJson from "../documentation.json";
 setCompodocJson(docJson);
 
-TranslateService.setDefaultLang("en");
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {

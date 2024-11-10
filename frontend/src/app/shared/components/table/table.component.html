@@ -1,22 +1,26 @@
-<p-table 
-[(first)]="firstPage"
-[columns]="columns" 
-[value]="values" 
-[tableStyle]="{ 'min-width': '50rem' }"  
-[paginator]="paginator"
-[rows]="rows">
-    <ng-template pTemplate="header" let-columns>
-        <tr>
-            <th *ngFor="let header of columns">
-                {{header.field}}
-            </th>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-rowData  let-columns="columns">
-        <tr> 
-            <td *ngFor="let col of columns">
-            {{ rowData[col.field] }}
-            </td>
-        </tr>
-    </ng-template>
+<p-table [(first)]="firstPage" [columns]="columns" [value]="values" [tableStyle]="{ 'min-width': '50rem' }"
+  [paginator]="paginator" [rows]="rows">
+  <ng-template pTemplate="header" let-columns>
+    <tr class="header">
+      <th *ngFor="let header of columns" class="header-template ">
+        {{header.header}}
+      </th>
+      <th class="header-template action-buttons" >
+        Edit
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr class="row">
+      <td *ngFor="let col of columns" class="row-template" [ngClass]="{'border-bottom-row': !paginator}">
+        {{ rowData[col.field] }}
+      </td>
+      <td class="row-template action-buttons" >
+        <af-button iconClassName="pi-pencil" iconPos="top" (click)="editRow(rowData)" [iconSize]="7" [fontSize]="0"
+          [transparentButton]="true" />
+        <af-button iconClassName="pi-trash" iconPos="top" (click)="deleteRow(rowData)" [iconSize]="7" [fontSize]="0"
+          [transparentButton]="true" />
+      </td>
+    </tr>
+  </ng-template>
 </p-table>

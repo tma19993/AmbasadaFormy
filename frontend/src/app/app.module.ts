@@ -26,6 +26,7 @@ import { AFCheckboxComponent } from './shared/components/checkbox/checkbox.compo
 import { AFInputComponent } from './shared/components/input/input.component';
 import { AFInputTextareaComponent } from './shared/components/inputTextarea/inputtextarea.component';
 import { AFPreviousRouteService } from './core/services/previous-route/previous-route.service';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
     declarations: [
@@ -88,6 +89,7 @@ import { AFPreviousRouteService } from './core/services/previous-route/previous-
         MessageService,
         AFPreviousRouteService,
         DialogService,
+        DatePipe,
         provideHttpClient(withInterceptorsFromDi())
     ]
 })

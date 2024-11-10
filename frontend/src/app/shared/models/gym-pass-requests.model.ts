@@ -1,9 +1,10 @@
 export type RequestModel = {
-    _id: string;
-    userId: string;
+    _id?: string;
+    userId?: string;
     userName: string;
-    gymPassIdToActive: string;
-    requestDate: Date; 
+    gymPassIdToActive?: string;
+    gymPassNameToActive: string;
+    requestDate: Date | string; 
     status: 'pending' | 'approved' | 'rejected'; 
 
 }
