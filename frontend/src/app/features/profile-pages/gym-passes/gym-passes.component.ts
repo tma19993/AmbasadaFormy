@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit, Signal, WritableSignal } from '@angular/core';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { delay } from 'rxjs';
 import { AfMessageService, GymPassesService, ProfileService } from 'src/app/core/services';
@@ -12,16 +12,15 @@ import { OrderGymPassComponent } from '../../dialogs';
   styleUrls: ['./gym-passes.component.scss']
 })
 export class AFGymPassesComponent implements OnInit, OnDestroy {
+  private profileService: ProfileService = inject(ProfileService);
+  private gymPassesService: GymPassesService = inject(GymPassesService);
+  private dialogService: DialogService = inject(DialogService);
+  private message: AfMessageService = inject(AfMessageService);
+
+  public userData: Signal<userDataModel> = this.profileService.userDataSignal;
+  public gymPasses: Signal<GymPassModel[]> = this.gymPassesService.gymPassesSignal;
 
   private ref: DynamicDialogRef | undefined;
-
-  constructor(
-    private profileService: ProfileService,
-    private gymPassesService: GymPassesService,
-    private dialogService: DialogService,
-    private message: AfMessageService
-
-  ) { }
 
   public ngOnInit(): void {
     this.getGymPasses();
@@ -42,18 +41,9 @@ export class AFGymPassesComponent implements OnInit, OnDestroy {
 
 
   private getGymPasses(): void {
-    if (this.gymPassesService.gymPasses.length == 0) {
+    if (this.gymPasses().length == 0) {
       this.gymPassesService.getGymPasses();
     }
-
-  }
-
-  public get userData(): userDataModel {
-    return this.profileService.userData;
-  }
-
-  public get gymPasses(): GymPassModel[] {
-    return this.gymPassesService.gymPasses;
   }
 
   private dialogConfig(deactive:boolean = false, gymPassData?:GymPassModel):void{

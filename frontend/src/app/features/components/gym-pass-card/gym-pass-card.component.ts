@@ -1,5 +1,4 @@
-import { Component, EventEmitter, inject, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'af-gym-pass-card',
@@ -8,9 +7,7 @@ import { Router } from '@angular/router';
 
 })
 export class AFGymPassCardComponent implements OnInit {
-
-  private router: Router = inject(Router);
-
+  @Output() public OrderGymPass: EventEmitter<void> = new EventEmitter;
   @Input() public title: string;
   @Input() public subtitle: string;
   @Input() public price: string;
@@ -26,7 +23,7 @@ export class AFGymPassCardComponent implements OnInit {
   }
 
   public orderGymPass(): void  {
-    this.router.navigate(["profile/gym-pass"]);
+    this.OrderGymPass.emit();
   }
   
   private getOptions(name: string): string[] {

@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { BlogComponent, AFDietsComponent, GymPassComponent, AFGymPassesComponent, HomePageComponent, LoginComponent, AFMyProfileComponent, AFPersonalTrainerComponent,AFAdminPageComponent, RegisterComponent, TrainersComponent, WelcomePageComponent } from './features/main-pages';
+import { BlogComponent, GymPassComponent, HomePageComponent, LoginComponent, RegisterComponent, TrainersComponent, WelcomePageComponent } from './features/main-pages';
 
 import { ProfileComponent } from './features/main-pages/profile/profile.component';
 import { AuthGuard } from './core/auth/auth.guard';
+import { AFAdminPageComponent, AFDietsComponent, AFGymPassesComponent, AFMyProfileComponent, AFPersonalTrainerComponent } from './features/profile-pages';
 
 const routes: Routes = [
 { path: '', redirectTo: '/welcome', pathMatch: 'full' },

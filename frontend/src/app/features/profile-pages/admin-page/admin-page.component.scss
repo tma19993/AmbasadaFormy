@@ -1,0 +1,11 @@
+@import "./../../../shared/styles/constants.scss";
+
+.container{
+    margin: 20px 80px;
+    h2{
+       @include small-header-style-dark;
+       margin-bottom: 40px;
+
+ 
+    }
+}

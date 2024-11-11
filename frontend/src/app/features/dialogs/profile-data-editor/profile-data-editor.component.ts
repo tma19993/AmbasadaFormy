@@ -1,5 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FormGroup, FormSubmittedEvent, NonNullableFormBuilder } from '@angular/forms';
+import { DynamicDialogRef } from 'primeng/dynamicdialog';
 import { AfMessageService, ProfileService } from 'src/app/core/services';
 import { MapToPublicUserData } from 'src/app/core/untils';
 import { EnumIconFloat } from 'src/app/shared/enums';
@@ -16,8 +17,7 @@ import { genderKey, GenderModel, inputIconConfig, UserDataPublic } from 'src/app
 export class ProfileDataEditorComponent implements OnInit {
   private fb = inject(NonNullableFormBuilder);
   private profileService = inject(ProfileService);
-  private message = inject(AfMessageService);
-
+  private dialogRef = inject(DynamicDialogRef); 
 
   public loginData: inputIconConfig = {
     iconClassName: 'pi-user',
@@ -77,10 +77,8 @@ export class ProfileDataEditorComponent implements OnInit {
   }
 
   private updateData(): void {
-    if(this.form.pristine){
-      this.message.addErrorMessage("Nie zmieniłeś danych")
-      return;
-    }
-
+    this.profileService.updateUserData(this.form.value).subscribe();
+    this.dialogRef.close(this.form.value);
+      this.dialogRef.destroy();
   }
 }

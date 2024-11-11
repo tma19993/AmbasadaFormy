@@ -14,7 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AfMessageService } from './core/services';
 import { OrderGymPassComponent, NewPostFormComponent, PostDetailsComponent, PasswordChangerComponent, ProfileDataEditorComponent } from './features/dialogs';
-import { WelcomePageComponent, LoginComponent, HomePageComponent, GymPassComponent, TrainersComponent, BlogComponent, RegisterComponent, AFMenuStaticComponent, AFProfileMenuComponent, AFGymPassCardComponent, AFGymPassInfoComponent, AFPersonalTrainerComponent, AFMyProfileComponent, AFLanguageChangerComponent, AFGymPassesComponent, AFFooterComponent, AFDietsComponent, AFAdminPageComponent } from './features/main-pages';
+import { WelcomePageComponent, LoginComponent, HomePageComponent, GymPassComponent, TrainersComponent, BlogComponent, RegisterComponent, AFMenuStaticComponent, AFProfileMenuComponent, AFGymPassCardComponent, AFGymPassInfoComponent,  AFLanguageChangerComponent,  AFFooterComponent,  } from './features/main-pages';
 import { ProfileComponent } from './features/main-pages/profile/profile.component';
 import { AFButtonComponent } from './shared/components/button/button.component';
 import { AFPhotoUploaderComponent } from './shared/components/photo-uploader/photo-uploader.component';
@@ -27,6 +27,7 @@ import { AFInputComponent } from './shared/components/input/input.component';
 import { AFInputTextareaComponent } from './shared/components/inputTextarea/inputtextarea.component';
 import { AFPreviousRouteService } from './core/services/previous-route/previous-route.service';
 import { DatePipe } from '@angular/common';
+import { AFMyProfileComponent, AFPersonalTrainerComponent, AFGymPassesComponent, AFDietsComponent, AFAdminPageComponent } from './features/profile-pages';
 
 @NgModule({
     declarations: [

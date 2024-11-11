@@ -54,5 +54,6 @@ export const Primary: Story = {
     ],
     paginator: true,
     rows: 2,
+    editable: true
   },
 };

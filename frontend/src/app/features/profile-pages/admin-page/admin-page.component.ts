@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, Signal } from '@angular/core';
 import { RequestsGymPassesService } from 'src/app/core/services';
 import { RequestModel, TableHeaderModel } from 'src/app/shared/models';
 
@@ -24,18 +24,14 @@ export class AFAdminPageComponent implements OnInit{
     this.requestService.getRequests();
   }
   
-  public mappedData(): RequestModel[]{
-  return this.requestsData.map(data=>{
-  return {
-    userName: data.userName,
-    gymPassNameToActive: data.gymPassNameToActive,
-    requestDate: this.datePipe.transform(data.requestDate,'yyyy-MM-dd')!,
-    status: data.status
-  }
-})
+  public get requestsData(): RequestModel[] {
+    return this.requestService.requestsSignal()
   }
 
-  public get requestsData(): RequestModel[]{
-    return this.requestService.requestsData;
+  public deleteRow(event: RequestModel):void{
+    console.log(event);
+  }
+  public editRow(event: RequestModel):void{
+    console.log(event);
   }
 }

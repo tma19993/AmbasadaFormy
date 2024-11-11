@@ -28,6 +28,13 @@ $darker-gray: #222831;
   text-shadow: 1px 1px 3px $background-dark
 }
 
+@mixin small-header-style-dark {
+  font-size: 42px;
+  color: $input-text-dark;
+  text-align: center;
+  text-shadow: 1px 1px 3px $background-dark
+}
+
 @mixin transparentBackgroundColorMixin($alpha, $color) {
   background-color: rgba(red($color), green($color), blue($color), $alpha);
 }

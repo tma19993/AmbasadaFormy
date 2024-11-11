@@ -11,21 +11,22 @@
         </div>
         <div class="gym-pass__container--gym-passes" >
             <div class="gym-pass-cards">
-                <ng-container *ngFor="let gymPass of gymPasses">
+                <ng-container *ngFor="let gymPass of gymPasses()">
                     <div class="gym-pass-card">
                     <af-gym-pass-card 
                     [title]="('gymPass.' + gymPass.name+'Pass' + '.header') | translate"
                     [subtitle]="'gymPass.' + gymPass.name+'Pass' + '.subtitle' | translate" 
                     [price]="gymPass.price + 'zł'"
                     [name]="gymPass.name" 
-                    [buttonId]="gymPass.name">
+                    [buttonId]="gymPass.name"
+                    (OrderGymPass)="orderGymPass()">
                   </af-gym-pass-card>
                 </div>
                 </ng-container>
             </div>
         </div>
         <div class="gym-pass__container--gym-pass">
-            <ng-container *ngFor="let gymPass of gymPasses">
+            <ng-container *ngFor="let gymPass of gymPasses()">
                 <af-gym-pass-info
                 [title]="('gymPass.' + gymPass.name+'Pass' + '.labelHeader') | translate"
                 [price]="gymPass.price"

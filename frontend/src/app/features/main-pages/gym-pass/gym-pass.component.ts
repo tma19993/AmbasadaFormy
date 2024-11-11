@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject, Signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { GymPassesService } from 'src/app/core/services';
 import { GymPassModel } from 'src/app/shared/models';
@@ -9,12 +9,16 @@ import { GymPassModel } from 'src/app/shared/models';
   styleUrls: ['./gym-pass.component.scss']
 })
 export class GymPassComponent  {
-  constructor(private gymPassesService:GymPassesService,  private router: Router){
+  private gymPassesService:GymPassesService = inject(GymPassesService);
+  private router: Router = inject(Router);
+
+  public gymPasses:Signal<GymPassModel[]> = this.gymPassesService.gymPassesSignal;
+  constructor(){
     this.gymPassesService.getGymPasses();
   }
-  
-  public get gymPasses(): GymPassModel[]{
-    return this.gymPassesService.gymPasses
-  }
 
+  public orderGymPass():void{
+    this.router.navigate(["profile/gym-pass"]);
+  }
+  
 }
