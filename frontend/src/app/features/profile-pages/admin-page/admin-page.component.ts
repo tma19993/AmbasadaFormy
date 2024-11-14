@@ -11,7 +11,6 @@ import { RequestModel, TableHeaderModel } from 'src/app/shared/models';
 })
 export class AFAdminPageComponent implements OnInit{
   private requestService: RequestsGymPassesService = inject(RequestsGymPassesService);
-  private datePipe: DatePipe = inject(DatePipe);
 
   public columns:TableHeaderModel[]  = [
       { field: "requestDate", header: "Request Date" },
@@ -35,3 +34,15 @@ export class AFAdminPageComponent implements OnInit{
     console.log(event);
   }
 }
+
+
+
+ // treść tego przyda się do admin-page do aktywowania karnetu
+    // const { _id, name } = this.config.data.gymPassData as GymPassModel
+    // const userDataForUpdate: userDataModel = {
+    //   activeGymPass: true,
+    //   gympassId: _id,
+    //   gympassName: name
+    // };
+    // this.profileSerivce.updateUserData(userDataForUpdate).subscribe();
+    // this.dialogRef.close(userDataForUpdate);

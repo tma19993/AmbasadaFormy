@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject, Signal } from '@angular/core';
+import { ProfileService } from 'src/app/core/services';
+import { userDataModel } from 'src/app/shared/models';
 
 @Component({
   selector: 'app-diets',
@@ -6,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./diets.component.scss']
 })
 export class AFDietsComponent {
+  private profileSerivce: ProfileService = inject(ProfileService);
+  public userData: Signal<userDataModel> = this.profileSerivce.userDataSignal;
 
 }

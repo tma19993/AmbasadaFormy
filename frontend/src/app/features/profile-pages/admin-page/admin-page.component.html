@@ -8,5 +8,7 @@
     [editable]="false" 
     (deleteRow)="deleteRow($event)" 
     (editRow)="editRow($event)" 
-    dataKey="requestDate" />
+    dataKey="requestDate" 
+    sortField="requestDate"
+    [sortOrder]="-1" />
 </section>

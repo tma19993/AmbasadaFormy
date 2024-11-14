@@ -6,7 +6,9 @@
   [paginator]="paginator" 
   [rows]="rows" 
   [dataKey]="dataKey"
-  [loading]="loading">
+  [loading]="loading"
+  [sortField]="sortField" 
+  [sortOrder]="sortOrder">
   <ng-template pTemplate="header" let-columns>
     <tr class="header">
       <th *ngFor="let header of columns" class="header-template ">
@@ -22,7 +24,7 @@
   <ng-template pTemplate="body" let-rowData let-columns="columns">
     <tr class="row" selectionMode="single">
       <td *ngFor="let col of columns" class="row-template" [ngClass]="{'border-bottom-row': !paginator}">
-          {{ rowData[col.field] }}
+        {{ formatIfDateString(rowData[col.field]) }}
       </td>
    
         <td class="row-template action-buttons" >

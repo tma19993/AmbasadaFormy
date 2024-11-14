@@ -28,42 +28,42 @@
               <af-input
                 formControlName="firstName"
                 id="firstName"
-                [iconConfig]="nameIconConfig"
+                iconClassName="pi-id-card"
                 [floatLabel]="true"
                 [floatLabelText]="'registerLogin.firstName' | translate"
               />
               <af-input
                 formControlName="lastName"
                 id="firstName"
-                [iconConfig]="nameIconConfig"
+                iconClassName="pi-id-card"
                 [floatLabel]="true"
                 [floatLabelText]="'registerLogin.lastName' | translate"
               />
               <af-input
                 formControlName="phoneNumber"
                 id="firstName"
-                [iconConfig]="phoneIconConfig"
+                iconClassName="pi-phone"
                 [floatLabel]="true"
                 [floatLabelText]="'registerLogin.phoneNumber' | translate"
               />
               <af-input
                 formControlName="address"
                 id="firstName"
-                [iconConfig]="emailIconConfig"
+                iconClassName="pi-at"
                 [floatLabel]="true"
                 [floatLabelText]="'registerLogin.address' | translate"
               />
               <af-input
                 formControlName="login"
                 id="firstName"
-                [iconConfig]="loginData"
+                iconClassName="pi-user"
                 [floatLabel]="true"
                 [floatLabelText]="'registerLogin.login' | translate"
               />
               <af-input
                 formControlName="email"
                 id="firstName"
-                [iconConfig]="mailData"
+                iconClassName="pi-envelope"
                 [floatLabel]="true"
                 [floatLabelText]="'registerLogin.email' | translate"
               />
@@ -88,10 +88,12 @@
               <af-password
                 formControlName="password"
                 [floatLabelText]="'registerLogin.password' | translate"
+                [feedback]="true"
               />
               <af-password
                 formControlName="repeatPassowrd"
                 [floatLabelText]="'registerLogin.repeatPassowrd' | translate"
+                
               />
               <div class="button__mid">
                 <af-button
@@ -117,6 +119,4 @@
   </section>
 </div>
 
-<section class="validoation__container">
-  <af-messages [closable]="true" />
-</section>
+<af-validation-message />

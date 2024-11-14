@@ -35,10 +35,6 @@ export class BlogComponent implements OnInit, OnDestroy {
     userName: [null]
   },{validators: OneRequiredValidator()})
 
-  public searchIconConfig: inputIconConfig = {
-    iconClassName: "pi-search",
-    iconFloat: EnumIconFloat.left
-  }
   private  ref: DynamicDialogRef;
   
   public ngOnInit(): void {

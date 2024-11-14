@@ -1,0 +1,18 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+ .exercises{
+    margin: 20px 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    h2 {
+        text-align: center;
+    }
+ }   
+ af-button{
+    text-align: center;
+ }
+}

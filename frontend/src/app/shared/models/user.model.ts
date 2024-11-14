@@ -1,4 +1,6 @@
+import { DietModel } from "./diet.model";
 import { genderKey } from "./gender.model";
+import { TrainingModel } from "./training.model";
 
 export type userDataModel = {
 _id?: string,
@@ -16,5 +18,7 @@ gympassId?:string,
 gympassName?: string,
 phoneNumber?: string
 address?: string,
-photo?:string
+photo?:string,
+diets?: DietModel[],
+trainings?: TrainingModel[]
 }

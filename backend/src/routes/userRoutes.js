@@ -139,7 +139,7 @@ module.exports = function (users) {
     }
     else { 
       if (result.modifiedCount === 1) {
-        res.status(200);
+        res.status(200).send(result);
       } else {
         res.status(404).send("Nie znaleziono użytkownika o podanym ID.");
       }

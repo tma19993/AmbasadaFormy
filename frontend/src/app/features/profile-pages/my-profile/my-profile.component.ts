@@ -1,4 +1,4 @@
-import { Component, inject, Signal } from '@angular/core';
+import { Component, inject, OnDestroy, Signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { userDataModel } from 'src/app/shared/models';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
@@ -15,7 +15,7 @@ import { dialogConfig } from 'src/app/shared/constants';
   templateUrl: './my-profile.component.html',
   styleUrls: ['./my-profile.component.scss'],
 })
-export class AFMyProfileComponent {
+export class AFMyProfileComponent implements OnDestroy {
   private router = inject(Router);
   private profileService = inject(ProfileService);
   private dialogService = inject(DialogService);
@@ -23,9 +23,8 @@ export class AFMyProfileComponent {
 
   private ref: DynamicDialogRef;
 
-  // Pozmieniać w całej aplikacji na signals, przekazywa signal do komponentu i wywoływać go w html'u
-
   public userData: Signal<userDataModel> = this.profileService.userDataSignal;
+  
   public ngOnDestroy(): void {
     if (this.ref) {
       this.ref.close();

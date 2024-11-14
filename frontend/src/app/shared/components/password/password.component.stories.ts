@@ -35,9 +35,6 @@ const Template: Story = {
 export const Primary: Story = {
   ...Template,
   args: {
-    weakLabel: "Weak",
-    mediumLabel: "Medium",
-    strongLabel: "Strong-man",
     feedback: true,
     maxLength: 20,
     floatLabelText: "Password",
@@ -47,9 +44,6 @@ export const Primary: Story = {
 export const Secondary: Story = {
   ...Template,
   args: {
-    weakLabel: "Weak",
-    mediumLabel: "Medium",
-    strongLabel: "Strong-man",
     feedback: true,
     maxLength: 20,
     disabledPassword: true,

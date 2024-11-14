@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, signal, WritableSignal } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { userDataModel } from 'src/app/shared/models';
 
 @Injectable({
@@ -15,17 +15,14 @@ export class ProfileService {
 
   public getUserData(): void {
     this.http
-      .get<any>(`${this.url}/getUser/${this.userId}`)
+      .get<userDataModel>(`${this.url}/getUser/${this.userId}`)
       .subscribe((val) => {
         this.userDataSignal.set(val);
       });
   }
 
   public updateUserData(data: userDataModel): Observable<userDataModel> {
-    return this.http.put<userDataModel>(
-      this.url + '/updateUserData/' + this.userId,
-      data
-    );
+    return this.http.put<userDataModel>(this.url + '/updateUserData/' + this.userId,data);
   }
 
   public removeUser(): Observable<any> {

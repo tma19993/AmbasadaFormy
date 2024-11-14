@@ -28,6 +28,8 @@ import { AFInputTextareaComponent } from './shared/components/inputTextarea/inpu
 import { AFPreviousRouteService } from './core/services/previous-route/previous-route.service';
 import { DatePipe } from '@angular/common';
 import { AFMyProfileComponent, AFPersonalTrainerComponent, AFGymPassesComponent, AFDietsComponent, AFAdminPageComponent } from './features/profile-pages';
+import { AFAddTrainingComponent } from './features/dialogs/add-training/add-training.component';
+import { AFValidationMessageComponent } from './shared/components/validation-message/validation-message.component';
 
 @NgModule({
     declarations: [
@@ -55,11 +57,13 @@ import { AFMyProfileComponent, AFPersonalTrainerComponent, AFGymPassesComponent,
         AFGymPassCardComponent,
         AFFooterComponent,
         AFDietsComponent,
-        AFAdminPageComponent
+        AFAdminPageComponent,
+        AFAddTrainingComponent
     ],
     bootstrap: [AppComponent],
     imports: [
         AFPasswordComponent,
+        AFValidationMessageComponent,
         AFMessagesComponent,
         AFCheckboxComponent,
         AFInputComponent,

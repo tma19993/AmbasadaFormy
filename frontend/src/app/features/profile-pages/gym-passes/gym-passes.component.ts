@@ -12,12 +12,12 @@ import { OrderGymPassComponent } from '../../dialogs';
   styleUrls: ['./gym-passes.component.scss']
 })
 export class AFGymPassesComponent implements OnInit, OnDestroy {
-  private profileService: ProfileService = inject(ProfileService);
+  private profileSerivce: ProfileService = inject(ProfileService);
   private gymPassesService: GymPassesService = inject(GymPassesService);
   private dialogService: DialogService = inject(DialogService);
   private message: AfMessageService = inject(AfMessageService);
 
-  public userData: Signal<userDataModel> = this.profileService.userDataSignal;
+  public userData: Signal<userDataModel> = this.profileSerivce.userDataSignal;
   public gymPasses: Signal<GymPassModel[]> = this.gymPassesService.gymPassesSignal;
 
   private ref: DynamicDialogRef | undefined;
@@ -62,8 +62,7 @@ export class AFGymPassesComponent implements OnInit, OnDestroy {
       delay(1000)
     ).subscribe((val) => {
       if(val){
-        this.message.addSuccesMessage("Zmieniono Karnet");
-        this.profileService.getUserData()
+        this.message.addSuccesMessage("Wybrano karnet. Aktywuj go w kasie.");
       }
     })
   }

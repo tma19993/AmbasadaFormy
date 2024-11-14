@@ -15,7 +15,7 @@
         </div>
         <div class="login-section__justify">
           <form [formGroup]="myForm">
-              <af-input formControlName="login" [iconConfig]="loginData" [floatLabel]="true" [floatLabelText]="'registerLogin.login' | translate" ></af-input>
+              <af-input formControlName="login"  iconClassName="pi-user" [floatLabel]="true" [floatLabelText]="'registerLogin.login' | translate" ></af-input>
               <af-password formControlName="password" [floatLabelText]="'registerLogin.password' | translate" ></af-password>
               <div class="box-forgot">
                 <div class="box-forgot__checkbox">
@@ -38,6 +38,4 @@
   </section>
 </div>
 
-<section class="validoation__container">
-  <af-messages [closable]="true"></af-messages>
-</section>
+<af-validation-message />

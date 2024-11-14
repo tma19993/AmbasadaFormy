@@ -4,7 +4,7 @@ export type RequestModel = {
     userName: string;
     gymPassIdToActive?: string;
     gymPassNameToActive: string;
-    requestDate: string; 
+    requestDate: Date; 
     status: 'pending' | 'approved' | 'rejected'; 
 
 }

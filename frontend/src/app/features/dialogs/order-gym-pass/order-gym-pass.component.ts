@@ -1,7 +1,7 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, Signal } from '@angular/core';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { GymPassModel, userDataModel } from '../../../shared/models';
-import { ProfileService } from 'src/app/core/services';
+import { GymPassModel, RequestModel, userDataModel } from '../../../shared/models';
+import { ProfileService, RequestsGymPassesService } from 'src/app/core/services';
 
 
 @Component({
@@ -13,7 +13,9 @@ export class OrderGymPassComponent implements OnInit {
   private  profileSerivce: ProfileService = inject(ProfileService);
   private  dialogRef: DynamicDialogRef = inject(DynamicDialogRef);
   private config: DynamicDialogConfig<any> = inject(DynamicDialogConfig);
+  private requestService: RequestsGymPassesService = inject(RequestsGymPassesService);
   public deactiveGymPass: boolean = false;
+  public userData: Signal<userDataModel> = this.profileSerivce.userDataSignal;
 
   public ngOnInit(): void {
     if(this.config.data.deactiveGymPass) this.deactiveGymPass = this.config.data.deactiveGymPass
@@ -31,15 +33,20 @@ export class OrderGymPassComponent implements OnInit {
   }
 
   public orderNewGymPass(): void {
-    const { _id, name } = this.config.data.gymPassData as GymPassModel
-    const userDataForUpdate: userDataModel = {
-      activeGymPass: true,
-      gympassId: _id,
-      gympassName: name
-    };
+      const { _id, name } = this.config.data.gymPassData as GymPassModel;
+   const requestsData: RequestModel = {
+    userId: this.userData()._id,
+     userName:  this.userData().login!,
+     gymPassIdToActive: _id,
+     gymPassNameToActive: name,
+     requestDate: new Date(),
+     status: "pending"
+   }
 
-    this.profileSerivce.updateUserData(userDataForUpdate).subscribe();
-    this.dialogRef.close(userDataForUpdate);
+this.requestService.addRequest(requestsData).subscribe(val=>{
+  console.log(val);
+})
+    this.dialogRef.close(requestsData);
     this.dialogRef.destroy();
   }
   

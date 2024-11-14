@@ -8,7 +8,7 @@ import { AuthGuard } from './core/auth/auth.guard';
 import { AFAdminPageComponent, AFDietsComponent, AFGymPassesComponent, AFMyProfileComponent, AFPersonalTrainerComponent } from './features/profile-pages';
 
 const routes: Routes = [
-{ path: '', redirectTo: '/welcome', pathMatch: 'full' },
+{ path: '', redirectTo: 'welcome', pathMatch: 'full' },
 { path: 'welcome', component: WelcomePageComponent },
 { path: 'login', component: LoginComponent },
 { path: 'register', component: RegisterComponent },

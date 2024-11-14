@@ -4,6 +4,7 @@ import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModu
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputTextModule } from 'primeng/inputtext';
 import { inputIconConfig } from 'src/app/shared/models/input.model';
+import { EnumIconFloat } from '../../enums';
 
 @Component({
   selector: 'af-input',
@@ -29,7 +30,9 @@ export class AFInputComponent implements ControlValueAccessor {
   @Input() public floatLabelText: string = '';
   @Input() public placeholderText: string = '';
   @Input() public floatLabel: boolean = false;
-  @Input() public iconConfig: inputIconConfig | undefined;
+  // @Input() public iconConfig: inputIconConfig | undefined;
+  @Input() public iconClassName: string;
+  @Input() public iconFloat: EnumIconFloat = EnumIconFloat.left;
   public value: string = "";
 
   public onChange = (value: string) => { };

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import {  FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, inject, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AfMessageService, LoginService, RegisterService } from 'src/app/core/services';
+import { GenderArray } from 'src/app/shared/constants/gender-array';
 import { EnumIconFloat } from 'src/app/shared/enums';
 import { genderKey, GenderModel, inputIconConfig, userDataModel } from 'src/app/shared/models';
 
@@ -14,54 +15,34 @@ import { genderKey, GenderModel, inputIconConfig, userDataModel } from 'src/app/
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  public loginData: inputIconConfig = {
-    iconClassName: 'pi-user',
-    iconFloat: EnumIconFloat.left,
-  };
 
-  public mailData: inputIconConfig = {
-    iconClassName: 'pi-envelope',
-    iconFloat: EnumIconFloat.left,
-  };
-
-  public phoneIconConfig: inputIconConfig = {
-    iconClassName: 'pi-phone',
-    iconFloat: EnumIconFloat.left,
-  };
-
-  public emailIconConfig: inputIconConfig = {
-    iconClassName: 'pi-at',
-    iconFloat: EnumIconFloat.left,
-  };
-  public nameIconConfig: inputIconConfig = {
-    iconClassName: 'pi-id-card',
-    iconFloat: EnumIconFloat.left,
-  };
+  private router: Router = inject(Router);
+  private messageService: AfMessageService = inject(AfMessageService);
+  private translateService: TranslateService = inject(TranslateService);
+  private registerService: RegisterService = inject(RegisterService);
+  private loginServ: LoginService = inject(LoginService);
+  private formBuilder: FormBuilder = inject(FormBuilder);
 
   public genderCheckboxDisabled: boolean = false;
   public accountData: userDataModel = {};
-  public form: FormGroup;
-  public genderArray: GenderModel[] = [
-    { name: 'Male', checked: false, key: genderKey.Male },
-    { name: 'Female', checked: false, key: genderKey.Female },
-    { name: 'Other', checked: false, key: genderKey.other },
-  ];
+  public genderArray: GenderModel[] = GenderArray;
+  public form: FormGroup = this.formBuilder.group({
+    firstName: ['', Validators.required],
+    lastName: ['', Validators.required],
+    login: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators]],
+    repeatPassowrd: ['', Validators.required],
+    phoneNumber: ['', [Validators.required, Validators.pattern("[0-9]{9}")]],
+    address: ['', Validators.required],
+    gender: ['', Validators.required],
+  });
 
-  constructor(
-    private router: Router,
-    private messageService: AfMessageService,
-    private translateService: TranslateService,
-    private registerService: RegisterService,
-    private loginServ: LoginService,
-    private formBuilder: FormBuilder
-  ) {
+
+  public ngOnInit(): void {
     this.translateService.setDefaultLang(
       sessionStorage.getItem('language') || 'en'
     );
-  }
-
-  public ngOnInit(): void {
-    this.buildForm();
   }
 
   public submit(): void {
@@ -103,17 +84,4 @@ export class RegisterComponent implements OnInit {
     return password === repeatedPassword;
   }
 
-  private buildForm(): void {
-    this.form = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      login: ['', Validators.required],
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-      repeatPassowrd: ['', Validators.required],
-      phoneNumber: ['', Validators.required],
-      address: ['', Validators.required],
-      gender: ['', Validators.required],
-    });
-  }
 }

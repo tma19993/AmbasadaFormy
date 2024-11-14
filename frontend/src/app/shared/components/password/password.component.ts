@@ -20,9 +20,6 @@ import { PasswordModule } from 'primeng/password';
 })
 export class AFPasswordComponent implements OnInit, ControlValueAccessor {
   @Input() public floatLabelText: string = '';
-  @Input() public weakLabel: string = '';
-  @Input() public mediumLabel: string = '';
-  @Input() public strongLabel: string = '';
   @Input() public feedback: boolean = false;
   
   @Input() public disabledPassword: boolean = false;

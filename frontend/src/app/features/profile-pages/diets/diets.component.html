@@ -1,1 +1,8 @@
-<p>diets works!</p>
+@if(!userData().diets || userData().diets?.length == 0){
+<h2>There is no diets to show</h2>
+}
+@else {
+    @for (diet of userData().diets; track diet){
+        {{diet.title}}
+    }
+}

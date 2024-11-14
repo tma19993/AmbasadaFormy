@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, signal, WritableSignal } from '@angular/core';
-import { map } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { RequestModel } from 'src/app/shared/models';
 import { DatePipe } from '@angular/common';
 
@@ -13,12 +13,14 @@ export class RequestsGymPassesService {
   constructor(private http: HttpClient, private datePipe: DatePipe) { }
 
   public getRequests(): void {
-    this.http.get<RequestModel[]>(this.url + "/getRequests").pipe( map(requests => requests.map(request => ({
-      ...request,
-       requestDate: `${this.datePipe.transform(request.requestDate, 'shortDate')}, ${this.datePipe.transform(request.requestDate, 'HH:mm')}`!
-    })))).subscribe(val=>{
+    this.http.get<RequestModel[]>(this.url + "/getRequests").subscribe(val=>{
         this.requestsSignal.set(val);
     });
+  }
+
+  public addRequest(request: RequestModel): Observable<RequestModel> {
+   return this.http.post<RequestModel>(this.url + "/addRequest",request);
+    
   }
 
 }
