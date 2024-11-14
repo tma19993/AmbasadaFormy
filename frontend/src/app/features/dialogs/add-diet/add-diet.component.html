@@ -1,0 +1,9 @@
+<form [formGroup]="form">
+    <div class="container">
+       <af-input formControlName="title" placeholderText="Diet title" />
+       <af-input formControlName="subtitle" placeholderText="Subtitle" />
+        <af-inputTextarea  formControlName="description" placeholderText="diet description"/>
+       <af-button type="submit" label="Add diet" [disabled]="form.invalid"/>
+    </div>
+   </form>
+   

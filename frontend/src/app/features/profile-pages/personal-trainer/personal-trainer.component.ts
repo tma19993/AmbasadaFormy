@@ -14,7 +14,7 @@ import { TrainingModel } from 'src/app/shared/models/training.model';
 })
 export class AFPersonalTrainerComponent {
   private profileService: ProfileService = inject(ProfileService);
-  private dialogService = inject(DialogService);
+  private dialogService:DialogService = inject(DialogService);
   private message: AfMessageService = inject(AfMessageService);
 
   private ref: DynamicDialogRef;
@@ -60,6 +60,7 @@ export class AFPersonalTrainerComponent {
       tap(()=>{
         this.message.addSuccesMessage("usunieto trening");
         this.profileService.getUserData();
+        this.removalMode = false;
     })).subscribe();
 
   }

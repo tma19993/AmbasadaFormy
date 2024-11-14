@@ -30,6 +30,7 @@ import { DatePipe } from '@angular/common';
 import { AFMyProfileComponent, AFPersonalTrainerComponent, AFGymPassesComponent, AFDietsComponent, AFAdminPageComponent } from './features/profile-pages';
 import { AFAddTrainingComponent } from './features/dialogs/add-training/add-training.component';
 import { AFValidationMessageComponent } from './shared/components/validation-message/validation-message.component';
+import { AFAddDietComponent } from './features/dialogs/add-diet/add-diet.component';
 
 @NgModule({
     declarations: [
@@ -58,7 +59,8 @@ import { AFValidationMessageComponent } from './shared/components/validation-mes
         AFFooterComponent,
         AFDietsComponent,
         AFAdminPageComponent,
-        AFAddTrainingComponent
+        AFAddTrainingComponent,
+        AFAddDietComponent
     ],
     bootstrap: [AppComponent],
     imports: [

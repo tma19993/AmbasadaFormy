@@ -1,0 +1,11 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    af-inputTextarea{
+        height: 200px;
+    }
+    af-button{
+        text-align: center;
+    }
+}

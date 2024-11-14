@@ -4,13 +4,13 @@
   display: flex;
   gap: 30px;
   height: 100%;
-    align-items: center;
+  align-items: center;
 
-    .empty {
-        height: 100%;
-        display: grid;
-        place-items: center;
-    }
+  .empty {
+    height: 100%;
+    display: grid;
+    place-items: center;
+  }
 
   .trainings {
     height: 100%;
@@ -19,28 +19,25 @@
     padding: 20px;
 
     &::-webkit-scrollbar {
-        width: 10px;
-      }
-      
-      /* Track */
-      &::-webkit-scrollbar-track {
-        background: $input-border-color; 
-        border-radius: 5px;
-      }
-       
-      /* Handle */
-      &::-webkit-scrollbar-thumb {
-        border-radius: 5px;
-        background: $input-main-color; 
+      width: 10px;
+    }
 
-      }
-      
+    &::-webkit-scrollbar-track {
+      background: $input-border-color;
+      border-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background: $input-main-color;
+    }
 
     &-container {
       width: 80%;
       display: flex;
       flex-direction: column;
       gap: 30px;
+
       &--single {
         padding: 20px;
         color: $input-background-color;
