@@ -1,14 +1,13 @@
 <section class="container">
-  <h2>Gym Pass Requests</h2>
-  <af-table 
-    [columns]="columns" 
-    [values]="requestsData" 
-    [rows]="5" 
-    [paginator]="true" 
-    [editable]="false" 
-    (deleteRow)="deleteRow($event)" 
-    (editRow)="editRow($event)" 
-    dataKey="requestDate" 
-    sortField="requestDate"
-    [sortOrder]="-1" />
+    <div class="menu">
+      <af-button label="edit Perrmision" (onClick)="openDialog('gymPassRequests')"/>
+      <af-button label="edit user Password" (onClick)="openDialog('gymPassRequests')"/>
+      <af-button label="edit user data" (onClick)="openDialog('gymPassRequests')"/>
+      <af-button label="edit  Gym Pass" (onClick)="openDialog('gymPassRequests')"/>
+      <af-button label="edit Blog" (onClick)="openDialog('gymPassRequests')"/>
+      <af-button label="gym passes requests" (onClick)="openDialog('gymPassRequests')"/>
+    </div>
+    <div class="activity">
+      <!-- tutaj chat bary z danymi na temat aplikacji (ile użytkowników zalogowało się przez ostatnie 24h, ilu nowych członków w ciągu ostatnich 24h, ile członków ogólnie, ile aktywnych karnetów, ile kupionych karnetów przez ostatnie 24h) -->
+    </div>
 </section>

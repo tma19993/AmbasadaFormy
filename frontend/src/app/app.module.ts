@@ -13,7 +13,7 @@ import { HttpLoaderFactory } from 'src/app/core/untils/http-loader-factory';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AfMessageService } from './core/services';
-import { OrderGymPassComponent, NewPostFormComponent, PostDetailsComponent, PasswordChangerComponent, ProfileDataEditorComponent } from './features/dialogs';
+import { OrderGymPassComponent, NewPostFormComponent, PostDetailsComponent, PasswordChangerComponent, ProfileDataEditorComponent, AFAddDietComponent, AFChangeUserPasswordComponent, AFEditGymPassesComponent, AFEditPermissionsComponent, AFEditUserDataComponent, AFGymPassRequestsComponent } from './features/dialogs';
 import { WelcomePageComponent, LoginComponent, HomePageComponent, GymPassComponent, TrainersComponent, BlogComponent, RegisterComponent, AFMenuStaticComponent, AFProfileMenuComponent, AFGymPassCardComponent, AFGymPassInfoComponent,  AFLanguageChangerComponent,  AFFooterComponent,  } from './features/main-pages';
 import { ProfileComponent } from './features/main-pages/profile/profile.component';
 import { AFButtonComponent } from './shared/components/button/button.component';
@@ -30,7 +30,8 @@ import { DatePipe } from '@angular/common';
 import { AFMyProfileComponent, AFPersonalTrainerComponent, AFGymPassesComponent, AFDietsComponent, AFAdminPageComponent } from './features/profile-pages';
 import { AFAddTrainingComponent } from './features/dialogs/add-training/add-training.component';
 import { AFValidationMessageComponent } from './shared/components/validation-message/validation-message.component';
-import { AFAddDietComponent } from './features/dialogs/add-diet/add-diet.component';
+import { AFEditBlogComponent } from './features/dialogs/edit-blog/edit-blog.component';
+
 
 @NgModule({
     declarations: [
@@ -60,7 +61,13 @@ import { AFAddDietComponent } from './features/dialogs/add-diet/add-diet.compone
         AFDietsComponent,
         AFAdminPageComponent,
         AFAddTrainingComponent,
-        AFAddDietComponent
+        AFAddDietComponent,
+        AFEditPermissionsComponent,
+        AFEditGymPassesComponent,
+        AFEditBlogComponent,
+        AFEditUserDataComponent,
+        AFChangeUserPasswordComponent,
+        AFGymPassRequestsComponent
     ],
     bootstrap: [AppComponent],
     imports: [

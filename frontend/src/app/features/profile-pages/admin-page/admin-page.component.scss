@@ -2,10 +2,9 @@
 
 .container{
     margin: 20px 80px;
-    h2{
-       @include small-header-style-dark;
-       margin-bottom: 40px;
-
- 
+    .menu{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
     }
 }

@@ -1,7 +1,24 @@
-import { DatePipe } from '@angular/common';
-import { Component, inject, OnInit, Signal } from '@angular/core';
-import { RequestsGymPassesService } from 'src/app/core/services';
-import { RequestModel, TableHeaderModel } from 'src/app/shared/models';
+import { Component, inject, Type } from '@angular/core';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { AfMessageService, ProfileService } from 'src/app/core/services';
+import { dialogConfig } from 'src/app/shared/constants';
+import { delay, tap } from 'rxjs';
+
+import { OrderGymPassComponent, NewPostFormComponent, PostDetailsComponent, PasswordChangerComponent, ProfileDataEditorComponent, AFAddDietComponent, AFChangeUserPasswordComponent, AFEditGymPassesComponent, AFEditPermissionsComponent, AFEditUserDataComponent, AFGymPassRequestsComponent } from '../../dialogs';
+
+const AdminDialogMap: Record<string, Type<any>> = {
+  gymPassRequests: AFGymPassRequestsComponent,
+  newPostForm: NewPostFormComponent,
+  orderGymPass: OrderGymPassComponent,
+  postDetails: PostDetailsComponent,
+  passwordChanger: PasswordChangerComponent,
+  profileDataEditor: ProfileDataEditorComponent,
+  addDiet: AFAddDietComponent,
+  changeUserPassword: AFChangeUserPasswordComponent,
+  editGymPasses: AFEditGymPassesComponent,
+  editPermissions: AFEditPermissionsComponent,
+  editUserData: AFEditUserDataComponent,
+}
 
 
 @Component({
@@ -9,40 +26,35 @@ import { RequestModel, TableHeaderModel } from 'src/app/shared/models';
   templateUrl: './admin-page.component.html',
   styleUrls: ['./admin-page.component.scss']
 })
-export class AFAdminPageComponent implements OnInit{
-  private requestService: RequestsGymPassesService = inject(RequestsGymPassesService);
+export class AFAdminPageComponent {
+  private dialogService: DialogService = inject(DialogService);
+  private profileService: ProfileService = inject(ProfileService);
+  private message: AfMessageService = inject(AfMessageService);
+  private ref: DynamicDialogRef;
 
-  public columns:TableHeaderModel[]  = [
-      { field: "requestDate", header: "Request Date" },
-      { field: "userName", header: "User Name" },
-      { field: "gymPassNameToActive", header: "Gym Pass To Active" },
-      { field: "status", header: "Status" }    
-  ]
 
-  public ngOnInit(): void {
-    this.requestService.getRequests();
-  }
-  
-  public get requestsData(): RequestModel[] {
-    return this.requestService.requestsSignal()
+  public openDialog(myComponent: string): void{ 
+    const componentType = AdminDialogMap[myComponent];
+    if (!componentType) {
+      this.message.addErrorMessage("Błąd wczytania")
+      return;
+    }
+   this.ref = this.dialogService.open(componentType,{
+      ...dialogConfig,
+      header: "Gym Pass Requests"
+    })
+    this.closeDialog();
   }
 
-  public deleteRow(event: RequestModel):void{
-    console.log(event);
-  }
-  public editRow(event: RequestModel):void{
-    console.log(event);
+  private closeDialog(): void {
+    this.ref.onClose.pipe(
+      delay(1000),
+      tap(() => {
+        this.profileService.getUserData();
+      })).subscribe((val) => {
+        if (val) {
+          this.message.addSuccesMessage("Wprowadzono zmiany");
+        }
+      })
   }
 }
-
-
-
- // treść tego przyda się do admin-page do aktywowania karnetu
-    // const { _id, name } = this.config.data.gymPassData as GymPassModel
-    // const userDataForUpdate: userDataModel = {
-    //   activeGymPass: true,
-    //   gympassId: _id,
-    //   gympassName: name
-    // };
-    // this.profileSerivce.updateUserData(userDataForUpdate).subscribe();
-    // this.dialogRef.close(userDataForUpdate);
