@@ -5,3 +5,4 @@ export * from "./register.service";
 export * from "./trainers.service";
 export * from "./gym-passes.service";
 export * from "./requests-gym-passes.service";
+export * from "./dashboard.service"

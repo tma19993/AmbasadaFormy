@@ -1,13 +1,29 @@
 <section class="container">
+  <h2>Administation Tools </h2>
     <div class="menu">
-      <af-button label="edit Perrmision" (onClick)="openDialog('gymPassRequests')"/>
-      <af-button label="edit user Password" (onClick)="openDialog('gymPassRequests')"/>
-      <af-button label="edit user data" (onClick)="openDialog('gymPassRequests')"/>
-      <af-button label="edit  Gym Pass" (onClick)="openDialog('gymPassRequests')"/>
-      <af-button label="edit Blog" (onClick)="openDialog('gymPassRequests')"/>
-      <af-button label="gym passes requests" (onClick)="openDialog('gymPassRequests')"/>
+      <af-button label="edit Perrmisions" (onClick)="openDialog('editPermissions', '')" [fontSize]="18"/>
+      <af-button label="edit user Password" (onClick)="openDialog('changeUserPassword', '')" [fontSize]="18"/>
+      <af-button label="edit user data" (onClick)="openDialog('editUserData', '')" [fontSize]="18"/>
+      <af-button label="edit  Gym Pass" (onClick)="openDialog('editGymPasses', '')" [fontSize]="18"/>
+      <af-button label="edit Blog" (onClick)="openDialog('editBlog','')" [fontSize]="18"/>
+      <af-button label="gym passes requests" (onClick)="openDialog('gymPassRequests', '')" [fontSize]="18"/>
     </div>
+    <h2>Statistics</h2>
     <div class="activity">
-      <!-- tutaj chat bary z danymi na temat aplikacji (ile użytkowników zalogowało się przez ostatnie 24h, ilu nowych członków w ciągu ostatnich 24h, ile członków ogólnie, ile aktywnych karnetów, ile kupionych karnetów przez ostatnie 24h) -->
+      <div class="activity--per-time">
+        <p-selectButton [options]="timeOptions" [(ngModel)]="selectedTime" optionLabel="name"/>
+        @if (dashboardSignal() | transformStatisticTime:selectedTime.code; as timeData){
+          <div>
+          <af-knob label="Zalogowni Użytkownicy" [value]="timeData.logins!" [size]="120" [readonly]="true" [minValue]="0" [maxValue]="200"/>
+          <af-knob label="Nowi Członkowie" [value]="timeData.newUsers!" [size]="120" [readonly]="true" [minValue]="0" [maxValue]="200"/>
+          <af-knob label="Kupione Karnety" [value]="timeData.newGymPass!" [size]="120" [readonly]="true"[minValue]="0" [maxValue]="200"/>
+        </div>
+        }
+        
+      </div>
+      <div class="activity--static">
+        <af-knob label="Ilość Klientów" [value]="dashboardSignal().totalUsers" [size]="120" [readonly]="true" [minValue]="0" [maxValue]="200"/>
+        <af-knob label="Aktywne Karnety" [value]="dashboardSignal().activeGymPass" [size]="120" [readonly]="true" [minValue]="0" [maxValue]="200"/>
+      </div>
     </div>
 </section>

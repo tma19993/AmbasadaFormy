@@ -1,40 +1,56 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, signal, WritableSignal } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { Router } from '@angular/router';
-import { LoginModel } from 'src/app/shared/models';
-
+import { LoginModel, userDataModel } from 'src/app/shared/models';
+import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
+  public loggedUserDataSignal: WritableSignal<userDataModel> = signal<userDataModel>({});
   private httpOptions: object = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
   private loginUrl: string = 'http://localhost:5000/login';
 
-  constructor(private http: HttpClient, private router: Router) {}
+
+
+  constructor(private http: HttpClient, private router: Router) { }
 
   public login(login: string, password: string): Observable<LoginModel> {
-    const loginData =  JSON.stringify({
+    const loginData = JSON.stringify({
       login: login,
-      password: password
+      password: password,
     });
-    return this.http.post<LoginModel>(this.loginUrl,loginData, this.httpOptions).pipe(tap((res) => this.setToken(res.authToken)));
+    return this.http.post<LoginModel>(this.loginUrl, loginData, this.httpOptions).pipe(tap((res) => {
+      this.setToken(res.authToken);
+      this.setUserId(res.authToken);
+    }));
   }
 
   public setLoggedUserId(id: string): void {
     sessionStorage.setItem("id", id)
   }
-  
+
   public isLoggedIn(): boolean {
     const token = sessionStorage.getItem('authToken');
     return !!token;
   }
-  
-  private setToken(token: string) {
+
+  private setUserId(token: string): void {
+    if (!token) {
+      return; 
+    }
+    else {
+      const decode: any = jwtDecode(token);
+      this.setLoggedUserId(decode.userId);
+    }
+  }
+
+  private setToken(token: string): void {
     sessionStorage.setItem('authToken', token);
   }
 }

@@ -10,4 +10,5 @@ export * from "./edit-gym-passes/edit-gym-passes.component"
 export * from "./edit-permissions/edit-permissions.component"
 export * from "./edit-user-data/edit-user-data.component"
 export * from "./gym-pass-requests/gym-pass-requests.component"
+export * from "./edit-blog/edit-blog.component"
 

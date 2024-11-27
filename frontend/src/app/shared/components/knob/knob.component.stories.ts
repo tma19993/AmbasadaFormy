@@ -2,14 +2,14 @@ import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
-import { KnobComponent } from "./knob.component";
+import { AFKnobComponent } from "./knob.component";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { KnobModule } from "primeng/knob";
 
-const meta: Meta<KnobComponent> = {
+const meta: Meta<AFKnobComponent> = {
   title: "Core/Knob",
-  component: KnobComponent,
+  component: AFKnobComponent,
   decorators: [
     moduleMetadata({
       imports: [CommonModule, KnobModule, FormsModule, BrowserAnimationsModule],
@@ -23,7 +23,7 @@ const meta: Meta<KnobComponent> = {
 
 export default meta;
 
-type Story = StoryObj<KnobComponent>;
+type Story = StoryObj<AFKnobComponent>;
 
 const Template: Story = {
   render: (args) => ({
@@ -38,6 +38,7 @@ export const ExampleValues: Story = {
     minValue: 0,
     maxValue: 100,
     size: 100,
+    label: "arebsfdgndfsgbsdnf"
   },
 };
 

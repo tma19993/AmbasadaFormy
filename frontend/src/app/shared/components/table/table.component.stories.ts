@@ -7,7 +7,7 @@ import { CommonModule } from "@angular/common";
 import { TableModule } from "primeng/table";
 import { FormsModule } from "@angular/forms";
 
-const meta: Meta<AFTableComponent> = {
+const meta: Meta<AFTableComponent<any>> = {
   title: "Core/Table",
   component: AFTableComponent,
   decorators: [
@@ -25,7 +25,7 @@ const meta: Meta<AFTableComponent> = {
 
 export default meta;
 
-type Story = StoryObj<AFTableComponent>;
+type Story = StoryObj<AFTableComponent<any>>;
 
 const Template: Story = {
   render: (args) => ({

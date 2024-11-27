@@ -20,5 +20,7 @@ phoneNumber?: string
 address?: string,
 photo?:string,
 diets?: DietModel[],
-trainings?: TrainingModel[]
+trainings?: TrainingModel[],
+createAt?: Date,
+lastLogin?: Date,
 }

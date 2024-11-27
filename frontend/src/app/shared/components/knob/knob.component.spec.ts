@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { KnobComponent } from './knob.component';
+import { AFKnobComponent } from './knob.component';
 
 describe('knobComponent', () => {
-  let component: KnobComponent;
-  let fixture: ComponentFixture<KnobComponent>;
+  let component: AFKnobComponent;
+  let fixture: ComponentFixture<AFKnobComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [KnobComponent],
+      declarations: [AFKnobComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(KnobComponent);
+    fixture = TestBed.createComponent(AFKnobComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

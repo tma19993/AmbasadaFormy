@@ -48,16 +48,17 @@ const Template: Story = {
 export const Primary: Story = {
   ...Template,
   args: {
-    iconConfig: defaultData,
+    ...defaultData
+
   },
 };
 
 export const Secondary: Story = {
   ...Template,
   args: {
-    iconConfig: {
+    
       iconClassName: "pi-user",
       iconFloat: EnumIconFloat.right,
-    },
+    
   },
 };

@@ -45,7 +45,6 @@ export class LoginComponent implements OnInit{
     const { login, password } = this.myForm.controls
 
     this.loginServ.login(login.value, password.value).pipe(tap(res => {
-      this.loginServ.setLoggedUserId(res.id);
       this.router.navigate(['/home']);
     }),
       catchError(err => {

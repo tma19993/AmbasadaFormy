@@ -20,7 +20,6 @@ export class RegisterComponent implements OnInit {
   private messageService: AfMessageService = inject(AfMessageService);
   private translateService: TranslateService = inject(TranslateService);
   private registerService: RegisterService = inject(RegisterService);
-  private loginServ: LoginService = inject(LoginService);
   private formBuilder: FormBuilder = inject(FormBuilder);
 
   public genderCheckboxDisabled: boolean = false;
@@ -31,7 +30,7 @@ export class RegisterComponent implements OnInit {
     lastName: ['', Validators.required],
     login: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators]],
+    password: ['', [Validators.required]],
     repeatPassowrd: ['', Validators.required],
     phoneNumber: ['', [Validators.required, Validators.pattern("[0-9]{9}")]],
     address: ['', Validators.required],
@@ -43,6 +42,7 @@ export class RegisterComponent implements OnInit {
     this.translateService.setDefaultLang(
       sessionStorage.getItem('language') || 'en'
     );
+    
   }
 
   public submit(): void {
@@ -51,9 +51,12 @@ export class RegisterComponent implements OnInit {
       this.messageService.addErrorMessage('Nie wszystkie pola są wypełnione');
       return;
     }
-    this.registerService.register(this.form.value).subscribe((res) => {
+    const requestData: userDataModel = {
+      ...this.form.value,
+      createAt: new Date()
+    }
+    this.registerService.register(requestData).subscribe((res) => {
       this.messageService.addSuccesMessage('Zostałeś Zarejestrowany');
-      this.loginServ.setLoggedUserId(res.id);
       setTimeout(() => {
         this.router.navigate(['/home']);
       }, 2000);

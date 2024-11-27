@@ -2,9 +2,46 @@
 
 .container{
     margin: 20px 80px;
+    h2{
+       @include small-header-style-dark;
+       margin: 40px;
+    }
     .menu{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr;
+        place-items: center;
+        gap: 20px;
+    }
+    .activity{
+        &--per-time{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            p-selectButton ::ng-deep{
+                .p-element.p-button{
+                    padding: 10px 20px;
+                    &.p-highlight {
+                        background: $input-text-accent;
+                        border-color: $input-text-accent;
+                    }
+                    &:focus{
+                        box-shadow: none;
+                    }
+                }
+            }
+            div{
+                width: 100%;
+                display: flex;
+                margin: 20px 0;
+                justify-content: space-around;
+            }
+        }
+        &--static{
+            width: 100%;
+            display: flex;
+            margin: 20px 0;
+            justify-content: space-around;
+        }
     }
 }

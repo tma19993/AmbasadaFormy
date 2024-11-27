@@ -30,7 +30,6 @@ export class AFInputComponent implements ControlValueAccessor {
   @Input() public floatLabelText: string = '';
   @Input() public placeholderText: string = '';
   @Input() public floatLabel: boolean = false;
-  // @Input() public iconConfig: inputIconConfig | undefined;
   @Input() public iconClassName: string;
   @Input() public iconFloat: EnumIconFloat = EnumIconFloat.left;
   public value: string = "";

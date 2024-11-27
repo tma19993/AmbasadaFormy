@@ -1,39 +1,42 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, signal, WritableSignal } from '@angular/core';
+import { inject, Injectable, signal, WritableSignal } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { userDataModel } from 'src/app/shared/models';
+import { LoginService } from './login.service';
+import { ChevronLeftIcon } from 'primeng/icons/chevronleft';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProfileService {
+  private LoginService: LoginService = inject(LoginService);
   public userDataSignal: WritableSignal<userDataModel> = signal<userDataModel>({} as userDataModel);
   private url: string = 'http://localhost:5000';
-  private userId: string | null = sessionStorage.getItem('id');
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   public getUserData(): void {
     this.http
-      .get<userDataModel>(`${this.url}/getUser/${this.userId}`)
+      .get<userDataModel>(`${this.url}/getUser/${sessionStorage.getItem('id')}`)
       .subscribe((val) => {
+        console.log(val);
         this.userDataSignal.set(val);
       });
   }
 
   public updateUserData(data: userDataModel): Observable<userDataModel> {
-    return this.http.put<userDataModel>(this.url + '/updateUserData/' + this.userId,data);
+    return this.http.put<userDataModel>(this.url + '/updateUserData/' + sessionStorage.getItem('id'), data);
   }
 
   public removeUser(): Observable<any> {
-    return this.http.delete<any>(this.url + `/deleteUser/${this.userId}`);
+    return this.http.delete<any>(this.url + `/deleteUser/${sessionStorage.getItem('id')}`);
   }
 
   public photoUpdate(event: any): Observable<any> {
     const file = event.files[0];
     const formData = new FormData();
     formData.append('photo', file);
-    return this.http.put<any>(this.url + '/uploadPhoto/' + this.userId,formData);
+    return this.http.put<any>(this.url + '/uploadPhoto/' + sessionStorage.getItem('id'), formData);
   }
 
   public get userData(): userDataModel {

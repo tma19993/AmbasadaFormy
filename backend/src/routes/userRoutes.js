@@ -47,13 +47,14 @@ module.exports = function (users) {
       res.status(500).send(error);
     }
     else {
-      const token = jwt.sign(result, tokenConfig.SECRET, {
+      const token = jwt.sign({userId: result._id}, tokenConfig.SECRET, {
         expiresIn: "2h"
       });
   
       res.status(200).json({
         authToken: token,
-        id: result.insertedId
+        id: result.insertedId,
+        user: newUser
       });
     }
   });
@@ -111,13 +112,19 @@ module.exports = function (users) {
           message: "Logowanie nieudane"
         });
       } else {
-        const token = jwt.sign(user, tokenConfig.SECRET, {
+          users.updateOne({
+          _id: new ObjectId(user._id)
+        }, {
+          $set: {
+           lastLogin: new Date()
+          }
+        });
+        const token = jwt.sign({userId: user._id}, tokenConfig.SECRET, {
           expiresIn: "2h"
         });
         res.json({
           authToken: token,
           isAdmin: user.permission == "admin",
-          id: user._id
         });
       }
     }
@@ -143,6 +150,60 @@ module.exports = function (users) {
       } else {
         res.status(404).send("Nie znaleziono użytkownika o podanym ID.");
       }
+    }
+  });
+
+  router.get('/dashboard', async (req, res) => {
+    try {
+      const now = new Date();
+      const oneHourAgo = new Date(now - 1 * 60 * 60 * 1000);
+      const oneDayAgo = new Date(now - 24 * 60 * 60 * 1000);
+      const sevenDaysAgo = new Date(now - 7 * 24 * 60 * 60 * 1000);
+  
+      const logins = await Promise.all([
+        users.countDocuments({ lastLogin: { $gte: oneHourAgo } }),
+        users.countDocuments({ lastLogin: { $gte: oneDayAgo } }),
+        users.countDocuments({ lastLogin: { $gte: sevenDaysAgo } }),
+      ]);
+  
+      const newUsers = await Promise.all([
+        users.countDocuments({ createdAt: { $gte: oneHourAgo } }),
+        users.countDocuments({ createdAt: { $gte: oneDayAgo } }),
+        users.countDocuments({ createdAt: { $gte: sevenDaysAgo } }),
+      ]);
+  
+      const newGymPass = await Promise.all([
+        users.countDocuments({ dateGymPassActivation: { $gte: oneHourAgo } }),
+        users.countDocuments({ dateGymPassActivation: { $gte: oneDayAgo } }),
+        users.countDocuments({ dateGymPassActivation: { $gte: sevenDaysAgo } }),
+      ]);
+  
+      const totalUsers = await users.countDocuments();
+  
+      const activeGymPass = await users.countDocuments({ activeGymPass: true });
+  
+      res.json({
+        logins: {
+          lastHour: logins[0],
+          last24Hours: logins[1],
+          last7Days: logins[2],
+        },
+        newUsers: {
+          lastHour: newUsers[0],
+          last24Hours: newUsers[1],
+          last7Days: newUsers[2],
+        },
+        newGymPass: {
+          lastHour: newGymPass[0],
+          last24Hours: newGymPass[1],
+          last7Days: newGymPass[2],
+        },
+        totalUsers,
+        activeGymPass,
+      });
+    } catch (error) {
+      console.error('Error fetching statistics:', error);
+      res.status(500).json({ message: 'Internal server error' });
     }
   });
 

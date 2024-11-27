@@ -1,6 +1,8 @@
+import { userDataModel } from "./user.model"
+
 export type LoginModel = {
-   login: string,
-   passowrd: string,
+   login?: string,
+   passowrd?: string,
    authToken: string,
-   id: string
-  }
+   // user:userDataModel
+}
