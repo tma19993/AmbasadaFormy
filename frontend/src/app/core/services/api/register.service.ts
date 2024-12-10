@@ -10,7 +10,7 @@ import { jwtDecode } from 'jwt-decode';
 })
 export class RegisterService {
   private loginService: LoginService = inject(LoginService);
-  private loginUrl: string = 'http://localhost:5000/addUser';
+  private loginUrl: string = 'http://localhost:5000/AmbasadaFormy/addUser';
 
   constructor(private http: HttpClient) { }
 

@@ -11,7 +11,7 @@ import { ChevronLeftIcon } from 'primeng/icons/chevronleft';
 export class ProfileService {
   private LoginService: LoginService = inject(LoginService);
   public userDataSignal: WritableSignal<userDataModel> = signal<userDataModel>({} as userDataModel);
-  private url: string = 'http://localhost:5000';
+  private url: string = 'http://localhost:5000/AmbasadaFormy';
 
   constructor(private http: HttpClient) { }
 
@@ -19,7 +19,6 @@ export class ProfileService {
     this.http
       .get<userDataModel>(`${this.url}/getUser/${sessionStorage.getItem('id')}`)
       .subscribe((val) => {
-        console.log(val);
         this.userDataSignal.set(val);
       });
   }

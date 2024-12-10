@@ -7,15 +7,15 @@ import { GymPassModel } from 'src/app/shared/models';
   providedIn: 'root'
 })
 export class GymPassesService {
-public gymPassesSignal: WritableSignal<GymPassModel[]> = signal<GymPassModel[]>([]);
+  public gymPassesSignal: WritableSignal<GymPassModel[]> = signal<GymPassModel[]>([]);
 
-private url: string = 'http://localhost:5000';
+  private url: string = 'http://localhost:5000/AmbasadaFormy';
 
-constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-public getGymPasses(): void {
-   this.http.get<GymPassModel[]>(`${this.url}/gym-passes`).subscribe(data => this.gymPassesSignal.set(data));
-}
+  public getGymPasses(): void {
+    this.http.get<GymPassModel[]>(`${this.url}/gym-passes`).subscribe(data => this.gymPassesSignal.set(data));
+  }
 
 
 }

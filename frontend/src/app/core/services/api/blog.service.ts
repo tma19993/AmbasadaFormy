@@ -9,7 +9,7 @@ import { LoginService } from './login.service';
 })
 export class BlogService {
   private LoginService: LoginService = inject(LoginService);
-  private url: string = 'http://localhost:5000';
+  private url: string = 'http://localhost:5000/AmbasadaFormy';
 
   constructor(private http: HttpClient) { }
 
