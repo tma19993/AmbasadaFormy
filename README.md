@@ -140,6 +140,19 @@ start front-end
   cd frontend
   ng serve
 ```
+
+## Screenshots
+
+![image](https://github.com/user-attachments/assets/5a523dc8-5160-4566-9e05-b3b64417eccf)
+
+![image](https://github.com/user-attachments/assets/deae26b3-8c5b-44c0-ac7b-891f87b68cb5)
+
+![image](https://github.com/user-attachments/assets/709767df-bd42-4036-9085-1a5b83176691)
+
+![image](https://github.com/user-attachments/assets/9e76ff74-6c51-41e9-9646-3a226e5cc6c3)
+
+
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
