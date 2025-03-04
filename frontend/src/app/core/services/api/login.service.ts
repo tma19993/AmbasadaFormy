@@ -14,7 +14,7 @@ export class LoginService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  private loginUrl: string = 'http://localhost:5000/AmbasadaFormy/login';
+  private loginUrl: string = ' environment.apiUrl/login';
 
 
 

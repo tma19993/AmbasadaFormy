@@ -7,7 +7,7 @@ import { userDataModel } from 'src/app/shared/models';
   providedIn: 'root'
 })
 export class TrainersService {
-  private url: string = 'http://localhost:5000/AmbasadaFormy';
+  private url: string = ' environment.apiUrl';
   constructor(private http: HttpClient) { }
 
   public getTrainers(): Observable<userDataModel[]> {

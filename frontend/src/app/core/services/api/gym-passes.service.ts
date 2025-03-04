@@ -9,7 +9,7 @@ import { GymPassModel } from 'src/app/shared/models';
 export class GymPassesService {
   public gymPassesSignal: WritableSignal<GymPassModel[]> = signal<GymPassModel[]>([]);
 
-  private url: string = 'http://localhost:5000/AmbasadaFormy';
+  private url: string = ' environment.apiUrl';
 
   constructor(private http: HttpClient) { }
 

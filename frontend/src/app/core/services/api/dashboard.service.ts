@@ -8,7 +8,7 @@ import { DashboardModel } from 'src/app/shared/models';
 export class DashboardService {
   private http: HttpClient = inject(HttpClient);
   public dashboardSignal: WritableSignal<DashboardModel> = signal<DashboardModel>({} as DashboardModel);
-  private url: string = 'http://localhost:5000/AmbasadaFormy';
+  private url: string = ' environment.apiUrl';
 
   public getDashboardData(): void {
     this.http.get<DashboardModel>(this.url + "/dashboard").subscribe(val => {

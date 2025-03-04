@@ -9,7 +9,7 @@ import { DatePipe } from '@angular/common';
 })
 export class RequestsGymPassesService {
   public requestsSignal: WritableSignal<RequestModel[]> = signal<RequestModel[]>([] as RequestModel[])
-  private url: string = 'http://localhost:5000/AmbasadaFormy';
+  private url: string = ' environment.apiUrl';
   constructor(private http: HttpClient, private datePipe: DatePipe) { }
 
   public getRequests(): void {

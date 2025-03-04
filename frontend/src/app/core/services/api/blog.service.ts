@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable, signal, WritableSignal } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { ApiPostsModel, PostModel, PostSearchModel } from 'src/app/shared/models';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { ApiPostsModel, PostModel, PostSearchModel } from 'src/app/shared/models
 export class BlogService {
 
   public postsSignal: WritableSignal<PostModel[]> = signal<PostModel[]>([]);
-  private url: string = 'http://localhost:5000/AmbasadaFormy';
+  private url: string = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 
