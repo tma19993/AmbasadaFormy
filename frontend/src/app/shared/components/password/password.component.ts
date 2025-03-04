@@ -1,14 +1,13 @@
-import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, forwardRef, Input, OnInit, Output } from '@angular/core';
-import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { DividerModule } from 'primeng/divider';
-import { PasswordModule } from 'primeng/password';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { SharedModule } from 'primeng/api';
+import { PrimengModule } from '../../modules/primeng/primeng.module';
 
 @Component({
   selector: 'af-password',
   templateUrl: './password.component.html',
   styleUrls: ['./password.component.scss'],
-  providers:[
+  providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => AFPasswordComponent),
@@ -16,22 +15,22 @@ import { PasswordModule } from 'primeng/password';
     },
   ],
   standalone: true,
-  imports: [CommonModule, PasswordModule, FormsModule,DividerModule],
+  imports: [SharedModule, PrimengModule],
 })
 export class AFPasswordComponent implements OnInit, ControlValueAccessor {
   @Input() public floatLabelText: string = '';
   @Input() public feedback: boolean = false;
-  
+
   @Input() public disabledPassword: boolean = false;
   @Input() public maxLength: number = 255;
-  @Output() public inputValue:EventEmitter<string>= new EventEmitter();
+  @Output() public inputValue: EventEmitter<string> = new EventEmitter();
 
 
   public value: string;
   public showClear: boolean = false;
-  public onChange = (value: any) => {};
-  public onTouched = () => {};
-  constructor() {}
+  public onChange = (value: any) => { };
+  public onTouched = () => { };
+  constructor() { }
 
   writeValue(value: any): void {
     this.value = value;
@@ -46,28 +45,28 @@ export class AFPasswordComponent implements OnInit, ControlValueAccessor {
   }
 
   public ngOnInit(): void {
-    setTimeout(()=>{
+    setTimeout(() => {
       this.addIconToPasswordInput();
       this.findIcon();
-    },0);
+    }, 0);
   }
 
-  public getValue():void{
+  public getValue(): void {
     this.inputValue.emit(this.value);
   }
 
-  private findIcon():void{
-    document.querySelectorAll(".pi-eye")?.forEach(element=>{
+  private findIcon(): void {
+    document.querySelectorAll(".pi-eye")?.forEach(element => {
       element.classList.add("password__icon");
     });
   }
 
   private addIconToPasswordInput(): void {
     document.querySelectorAll("p-password .p-password")?.forEach(element => {
-    const classList: string[] = ["pi", "pi-lock", "password__content--lock-icon"];
-    const lockIcon:HTMLElement = document.createElement("i");
-    if(element)
-      lockIcon.classList.add(...classList);
+      const classList: string[] = ["pi", "pi-lock", "password__content--lock-icon"];
+      const lockIcon: HTMLElement = document.createElement("i");
+      if (element)
+        lockIcon.classList.add(...classList);
       element.prepend(lockIcon)
     });
   }

@@ -68,5 +68,10 @@ module.exports = function (blog, users) {
     }
   );
 
+  router.get("/AmbasadaFormy/getPosts", async (req, res) => {
+    const blogData = await mapDataFromCollection(blog);
+    res.status(200).json(blogData);
+  });
+
   return router;
 };

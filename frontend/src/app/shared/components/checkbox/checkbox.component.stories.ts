@@ -1,18 +1,16 @@
 import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
 import { AFCheckboxComponent } from "./checkbox.component";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
-import { FormsModule } from "@angular/forms";
-import { CheckboxModule } from "primeng/checkbox";
+import { SharedModule } from "primeng/api";
+import { PrimengModule } from "../../modules/primeng/primeng.module";
 
 const meta: Meta<AFCheckboxComponent> = {
   title: "Core/Checkbox",
   component: AFCheckboxComponent,
   decorators: [
     moduleMetadata({
-      imports: [
-        CheckboxModule, BrowserAnimationsModule, FormsModule],
+      imports: [SharedModule, PrimengModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     }),
   ],

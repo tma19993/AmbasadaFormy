@@ -1,19 +1,16 @@
 import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
 import { ChartBarsComponent } from "./chart-bars.component";
-import { CommonModule } from "@angular/common";
-import { ChartModule } from "primeng/chart";
+import { SharedModule } from "primeng/api";
+import { PrimengModule } from "../../modules/primeng/primeng.module";
 
 const meta: Meta<ChartBarsComponent> = {
   title: "Core/ChartBars",
   component: ChartBarsComponent,
   decorators: [
     moduleMetadata({
-      imports: [ CommonModule,
-        ChartModule, 
-        BrowserAnimationsModule],
+      imports: [SharedModule, PrimengModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     }),
   ],
@@ -35,6 +32,6 @@ const Template: Story = {
 export const Primary: Story = {
   ...Template,
   args: {
-    
+
   },
 };

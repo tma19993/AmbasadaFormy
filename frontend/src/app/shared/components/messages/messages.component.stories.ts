@@ -1,20 +1,16 @@
 import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
 import { AFMessagesComponent } from "./messages.component";
-import { CommonModule } from "@angular/common";
-import { MessagesModule } from "primeng/messages";
+import { SharedModule } from "primeng/api";
+import { PrimengModule } from "../../modules/primeng/primeng.module";
 
 const meta: Meta<AFMessagesComponent> = {
   title: "Core/Messages",
   component: AFMessagesComponent,
   decorators: [
     moduleMetadata({
-      imports: [  
-        CommonModule,
-        MessagesModule,
-        BrowserAnimationsModule],
+      imports: [SharedModule, PrimengModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     }),
   ],

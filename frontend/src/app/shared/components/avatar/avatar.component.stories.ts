@@ -1,17 +1,15 @@
 import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
 import { AvatarComponent } from "./avatar.component";
-import { CommonModule } from "@angular/common";
-import { FormsModule } from "@angular/forms";
-import { AvatarModule } from "primeng/avatar";
+import { SharedModule } from "primeng/api";
+import { PrimengModule } from "../../modules/primeng/primeng.module";
 
 const meta: Meta<typeof AvatarComponent> = {
   title: "Core/Avatar",
   decorators: [
     moduleMetadata({
-      imports: [CommonModule, AvatarModule, FormsModule, BrowserAnimationsModule],
+      imports: [SharedModule, PrimengModule],
     }),
   ],
   component: AvatarComponent,
@@ -27,35 +25,35 @@ type Story = StoryObj<typeof AvatarComponent>;
 
 
 export const Large: Story = {
-  render: ()=>({
-    props:{
+  render: () => ({
+    props: {
       login: "abrams206",
       size: "large",
       shape: "circle",
     },
-    template:`<af-avatar [login]="login" [size]="size" [shape]="shape"/>`
+    template: `<af-avatar [login]="login" [size]="size" [shape]="shape"/>`
   })
 };
 
 
 export const Xlarge: Story = {
-  render:()=>({
-    props:{
+  render: () => ({
+    props: {
       login: "bakus1112",
       size: "xlarge",
       shape: "circle",
     },
-    template:`<af-avatar [login]="login" [size]="size" [shape]="shape"/>`
+    template: `<af-avatar [login]="login" [size]="size" [shape]="shape"/>`
   })
 };
 
-export const Small: Story ={
-  render:() =>({
-    props:{
+export const Small: Story = {
+  render: () => ({
+    props: {
       login: "bakus1112",
       size: "small",
       shape: "circle",
     },
-    template:`<af-avatar [login]="login" [size]="size" [shape]="shape"/>`
+    template: `<af-avatar [login]="login" [size]="size" [shape]="shape"/>`
   })
 };

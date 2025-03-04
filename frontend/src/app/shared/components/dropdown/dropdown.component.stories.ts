@@ -3,19 +3,15 @@ import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
 import { DropdownComponent } from "./dropdown.component";
 
-import { CommonModule } from "@angular/common";
-import { FormsModule } from "@angular/forms";
-import { DropdownModule } from "primeng/dropdown";
+import { SharedModule } from "primeng/api";
+import { PrimengModule } from "../../modules/primeng/primeng.module";
 
 const meta: Meta<DropdownComponent> = {
   title: "Core/Dropdown",
   component: DropdownComponent,
   decorators: [
     moduleMetadata({
-      imports: [
-        CommonModule,
-        DropdownModule,
-        FormsModule],
+      imports: [SharedModule, PrimengModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     }),
   ],

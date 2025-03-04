@@ -1,20 +1,21 @@
 import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
 import { AFTableComponent } from "./table.component";
-import { CommonModule } from "@angular/common";
-import { TableModule } from "primeng/table";
-import { FormsModule } from "@angular/forms";
+import { SharedModule } from "primeng/api";
+import { PrimengModule } from "../../modules/primeng/primeng.module";
+import { AFButtonComponent } from "../button/button.component";
 
 const meta: Meta<AFTableComponent<any>> = {
   title: "Core/Table",
   component: AFTableComponent,
   decorators: [
     moduleMetadata({
-      imports: [CommonModule,
-        TableModule,
-        FormsModule],
+      imports: [
+        SharedModule,
+        PrimengModule,
+        AFButtonComponent,
+      ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     }),
   ],

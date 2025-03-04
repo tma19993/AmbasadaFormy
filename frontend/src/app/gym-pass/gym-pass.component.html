@@ -1,0 +1,49 @@
+<section class="gym-pass-page">
+  <div class="navi-bar">
+    <af-menu-static />
+  </div>
+  <section class="gym-pass__container" *ngIf="gymPasses">
+    <div class="gym-pass__container--header">
+      <div class="gym-pass__container--header-logo">
+        <img src="../../../assets/logo/logoLightText.svg" alt="logo" />
+      </div>
+      <h2 class="gym-pass__container--header-text">
+        {{ "MenuPage.passes" | translate }}
+      </h2>
+    </div>
+    <div class="gym-pass__container--gym-passes">
+      <div class="gym-pass-cards">
+        <ng-container *ngFor="let gymPass of gymPasses()">
+          <div class="gym-pass-card">
+            <af-gym-pass-card
+              [title]="
+                'gymPass.' + gymPass.name + 'Pass' + '.header' | translate
+              "
+              [subtitle]="
+                'gymPass.' + gymPass.name + 'Pass' + '.subtitle' | translate
+              "
+              [price]="gymPass.price + 'zł'"
+              [name]="gymPass.name"
+              [buttonId]="gymPass.name"
+              (OrderGymPass)="orderGymPass()"
+            >
+            </af-gym-pass-card>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="gym-pass__container--gym-pass">
+      <ng-container *ngFor="let gymPass of gymPasses()">
+        <af-gym-pass-info
+          [title]="
+            'gymPass.' + gymPass.name + 'Pass' + '.labelHeader' | translate
+          "
+          [price]="gymPass.price"
+          [buttonId]="gymPass.name"
+          [label1]="'gymPass.' + gymPass.name + 'Pass' + '.label1' | translate"
+          [label2]="'gymPass.' + gymPass.name + 'Pass' + '.label2' | translate"
+        ></af-gym-pass-info>
+      </ng-container>
+    </div>
+  </section>
+</section>

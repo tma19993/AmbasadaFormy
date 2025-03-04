@@ -1,0 +1,10 @@
+@for (post of posts(); track post.createdAt) {
+<af-tile [darkMode]="true">
+  <ng-container (click)="openPost(post)">
+    <div class="content">
+      {{ post.title }}
+    </div>
+  </ng-container>
+</af-tile>
+
+}

@@ -1,12 +1,10 @@
 import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
 import { AFAutocompleteComponent } from "./autocomplete.component";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { examplePersonalTrainerModel } from "src/app/shared/models/autocomplete.model";
-import { CommonModule } from "@angular/common";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { AutoCompleteModule } from "primeng/autocomplete";
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
+import { SharedModule } from "primeng/api";
+import { PrimengModule } from "../../modules/primeng/primeng.module";
 
 const exampleData: examplePersonalTrainerModel[] = [
   {
@@ -37,12 +35,7 @@ const meta: Meta<typeof AFAutocompleteComponent> = {
   title: "Core/Autocompete",
   decorators: [
     moduleMetadata({
-      imports: [
-        CommonModule,
-        AutoCompleteModule,
-        FormsModule,
-        ReactiveFormsModule, 
-        BrowserAnimationsModule],
+      imports: [SharedModule, PrimengModule]
     }),
   ],
   component: AFAutocompleteComponent,
@@ -57,13 +50,13 @@ export default meta;
 type Story = StoryObj<typeof AFAutocompleteComponent>;
 
 export const Primary: Story = {
-    render: () => ({
-      props:{
-        suggestions: exampleData,
-        fieldName: "yourFieldName", 
-      },
-      template:`<af-autocomplete [suggestions]="suggestions" [fieldName]="fieldName"/>`
-    }),
+  render: () => ({
+    props: {
+      suggestions: exampleData,
+      fieldName: "yourFieldName",
+    },
+    template: `<af-autocomplete [suggestions]="suggestions" [fieldName]="fieldName"/>`
+  }),
 };
 
 

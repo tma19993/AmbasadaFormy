@@ -5,15 +5,15 @@ import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { FormsModule } from '@angular/forms';
+import { SharedModule } from 'primeng/api';
+import { PrimengModule } from '../../modules/primeng/primeng.module';
 
 const meta: Meta<AFButtonComponent> = {
   title: 'Core/Button',
   component: AFButtonComponent,
   decorators: [
     moduleMetadata({
-      imports: [CommonModule,
-        ButtonModule,
-        FormsModule],
+      imports: [SharedModule, PrimengModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     }),
   ],

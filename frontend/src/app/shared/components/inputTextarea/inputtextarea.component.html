@@ -1,25 +1,34 @@
 <section class="inputtextarea-container">
-    <div *ngIf="!floatLabel">
-        <textarea pInputTextarea [(ngModel)]="value"
-        [placeholder]="placeholderText"
-        [rows]="size.rows"
-        [cols]="size.cols" 
-        [autoResize]="autoResize"
-        [disabled]="disabled"
-        (ngModelChange)="onChange($event)"></textarea>
-    </div>
-    <div *ngIf="floatLabel">
+  @if(!floatLabel){
+  <div>
+    <textarea
+      pInputTextarea
+      [(ngModel)]="value"
+      [placeholder]="placeholderText"
+      [rows]="size.rows"
+      [cols]="size.cols"
+      [autoResize]="autoResize"
+      [disabled]="disabled"
+      (ngModelChange)="onChange($event)"
+    ></textarea>
+  </div>
+  } @else {
+  <div>
     <span class="p-float-label">
-       <p-floatLabel>
-        <textarea id="float-inputtextarea" pInputTextarea 
-        [(ngModel)]="value"
-        [rows]="size.rows"
-        [cols]="size.cols" 
-        [autoResize]="autoResize"
-        [disabled]="disabled"
-        (ngModelChange)="onChange($event)"></textarea>
-        <label for="float-inputtextarea">{{floatLabelText}}</label>
-       </p-floatLabel>
+      <p-floatLabel>
+        <textarea
+          id="float-inputtextarea"
+          pInputTextarea
+          [(ngModel)]="value"
+          [rows]="size.rows"
+          [cols]="size.cols"
+          [autoResize]="autoResize"
+          [disabled]="disabled"
+          (ngModelChange)="onChange($event)"
+        ></textarea>
+        <label for="float-inputtextarea">{{ floatLabelText }}</label>
+      </p-floatLabel>
     </span>
-    </div>
+  </div>
+  }
 </section>

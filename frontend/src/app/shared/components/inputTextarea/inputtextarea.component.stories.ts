@@ -7,18 +7,15 @@ import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { FloatLabelModule } from "primeng/floatlabel";
 import { InputTextareaModule } from "primeng/inputtextarea";
+import { SharedModule } from "primeng/api";
+import { PrimengModule } from "../../modules/primeng/primeng.module";
 
 const meta: Meta<AFInputTextareaComponent> = {
   title: "Core/InputTextarea",
   component: AFInputTextareaComponent,
   decorators: [
     moduleMetadata({
-      imports: [
-        CommonModule,
-        InputTextareaModule,
-        FormsModule,
-        FloatLabelModule,
-        BrowserAnimationsModule],
+      imports: [SharedModule, PrimengModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     }),
   ],

@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { SharedModule } from 'primeng/api';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputTextareaSizeModel } from 'src/app/shared/models/inputtextarea.model';
+import { PrimengModule } from '../../modules/primeng/primeng.module';
 
 @Component({
   selector: 'af-inputTextarea',
@@ -17,12 +19,7 @@ import { InputTextareaSizeModel } from 'src/app/shared/models/inputtextarea.mode
     },
   ],
   standalone: true,
-  imports:[
-    CommonModule,
-    InputTextareaModule,
-    FormsModule,
-    FloatLabelModule
-  ]
+  imports: [SharedModule, PrimengModule],
 })
 export class AFInputTextareaComponent implements ControlValueAccessor {
   @Input() public autoResize: boolean = false;
@@ -34,10 +31,10 @@ export class AFInputTextareaComponent implements ControlValueAccessor {
 
   public value: string = '';
 
-  constructor() {}
+  constructor() { }
 
-  onChange = (value: string) => {};
-  onTouched = () => {};
+  onChange = (value: string) => { };
+  onTouched = () => { };
 
   writeValue(value: string): void {
     this.value = value;

@@ -1,22 +1,16 @@
 import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
 import { RatingComponent } from "./rating.component";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { FormsModule } from "@angular/forms";
-import { RatingModule } from "primeng/rating";
+import { SharedModule } from "../../shared.module";
+import { PrimengModule } from "../../modules/primeng/primeng.module";
 
 const meta: Meta<RatingComponent> = {
   title: "Core/Rating",
   component: RatingComponent,
   decorators: [
     moduleMetadata({
-      imports: [
-        CommonModule,
-        RatingModule,
-        FormsModule,
-        BrowserAnimationsModule],
+      imports: [SharedModule, PrimengModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     }),
   ],

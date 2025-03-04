@@ -1,0 +1,636 @@
+@import "../shared/styles/constants.scss";;
+
+.home-page {
+  background-image: url('../../assets/backgrounds/AF-desktop-main-background.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  .navi-bar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1001;
+  }
+
+  .home-page__container {
+    max-width: 1357px;
+    margin: 0 auto 80px auto;
+    min-height: 200vh;
+
+    &--logo {
+      padding-top: 100px;
+      text-align: center;
+      height: 40vh;
+
+      img {
+        height: 270px;
+
+      }
+    }
+
+    &--gym-pass {
+      height: 60vh;
+      position: relative;
+
+      color: $input-text-light;
+      width: 485px;
+      font-weight: $font-weight-bold;
+
+      h2 {
+        width: 385px;
+        font-size: 62px;
+        text-shadow: 1px 1px 3px $background-dark;
+      }
+
+      &--price-info {
+        font-size: 42px;
+      }
+
+      &--text {
+        color: $input-main-color;
+        padding: 10px 0;
+        font-size: 18px;
+      }
+
+    }
+
+    &--trainers {
+      max-height: 100vh;
+
+      h2 {
+        margin: 40px 0 40px auto;
+        color: $input-text-light;
+        width: 385px;
+        font-size: 62px;
+        text-shadow: 1px 1px 3px $background-dark;
+      }
+
+      &__sliders {
+       
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        &--photos {
+          max-height: 716px;
+          img {
+            max-width: 542px;
+          }
+        }
+        &--text{
+          max-width: 745px;
+          padding: 30px;
+          p{
+            text-indent: 30px;
+            text-align: justify;
+            font-weight: $font-weight-bold;
+            font-size: 16px;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+          }
+          &__button-trainers{
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+          }
+          
+        }
+      }
+    }
+  }
+
+}
+
+@media (orientation: landscape) and (max-width: 1024px) {
+  .home-page {
+    .home-page__container {
+      max-width: 968px;
+      margin: 0 auto 80px auto;
+
+      &--logo {
+        padding-top: 80px;
+        height: 40vh;
+
+        img {
+          height: 220px;
+        }
+      }
+
+      &--gym-pass {
+        width: 485px;
+
+        h2 {
+          width: 305px;
+          font-size: 52px;
+        }
+
+        &--price-info {
+          font-size: 32px;
+        }
+
+        &--text {
+          font-size: 16px;
+        }
+        af-button{
+          ::ng-deep .button__container .p-element .p-button{
+            .p-button-label{
+              font-size: 29px !important;
+            }
+          }
+        }
+      }
+
+      &--trainers {
+
+        h2 {
+          width: 305px;
+          margin: 40px 0 40px auto;
+          font-size: 52px;
+        }
+
+        &__sliders {
+          &--photos {
+            max-height: 566px;
+
+            img {
+              max-width: 432px;
+            }
+          }
+
+          &--text {
+            max-width: 545px;
+
+            p {
+              font-size: 15px;
+            }
+            &__button-trainers{
+              ::ng-deep .button__container .p-element .p-button{
+                .p-button-label{
+                  font-size: 29px !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
+@media (orientation: landscape) and (max-width: 942px) {
+  .home-page {
+    .home-page__container {
+      max-width: 842px;
+
+      &--logo {
+        height: 40vh;
+
+        img {
+          height: 180px;
+        }
+      }
+
+      &--gym-pass {
+        width: 485px;
+
+        h2 {
+          font-size: 42px;
+        }
+
+        &--price-info {
+          font-size: 26px;
+        }
+
+        &--text {
+          font-size: 14px;
+        }
+        af-button{
+          ::ng-deep .button__container .p-element .p-button{
+            .p-button-label{
+              font-size: 25px !important;
+            }
+          }
+        }
+      }
+
+      &--trainers {
+        min-height: 150vh ;
+        h2 {
+          width: 250px;
+          font-size: 42px;
+        }
+
+        &__sliders {
+          &--photos {
+            max-height: 426px;
+
+            img {
+              max-width: 322px;
+            }
+          }
+
+          &--text {
+            max-width: 495px;
+
+            p {
+              font-size: 14px;
+            }
+            &__button-trainers{
+              ::ng-deep .button__container .p-element .p-button{
+                .p-button-label{
+                  font-size: 25px !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
+@media (orientation: landscape) and (max-width: 768px) {
+  .home-page {
+    .home-page__container {
+      max-width: 688px;
+
+      &--logo {
+        height: 40vh;
+
+        img {
+          height: 160px;
+        }
+      }
+
+      &--gym-pass {
+        width: 485px;
+
+        h2 {
+          width: 255px;
+          font-size: 36px;
+        }
+
+        &--price-info {
+          font-size: 22px;
+        }
+
+        &--text {
+          font-size: 13px;
+        }
+        af-button{
+          ::ng-deep .button__container .p-element .p-button{
+            .p-button-label{
+              font-size: 22px !important;
+            }
+          }
+        }
+      }
+
+      &--trainers {
+        h2 {
+          width: 205px;
+          font-size: 36px;
+        }
+
+        &__sliders {
+          &--photos {
+            max-height: 466px;
+
+            img {
+              max-width: 362px;
+            }
+          }
+
+          &--text {
+            max-width: 495px;
+
+            p {
+              font-size: 13px;
+            }
+            &__button-trainers{
+              ::ng-deep .button__container .p-element .p-button{
+                .p-button-label{
+                  font-size: 22px !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
+@media (orientation: landscape) and (max-width: 667px) {
+  .home-page {
+    .home-page__container {
+      max-width: 628px;
+
+      &--logo {
+        height: 40vh;
+
+        img {
+          height: 140px;
+        }
+      }
+
+      &--gym-pass {
+        padding-top: 40px;
+        width: 485px;
+
+        h2 {
+          width: 205px;
+          font-size: 32px;
+        }
+
+        &--price-info {
+          font-size: 20px;
+        }
+
+        &--text {
+          font-size: 12px;
+        }
+        af-button{
+          ::ng-deep .button__container .p-element .p-button{
+            .p-button-label{
+              font-size: 20px !important;
+            }
+          }
+        }
+      }
+
+      &--trainers {
+        min-height: 200vh ;
+        h2 {
+          width: 205px;
+          font-size: 32px;
+        }
+
+        &__sliders {
+          &--photos {
+            max-height: 326px;
+
+            img {
+              max-width: 282px;
+            }
+          }
+
+          &--text {
+            max-width: 495px;
+
+            p {
+              font-size: 12px;
+            }
+            &__button-trainers{
+              ::ng-deep .button__container .p-element .p-button{
+                .p-button-label{
+                  font-size: 20px !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
+
+@media (orientation: portrait) and (max-width: 1024px) {
+  .home-page {
+    .home-page__container {
+      max-width: 968px;
+      margin: 0 auto ;
+
+      &--logo {
+        padding-top: 80px;
+        height: 40vh;
+
+        img {
+          height: 220px;
+        }
+      }
+
+      &--gym-pass {
+        width: 485px;
+        margin: 0 auto;
+        h2 {
+          width: 305px;
+          font-size: 52px;
+        }
+
+        &--price-info {
+          font-size: 32px;
+        }
+
+        &--text {
+          font-size: 16px;
+        }
+        af-button{
+          ::ng-deep .button__container .p-element .p-button{
+            .p-button-label{
+              font-size: 29px !important;
+            }
+          }
+        }
+      }
+
+      &--trainers {
+        width: 620px;
+        margin: 0 auto;
+        h2 {
+          text-align: center;
+          font-size: 52px;
+          margin: 40px auto;
+        }
+
+        &__sliders {
+          flex-direction: column;
+          &--photos {
+            max-height: 666px;
+
+            img {
+              max-width: 625px;
+            }
+          }
+
+          &--text {
+            max-width: 625px;
+
+            p {
+              font-size: 15px;
+            }
+            &__button-trainers{
+              ::ng-deep .button__container .p-element .p-button{
+                .p-button-label{
+                  font-size: 29px !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
+@media (orientation: portrait) and (max-width: 942px) {
+  .home-page {
+    .home-page__container {
+      &--trainers {
+        min-height: 130vh;
+      }
+    }
+
+  }
+}
+@media (orientation: portrait) and (max-width: 640px) {
+  .home-page {
+    .home-page__container {
+      &--logo {
+        img {
+          height: 200px;
+        }
+      }
+
+      &--gym-pass {
+        width: 485px;
+        margin: 0 auto;
+        h2 {
+          width: 305px;
+          font-size: 46px;
+        }
+
+        &--price-info {
+          font-size: 28px;
+        }
+
+        &--text {
+          font-size: 14px;
+        }
+        af-button{
+          ::ng-deep .button__container .p-element .p-button{
+            .p-button-label{
+              font-size: 26px !important;
+            }
+          }
+        }
+      }
+
+      &--trainers {
+        width: 470px;
+        min-height: 160vh ;
+        h2 {
+          font-size: 46px;
+
+        }
+
+        &__sliders {
+          flex-direction: column;
+          &--photos {
+            max-height: 446px;
+
+            img {
+              max-width: 475px;
+            }
+          }
+
+          &--text {
+            max-width: 625px;
+
+            p {
+              font-size: 14px;
+            }
+            &__button-trainers{
+              ::ng-deep .button__container .p-element .p-button{
+                .p-button-label{
+                  font-size: 26px !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
+@media (orientation: portrait) and (max-width: 440px) {
+  .home-page {
+    .home-page__container {
+      max-width: 440px;
+      margin: 0 auto ;
+
+      &--logo {
+        padding-top: 80px;
+        height: 40vh;
+
+        img {
+          height: 170px;
+        }
+      }
+
+      &--gym-pass {
+        width: 355px;
+        margin: 0 auto;
+        h2 {
+          width: 255px;
+          font-size: 38px;
+        }
+
+        &--price-info {
+          font-size: 28px;
+        }
+
+        &--text {
+          font-size: 13px;
+        }
+        af-button{
+          ::ng-deep .button__container .p-element .p-button{
+            .p-button-label{
+              font-size: 24px !important;
+            }
+          }
+        }
+      }
+
+      &--trainers {
+        width: 355px;
+        min-height: 160vh ;
+        h2 {
+          font-size: 46px;
+
+        }
+
+        &__sliders {
+          flex-direction: column;
+          &--photos {
+            max-height: 446px;
+
+            img {
+              max-width: 355px;
+            }
+          }
+
+          &--text {
+            max-width: 625px;
+
+            p {
+              font-size: 13px;
+            }
+            &__button-trainers{
+              ::ng-deep .button__container .p-element .p-button{
+                .p-button-label{
+                  font-size: 24px !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+}

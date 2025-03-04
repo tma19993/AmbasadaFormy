@@ -1,10 +1,9 @@
-import { CommonModule } from '@angular/common';
 import { Component, forwardRef, Input } from '@angular/core';
-import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
-import { FloatLabelModule } from 'primeng/floatlabel';
-import { InputTextModule } from 'primeng/inputtext';
-import { inputIconConfig } from 'src/app/shared/models/input.model';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { EnumIconFloat } from '../../enums';
+
+import { PrimengModule } from '../../modules/primeng/primeng.module';
+import { SharedModule } from '../../shared.module';
 
 @Component({
   selector: 'af-input',
@@ -18,13 +17,7 @@ import { EnumIconFloat } from '../../enums';
     },
   ],
   standalone: true,
-  imports:[
-    CommonModule,
-    InputTextModule,
-    FormsModule,
-    ReactiveFormsModule,
-    FloatLabelModule
-  ]
+  imports: [SharedModule, PrimengModule],
 })
 export class AFInputComponent implements ControlValueAccessor {
   @Input() public floatLabelText: string = '';

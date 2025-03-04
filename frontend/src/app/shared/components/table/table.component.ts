@@ -1,9 +1,10 @@
-import { CommonModule, DatePipe } from '@angular/common';
+import { DatePipe } from '@angular/common';
 import { Component, EventEmitter, inject, Input, Output, TemplateRef } from '@angular/core';
-import { TableModule } from 'primeng/table';
 import { TableHeaderModel } from 'src/app/shared/models/table.model';
-import { ButtonModule } from 'primeng/button';
 import { AFButtonComponent } from '../button/button.component';
+
+import { PrimengModule } from '../../modules/primeng/primeng.module';
+import { SharedModule } from '../../shared.module';
 
 @Component({
   selector: 'af-table',
@@ -11,8 +12,8 @@ import { AFButtonComponent } from '../button/button.component';
   styleUrls: ['./table.component.scss'],
   standalone: true,
   imports: [
-    CommonModule,
-    TableModule,
+    SharedModule,
+    PrimengModule,
     AFButtonComponent,
   ],
 })

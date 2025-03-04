@@ -1,100 +1,37 @@
 import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { MessageService } from 'primeng/api';
-import { AvatarModule } from 'primeng/avatar';
-import { DynamicDialogModule, DialogService } from 'primeng/dynamicdialog';
-import { MessagesModule } from 'primeng/messages';
-import { PaginatorModule } from 'primeng/paginator';
+import { DialogService } from 'primeng/dynamicdialog';
 import { HttpLoaderFactory } from 'src/app/core/untils/http-loader-factory';
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AfMessageService } from './core/services';
-import { OrderGymPassComponent, NewPostFormComponent, PostDetailsComponent, PasswordChangerComponent, ProfileDataEditorComponent, AFAddDietComponent, AFChangeUserPasswordComponent, AFEditGymPassesComponent, AFEditPermissionsComponent, AFEditUserDataComponent, AFGymPassRequestsComponent, AFEditBlogComponent } from './features/dialogs';
-import { WelcomePageComponent, LoginComponent, HomePageComponent, GymPassComponent, TrainersComponent, BlogComponent, RegisterComponent, AFMenuStaticComponent, AFProfileMenuComponent, AFGymPassCardComponent, AFGymPassInfoComponent,  AFLanguageChangerComponent,  AFFooterComponent,  } from './features/main-pages';
-import { ProfileComponent } from './features/main-pages/profile/profile.component';
-import { AFButtonComponent } from './shared/components/button/button.component';
-import { AFPhotoUploaderComponent } from './shared/components/photo-uploader/photo-uploader.component';
-import { AFTableComponent } from './shared/components/table/table.component';
-import { AFTileComponent } from './shared/components/tile/tile.component';
-import { AFPasswordComponent } from './shared/components/password/password.component';
-import { AFMessagesComponent } from './shared/components/messages/messages.component';
-import { AFCheckboxComponent } from './shared/components/checkbox/checkbox.component';
-import { AFInputComponent } from './shared/components/input/input.component';
-import { AFInputTextareaComponent } from './shared/components/inputTextarea/inputtextarea.component';
+
 import { AFPreviousRouteService } from './core/services/previous-route/previous-route.service';
 import { DatePipe } from '@angular/common';
-import { AFMyProfileComponent, AFPersonalTrainerComponent, AFGymPassesComponent, AFDietsComponent, AFAdminPageComponent } from './features/profile-pages';
-import { AFAddTrainingComponent } from './features/dialogs/add-training/add-training.component';
+import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
+
+import { AFFooterComponent } from './core/components/footer/footer.component';
+import { AuthModule } from './auth/auth.module';
 import { AFValidationMessageComponent } from './shared/components/validation-message/validation-message.component';
-import { AFKnobComponent } from './shared/components/knob/knob.component';
-import { SelectButtonModule } from 'primeng/selectbutton';
-import { TransformStatisticTimePipe } from './shared/pipes/transform-statistic-time.pipe';
+import { AppRoutingModule } from './app-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 
 @NgModule({
     declarations: [
-        OrderGymPassComponent,
         AppComponent,
-        WelcomePageComponent,
-        LoginComponent,
-        HomePageComponent,
-        GymPassComponent,
-        AFMyProfileComponent,
-        ProfileComponent,
-        AFPersonalTrainerComponent,
-        TrainersComponent,
-        NewPostFormComponent,
-        BlogComponent,
-        RegisterComponent,
-        PostDetailsComponent,
-        PasswordChangerComponent,
-        ProfileDataEditorComponent,
-        AFProfileMenuComponent,
-        AFMenuStaticComponent,
-        AFLanguageChangerComponent,
-        AFGymPassesComponent,
-        AFGymPassInfoComponent,
-        AFGymPassCardComponent,
-        AFFooterComponent,
-        AFDietsComponent,
-        AFAdminPageComponent,
-        AFAddTrainingComponent,
-        AFAddDietComponent,
-        AFEditPermissionsComponent,
-        AFEditGymPassesComponent,
-        AFEditBlogComponent,
-        AFEditUserDataComponent,
-        AFChangeUserPasswordComponent,
-        AFGymPassRequestsComponent
     ],
     bootstrap: [AppComponent],
     imports: [
-        TransformStatisticTimePipe,
-        SelectButtonModule,
-        AFKnobComponent,
-        AFPasswordComponent,
-        AFValidationMessageComponent,
-        AFMessagesComponent,
-        AFCheckboxComponent,
-        AFInputComponent,
-        AFInputTextareaComponent,
-        AFTableComponent,
-        AFTileComponent,
-        AFPhotoUploaderComponent,
-        AvatarModule,
-        ReactiveFormsModule,
-        PaginatorModule,
-        MessagesModule,
         BrowserModule,
         AppRoutingModule,
-        FormsModule,
-        DynamicDialogModule,
-        AFButtonComponent,
-        BrowserAnimationsModule,
+        AFValidationMessageComponent,
+        AuthModule,
+        AFFooterComponent,
+        CoreModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
@@ -109,6 +46,7 @@ import { TransformStatisticTimePipe } from './shared/pipes/transform-statistic-t
         AFPreviousRouteService,
         DialogService,
         DatePipe,
+        provideAnimations(),
         provideHttpClient(withInterceptorsFromDi())
     ]
 })

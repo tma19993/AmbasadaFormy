@@ -1,18 +1,14 @@
-import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input,  Output } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { ButtonModule } from 'primeng/button';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+
 import { ButtonIconPosition } from 'src/app/shared/enums/button.enum';
+import { PrimengModule } from '../../modules/primeng/primeng.module';
+import { SharedModule } from '../../shared.module';
 @Component({
   selector: 'af-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
   standalone: true,
-  imports:[
-    CommonModule,
-    ButtonModule,
-    FormsModule,
-  ]
+  imports: [SharedModule, PrimengModule]
 })
 export class AFButtonComponent {
   @Input() public label: string = '';

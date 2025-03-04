@@ -1,19 +1,16 @@
 import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
 import { RadioButtonsComponent } from "./radiobutton.component";
-import { FormsModule } from "@angular/forms";
-import { Categories } from "src/app/shared/models/radiobutton.model";
-import { RadioButtonModule } from "primeng/radiobutton";
-import { CommonModule } from "@angular/common";
+import { SharedModule } from "primeng/api";
+import { PrimengModule } from "../../modules/primeng/primeng.module";
 
 const meta: Meta<RadioButtonsComponent> = {
   title: "Core/RadioButton",
   component: RadioButtonsComponent,
   decorators: [
     moduleMetadata({
-      imports: [CommonModule, RadioButtonModule, BrowserAnimationsModule, FormsModule],
+      imports: [SharedModule, PrimengModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     }),
   ],

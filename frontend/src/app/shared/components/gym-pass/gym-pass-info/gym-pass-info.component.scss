@@ -1,0 +1,136 @@
+@import "../../../styles/constants.scss";
+
+.gym-pass {
+  margin: 0 auto;
+  max-width: 1205px;
+  font-weight: $font-weight-bold;
+
+  h2 {
+    text-align: center;
+    color: $input-main-color;
+    font-size: 92px;
+    margin: 100px 0;
+    text-shadow: 1px 1px 3px $background-dark;
+  }
+
+  &__info {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+
+    &-text {
+      padding: 20px;
+
+      p {
+        text-indent: 20px;
+        margin-bottom: 10px;
+        font-size: 18px;
+      }
+    }
+
+    &-price {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100%;
+
+      p:first-of-type {
+        color: $input-text-accent;
+        font-size: 92px;
+      }
+
+      p:last-of-type {
+        color: $input-text-accent;
+        font-size: 32px;
+      }
+    }
+
+    af-tile {
+      width: 290px;
+      height: 290px;
+
+      ::ng-deep .tile_container {
+        height: 290px;
+      }
+    }
+  }
+
+  &__details {
+    padding: 30px 50px;
+
+    p {
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+  }
+
+  &-health {
+    margin-bottom: 100px;
+  }
+}
+
+@media (orientation: landscape) and (max-width: 1024px) {
+
+  .gym-pass {
+    margin: 0 auto;
+    max-width: 968px;
+
+    h2 {
+      color: $input-main-color;
+      font-size: 82px;
+      margin: 90px 0;
+    }
+
+    &__info {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+
+      &-text {
+        padding: 20px;
+
+        p {
+          text-indent: 20px;
+          margin-bottom: 10px;
+          font-size: 15px;
+        }
+      }
+
+      &-price {
+
+        height: 100%;
+
+        p:first-of-type {
+          color: $input-text-accent;
+          font-size: 82px;
+        }
+
+        p:last-of-type {
+          color: $input-text-accent;
+          font-size: 26px;
+        }
+      }
+
+      af-tile {
+        width: 290px;
+        height: 290px;
+
+        ::ng-deep .tile_container {
+          height: 290px;
+        }
+      }
+    }
+
+    &__details {
+      padding: 30px 50px;
+      p {
+        font-size: 16px;
+      }
+    }
+    
+    &-health {
+      margin-bottom: 100px;
+    }
+  }
+}

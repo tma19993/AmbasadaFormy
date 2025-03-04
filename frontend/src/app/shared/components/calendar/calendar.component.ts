@@ -1,18 +1,14 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { CalendarModule } from 'primeng/calendar';
+import { SharedModule } from 'primeng/api';
+import { PrimengModule } from '../../modules/primeng/primeng.module';
 
 @Component({
   selector: 'af-calendar',
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss'],
   standalone: true,
-  imports:[
-    CommonModule,
-    CalendarModule,
-    FormsModule,
-  ]
+  imports: [SharedModule, PrimengModule]
+
 })
 export class CalendarComponent {
   @Input() public date: Date | undefined;
@@ -21,5 +17,5 @@ export class CalendarComponent {
   @Input() public readonlyInput: boolean = false;
   @Input() public showTime: boolean = false;
   @Input() public showSeconds: boolean = false;
-  constructor(){}
+  constructor() { }
 }

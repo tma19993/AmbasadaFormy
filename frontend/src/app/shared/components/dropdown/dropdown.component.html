@@ -1,31 +1,36 @@
-<div *ngIf="!isFloatlabel">
-  <p-dropdown [(ngModel)]="selected" 
-  [options]="data" 
-  [optionLabel]="optionLabelName" 
-[placeholder]="placeholder" 
-[filter]="filter" 
-[filterBy]="filterName" 
-[showClear]="showClear"
-[virtualScroll]="virtualScroll" 
-[virtualScrollItemSize]="virtualScrollItemSize" 
-[disabled]="disabled">
-
+@if(!isFloatlabel){
+<div>
+  <p-dropdown
+    [(ngModel)]="selected"
+    [options]="data"
+    [optionLabel]="optionLabelName"
+    [placeholder]="placeholder"
+    [filter]="filter"
+    [filterBy]="filterName"
+    [showClear]="showClear"
+    [virtualScroll]="virtualScroll"
+    [virtualScrollItemSize]="virtualScrollItemSize"
+    [disabled]="disabled"
+  >
   </p-dropdown>
 </div>
-<div *ngIf="isFloatlabel">
+} @else {
+<div>
   <span class="p-float-label">
-    <p-dropdown [(ngModel)]="selected" 
-  [options]="data" 
-  [optionLabel]="optionLabelName" 
-[placeholder]="placeholder" 
-[filter]="filter" 
-[filterBy]="filterName" 
-[showClear]="showClear"
-[virtualScroll]="virtualScroll" 
-[virtualScrollItemSize]="virtualScrollItemSize" 
-[disabled]="disabled">
-
-  </p-dropdown>
-    <label for="float-label">{{floatText}}</label>
+    <p-dropdown
+      [(ngModel)]="selected"
+      [options]="data"
+      [optionLabel]="optionLabelName"
+      [placeholder]="placeholder"
+      [filter]="filter"
+      [filterBy]="filterName"
+      [showClear]="showClear"
+      [virtualScroll]="virtualScroll"
+      [virtualScrollItemSize]="virtualScrollItemSize"
+      [disabled]="disabled"
+    >
+    </p-dropdown>
+    <label for="float-label">{{ floatText }}</label>
   </span>
 </div>
+}
