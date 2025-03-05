@@ -43,15 +43,16 @@ export class LoginComponent implements OnInit {
       return;
     }
     const { login, password } = this.myForm.controls
-
-    this.loginServ.login(login.value, password.value).pipe(tap(res => {
-      this.router.navigate(['/home']);
-    }),
-      catchError(err => {
+    this.loginServ.login(login.value, password.value).subscribe({
+      next: () => {
+        this.router.navigate(['/home']);
+      },
+      error: err => {
+        console.log("object");
         this.message.addErrorMessage('Błędny login lub hasło', 'Błąd');
         console.log(err);
-        return EMPTY;
-      })).subscribe();
+      }
+    });
   }
 
   public backToWelcomePage(): void {

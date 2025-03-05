@@ -1,0 +1,43 @@
+<section class="post">
+  <af-tile>
+    <div
+      class="post-content"
+      [ngClass]="{
+        'block-style': blockCartStyle
+      }"
+      (click)="openPost(post)"
+    >
+      <div class="post-content-img">
+        @if(post.photo){
+        <div class="avatar">
+          <img
+            class="custom-avatar"
+            [src]="'data:image/jpeg;base64,' + post.photo"
+            alt="Post Photo"
+          />
+        </div>
+        } @else {
+        <img src="../../../assets/backgrounds/jedzonko.png" alt="image" />
+        }
+      </div>
+      <div class="post-content-text">
+        <h4 class="header">{{ post.title }}</h4>
+        <p class="subheader">
+          {{ "blog.post.date" | translate }}:
+          {{
+            post.createdAt
+              ? (post.createdAt | date : "dd-MM-yyyy hh:mm")
+              : ("blog.post.someTimeAgo" | translate)
+          }}
+        </p>
+        <p class="content">
+          {{ post.content | firstThreeSentence }}
+        </p>
+        <p class="create-by">
+          {{ "blog.post.createAt" | translate }}: {{ post.userName }}
+          <i class="pi pi-arrow-right"></i>
+        </p>
+      </div>
+    </div>
+  </af-tile>
+</section>

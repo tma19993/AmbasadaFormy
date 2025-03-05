@@ -32,6 +32,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./profile/profile.module').then((m) => m.ProfileModule),
   },
+  {
+    path: '**',
+    loadChildren: () =>
+      import('./core/views/error-view/routes').then((m) => m.ROUTES_ERROR),
+  },
 ];
 
 @NgModule({

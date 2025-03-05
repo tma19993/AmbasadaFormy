@@ -1,0 +1,26 @@
+<section class="container">
+  <af-tile [darkMode]="true">
+    <div class="content">
+      <div class="logo">
+        <img src="../../../../assets/logo/logoLightText.svg" alt="logo" />
+      </div>
+      <p class="text">
+        Wystąpił błąd z załadowaniem strony. Wróć do poprzedniej strony
+      </p>
+      <div class="footer-menu">
+        <af-button
+          [label]="'Refresh'"
+          [fontSize]="25"
+          [whiteButton]="true"
+          (onClick)="refresh()"
+        />
+        <af-button
+          [label]="'Back'"
+          [fontSize]="25"
+          [whiteButton]="true"
+          (onClick)="backToPrevious()"
+        />
+      </div>
+    </div>
+  </af-tile>
+</section>

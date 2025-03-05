@@ -10,6 +10,7 @@ import { AFCheckboxComponent } from '../shared/components/checkbox/checkbox.comp
 import { AFPasswordComponent } from '../shared/components/password/password.component';
 import { AFLanguageChangerComponent } from '../shared/components/language-changer/language-changer.component';
 import { GymPassRoutingModule } from './auth-routing.module';
+import { MessageService } from 'primeng/api';
 
 
 
@@ -25,9 +26,13 @@ import { GymPassRoutingModule } from './auth-routing.module';
     AFLanguageChangerComponent,
     GymPassRoutingModule
   ],
+  providers: [
+    MessageService
+  ],
   exports: [
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    GymPassRoutingModule
   ]
 })
 export class AuthModule { }

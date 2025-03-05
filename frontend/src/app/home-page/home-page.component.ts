@@ -18,7 +18,7 @@ export class HomePageComponent {
   }
 
   public gymPassButton(): void {
-    this.router.navigate(['/gym-pass']);
+    // this.router.navigate(['/gym-pass']);
   }
 
   public trainersButton(): void {

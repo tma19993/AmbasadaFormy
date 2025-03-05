@@ -1,0 +1,45 @@
+<div class="blog__container--search">
+  <af-tile>
+    <form [formGroup]="searchForm">
+      <div class="blog__container--search--content">
+        <div class="reset">
+          <af-button
+            [label]="'blog.search.reset' | translate"
+            type="reset"
+            [disabled]="submitted() || searchForm.pristine"
+            [fontSize]="13"
+            iconClassName="pi-undo"
+            iconPos="top"
+            [transparentButton]="true"
+          ></af-button>
+        </div>
+        <div class="inputs">
+          <af-input
+            formControlName="title"
+            iconClassName="pi-search"
+            [floatLabel]="true"
+            [floatLabelText]="'blog.search.title' | translate"
+          ></af-input>
+          <af-input
+            formControlName="userName"
+            iconClassName="pi-search"
+            [floatLabel]="true"
+            [floatLabelText]="'blog.search.user' | translate"
+          ></af-input>
+        </div>
+        <div class="buttons">
+          <af-button
+            [label]="'blog.search.searchLabel' | translate"
+            (onClick)="search()"
+            [disabled]="submitted() || searchForm.pristine"
+          ></af-button>
+          <af-button
+            [label]="'blog.addPost' | translate"
+            iconClassName="pi pi-plus"
+            (onClick)="addNewPost()"
+          ></af-button>
+        </div>
+      </div>
+    </form>
+  </af-tile>
+</div>

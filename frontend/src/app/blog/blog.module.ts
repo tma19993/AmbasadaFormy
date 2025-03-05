@@ -11,13 +11,15 @@ import { NewPostFormComponent, PostDetailsComponent } from './dialogs';
 import { AFPhotoUploaderComponent } from '../shared/components/photo-uploader/photo-uploader.component';
 import { AFInputTextareaComponent } from '../shared/components/inputTextarea/inputtextarea.component';
 import { BlogRoutingModule } from './blog-routing.module';
+import { AFMenuComponent } from './components/menu/menu.component';
+import { PostComponent } from './components/post/post.component';
 
 
 
 
 
 @NgModule({
-    declarations: [BlogComponent, NewPostFormComponent, PostDetailsComponent],
+    declarations: [BlogComponent, NewPostFormComponent, PostDetailsComponent, AFMenuComponent],
     imports: [
         SharedModule,
         PrimengModule,
@@ -28,7 +30,8 @@ import { BlogRoutingModule } from './blog-routing.module';
         AFInputComponent,
         AFMenuStaticComponent,
         AFPhotoUploaderComponent,
-        AFInputTextareaComponent
+        AFInputTextareaComponent,
+        PostComponent
     ]
 })
 export class BlogModule { }

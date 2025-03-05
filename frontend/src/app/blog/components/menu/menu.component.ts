@@ -1,42 +1,41 @@
 import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormGroup, FormResetEvent, NonNullableFormBuilder } from '@angular/forms';
-import { PostModel, PageEventModel, PostSearchModel } from 'src/app/shared/models';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-
 import { delay } from 'rxjs';
-
-import { AfMessageService, BlogService } from 'src/app/core/services';
+import { BlogService, AfMessageService } from 'src/app/core/services';
 import { OneRequiredValidator } from 'src/app/core/validators';
 import { dialogConfig } from 'src/app/shared/constants';
-import { NewPostFormComponent, PostDetailsComponent } from './dialogs';
+import { PostModel, PostSearchModel } from 'src/app/shared/models';
+import { NewPostFormComponent } from '../../dialogs';
 
 @Component({
-  selector: 'af-blog',
-  templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.scss']
+  selector: 'af-menu',
+  templateUrl: './menu.component.html',
+  styleUrl: './menu.component.scss'
 })
-export class BlogComponent implements OnInit, OnDestroy {
-  private fb = inject(NonNullableFormBuilder)
+export class AFMenuComponent implements OnInit, OnDestroy {
+  private fb = inject(NonNullableFormBuilder);
   private blogService = inject(BlogService);
   private dialogService = inject(DialogService);
   private message = inject(AfMessageService);
 
-  public submitted = signal(false);
+
 
   public posts: PostModel[];
   public currentPage: number = 0;
   public firstPosts: number = 0;
   public totalRecords: number;
-  public pageSize: number = 11;
+  public pageSize: number = 5;
+  public submitted = signal(false);
   public searchForm: FormGroup = this.fb.group({
     title: [null],
     userName: [null]
   }, { validators: OneRequiredValidator() })
 
   private ref: DynamicDialogRef;
+  constructor() { }
 
   public ngOnInit(): void {
-    this.loadPosts();
     this.setFormEvents();
   }
 
@@ -44,22 +43,6 @@ export class BlogComponent implements OnInit, OnDestroy {
     if (this.ref) {
       this.ref.close();
     }
-  }
-
-  public onPageChange(event: PageEventModel): void {
-    this.currentPage = event.page!;
-    this.firstPosts = event.first!;
-    this.pageSize = event.rows!;
-    const searchData = this.searchForm.value ? { ...this.searchForm.value } : undefined;
-    this.loadPosts(searchData);
-  }
-
-  public openPost(post: PostModel): void {
-    this.dialogService.open(PostDetailsComponent, {
-      data: post,
-      header: post.title,
-      ...dialogConfig
-    })
   }
 
   public search(): void {
@@ -86,8 +69,6 @@ export class BlogComponent implements OnInit, OnDestroy {
   }
 
   private loadPosts(searchData?: PostSearchModel): void {
-
-
     this.blogService.getBlogData(this.currentPage + 1, this.pageSize, searchData).subscribe(data => {
       this.posts = data.posts;
       this.totalRecords = data.totalRecords;
@@ -104,5 +85,4 @@ export class BlogComponent implements OnInit, OnDestroy {
       }
     })
   }
-
 }

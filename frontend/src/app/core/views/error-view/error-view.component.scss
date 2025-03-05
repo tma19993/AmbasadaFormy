@@ -1,0 +1,33 @@
+@import "../../../shared/styles/constants.scss";
+
+.container {
+    display: grid;
+    place-items: center;
+    background-color: $background-light;
+    height: 100vh;
+
+    .content {
+        padding: 120px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .text {
+            color: $input-background-color;
+            font-size: 28px;
+            font-weight: $font-weight-bold;
+            margin: 20px 0;
+        }
+
+        .logo {
+            img {
+                height: 30vh;
+            }
+        }
+
+        .footer-menu {
+            display: flex;
+            gap: 20px;
+        }
+    }
+}

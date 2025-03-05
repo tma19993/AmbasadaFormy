@@ -1,4 +1,4 @@
-import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withInterceptors, withInterceptorsFromDi } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { MessageService } from 'primeng/api';
@@ -7,10 +7,8 @@ import { HttpLoaderFactory } from 'src/app/core/untils/http-loader-factory';
 import { AppComponent } from './app.component';
 import { AfMessageService } from './core/services';
 
-import { AFPreviousRouteService } from './core/services/previous-route/previous-route.service';
 import { DatePipe } from '@angular/common';
 import { CoreModule } from './core/core.module';
-import { SharedModule } from './shared/shared.module';
 
 import { AFFooterComponent } from './core/components/footer/footer.component';
 import { AuthModule } from './auth/auth.module';
@@ -18,6 +16,8 @@ import { AFValidationMessageComponent } from './shared/components/validation-mes
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { spinnerInterceptor } from './core/interceptors/spinner.interceptor';
+import { SpinnerComponent } from './core/components/spinner/spinner.component';
 
 
 @NgModule({
@@ -26,10 +26,11 @@ import { provideAnimations } from '@angular/platform-browser/animations';
     ],
     bootstrap: [AppComponent],
     imports: [
+        SpinnerComponent,
         BrowserModule,
+        AuthModule,
         AppRoutingModule,
         AFValidationMessageComponent,
-        AuthModule,
         AFFooterComponent,
         CoreModule,
         TranslateModule.forRoot({
@@ -43,11 +44,12 @@ import { provideAnimations } from '@angular/platform-browser/animations';
     providers: [
         AfMessageService,
         MessageService,
-        AFPreviousRouteService,
         DialogService,
         DatePipe,
         provideAnimations(),
-        provideHttpClient(withInterceptorsFromDi())
+        provideHttpClient(withInterceptors([spinnerInterceptor])),
+
+
     ]
 })
 export class AppModule { }

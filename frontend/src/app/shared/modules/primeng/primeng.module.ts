@@ -20,6 +20,7 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { RatingModule } from 'primeng/rating';
 import { TableModule } from 'primeng/table';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 @NgModule({
   exports: [
     DynamicDialogModule,
@@ -42,7 +43,8 @@ import { TableModule } from 'primeng/table';
     FileUploadModule,
     RadioButtonModule,
     RatingModule,
-    TableModule
+    TableModule,
+    ProgressSpinnerModule
   ]
 })
 export class PrimengModule { }

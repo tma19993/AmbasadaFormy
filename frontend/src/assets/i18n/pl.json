@@ -84,29 +84,29 @@
             "cancel": "Anulowanie karnetu",
             "freeze": "Zamrożenie karnetu"
         },
-        "developmentPass":{
-            "header":"Karnet Rozwój",
-            "subtitle":"Nowy rok nowy ja",
+        "developmentPass": {
+            "header": "Karnet Rozwój",
+            "subtitle": "Nowy rok nowy ja",
             "monthlyPay": "opłata miesięczna",
             "access": "Dostęp 9:00 - 17:00",
-            "labelHeader":"Nowy rok nowy ja",
-            "label1":"Nowy rok nowy ja to karnet dla tych, którzy chcą zacząć ciwiczyć, ale jeszcze nie są pewni czy zostaną z nami na dłużej. \n Ten karnet to doskonała opcja budżetowa, a zarazem odpowiedni wybór dla kogoś, kto nie jest pewny, ale chce spróbować.",
-            "label2":"Dzięki temu karnetowi masz dostęp do naszej siłowni codziennie w godzinach 9:00 - 17:00 tak więc wpadaj śmiało na trening. \n Pamiętaj, jednak że masz ograniczoną liczbę wejść do lokalu, ale nie przejmuj się 20 wejść na miesiąc to i tak dużo chyba, że potrzebujesz więcej. \n Jeśli tak to zerknij na nasze inne karnety. Zdecydowałeś się na ten karnet to super, aby zostać naszym członkiem będziesz musiał wpłacić 20 zł jednorazowej opłaty."
+            "labelHeader": "Nowy rok nowy ja",
+            "label1": "Nowy rok nowy ja to karnet dla tych, którzy chcą zacząć ciwiczyć, ale jeszcze nie są pewni czy zostaną z nami na dłużej. \n Ten karnet to doskonała opcja budżetowa, a zarazem odpowiedni wybór dla kogoś, kto nie jest pewny, ale chce spróbować.",
+            "label2": "Dzięki temu karnetowi masz dostęp do naszej siłowni codziennie w godzinach 9:00 - 17:00 tak więc wpadaj śmiało na trening. \n Pamiętaj, jednak że masz ograniczoną liczbę wejść do lokalu, ale nie przejmuj się 20 wejść na miesiąc to i tak dużo chyba, że potrzebujesz więcej. \n Jeśli tak to zerknij na nasze inne karnety. Zdecydowałeś się na ten karnet to super, aby zostać naszym członkiem będziesz musiał wpłacić 20 zł jednorazowej opłaty."
         },
-        "funPass":{
+        "funPass": {
             "header": "Karnet Zabawa",
             "subtitle": "Stały Bywalec",
             "access": "Dostęp 8:00 - 22:00",
-            "labelHeader":"Stały Bywalec",
-            "label1":"Stały Bywalec to karnet dla tych, którzy ćwiczą regularnie są już doświadczeni no i wiążą z nami dłuższa współprace. \n Ten karnet to świetna opcja zrównoważona budżetowo, a zarazem dająca kontrolę nad twoim karnetem.",
+            "labelHeader": "Stały Bywalec",
+            "label1": "Stały Bywalec to karnet dla tych, którzy ćwiczą regularnie są już doświadczeni no i wiążą z nami dłuższa współprace. \n Ten karnet to świetna opcja zrównoważona budżetowo, a zarazem dająca kontrolę nad twoim karnetem.",
             "label2": "Dzięki temu karnetowi masz dostęp do naszej siłowni codziennie w godzinach 8:00 - 20:00 tak więc wpadaj śmiało na trening po szkole albo pracy. \n Nie masz ograniczoną liczbę wejść do lokalu, tak więc możesz, siedzieć u nas ile chcesz no prawie, aby móc być z nami 24h na dobę zerknij na inne karnety. \n Zdecydowałeś się na ten karnet to super, aby zostać naszym członkiem, będziesz musiał wpłacić 20 zł jednorazowej opłaty. Dodatkowo możesz kontrolować swój karnet. \n Gwarantujemy ci stałą kwotę po podpisaniu umowy, możliwość zamrożenia karnetu i jego anulowanie."
         },
-        "healthPass":{
+        "healthPass": {
             "header": "Karnet Zdrowie",
             "subtitle": "Na zdrowie",
             "allday": "Dostęp 24h na dobę",
             "Lackfirstpay": "Brak opłaty wpisowej",
-            "labelHeader":"Na zdrowie",
+            "labelHeader": "Na zdrowie",
             "freetraining": "3 darmowe treningi do wykorzystania pod okiem trenera personalnego",
             "label1": "Na zdrowie to karnet dla tych, którzy ćwiczą cały czas i dbają o swoje zdrowie. Ten karnet to świetna opcja, aby ćwiczyć nie tylko samemu, ale i z trenerem. \n Karnet daję możliwości zarządzania nim.",
             "label2": "Dzięki temu karnetowi masz dostęp do naszej siłowni codziennie 24h na dobę, tak więc wpadaj śmiało na trening, kiedy tylko chcesz. \n Nie masz ograniczonej liczbę wejść do lokalu, tak więc możesz, siedzieć u nas ile chcesz. \n Zdecydowałeś się na ten karnet to super, aby zostać naszym członkiem, nie musisz nic dopłacać. Dodatkowo możesz kontrolować swój karnet. \n Gwarantujemy ci stałą kwotę po podpisaniu umowy, możliwość zamrożenia karnetu i jego anulowanie. \n No i najważniejsze w cenie karnetu masz dostęp do naszych najlepszych trenerów, z którymi możesz wykonać 3 treningi."
@@ -121,33 +121,33 @@
         "texta3": "Pamiętaj, możesz wynająć wielu trenerów. Każdy trener ma inna specjalizacje, zwróć na to uwagę przy wyborze. W zależności od trenera będzie się różnic jego stawka. Informujemy, że trenerzy mogą mieć zajęty czas więc zaplanujcie grafik treningów rozsądnie tak, aby dwie strony były zadowolone."
     },
     "trainers": {
-        "header":"Dostępni trenerzy"
+        "header": "Dostępni trenerzy"
     },
     "blog": {
-        "posts":"Posty",
-        "addPost":"Dodajnowy post",
+        "posts": "Posty",
+        "addPost": "Dodajnowy post",
         "search": {
-            "reset":"Reset",
+            "reset": "Reset",
             "searchLabel": "Wyszukaj",
             "user": "Nazwa użytkownika",
             "title": "Tytuł postu"
         },
-        "post":{
-            "createAt":"Stworzony przez",
-            "date":"data",
-            "someTimeAgo":"Pewien czas temu"
+        "post": {
+            "createAt": "Stworzony przez",
+            "date": "data",
+            "someTimeAgo": "Pewien czas temu"
         }
     },
-    "profile":{
-        "menu":{
+    "profile": {
+        "menu": {
             "myProfile": "Mój profil",
             "myGymPass": "Moje karnety",
             "myTrainings": "Treningi personalne",
             "myDiets": "Diety",
-            "admin":"Narzędzia Administratorskie"
+            "admin": "Narzędzia Administratorskie"
         },
-        "myProfile":{
-            "changePassword":{
+        "myProfile": {
+            "changePassword": {
                 "label": "Zmień hasło",
                 "oldPassword": "Stare hasło",
                 "newPassword": "Nowe hasło",

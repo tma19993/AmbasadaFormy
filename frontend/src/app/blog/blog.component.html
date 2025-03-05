@@ -3,7 +3,9 @@
     <af-menu-static />
   </div>
   <section class="blog__container">
-    <img class="logo" src="../../../assets/logo/logoLightText.svg" alt="logo" />
+    <div class="logo">
+      <img src="../../../assets/logo/logoLightText.svg" alt="logo" />
+    </div>
     <h2 class="blog__container--header">{{ "blog.posts" | translate }}</h2>
     <div class="blog__container--search">
       <af-tile>
@@ -50,38 +52,24 @@
         </form>
       </af-tile>
     </div>
-    <div *ngFor="let post of posts" class="blog__container--post">
-      <af-tile>
-        <div class="blog__container--post-content" (click)="openPost(post)">
-          <div class="blog__container--post-content-img">
-            @if(post.photo){
-            <div class="avatar">
-              <img
-                class="custom-avatar"
-                [src]="'data:image/jpeg;base64,' + post.photo"
-                alt="Post Photo"
-              />
-            </div>
-            } @else {
-            <img src="../../../assets/backgrounds/jedzonko.png" alt="image" />
-            }
-          </div>
-          <div class="blog__container--post-content-text">
-            <h4 class="header">{{ post.title }}</h4>
-            <p class="subheader">
-              {{ "blog.post.createAt" | translate }}: {{ post.userName }},
-              {{ "blog.post.date" | translate }}:
-              {{
-                post.createdAt
-                  ? (post.createdAt | date : "dd-MM-yyyy hh:mm")
-                  : ("blog.post.someTimeAgo" | translate)
-              }}
-            </p>
-            <p class="content">{{ post.content }}</p>
-          </div>
-        </div>
-      </af-tile>
-    </div>
+    <section class="posts">
+      <div class="first-post">
+        <af-post [post]="posts[0]" />
+      </div>
+
+      <div class="next-four">
+        @for(post of posts | slice:0:4; track post){
+        <af-post [post]="post" [blockCartStyle]="true" />
+        }
+      </div>
+      <div class="old-post">
+        @for(post of posts | slice:4: (posts.length - 1); track post){
+        <af-post [post]="post" />
+        }
+      </div>
+    </section>
+
+    <!-- button load more -->
     <div class="blog__container--paginator">
       <p-paginator
         (onPageChange)="onPageChange($event)"
