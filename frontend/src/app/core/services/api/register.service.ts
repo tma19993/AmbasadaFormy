@@ -4,18 +4,19 @@ import { Observable, tap } from 'rxjs';
 import { LoginModel, userDataModel } from 'src/app/shared/models';
 import { LoginService } from './login.service';
 import { jwtDecode } from 'jwt-decode';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterService {
   private loginService: LoginService = inject(LoginService);
-  private loginUrl: string = ' environment.apiUrl/addUser';
+  private loginUrl: string = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 
   public register(data: userDataModel): Observable<LoginModel> {
-    return this.http.post<LoginModel>(this.loginUrl, data).pipe(tap((res) => {
+    return this.http.post<LoginModel>(this.loginUrl + '/addUser', data).pipe(tap((res) => {
       this.setToken(res.authToken);
       this.setUserId(res.authToken)
     }));

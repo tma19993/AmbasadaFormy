@@ -1,4 +1,3 @@
-
 ![logoColorPNG](https://github.com/user-attachments/assets/272df0b8-d2f4-436c-91e0-da849b003424)
 
 # Ambasada Formy
@@ -7,19 +6,16 @@ Application for managing a gym and fitness club. Designed for small and medium-s
 
 <p align="center">
   <a href="https://choosealicense.com/licenses/mit/">
-    <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="MIT License">
+    <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="ISC License">
   </a>
   <img src="https://img.shields.io/badge/Status-In%20Progress-yellow" alt="Status">
 </p>
-
-
-
 
 ## Authors
 
 from Jun 14, 2023
 
-- [@Tomasz_Mazurek](https://github.com/tma19993): Frontend, Backend, substantive support, 
+- [@Tomasz_Mazurek](https://github.com/tma19993): Frontend, Backend, substantive support,
 - [@Rafał Byczek](https://github.com/Hxvillxrd): UX/UI, creation of logo/mockups for all subpages, etc.
 - [@Maciej Fim](https://github.com/Orefis): Frontend, readme
 - [@Bartek Rudko](https://github.com/Sovtys2306): Databases
@@ -27,18 +23,18 @@ from Jun 14, 2023
 since Jun 14, 2023
 
 - [@Tomasz_Mazurek](https://github.com/tma19993): Project Completion
+
 ## Tech Stack
 
 **Client:** Angular,HTML,SCSS ,RxJS ,Storybook
 
 **Server:** Node, Express
 
-**Database:** MongoDB (using MongoDB Compass) 
-
+**Database:** MongoDB (using MongoDB Compass)
 
 ## Installation
 
-Install Ambasada Formy with npm. After download open app folder and 
+Install Ambasada Formy with npm. After download open app folder and
 
 if you don't have mongoDB compass on your computer download [here](https://www.mongodb.com/try/download/compass)
 
@@ -53,17 +49,19 @@ after add data to these colletions. there are in database folder in repository a
 after that install packages needed:
 
 #### Back-end
+
 ```bash
   cd ./backend
   npm i
 ```
 
 #### Front-end
+
 ```bash
   cd ./frontend
   npm i
 ```
-    
+
 ## Features
 
 - Login/Registration
@@ -79,7 +77,6 @@ after that install packages needed:
 - modify/delete blog
 - approve/reject gym passes
 - display statistic from 1h/24/7d
-
 
 ## API Reference
 
@@ -101,10 +98,6 @@ few example of API
 | :-------- | :------- | :-------------------------------- |
 | `id`      | `string` | **Required**. Id of user to fetch |
 
-
-
-
-
 ## Run Locally
 
 - Clone the project
@@ -119,11 +112,9 @@ few example of API
   cd AmbasadaFormy
 ```
 
-- Install dependencies 
-
+- Install dependencies
 
 do this like here: [Installation](#Installation)
-
 
 - Start the server
 
@@ -151,9 +142,6 @@ start front-end
 
 ![image](https://github.com/user-attachments/assets/9e76ff74-6c51-41e9-9646-3a226e5cc6c3)
 
-
-
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-

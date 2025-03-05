@@ -4,14 +4,15 @@ import { Observable, tap } from 'rxjs';
 import { userDataModel } from 'src/app/shared/models';
 import { LoginService } from './login.service';
 import { ChevronLeftIcon } from 'primeng/icons/chevronleft';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProfileService {
   private LoginService: LoginService = inject(LoginService);
-  public userDataSignal: WritableSignal<userDataModel> = signal<userDataModel>({} as userDataModel);
-  private url: string = ' environment.apiUrl';
+  public userDataSignal: WritableSignal<userDataModel> = signal<userDataModel>({});
+  private url: string = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 

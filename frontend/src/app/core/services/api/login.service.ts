@@ -4,6 +4,7 @@ import { Observable, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { LoginModel, userDataModel } from 'src/app/shared/models';
 import { jwtDecode } from 'jwt-decode';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,7 @@ export class LoginService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  private loginUrl: string = ' environment.apiUrl/login';
+  private loginUrl: string = environment.apiUrl;
 
 
 
@@ -25,7 +26,7 @@ export class LoginService {
       login: login,
       password: password,
     });
-    return this.http.post<LoginModel>(this.loginUrl, loginData, this.httpOptions).pipe(tap((res) => {
+    return this.http.post<LoginModel>(this.loginUrl + '/login', loginData, this.httpOptions).pipe(tap((res) => {
       this.setToken(res.authToken);
       this.setUserId(res.authToken);
     }));

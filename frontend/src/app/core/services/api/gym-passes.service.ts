@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, signal, WritableSignal } from '@angular/core';
 import { GymPassModel } from 'src/app/shared/models';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -9,7 +10,7 @@ import { GymPassModel } from 'src/app/shared/models';
 export class GymPassesService {
   public gymPassesSignal: WritableSignal<GymPassModel[]> = signal<GymPassModel[]>([]);
 
-  private url: string = ' environment.apiUrl';
+  private url: string = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 

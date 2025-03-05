@@ -3,13 +3,14 @@ import { Injectable, signal, WritableSignal } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { RequestModel } from 'src/app/shared/models';
 import { DatePipe } from '@angular/common';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RequestsGymPassesService {
   public requestsSignal: WritableSignal<RequestModel[]> = signal<RequestModel[]>([] as RequestModel[])
-  private url: string = ' environment.apiUrl';
+  private url: string = environment.apiUrl;
   constructor(private http: HttpClient, private datePipe: DatePipe) { }
 
   public getRequests(): void {

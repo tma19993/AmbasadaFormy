@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal, WritableSignal } from '@angular/core';
 import { DashboardModel } from 'src/app/shared/models';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { DashboardModel } from 'src/app/shared/models';
 export class DashboardService {
   private http: HttpClient = inject(HttpClient);
   public dashboardSignal: WritableSignal<DashboardModel> = signal<DashboardModel>({} as DashboardModel);
-  private url: string = ' environment.apiUrl';
+  private url: string = environment.apiUrl;
 
   public getDashboardData(): void {
     this.http.get<DashboardModel>(this.url + "/dashboard").subscribe(val => {
