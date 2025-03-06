@@ -5,8 +5,8 @@
 Application for managing a gym and fitness club. Designed for small and medium-sized gym chains, including: management of passes and users.
 
 <p align="center">
-  <a href="https://choosealicense.com/licenses/mit/">
-    <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="ISC License">
+  <a href="https://choosealicense.com/licenses/isc/">
+    <img src="https://img.shields.io/badge/License-ISC-green.svg" alt="ISC License">
   </a>
   <img src="https://img.shields.io/badge/Status-In%20Progress-yellow" alt="Status">
 </p>
@@ -144,4 +144,4 @@ start front-end
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[ISC](https://choosealicense.com/licenses/isc/)
