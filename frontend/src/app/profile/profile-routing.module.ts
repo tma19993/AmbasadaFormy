@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProfileComponent } from './profile.component';
-import { AuthGuard } from 'src/app/auth/guards/auth.guard';
+import { AuthGuard } from 'src/app/auth/guards/auth/auth.guard';
 import { AFAdminPageComponent, AFDietsComponent, AFGymPassesComponent, AFMyProfileComponent, AFPersonalTrainerComponent } from './pages';
 
 const routes: Routes = [
