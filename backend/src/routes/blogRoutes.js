@@ -2,22 +2,22 @@ const express = require("express");
 const multer = require("multer");
 const {
   mapDataFromCollection,
-  getPostsFromDB,
   catchError,
   findUserName,
 } = require("../untils/exports.js");
-const { lastPostFinder } = require("./blogRoutesUntils/lastPost.js");
 const router = express.Router();
 
 const upload = multer({ storage: multer.memoryStorage() });
 
 module.exports = function (blog, users) {
-  router.get("/AmbasadaFormy/getBlog", async (req, res) => {
-    const page = parseInt(req.query.page) || 1;
-    const size = parseInt(req.query.size) || 5;
+  router.get("/AmbasadaFormy/searchPosts", async (req, res) => {
     const title = req.query.title || "";
     const userName = req.query.userName || "";
     const blogData = await mapDataFromCollection(blog);
+    if (blogData.length == 0) {
+      res.status(404).send();
+      return;
+    }
     if (title.length > 0 || userName.length > 0) {
       const filteredData = blogData.filter((post) => {
         const postTitle = String(post.title || "").toLowerCase();
@@ -27,13 +27,8 @@ module.exports = function (blog, users) {
         return matchesTitle || matchesUserName;
       });
       res.status(200).json({
-        posts: getPostsFromDB(page, size, filteredData.reverse()),
+        posts: filteredData,
         totalRecords: filteredData.length,
-      });
-    } else {
-      res.status(200).json({
-        posts: getPostsFromDB(page, size, blogData.reverse()),
-        totalRecords: blogData.length,
       });
     }
   });
@@ -45,10 +40,9 @@ module.exports = function (blog, users) {
       let file = req.file;
 
       const newBlogPostRequest = req.body;
-      const lastPost = await lastPostFinder(blog, res);
       const findedUserName = await findUserName(
         users,
-        newBlogPostRequest.userId,
+        newBlogPostRequest._id,
         res
       );
       const newPost = {
@@ -60,6 +54,7 @@ module.exports = function (blog, users) {
         createdAt: new Date(),
       };
       const [error, result] = await catchError(blog.insertOne(newPost));
+
       if (error) {
         res.status(500).send(error);
       } else {
@@ -69,8 +64,21 @@ module.exports = function (blog, users) {
   );
 
   router.get("/AmbasadaFormy/getPosts", async (req, res) => {
-    const blogData = await mapDataFromCollection(blog);
-    res.status(200).json(blogData);
+    const length = Number(req.query.length) || 0;
+    const [error, data] = await catchError(
+      blog.find().sort({ _id: -1 }).toArray()
+    );
+    const posts =
+      !!length && length <= data.length ? data.slice(0, length) : data;
+    const responseData = {
+      posts: posts,
+      totalRecords: data.length,
+    };
+    if (error) {
+      res.status(500).send(error);
+    } else {
+      res.status(200).json(responseData);
+    }
   });
 
   return router;

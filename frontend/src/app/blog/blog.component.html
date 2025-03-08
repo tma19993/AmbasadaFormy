@@ -2,81 +2,41 @@
   <div class="navi-bar">
     <af-menu-static />
   </div>
+  @if(!!apiPosts()){
   <section class="blog__container">
     <div class="logo">
       <img src="../../../assets/logo/logoLightText.svg" alt="logo" />
     </div>
     <h2 class="blog__container--header">{{ "blog.posts" | translate }}</h2>
-    <div class="blog__container--search">
-      <af-tile>
-        <form [formGroup]="searchForm">
-          <div class="blog__container--search--content">
-            <div class="reset">
-              <af-button
-                [label]="'blog.search.reset' | translate"
-                type="reset"
-                [disabled]="submitted() || searchForm.pristine"
-                [fontSize]="13"
-                iconClassName="pi-undo"
-                iconPos="top"
-                [transparentButton]="true"
-              ></af-button>
-            </div>
-            <div class="inputs">
-              <af-input
-                formControlName="title"
-                iconClassName="pi-search"
-                [floatLabel]="true"
-                [floatLabelText]="'blog.search.title' | translate"
-              ></af-input>
-              <af-input
-                formControlName="userName"
-                iconClassName="pi-search"
-                [floatLabel]="true"
-                [floatLabelText]="'blog.search.user' | translate"
-              ></af-input>
-            </div>
-            <div class="buttons">
-              <af-button
-                [label]="'blog.search.searchLabel' | translate"
-                (onClick)="search()"
-                [disabled]="submitted() || searchForm.pristine"
-              ></af-button>
-              <af-button
-                [label]="'blog.addPost' | translate"
-                iconClassName="pi pi-plus"
-                (onClick)="addNewPost()"
-              ></af-button>
-            </div>
-          </div>
-        </form>
-      </af-tile>
-    </div>
+    <af-menu-blog [length]="length" (searchMode)="setSearchMode($event)" />
     <section class="posts">
+      @if(apiPosts().posts){ @if(!searchMode){
       <div class="first-post">
-        <af-post [post]="posts[0]" />
+        <af-post [post]="apiPosts().posts[0]" />
       </div>
-
+      @for(post of apiPosts().posts | slice:0:4; track post.createdAt){
       <div class="next-four">
-        @for(post of posts | slice:0:4; track post){
         <af-post [post]="post" [blockCartStyle]="true" />
-        }
       </div>
+      } @for(post of apiPosts().posts | slice:4: (apiPosts().posts.length - 1);
+      track post.createdAt){
       <div class="old-post">
-        @for(post of posts | slice:4: (posts.length - 1); track post){
-        <af-post [post]="post" />
-        }
+        <af-post [post]="post" [blockCartStyle]="true" />
       </div>
+      } } @else { @for(post of apiPosts().posts; track post.createdAt){
+      <div class="search-mode">
+        <af-post [post]="post" />
+      </div>
+      } } }
     </section>
-
-    <!-- button load more -->
-    <div class="blog__container--paginator">
-      <p-paginator
-        (onPageChange)="onPageChange($event)"
-        [first]="firstPosts"
-        [rows]="pageSize"
-        [totalRecords]="totalRecords"
+    <div class="load-more-button">
+      <af-button
+        [fontSize]="24"
+        label="load more"
+        (onClick)="loadMore()"
+        [disabled]="apiPosts().totalRecords <= apiPosts().posts.length"
       />
     </div>
   </section>
+  }
 </section>

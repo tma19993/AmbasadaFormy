@@ -1,3 +1,4 @@
+@if(!!post){
 <section class="post">
   <af-tile>
     <div
@@ -8,7 +9,7 @@
       (click)="openPost(post)"
     >
       <div class="post-content-img">
-        @if(post.photo){
+        @if(!!post.photo){
         <div class="avatar">
           <img
             class="custom-avatar"
@@ -41,3 +42,5 @@
     </div>
   </af-tile>
 </section>
+
+}

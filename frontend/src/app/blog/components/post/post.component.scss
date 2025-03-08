@@ -1,7 +1,5 @@
 .post {
     cursor: pointer;
-    margin-bottom: 30px;
-    height: 45%;
 
     &-content {
         display: flex;
@@ -11,14 +9,13 @@
         &-img {
 
             flex: 1;
-            margin: 20px;
-            height: calc(100% - 20px);
+            // padding: 20px;
+            height: 100%;
 
             img {
-                display: block;
-                border-radius: 5px;
-                width: 100%;
+                // display: block;
                 height: 100%;
+                width: 100%;
                 object-fit: cover;
             }
         }
@@ -66,9 +63,22 @@
 
 .block-style {
     flex-direction: column;
+    gap: 0;
 
     .post-content-img {
-        height: calc(50% - 20px);
+        height: 50%;
+    }
+
+    .post-content-text {
+
+
+        .create-by {
+
+            right: 20px;
+            bottom: 10px;
+
+        }
+
     }
 }
 

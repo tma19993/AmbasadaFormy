@@ -1,6 +1,6 @@
-import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
-import { FormGroup, FormResetEvent, NonNullableFormBuilder } from '@angular/forms';
-import { PostModel, PageEventModel, PostSearchModel } from 'src/app/shared/models';
+import { Component, inject, OnDestroy, OnInit, signal, WritableSignal } from '@angular/core';
+import { FormGroup, FormResetEvent, FormSubmittedEvent, NonNullableFormBuilder } from '@angular/forms';
+import { ApiPostsModel, PostModel } from 'src/app/shared/models';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 
 import { delay } from 'rxjs';
@@ -23,11 +23,10 @@ export class BlogComponent implements OnInit, OnDestroy {
 
   public submitted = signal(false);
 
-  public posts: PostModel[];
-  public currentPage: number = 0;
-  public firstPosts: number = 0;
-  public totalRecords: number;
-  public pageSize: number = 11;
+  public length: number = 13;
+  public apiPostsLength: number;
+  public apiPosts: WritableSignal<ApiPostsModel> = this.blogService.blogSignal;
+  public searchMode: boolean;
   public searchForm: FormGroup = this.fb.group({
     title: [null],
     userName: [null]
@@ -46,13 +45,6 @@ export class BlogComponent implements OnInit, OnDestroy {
     }
   }
 
-  public onPageChange(event: PageEventModel): void {
-    this.currentPage = event.page!;
-    this.firstPosts = event.first!;
-    this.pageSize = event.rows!;
-    const searchData = this.searchForm.value ? { ...this.searchForm.value } : undefined;
-    this.loadPosts(searchData);
-  }
 
   public openPost(post: PostModel): void {
     this.dialogService.open(PostDetailsComponent, {
@@ -62,13 +54,10 @@ export class BlogComponent implements OnInit, OnDestroy {
     })
   }
 
-  public search(): void {
-    if (this.searchForm.valid) {
-      this.currentPage = 0;
-      this.firstPosts = 0;
-      this.loadPosts({ ...this.searchForm.value });
-    }
+  public loadMore(): void {
+    this.blogService.getPosts(this.length += 8)
   }
+
 
   public addNewPost(): void {
     this.ref = this.dialogService.open(NewPostFormComponent, {
@@ -78,31 +67,45 @@ export class BlogComponent implements OnInit, OnDestroy {
     this.ref.onClose.pipe(delay(1000)).subscribe((value) => {
       if (value) {
         this.message.addSuccesMessage("dodano post");
-        this.currentPage = 0;
-        this.firstPosts = 0;
         this.loadPosts();
       }
     })
   }
 
-  private loadPosts(searchData?: PostSearchModel): void {
+  public setSearchMode(searchMode: boolean): void {
+    this.searchMode = searchMode;
+  }
 
-
-    this.blogService.getBlogData(this.currentPage + 1, this.pageSize, searchData).subscribe(data => {
-      this.posts = data.posts;
-      this.totalRecords = data.totalRecords;
-    })
+  private loadPosts(): void {
+    this.blogService.getPosts(this.length)
   }
 
   private setFormEvents(): void {
     this.searchForm.events.subscribe(event => {
       if ((event instanceof FormResetEvent)) {
-        this.submitted.set(false);
-        this.currentPage = 0;
-        this.firstPosts = 0;
-        this.loadPosts();
+        this.resetForm();
+      }
+      if ((event instanceof FormSubmittedEvent)) {
+        this.search();
       }
     })
+  }
+
+  private search(): void {
+    if (this.searchForm.valid) {
+      this.blogService.searchPosts({ ...this.searchForm.value }).subscribe({
+        next: data => {
+          this.searchMode = true;
+          this.apiPosts.set(data);
+          this.apiPostsLength = data.totalRecords;
+        }
+      })
+    }
+  }
+  private resetForm(): void {
+    this.submitted.set(false);
+    this.searchMode = false;
+    this.loadPosts();
   }
 
 }

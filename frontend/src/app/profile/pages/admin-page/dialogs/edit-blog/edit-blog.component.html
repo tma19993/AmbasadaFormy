@@ -1,4 +1,5 @@
-@for (post of posts(); track post.createdAt) {
+<h2>Total posts: {{ posts().totalRecords }}</h2>
+@for (post of posts().posts; track post.createdAt) {
 <af-tile [darkMode]="true">
   <ng-container (click)="openPost(post)">
     <div class="content">

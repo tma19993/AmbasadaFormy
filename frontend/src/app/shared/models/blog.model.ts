@@ -4,9 +4,9 @@ export type PostModel = {
     title: string;
     content: string;
     userId?: string,
-    _id?:string;
-    photo?:string;
-    createdAt?: Date
+    _id?: string;
+    photo?: string;
+    createdAt: Date
 }
 export type ApiPostsModel = {
     posts: PostModel[],
@@ -16,4 +16,4 @@ export type ApiPostsModel = {
 export type PostSearchModel = {
     title?: string,
     userName?: string
-  }
+}

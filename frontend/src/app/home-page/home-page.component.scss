@@ -1,4 +1,5 @@
-@import "../shared/styles/constants.scss";;
+@import "../shared/styles/constants.scss";
+;
 
 .home-page {
   background-image: url('../../assets/backgrounds/AF-desktop-main-background.png');
@@ -17,7 +18,8 @@
 
   .home-page__container {
     max-width: 1357px;
-    margin: 0 auto 80px auto;
+    margin: 0 auto;
+    padding-bottom: 80px;
     min-height: 200vh;
 
     &--logo {
@@ -69,20 +71,24 @@
       }
 
       &__sliders {
-       
+
         display: flex;
         gap: 20px;
         justify-content: center;
+
         &--photos {
           max-height: 716px;
+
           img {
             max-width: 542px;
           }
         }
-        &--text{
+
+        &--text {
           max-width: 745px;
           padding: 30px;
-          p{
+
+          p {
             text-indent: 30px;
             text-align: justify;
             font-weight: $font-weight-bold;
@@ -90,12 +96,13 @@
             letter-spacing: 1px;
             margin-bottom: 10px;
           }
-          &__button-trainers{
+
+          &__button-trainers {
             margin-top: 20px;
             display: flex;
             justify-content: center;
           }
-          
+
         }
       }
     }
@@ -133,9 +140,10 @@
         &--text {
           font-size: 16px;
         }
-        af-button{
-          ::ng-deep .button__container .p-element .p-button{
-            .p-button-label{
+
+        af-button {
+          ::ng-deep .button__container .p-element .p-button {
+            .p-button-label {
               font-size: 29px !important;
             }
           }
@@ -165,9 +173,10 @@
             p {
               font-size: 15px;
             }
-            &__button-trainers{
-              ::ng-deep .button__container .p-element .p-button{
-                .p-button-label{
+
+            &__button-trainers {
+              ::ng-deep .button__container .p-element .p-button {
+                .p-button-label {
                   font-size: 29px !important;
                 }
               }
@@ -179,6 +188,7 @@
 
   }
 }
+
 @media (orientation: landscape) and (max-width: 942px) {
   .home-page {
     .home-page__container {
@@ -206,9 +216,10 @@
         &--text {
           font-size: 14px;
         }
-        af-button{
-          ::ng-deep .button__container .p-element .p-button{
-            .p-button-label{
+
+        af-button {
+          ::ng-deep .button__container .p-element .p-button {
+            .p-button-label {
               font-size: 25px !important;
             }
           }
@@ -216,7 +227,8 @@
       }
 
       &--trainers {
-        min-height: 150vh ;
+        min-height: 150vh;
+
         h2 {
           width: 250px;
           font-size: 42px;
@@ -237,9 +249,10 @@
             p {
               font-size: 14px;
             }
-            &__button-trainers{
-              ::ng-deep .button__container .p-element .p-button{
-                .p-button-label{
+
+            &__button-trainers {
+              ::ng-deep .button__container .p-element .p-button {
+                .p-button-label {
                   font-size: 25px !important;
                 }
               }
@@ -251,6 +264,7 @@
 
   }
 }
+
 @media (orientation: landscape) and (max-width: 768px) {
   .home-page {
     .home-page__container {
@@ -279,9 +293,10 @@
         &--text {
           font-size: 13px;
         }
-        af-button{
-          ::ng-deep .button__container .p-element .p-button{
-            .p-button-label{
+
+        af-button {
+          ::ng-deep .button__container .p-element .p-button {
+            .p-button-label {
               font-size: 22px !important;
             }
           }
@@ -309,9 +324,10 @@
             p {
               font-size: 13px;
             }
-            &__button-trainers{
-              ::ng-deep .button__container .p-element .p-button{
-                .p-button-label{
+
+            &__button-trainers {
+              ::ng-deep .button__container .p-element .p-button {
+                .p-button-label {
                   font-size: 22px !important;
                 }
               }
@@ -323,6 +339,7 @@
 
   }
 }
+
 @media (orientation: landscape) and (max-width: 667px) {
   .home-page {
     .home-page__container {
@@ -352,9 +369,10 @@
         &--text {
           font-size: 12px;
         }
-        af-button{
-          ::ng-deep .button__container .p-element .p-button{
-            .p-button-label{
+
+        af-button {
+          ::ng-deep .button__container .p-element .p-button {
+            .p-button-label {
               font-size: 20px !important;
             }
           }
@@ -362,7 +380,8 @@
       }
 
       &--trainers {
-        min-height: 200vh ;
+        min-height: 200vh;
+
         h2 {
           width: 205px;
           font-size: 32px;
@@ -383,9 +402,10 @@
             p {
               font-size: 12px;
             }
-            &__button-trainers{
-              ::ng-deep .button__container .p-element .p-button{
-                .p-button-label{
+
+            &__button-trainers {
+              ::ng-deep .button__container .p-element .p-button {
+                .p-button-label {
                   font-size: 20px !important;
                 }
               }
@@ -402,7 +422,7 @@
   .home-page {
     .home-page__container {
       max-width: 968px;
-      margin: 0 auto ;
+      margin: 0 auto;
 
       &--logo {
         padding-top: 80px;
@@ -416,6 +436,7 @@
       &--gym-pass {
         width: 485px;
         margin: 0 auto;
+
         h2 {
           width: 305px;
           font-size: 52px;
@@ -428,9 +449,10 @@
         &--text {
           font-size: 16px;
         }
-        af-button{
-          ::ng-deep .button__container .p-element .p-button{
-            .p-button-label{
+
+        af-button {
+          ::ng-deep .button__container .p-element .p-button {
+            .p-button-label {
               font-size: 29px !important;
             }
           }
@@ -440,6 +462,7 @@
       &--trainers {
         width: 620px;
         margin: 0 auto;
+
         h2 {
           text-align: center;
           font-size: 52px;
@@ -448,6 +471,7 @@
 
         &__sliders {
           flex-direction: column;
+
           &--photos {
             max-height: 666px;
 
@@ -462,9 +486,10 @@
             p {
               font-size: 15px;
             }
-            &__button-trainers{
-              ::ng-deep .button__container .p-element .p-button{
-                .p-button-label{
+
+            &__button-trainers {
+              ::ng-deep .button__container .p-element .p-button {
+                .p-button-label {
                   font-size: 29px !important;
                 }
               }
@@ -476,6 +501,7 @@
 
   }
 }
+
 @media (orientation: portrait) and (max-width: 942px) {
   .home-page {
     .home-page__container {
@@ -486,6 +512,7 @@
 
   }
 }
+
 @media (orientation: portrait) and (max-width: 640px) {
   .home-page {
     .home-page__container {
@@ -498,6 +525,7 @@
       &--gym-pass {
         width: 485px;
         margin: 0 auto;
+
         h2 {
           width: 305px;
           font-size: 46px;
@@ -510,9 +538,10 @@
         &--text {
           font-size: 14px;
         }
-        af-button{
-          ::ng-deep .button__container .p-element .p-button{
-            .p-button-label{
+
+        af-button {
+          ::ng-deep .button__container .p-element .p-button {
+            .p-button-label {
               font-size: 26px !important;
             }
           }
@@ -521,7 +550,8 @@
 
       &--trainers {
         width: 470px;
-        min-height: 160vh ;
+        min-height: 160vh;
+
         h2 {
           font-size: 46px;
 
@@ -529,6 +559,7 @@
 
         &__sliders {
           flex-direction: column;
+
           &--photos {
             max-height: 446px;
 
@@ -543,9 +574,10 @@
             p {
               font-size: 14px;
             }
-            &__button-trainers{
-              ::ng-deep .button__container .p-element .p-button{
-                .p-button-label{
+
+            &__button-trainers {
+              ::ng-deep .button__container .p-element .p-button {
+                .p-button-label {
                   font-size: 26px !important;
                 }
               }
@@ -557,11 +589,12 @@
 
   }
 }
+
 @media (orientation: portrait) and (max-width: 440px) {
   .home-page {
     .home-page__container {
       max-width: 440px;
-      margin: 0 auto ;
+      margin: 0 auto;
 
       &--logo {
         padding-top: 80px;
@@ -575,6 +608,7 @@
       &--gym-pass {
         width: 355px;
         margin: 0 auto;
+
         h2 {
           width: 255px;
           font-size: 38px;
@@ -587,9 +621,10 @@
         &--text {
           font-size: 13px;
         }
-        af-button{
-          ::ng-deep .button__container .p-element .p-button{
-            .p-button-label{
+
+        af-button {
+          ::ng-deep .button__container .p-element .p-button {
+            .p-button-label {
               font-size: 24px !important;
             }
           }
@@ -598,7 +633,8 @@
 
       &--trainers {
         width: 355px;
-        min-height: 160vh ;
+        min-height: 160vh;
+
         h2 {
           font-size: 46px;
 
@@ -606,6 +642,7 @@
 
         &__sliders {
           flex-direction: column;
+
           &--photos {
             max-height: 446px;
 
@@ -620,9 +657,10 @@
             p {
               font-size: 13px;
             }
-            &__button-trainers{
-              ::ng-deep .button__container .p-element .p-button{
-                .p-button-label{
+
+            &__button-trainers {
+              ::ng-deep .button__container .p-element .p-button {
+                .p-button-label {
                   font-size: 24px !important;
                 }
               }

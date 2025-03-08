@@ -1,7 +1,7 @@
-<div class="blog__container--search">
+<div class="search">
   <af-tile>
     <form [formGroup]="searchForm">
-      <div class="blog__container--search--content">
+      <div class="search--content">
         <div class="reset">
           <af-button
             [label]="'blog.search.reset' | translate"
@@ -29,10 +29,11 @@
         </div>
         <div class="buttons">
           <af-button
+            type="submit"
             [label]="'blog.search.searchLabel' | translate"
-            (onClick)="search()"
             [disabled]="submitted() || searchForm.pristine"
           ></af-button>
+
           <af-button
             [label]="'blog.addPost' | translate"
             iconClassName="pi pi-plus"

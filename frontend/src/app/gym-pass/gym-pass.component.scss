@@ -1,4 +1,5 @@
-@import "../shared/styles/constants.scss";;
+@import "../shared/styles/constants.scss";
+;
 
 .gym-pass-page {
   min-height: 100vh;
@@ -18,7 +19,7 @@
 
   .gym-pass__container {
     min-height: 100vh;
-    margin-bottom: 50px;
+    padding-bottom: 50px;
 
     &--header {
       &-logo {
@@ -63,7 +64,7 @@
 
 @media (orientation: landscape) and (max-width: 1024px) {
   .gym-pass-page {
-    .navi-bar {}
+    // .navi-bar {}
 
     .gym-pass__container {
       &--header {

@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, Signal } from '@angular/core';
 import { BlogService } from 'src/app/core/services';
-import { PostModel } from 'src/app/shared/models';
+import { ApiPostsModel, PostModel } from 'src/app/shared/models';
 
 @Component({
   selector: 'app-edit-blog',
@@ -10,7 +10,7 @@ import { PostModel } from 'src/app/shared/models';
 export class AFEditBlogComponent implements OnInit {
   private blogService = inject(BlogService);
 
-  public posts: Signal<PostModel[]> = this.blogService.postsSignal;
+  public posts: Signal<ApiPostsModel> = this.blogService.blogSignal;
 
   public ngOnInit(): void {
     this.blogService.getPosts();

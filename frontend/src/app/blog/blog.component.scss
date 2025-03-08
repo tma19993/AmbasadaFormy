@@ -39,65 +39,32 @@
       @include header-style;
     }
 
-    &--search {
-      margin-top: 40px;
-      margin-bottom: 60px;
-
-      &--content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 100px;
-        margin: 0 30px;
-
-        .reset {
-          margin-top: 4px;
-        }
-
-        .inputs {
-          width: 50%;
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 20px;
-          margin-right: 10px;
-        }
-      }
-
-      .buttons {
-        width: 40%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 8px;
-      }
-    }
-
-    &--paginator {
-      p-paginator::ng-deep {
-        .p-paginator {
-          padding: 10px 0;
-          background: rgba(255, 255, 255, 0.8);
-        }
-      }
-    }
-
     .posts {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
 
-      .first-post {
-        grid-column: span 2;
-        height: 400px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 300px repeat(2, 300px) repeat(auto-fill, 400px);
+      gap: 30px;
+
+      .first-post,
+      .search-mode {
+        grid-column: span 4;
       }
 
       .next-four {
-        height: 250px;
+        grid-column: span 2;
+        height: 300px;
       }
 
       .old-post {
-        height: 150px;
+        height: 400px;
       }
+    }
+
+    .load-more-button {
+      margin-top: 50px;
+      display: grid;
+      place-items: center;
     }
   }
 }
