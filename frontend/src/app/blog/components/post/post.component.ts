@@ -28,10 +28,15 @@ export class PostComponent implements OnDestroy {
 
   public openPost(post: PostModel): void {
     this.ref = this.dialogService.open(PostDetailsComponent, {
+      ...dialogConfig,
       data: post,
-      header: post.title,
-      ...dialogConfig
+      width: '70%',
+      height: '90%',
+
     })
   }
 
+  public close(): void {
+    this.ref.close();
+  }
 }

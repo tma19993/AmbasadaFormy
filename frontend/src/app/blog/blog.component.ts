@@ -1,6 +1,6 @@
 import { Component, inject, OnDestroy, OnInit, signal, WritableSignal } from '@angular/core';
 import { FormGroup, FormResetEvent, FormSubmittedEvent, NonNullableFormBuilder } from '@angular/forms';
-import { ApiPostsModel, PostModel } from 'src/app/shared/models';
+import { ApiPostsModel } from 'src/app/shared/models';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 
 import { delay } from 'rxjs';
@@ -8,7 +8,7 @@ import { delay } from 'rxjs';
 import { AfMessageService, BlogService } from 'src/app/core/services';
 import { OneRequiredValidator } from 'src/app/core/validators';
 import { dialogConfig } from 'src/app/shared/constants';
-import { NewPostFormComponent, PostDetailsComponent } from './dialogs';
+import { NewPostFormComponent } from './dialogs';
 
 @Component({
   selector: 'af-blog',
@@ -45,15 +45,6 @@ export class BlogComponent implements OnInit, OnDestroy {
     }
   }
 
-
-  public openPost(post: PostModel): void {
-    this.dialogService.open(PostDetailsComponent, {
-      data: post,
-      header: post.title,
-      ...dialogConfig
-    })
-  }
-
   public loadMore(): void {
     this.blogService.getPosts(this.length += 8)
   }
@@ -61,8 +52,9 @@ export class BlogComponent implements OnInit, OnDestroy {
 
   public addNewPost(): void {
     this.ref = this.dialogService.open(NewPostFormComponent, {
+      ...dialogConfig,
       header: "Add new Post",
-      ...dialogConfig
+
     })
     this.ref.onClose.pipe(delay(1000)).subscribe((value) => {
       if (value) {

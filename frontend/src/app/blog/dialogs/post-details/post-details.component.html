@@ -1,14 +1,36 @@
-<ng-container *ngIf="postData">
-    <img *ngIf="postData.photo; else defaultAvatar" class="post-photo" [src]="'data:image/jpeg;base64,' + postData.photo" alt="Post Photo" />
-      <div class="content">
-          <p class="content--text">{{postData.content}}</p>
-          <p class="createAt">{{"blog.post.createAt" | translate}}: {{postData.userName}},
-            {{"blog.post.date" | translate}}:
-            {{postData.createdAt ? (postData.createdAt | date: 'dd-MM-yyyy hh:mm'): ("blog.post.someTimeAgo" | translate) }}
-          </p>
-      </div>
-
-</ng-container>
+<section class="container">
+  <af-button
+    class="close-button"
+    (onClick)="close()"
+    iconClassName="pi-times"
+    [transparentButton]="true"
+    [iconSize]="40"
+  />
+  <ng-container *ngIf="postData">
+    <h2>{{ postData.title }}</h2>
+    <img
+      *ngIf="postData.photo; else defaultAvatar"
+      class="post-photo"
+      [src]="'data:image/jpeg;base64,' + postData.photo"
+      alt="Post Photo"
+    />
+    <div class="content">
+      <p class="createAt">
+        {{ postData.userName }},
+        {{
+          postData.createdAt
+            ? (postData.createdAt | date : "dd-MM-yyyy hh:mm")
+            : ("blog.post.someTimeAgo" | translate)
+        }}
+      </p>
+      <p class="content--text">{{ postData.content }}</p>
+    </div>
+  </ng-container>
+</section>
 <ng-template #defaultAvatar>
-    <img class="post-photo" src="../../../assets/backgrounds/jedzonko.png" alt="image">
-  </ng-template>
+  <img
+    class="post-photo"
+    src="../../../assets/backgrounds/jedzonko.png"
+    alt="image"
+  />
+</ng-template>

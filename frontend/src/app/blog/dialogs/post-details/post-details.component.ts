@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { DynamicDialogConfig } from 'primeng/dynamicdialog';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { PostModel } from 'src/app/shared/models';
 
 @Component({
@@ -8,9 +8,13 @@ import { PostModel } from 'src/app/shared/models';
   styleUrls: ['./post-details.component.scss']
 })
 export class PostDetailsComponent {
-public postData: PostModel;
+  public postData: PostModel;
+  constructor(private dialogService: DynamicDialogConfig, public ref: DynamicDialogRef) {
+    this.postData = this.dialogService.data;
+  }
 
-constructor(private dialogService: DynamicDialogConfig){
-this.postData =this.dialogService.data;
-}
+
+  public close(): void {
+    this.ref.close();
+  }
 }

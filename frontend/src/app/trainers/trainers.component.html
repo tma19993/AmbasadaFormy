@@ -2,7 +2,9 @@
   <div class="navi-bar">
     <af-menu-static />
   </div>
-  <img class="logo" src="../../../assets/logo/logoLightText.svg" alt="logo" />
+  <div class="logo">
+    <img src="../../../assets/logo/logoLightText.svg" alt="logo" />
+  </div>
   <h1 class="header">{{ "trainers.header" | translate }}</h1>
   <section class="trainers">
     <ng-container *ngIf="trainers$ | async as trainers">

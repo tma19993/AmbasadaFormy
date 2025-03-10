@@ -11,19 +11,32 @@
     <af-menu-blog [length]="length" (searchMode)="setSearchMode($event)" />
     <section class="posts">
       @if(apiPosts().posts){ @if(!searchMode){
+
       <div class="first-post">
-        <af-post [post]="apiPosts().posts[0]" />
+        <p>Newest on the blog</p>
+        <div>
+          <af-post [post]="apiPosts().posts[0]" />
+        </div>
       </div>
-      @for(post of apiPosts().posts | slice:0:4; track post.createdAt){
       <div class="next-four">
-        <af-post [post]="post" [blockCartStyle]="true" />
+        <p>More great reads!</p>
+        <div>
+          @for(post of apiPosts().posts | slice:0:4; track post.createdAt){
+          <af-post [post]="post" [blockCartStyle]="true" />
+          }
+        </div>
       </div>
-      } @for(post of apiPosts().posts | slice:4: (apiPosts().posts.length - 1);
-      track post.createdAt){
       <div class="old-post">
-        <af-post [post]="post" [blockCartStyle]="true" />
+        <p>Older posts</p>
+        <div>
+          @for(post of apiPosts().posts | slice:4: (apiPosts().posts.length -
+          1); track post.createdAt){
+          <af-post [post]="post" [blockCartStyle]="true" />
+          }
+        </div>
       </div>
-      } } @else { @for(post of apiPosts().posts; track post.createdAt){
+
+      } @else { @for(post of apiPosts().posts; track post.createdAt){
       <div class="search-mode">
         <af-post [post]="post" />
       </div>

@@ -1,33 +1,67 @@
 @import "../../../shared/styles/constants.scss";
 
-.post-photo {
-  position: absolute;
-  inset: 0 0 0 0;
-  border-radius: 20px;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  object-fit: cover;
-}
-.content{
+.container {
+  position: relative;
+  margin-right: 10px;
+
+  .close-button {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+  }
+
+  h2 {
+    font-size: 36px;
+    margin: 30px;
+    text-align: center;
+  }
+
+
+  .post-photo {
+
+    display: block;
+    border-radius: 20px;
+    height: 400px;
+    width: 75%;
+    margin: 0 auto;
+    border: 4px solid $input-main-color;
+    object-fit: cover;
+  }
+
+  .content {
+    width: 60%;
+    margin: 30px auto 0 auto;
+    border-top: 1px solid $input-main-color;
     min-height: 30vh;
-    position: relative;
-    .createAt{
-      float: right;
+
+    &--text {
       margin: 20px 0;
-      font-style: italic;
+      font-size: 20px;
+      text-indent: 20px;
     }
+
+
+  }
+
+  .createAt {
+    padding-top: 5px;
+    padding-left: 5px;
+    font-style: italic;
+  }
 }
 
 ::ng-deep .p-dialog {
-  .p-dialog-header,
-  .p-dialog-content {
-    @include transparentBackgroundColorMixin(0.6, $background-dark);
-    color: white;
-    text-shadow: 1px 1px 2px $background-dark;
+  background: rgba(255, 255, 255, 0.9);
+
+  .p-dialog-header {
+    display: none;
+    // background: transparent;
   }
 
-  .p-dialog-header .p-dialog-header-icon {
-    background-color: white;
+  .p-dialog-content {
+    border-radius: 20px;
+    margin: 10px;
+    background-color: transparent;
   }
+
 }

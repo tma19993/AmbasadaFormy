@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { ButtonIconPosition } from 'src/app/shared/enums/button.enum';
 import { PrimengModule } from '../../modules/primeng/primeng.module';
@@ -8,7 +8,8 @@ import { SharedModule } from '../../shared.module';
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
   standalone: true,
-  imports: [SharedModule, PrimengModule]
+  imports: [SharedModule, PrimengModule],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AFButtonComponent {
   @Input() public label: string = '';
