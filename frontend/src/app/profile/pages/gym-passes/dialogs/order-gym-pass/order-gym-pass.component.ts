@@ -6,7 +6,7 @@ import { GymPassModel, RequestModel, userDataModel } from 'src/app/shared/models
 
 
 @Component({
-  selector: 'app-order-gym-pass',
+  selector: 'af-order-gym-pass',
   templateUrl: './order-gym-pass.component.html',
   styleUrl: './order-gym-pass.component.scss'
 })

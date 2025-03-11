@@ -10,7 +10,7 @@ import { inputIconConfig } from 'src/app/shared/models';
 
 
 @Component({
-  selector: 'app-login',
+  selector: 'af-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })

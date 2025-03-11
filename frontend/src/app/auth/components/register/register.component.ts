@@ -10,7 +10,7 @@ import { genderKey, GenderModel, inputIconConfig, userDataModel } from 'src/app/
 
 
 @Component({
-  selector: 'app-register',
+  selector: 'af-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })

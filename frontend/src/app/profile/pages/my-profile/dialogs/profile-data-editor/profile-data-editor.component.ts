@@ -11,22 +11,22 @@ import { GenderModel, inputIconConfig, UserDataPublic } from 'src/app/shared/mod
 
 
 @Component({
-  selector: 'app-profile-data-editor',
+  selector: 'af-profile-data-editor',
   templateUrl: './profile-data-editor.component.html',
   styleUrl: './profile-data-editor.component.scss'
 })
 export class ProfileDataEditorComponent implements OnInit {
   private fb = inject(NonNullableFormBuilder);
   private profileService = inject(ProfileService);
-  private dialogRef = inject(DynamicDialogRef); 
+  private dialogRef = inject(DynamicDialogRef);
   private message = inject(AfMessageService);
   public genderCheckboxDisabled: boolean = false;
   public form: FormGroup = this.fb.group({
     firstName: [this.userData.firstName, Validators.required],
     lastName: [this.userData.lastName, Validators.required],
     login: [this.userData.login, Validators.required],
-    email: [this.userData.email, [Validators.required,Validators.email]],
-    phoneNumber: [this.userData.phoneNumber, [Validators.required,Validators.pattern("[0-9]{9}")]],
+    email: [this.userData.email, [Validators.required, Validators.email]],
+    phoneNumber: [this.userData.phoneNumber, [Validators.required, Validators.pattern("[0-9]{9}")]],
     address: [this.userData.address, Validators.required],
     gender: [this.userData.gender, Validators.required],
   })
@@ -65,12 +65,12 @@ export class ProfileDataEditorComponent implements OnInit {
   }
 
   private updateData(): void {
-    if(this.form.invalid){
+    if (this.form.invalid) {
       this.message.addErrorMessage("błąd")
       return;
     }
     this.profileService.updateUserData(this.form.value).subscribe();
     this.dialogRef.close(this.form.value);
-      this.dialogRef.destroy();
+    this.dialogRef.destroy();
   }
 }

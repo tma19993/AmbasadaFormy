@@ -6,7 +6,7 @@ import { AFTileComponent } from 'src/app/shared/components/tile/tile.component';
 
 
 @Component({
-  selector: 'app-error-view',
+  selector: 'af-error-view',
   standalone: true,
   imports: [AFButtonComponent, SharedModule, AFTileComponent],
   templateUrl: './error-view.component.html',

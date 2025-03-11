@@ -7,7 +7,7 @@ import { inputIconConfig } from 'src/app/shared/models';
 
 
 @Component({
-  selector: 'app-new-post-form',
+  selector: 'af-new-post-form',
   templateUrl: './new-post-form.component.html',
   styleUrls: ['./new-post-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

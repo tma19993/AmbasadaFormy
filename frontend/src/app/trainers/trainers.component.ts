@@ -4,7 +4,7 @@ import { TrainersService } from 'src/app/core/services';
 import { userDataModel } from 'src/app/shared/models';
 
 @Component({
-  selector: 'app-trainers',
+  selector: 'af-trainers',
   templateUrl: './trainers.component.html',
   styleUrls: ['./trainers.component.scss']
 })

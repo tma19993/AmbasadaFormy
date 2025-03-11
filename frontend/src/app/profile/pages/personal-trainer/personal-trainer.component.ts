@@ -8,7 +8,7 @@ import { delay, tap, } from 'rxjs';
 import { TrainingModel } from 'src/app/shared/models/training.model';
 
 @Component({
-  selector: 'app-personal-trainer',
+  selector: 'af-personal-trainer',
   templateUrl: './personal-trainer.component.html',
   styleUrls: ['./personal-trainer.component.scss']
 })

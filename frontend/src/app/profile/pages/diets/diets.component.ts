@@ -7,7 +7,7 @@ import { dialogConfig } from 'src/app/shared/constants';
 import { delay, tap } from 'rxjs';
 
 @Component({
-  selector: 'app-diets',
+  selector: 'af-diets',
   templateUrl: './diets.component.html',
   styleUrls: ['./diets.component.scss']
 })

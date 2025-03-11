@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-home-page',
+  selector: 'af-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss'],
 })

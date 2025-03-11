@@ -4,21 +4,21 @@ import { GymPassesService } from 'src/app/core/services';
 import { GymPassModel } from 'src/app/shared/models';
 
 @Component({
-  selector: 'app-gym-pass',
+  selector: 'af-gym-pass',
   templateUrl: './gym-pass.component.html',
   styleUrls: ['./gym-pass.component.scss']
 })
-export class GymPassComponent  {
-  private gymPassesService:GymPassesService = inject(GymPassesService);
+export class GymPassComponent {
+  private gymPassesService: GymPassesService = inject(GymPassesService);
   private router: Router = inject(Router);
 
-  public gymPasses:Signal<GymPassModel[]> = this.gymPassesService.gymPassesSignal;
-  constructor(){
+  public gymPasses: Signal<GymPassModel[]> = this.gymPassesService.gymPassesSignal;
+  constructor() {
     this.gymPassesService.getGymPasses();
   }
 
-  public orderGymPass():void{
+  public orderGymPass(): void {
     this.router.navigate(["profile/gym-pass"]);
   }
-  
+
 }

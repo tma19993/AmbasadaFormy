@@ -3,7 +3,7 @@ import { BlogService } from 'src/app/core/services';
 import { ApiPostsModel, PostModel } from 'src/app/shared/models';
 
 @Component({
-  selector: 'app-edit-blog',
+  selector: 'af-edit-blog',
   templateUrl: './edit-blog.component.html',
   styleUrl: './edit-blog.component.scss'
 })
