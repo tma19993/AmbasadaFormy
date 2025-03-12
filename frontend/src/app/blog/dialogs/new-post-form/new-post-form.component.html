@@ -1,10 +1,13 @@
 <form [formGroup]="form">
   <div class="form">
-    <af-input formControlName="title" [placeholderText]="'wwww'" />
-    <af-inputTextarea formControlName="content" [placeholderText]="'content'" />
+    <af-input formControlName="title" [placeholderText]="'Header'" />
+    <af-inputTextarea formControlName="content" [placeholderText]="'Content'" />
   </div>
   <div class="buttons">
     <af-button [label]="'Send'" (onClick)="addNewPost()" />
-    <af-photo-uploader (onSelect)="onFileSelected($event)" [customUpload]="true"/>
+    <af-photo-uploader
+      (onSelect)="onFileSelected($event)"
+      [customUpload]="true"
+    />
   </div>
 </form>

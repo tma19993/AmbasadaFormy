@@ -4,6 +4,7 @@
     &-content {
         display: flex;
         height: 100%;
+        width: 100%;
         gap: 20px;
 
         &-img {
@@ -21,17 +22,29 @@
         }
 
         &-text {
+            max-width: 100%;
             position: relative;
             flex: 1;
             padding: 20px;
 
             .header {
+                max-width: 100%;
                 font-size: 24px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
 
             .subheader {
                 margin-bottom: 10px;
                 font-style: italic;
+            }
+
+            .content {
+                max-width: 100%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
 
             .create-by {
