@@ -1,17 +1,19 @@
-.form{
+.form {
     background-color: transparent;
     display: flex;
     flex-direction: column;
     gap: 20px;
     align-items: stretch;
     margin-bottom: 50px;
-    af-inputTextarea{
+
+    af-textarea {
         display: block;
         height: 200px;
     }
-      
+
 }
-.buttons{
+
+.buttons {
     display: flex;
     justify-content: center;
     gap: 20px;

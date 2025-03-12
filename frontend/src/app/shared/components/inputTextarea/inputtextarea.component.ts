@@ -8,7 +8,7 @@ import { InputTextareaSizeModel } from 'src/app/shared/models/inputtextarea.mode
 import { PrimengModule } from '../../modules/primeng/primeng.module';
 
 @Component({
-  selector: 'af-inputTextarea',
+  selector: 'af-textarea',
   templateUrl: './inputtextarea.component.html',
   styleUrls: ['./inputtextarea.component.scss'],
   providers: [
@@ -37,7 +37,7 @@ export class AFInputTextareaComponent implements ControlValueAccessor {
   onTouched = () => { };
 
   writeValue(value: string): void {
-    this.value = value;
+    this.value = value || '';
   }
 
   registerOnChange(fn: any): void {

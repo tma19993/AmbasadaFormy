@@ -1,11 +1,13 @@
-.container{
+.container {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    af-inputTextarea{
+
+    af-textarea {
         height: 200px;
     }
-    af-button{
+
+    af-button {
         text-align: center;
     }
 }

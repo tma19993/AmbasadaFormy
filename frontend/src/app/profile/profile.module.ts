@@ -24,6 +24,7 @@ import { AFTableComponent } from '../shared/components/table/table.component';
 import { AFPasswordComponent } from '../shared/components/password/password.component';
 import { OrderGymPassComponent } from './pages/gym-passes/dialogs/order-gym-pass/order-gym-pass.component';
 import { AFGymPassCardComponent } from '../gym-pass/components';
+import { AFInputTextareaComponent } from '../shared/components/inputTextarea/inputtextarea.component';
 
 
 
@@ -62,7 +63,8 @@ import { AFGymPassCardComponent } from '../gym-pass/components';
     AFMessagesComponent,
     AFInputComponent,
     AFTableComponent,
-    AFPasswordComponent
+    AFPasswordComponent,
+    AFInputTextareaComponent
   ],
   exports: [
   ]
