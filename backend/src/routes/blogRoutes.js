@@ -1,11 +1,12 @@
 const express = require("express");
-const multer = require("multer");
 const {
   mapDataFromCollection,
   catchError,
   findUserName,
+  lastPostFinder,
 } = require("../untils/exports.js");
 const router = express.Router();
+const multer = require("multer");
 
 const upload = multer({ storage: multer.memoryStorage() });
 
@@ -38,8 +39,8 @@ module.exports = function (blog, users) {
     upload.single("photo"),
     async (req, res) => {
       let file = req.file;
-
       const newBlogPostRequest = req.body;
+      const lastPost = await lastPostFinder(blog, res);
       const findedUserName = await findUserName(
         users,
         newBlogPostRequest._id,

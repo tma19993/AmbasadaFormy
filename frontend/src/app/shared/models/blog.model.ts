@@ -5,8 +5,8 @@ export type PostModel = {
     content: string;
     userId?: string,
     _id?: string;
-    photo?: string;
-    createdAt: Date
+    photo?: any;
+    createdAt?: Date
 }
 export type ApiPostsModel = {
     posts: PostModel[],

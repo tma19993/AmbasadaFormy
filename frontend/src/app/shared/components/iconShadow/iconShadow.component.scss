@@ -1,29 +1,33 @@
-section{
-    display: grid;
-    place-items: center;
-    height: 100vh;
+section {
+  display: grid;
+  place-items: center;
+  height: 100vh;
 }
 
-.iconShadow__container {
-  cursor: pointer;
-  position: relative;
+.icon-shadow {
 
-  .iconShadow__content {
-    text-decoration: none;
-    overflow: hidden;
-    color: #dc2743;
-    
-    .pi{
+  &__container {
+    cursor: pointer;
+    position: relative;
+
+
+    &__content {
+      text-decoration: none;
+      overflow: hidden;
+      color: #dc2743;
+
+      .pi {
         color: #222;
         font-size: 60px;
-        padding:  2px 5px 0 5px;
-        &:hover{
-            z-index: 1001;
+        padding: 2px 5px 0 5px;
+
+        &:hover {
+          z-index: 1001;
         }
-            
-        
-    }
-      
+
+
+      }
+
       &::before {
         font-family: 'primeicons';
         content: "\e908"; // tutaj dana ikonka
@@ -37,8 +41,10 @@ section{
         border-bottom: 4px solid #dc2743;
         padding: 2px 5px 0 5px;
       }
-  }
-  &:hover .iconShadow__content::before{
-    height: 60px;
+    }
+
+    &:hover .iconShadow__content::before {
+      height: 60px;
+    }
   }
 }

@@ -32,7 +32,7 @@ const exampleData: examplePersonalTrainerModel[] = [
 
 
 const meta: Meta<typeof AFAutocompleteComponent> = {
-  title: "Core/Autocompete",
+  title: "Core/Autocomplete",
   decorators: [
     moduleMetadata({
       imports: [SharedModule, PrimengModule]

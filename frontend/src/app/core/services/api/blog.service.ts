@@ -60,9 +60,7 @@ export class BlogService {
   }
 
 
-  public addNewPost(data: PostModel): Observable<PostModel> {
-    data._id = sessionStorage.getItem('id')!
-    console.log(data);
+  public addNewPost(data: FormData): Observable<PostModel> {
     return this.http.post<PostModel>(this.url + "/addPost", data);
   }
 
@@ -86,12 +84,4 @@ export class BlogService {
 
   }
 
-  private sortApiPostsModel(data: ApiPostsModel): ApiPostsModel {
-    console.log(data.posts[0].createdAt);
-    const returnedValue: ApiPostsModel = {
-      posts: data.posts.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime()),
-      totalRecords: data.totalRecords
-    }
-    return returnedValue;
-  }
 }

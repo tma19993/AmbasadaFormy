@@ -3,7 +3,7 @@ import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AFFooterComponent } from "./footer.component";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
-import { HttpLoaderFactory } from "src/app/core/untils/http-loader-factory";
+import { HttpLoaderFactory } from "src/app/core/utils/http-loader-factory";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 
 const meta: Meta<AFFooterComponent> = {

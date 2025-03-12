@@ -1,30 +1,36 @@
 @import "./../../../shared/styles/constants.scss";
+
 p-fileUpload {
-    ::ng-deep .p-button {
-      background-color: $darker-gray;
-      border-color: transparent;
-      box-shadow: 0 0 8px 1px $darker-gray;
-      font-family: $font-family;
-      font-weight: $font-weight-bold;
-      border-radius: 14px;
-      padding: 10px 40px;
-      transition: .2s;
+  ::ng-deep .p-button {
+    background-color: $darker-gray;
+    border-color: transparent;
+    box-shadow: 0 0 8px 1px $darker-gray;
+    font-family: $font-family;
+    font-weight: $font-weight-bold;
+    border-radius: 14px;
+    padding: 10px 40px;
+    transition: .2s;
 
-      plusicon{
-        margin-right: 0.5rem;
-        margin-bottom: 2px;
-      }
-      .p-button-label {
-        transition-duration: 0s;
-      }
-
-      &:hover {
-        border-color: transparent;
-        background-color: $darker-gray;
-        color: $input-main-color;
-      }
-
-
+    plusicon {
+      margin-right: 0.5rem;
+      margin-bottom: 2px;
     }
 
+    uploadicon {
+      margin-right: 5px;
+    }
+
+    .p-button-label {
+      transition-duration: 0s;
+    }
+
+    &:hover {
+      border-color: transparent;
+      background-color: $darker-gray;
+      color: $input-main-color;
+    }
+
+
   }
+
+}

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { MessageService } from 'primeng/api';
 import { DialogService } from 'primeng/dynamicdialog';
-import { HttpLoaderFactory } from 'src/app/core/untils/http-loader-factory';
+import { HttpLoaderFactory } from 'src/app/core/utils/http-loader-factory';
 import { AppComponent } from './app.component';
 import { AfMessageService } from './core/services';
 

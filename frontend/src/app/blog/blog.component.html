@@ -21,7 +21,7 @@
       <div class="next-four">
         <p>More great reads!</p>
         <div>
-          @for(post of apiPosts().posts | slice:0:4; track post.createdAt){
+          @for(post of apiPosts().posts | slice:1:5; track post.createdAt){
           <af-post [post]="post" [blockCartStyle]="true" />
           }
         </div>
@@ -29,7 +29,7 @@
       <div class="old-post">
         <p>Older posts</p>
         <div>
-          @for(post of apiPosts().posts | slice:4: (apiPosts().posts.length -
+          @for(post of apiPosts().posts | slice:5: (apiPosts().posts.length -
           1); track post.createdAt){
           <af-post [post]="post" [blockCartStyle]="true" />
           }
@@ -43,12 +43,14 @@
       } } }
     </section>
     <div class="load-more-button">
+      @if(!!apiPosts().posts){
       <af-button
         [fontSize]="24"
         label="load more"
         (onClick)="loadMore()"
         [disabled]="apiPosts().totalRecords <= apiPosts().posts.length"
       />
+      }
     </div>
   </section>
   }

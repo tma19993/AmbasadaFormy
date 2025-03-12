@@ -23,7 +23,7 @@ export class BlogComponent implements OnInit, OnDestroy {
 
   public submitted = signal(false);
 
-  public length: number = 13;
+  public length: number = 14;
   public apiPostsLength: number;
   public apiPosts: WritableSignal<ApiPostsModel> = this.blogService.blogSignal;
   public searchMode: boolean;

@@ -1,4 +1,4 @@
-@import "../../../styles/constants.scss";
+@import "../../../shared/styles/constants.scss";
 
 .gym-pass {
   &-content {
@@ -39,19 +39,23 @@
         font-size: 16px;
         color: $input-text-light;
       }
-      &-small{
+
+      &-small {
         padding: 10px 30px 30px 30px;
-        h3{
+
+        h3 {
           font-size: 26px;
         }
-        .subtitle{
+
+        .subtitle {
           font-size: 14px;
         }
+
         .price {
           padding-top: 10px;
           font-size: 22px;
         }
-  
+
         .type-of-gym-pass {
           font-size: 12px;
 
@@ -65,9 +69,9 @@
       p {
         font-weight: $font-weight-bold;
         font-size: 18px;
-        padding: 10px 40px ;
+        padding: 10px 40px;
         color: $background-dark;
-        
+
 
         i {
           font-weight: $font-weight-bold;
@@ -75,7 +79,8 @@
           padding-right: 10px;
         }
       }
-      &-small{
+
+      &-small {
         p {
           font-size: 14px;
           padding: 10px 30px;

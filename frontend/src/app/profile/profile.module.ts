@@ -9,7 +9,7 @@ import { SharedModule } from '../shared/shared.module';
 import { AFAdminPageComponent, AFDietsComponent, AFGymPassesComponent, AFMyProfileComponent, AFPersonalTrainerComponent } from './pages';
 import { AFButtonComponent } from '../shared/components/button/button.component';
 import { AFPhotoUploaderComponent } from '../shared/components/photo-uploader/photo-uploader.component';
-import { AFGymPassCardComponent } from '../shared/components/gym-pass';
+
 import { AFKnobComponent } from '../shared/components/knob/knob.component';
 import { TransformStatisticTimePipe } from '../shared/pipes/transform-statistic-time.pipe';
 import { PrimengModule } from '../shared/modules/primeng/primeng.module';
@@ -23,6 +23,7 @@ import { AFInputComponent } from '../shared/components/input/input.component';
 import { AFTableComponent } from '../shared/components/table/table.component';
 import { AFPasswordComponent } from '../shared/components/password/password.component';
 import { OrderGymPassComponent } from './pages/gym-passes/dialogs/order-gym-pass/order-gym-pass.component';
+import { AFGymPassCardComponent } from '../gym-pass/components';
 
 
 

@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
 import { BlogService } from 'src/app/core/services';
 import { EnumIconFloat } from 'src/app/shared/enums';
-import { inputIconConfig } from 'src/app/shared/models';
+import { inputIconConfig, PostModel } from 'src/app/shared/models';
 
 
 @Component({
@@ -29,12 +29,17 @@ export class NewPostFormComponent implements OnInit {
 
   public addNewPost(): void {
     if (this.form.valid) {
-      console.log(this.form);
       const formData = new FormData();
       formData.append('title', this.form.get('title')?.value);
       formData.append('content', this.form.get('content')?.value);
-      formData.append('photo', this.form.get('photo')?.value);
-      this.blogService.addNewPost(this.form.value).subscribe();
+      formData.append('_id', sessionStorage.getItem('id')!);
+
+      const fileInput = this.form.get('photo')?.value;
+      if (fileInput && fileInput instanceof File) {
+        formData.append('photo', fileInput);
+      }
+
+      this.blogService.addNewPost(formData).subscribe();
       this.dialogRef.close(this.form.value);
       this.dialogRef.destroy();
     }

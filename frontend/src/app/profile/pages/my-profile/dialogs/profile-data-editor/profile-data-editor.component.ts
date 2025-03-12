@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormGroup, FormSubmittedEvent, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
 import { AfMessageService, ProfileService } from 'src/app/core/services';
-import { MapToPublicUserData } from 'src/app/core/untils';
+import { MapToPublicUserData } from 'src/app/core/utils';
 import { GenderArray } from 'src/app/shared/constants';
 import { EnumIconFloat } from 'src/app/shared/enums';
 import { GenderModel, inputIconConfig, UserDataPublic } from 'src/app/shared/models';
