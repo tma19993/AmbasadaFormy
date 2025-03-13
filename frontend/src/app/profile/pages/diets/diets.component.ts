@@ -4,41 +4,51 @@ import { AfMessageService, ProfileService } from 'src/app/core/services';
 import { DietModel, userDataModel } from 'src/app/shared/models';
 import { AFAddDietComponent } from './dialogs/add-diet/add-diet.component';
 import { dialogConfig } from 'src/app/shared/constants';
-import { delay, tap } from 'rxjs';
+import { delay, finalize, tap } from 'rxjs';
+import { SpinnerService } from 'src/app/core/services/spinner/spinner.service';
 
 @Component({
   selector: 'af-diets',
   templateUrl: './diets.component.html',
-  styleUrls: ['./diets.component.scss']
+  styleUrls: ['./diets.component.scss'],
 })
 export class AFDietsComponent {
   private dialogService: DialogService = inject(DialogService);
   private profileService: ProfileService = inject(ProfileService);
   private message: AfMessageService = inject(AfMessageService);
+  private spinnerService: SpinnerService = inject(SpinnerService);
   public userData: Signal<userDataModel> = this.profileService.userDataSignal;
   public removalMode: boolean = false;
 
   public get isDietMarkedForDelete(): boolean {
-    return !this.userData().diets?.some(diet => diet.forDelete === true)!;
+    return !this.userData().diets?.some((diet) => diet.forDelete === true)!;
   }
 
   private ref: DynamicDialogRef;
 
   public addDiet(): void {
+    this.spinnerService.loadingActivation.set(false);
     this.ref = this.dialogService.open(AFAddDietComponent, {
       ...dialogConfig,
-      header: "Add diet",
-    })
+      header: 'Add diet',
+    });
 
-    this.ref.onClose.pipe(
-      delay(1000),
-      tap(() => {
-        this.profileService.getUserData();
-      })).subscribe((val) => {
+    this.ref.onClose
+      .pipe(
+        delay(1000),
+        tap(() => {
+          this.profileService.getUserData();
+        }),
+        finalize(() => {
+          this.spinnerService.loadingActivation.set(true);
+        })
+      )
+      .subscribe((val) => {
         if (val) {
-          this.message.addSuccesMessage("Dodano dietę");
+          this.message.addSuccesMessage('Dodano dietę');
+          // this.spinnerService.loadingActivation.set(true);
         }
-      })
+      });
   }
 
   public selectForDeletion(diet: DietModel): void {
@@ -48,20 +58,24 @@ export class AFDietsComponent {
   public activeRemoveMode(): void {
     this.removalMode = !this.removalMode;
     if (this.removalMode == false) {
-      this.userData().diets?.forEach(diet => diet.forDelete = false)
+      this.userData().diets?.forEach((diet) => (diet.forDelete = false));
     }
   }
 
   public removeWorkouts(): void {
-    const dataToDelete = this.userData().diets?.filter(val => !val.forDelete && val.forDelete === false);
-    this.profileService.updateUserData({ diets: dataToDelete }).pipe(
-      delay(1000),
-      tap(() => {
-        this.message.addSuccesMessage("usunieto dietę");
-        this.profileService.getUserData();
-        this.removalMode = false;
-      })).subscribe();
-
+    const dataToDelete = this.userData().diets?.filter(
+      (val) => !val.forDelete && val.forDelete === false
+    );
+    this.profileService
+      .updateUserData({ diets: dataToDelete })
+      .pipe(
+        delay(1000),
+        tap(() => {
+          this.message.addSuccesMessage('usunieto dietę');
+          this.profileService.getUserData();
+          this.removalMode = false;
+        })
+      )
+      .subscribe();
   }
-
 }
