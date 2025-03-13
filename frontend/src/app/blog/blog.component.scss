@@ -16,17 +16,15 @@
 
   img {
     height: 270px;
-
   }
 }
 
 .blog {
-  background-image: url('../../assets/backgrounds/blogBackgorund.png');
+  background-image: url("../../assets/backgrounds/blogBackgorund.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-
 
   &__container {
     max-width: 1357px;
@@ -39,7 +37,6 @@
     }
 
     .posts {
-
       .first-post {
         height: 340px;
         margin-bottom: 60px;
@@ -47,7 +44,7 @@
         p {
           text-shadow: 0px 0px 4px $input-text-dark;
           text-transform: uppercase;
-          color: $input-main-color ;
+          color: $input-main-color;
           font-weight: $font-weight-bold;
           padding-bottom: 8px;
         }
@@ -63,11 +60,10 @@
       .next-four {
         margin-bottom: 60px;
 
-
         p {
           text-shadow: 0px 0px 4px $input-text-dark;
           text-transform: uppercase;
-          color: $input-main-color ;
+          color: $input-main-color;
           font-weight: $font-weight-bold;
           padding-bottom: 8px;
         }
@@ -77,7 +73,8 @@
           border: 4px solid $input-main-color;
           border-radius: 20px;
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
+          max-width: 1357px;
+          grid-template-columns: repeat(2, calc(1357px / 2 - 40px));
           grid-template-rows: repeat(2, 340px);
           gap: 30px;
         }
@@ -89,7 +86,7 @@
         p {
           text-shadow: 0px 0px 4px $input-text-dark;
           text-transform: uppercase;
-          color: $input-main-color ;
+          color: $input-main-color;
           font-weight: $font-weight-bold;
           padding-bottom: 8px;
           padding-left: 20px;
