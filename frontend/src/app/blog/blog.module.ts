@@ -13,6 +13,8 @@ import { AFInputTextareaComponent } from '../shared/components/inputTextarea/inp
 import { BlogRoutingModule } from './blog-routing.module';
 import { AFMenuComponent } from './components/menu/menu.component';
 import { PostComponent } from './components/post/post.component';
+import { BlogService } from '../core/services';
+import { BlogMockService } from '../shared/mocks/blog.mock.service';
 
 
 
@@ -32,6 +34,9 @@ import { PostComponent } from './components/post/post.component';
         AFPhotoUploaderComponent,
         AFInputTextareaComponent,
         PostComponent
+    ],
+    providers: [
+        { provide: BlogService, useClass: BlogMockService }
     ]
 })
 export class BlogModule { }

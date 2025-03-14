@@ -10,14 +10,14 @@
     <h2 class="blog__container--header">{{ "blog.posts" | translate }}</h2>
     <af-menu-blog [length]="length" (searchMode)="setSearchMode($event)" />
     <section class="posts">
-      @if(apiPosts().posts){ @if(!searchMode){
-
+      @if(apiPosts().posts){ @if(!searchMode){ @if(apiPosts().posts[0]){
       <div class="first-post">
         <p>Newest on the blog</p>
         <div>
           <af-post [post]="apiPosts().posts[0]" />
         </div>
       </div>
+      } @if(apiPosts().posts.length > 1){
       <div class="next-four">
         <p>More great reads!</p>
         <div>
@@ -26,6 +26,7 @@
           }
         </div>
       </div>
+      } @if(apiPosts().posts.length > 4){
       <div class="old-post">
         <p>Older posts</p>
         <div>
@@ -35,8 +36,7 @@
           }
         </div>
       </div>
-
-      } @else { @for(post of apiPosts().posts; track post.createdAt){
+      } } @else { @for(post of apiPosts().posts; track post.createdAt){
       <div class="search-mode">
         <af-post [post]="post" />
       </div>

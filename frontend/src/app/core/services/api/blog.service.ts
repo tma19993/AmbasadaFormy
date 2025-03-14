@@ -19,29 +19,6 @@ export class BlogService {
     this.blogSignal.update(() => blog)
   }
 
-  public getBlogData(page: number, size: number, searchData?: PostSearchModel): Observable<ApiPostsModel> {
-    let params: HttpParams;
-    if (searchData && (searchData.title != null || searchData.userName != null)) {
-      const { title, userName } = searchData;
-      params = new HttpParams({
-        fromObject: {
-          "title": title!,
-          "userName": userName!,
-          'page': page,
-          'size': size
-        }
-      })
-    }
-    else {
-      params = new HttpParams({
-        fromObject: {
-          'page': page,
-          'size': size
-        }
-      })
-    }
-    return this.http.get<ApiPostsModel>(this.url + "/getBlog", { params });
-  }
 
   public searchPosts(searchData?: PostSearchModel): Observable<ApiPostsModel> {
     if (searchData && (searchData.title != null || searchData.userName != null)) {

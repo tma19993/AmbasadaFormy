@@ -75,7 +75,8 @@
           display: grid;
           max-width: 1357px;
           grid-template-columns: repeat(2, calc(1357px / 2 - 40px));
-          grid-template-rows: repeat(2, 340px);
+          grid-auto-rows: 340px;
+
           gap: 30px;
         }
       }
