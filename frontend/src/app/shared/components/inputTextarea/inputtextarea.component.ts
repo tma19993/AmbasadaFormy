@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, forwardRef, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SharedModule } from 'primeng/api';
 import { FloatLabelModule } from 'primeng/floatlabel';
@@ -20,6 +20,7 @@ import { PrimengModule } from '../../modules/primeng/primeng.module';
   ],
   standalone: true,
   imports: [SharedModule, PrimengModule],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AFInputTextareaComponent implements ControlValueAccessor {
   @Input() public autoResize: boolean = false;

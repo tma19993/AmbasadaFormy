@@ -1,4 +1,4 @@
-import { Component, EventEmitter, forwardRef, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, forwardRef, Input, OnInit, Output } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SharedModule } from 'primeng/api';
 import { PrimengModule } from '../../modules/primeng/primeng.module';
@@ -16,6 +16,7 @@ import { PrimengModule } from '../../modules/primeng/primeng.module';
   ],
   standalone: true,
   imports: [SharedModule, PrimengModule],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AFPasswordComponent implements OnInit, ControlValueAccessor {
   @Input() public floatLabelText: string = '';

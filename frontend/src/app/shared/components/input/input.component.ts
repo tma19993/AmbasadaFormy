@@ -1,4 +1,4 @@
-import { Component, forwardRef, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { EnumIconFloat } from '../../enums';
 
@@ -18,6 +18,7 @@ import { SharedModule } from '../../shared.module';
   ],
   standalone: true,
   imports: [SharedModule, PrimengModule],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AFInputComponent implements ControlValueAccessor {
   @Input() public floatLabelText: string = '';

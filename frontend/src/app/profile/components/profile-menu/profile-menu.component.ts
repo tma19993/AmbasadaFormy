@@ -14,7 +14,7 @@ export class AFProfileMenuComponent {
 
   public logout(): void {
     sessionStorage.clear();
-    this.router.navigate([]);
+    this.router.navigate(["/welcome-page"]);
   }
 
   public navigateWithData(route: string): void {
