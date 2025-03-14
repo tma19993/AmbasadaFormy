@@ -1,14 +1,93 @@
-<div class="profile__information">
-  <div class="profile__information--left">
-    <h1>Mój profil</h1>
+<main class="profile__information">
+  <h2>
+    Hello <span>{{ userData().firstName }}!</span>
+  </h2>
+  <section class="profile__information--left">
+    <section>
+      <af-tile>
+        <div class="accout">
+          <h3>Accout data</h3>
+          <p>
+            Name:
+            <span>{{ userData().firstName }} {{ userData().lastName }}</span>
+          </p>
+          <p>
+            Login: <span> {{ userData().login }}</span>
+          </p>
+          <p>
+            email: <span> {{ userData().email }}</span>
+          </p>
+          <p>
+            address: <span>{{ userData().address }}</span>
+          </p>
+          <p>
+            Phone Number: <span>{{ userData().phoneNumber }}</span>
+          </p>
+        </div>
+      </af-tile>
+    </section>
+    <section>
+      <af-tile>
+        <div class="gym-pass">
+          <h3>Active Gym Pass</h3>
+          <p class="active-pass">
+            <span>
+              @if(userData().activeGymPass){
+              {{
+                "gymPass." + userData().gympassName + "Pass" + ".header"
+                  | translate
+              }}
+              } @else{ no active gym pass }
+            </span>
+          </p>
+        </div>
+      </af-tile>
+    </section>
+    <section>
+      <af-tile [darkMode]="true">
+        <div class="diet">
+          <h3>Active Diet</h3>
+        </div>
+      </af-tile>
+    </section>
+    <section>
+      <af-tile>
+        <div class="progress">
+          <h3>Progress</h3>
+        </div>
+      </af-tile>
+    </section>
+    <section>
+      <af-tile [darkMode]="true">
+        <div class="training">
+          <h3>Active Training</h3>
+        </div>
+      </af-tile>
+    </section>
+    <section>
+      <af-tile [darkMode]="true">
+        <div class="trainer">
+          <h3>My trainer</h3>
+        </div>
+      </af-tile>
+    </section>
+    <section>
+      <af-tile [darkMode]="true">
+        <div class="note">
+          <h3>note</h3>
+        </div>
+      </af-tile>
+    </section>
+  </section>
+
+  <!-- <h1>Mój profil</h1>
     <div>
       <h2>Moje dane:</h2>
       <ul>
         <li>
-          <strong>Imie Nazwisko:</strong> {{ userData().firstName }}
-          {{ userData().lastName }}
+          <strong>Imie Nazwisko:</strong> 
         </li>
-        <li><strong>Login:</strong> {{ userData().login }}</li>
+        <li><strong>Login:</strong></li>
         <li><strong>Email:</strong> {{ userData().email }}</li>
       </ul>
     </div>
@@ -34,28 +113,27 @@
         <li><strong>tel:</strong> {{ userData().phoneNumber }}</li>
         <li><strong>email:</strong> {{ userData().email }}</li>
       </ul>
-    </div>
-  </div>
-  <div class="my-profile__menu">
-    <af-photo-uploader
-      (uploadHandler)="onUpload($event)"
-      [customUpload]="true"
-      [fontSize]="20"
-    />
-    <af-button
-      [label]="'Zmień hasło'"
-      iconClassName="pi pi-unlock"
-      (onClick)="changePassword()"
-    />
-    <af-button
-      [label]="'Edytuj'"
-      iconClassName="pi pi-userData()-edit"
-      (onClick)="editProfileData()"
-    />
-    <af-button
-      [label]="'USUŃ KONTO'"
-      iconClassName="pi pi-userData()-minus"
-      (onClick)="removeUser()"
-    />
-  </div>
+    </div> -->
+</main>
+<div class="my-profile__menu">
+  <af-photo-uploader
+    (uploadHandler)="onUpload($event)"
+    [customUpload]="true"
+    [fontSize]="20"
+  />
+  <af-button
+    [label]="'Zmień hasło'"
+    iconClassName="pi pi-unlock"
+    (onClick)="changePassword()"
+  />
+  <af-button
+    [label]="'Edytuj'"
+    iconClassName="pi pi-userData()-edit"
+    (onClick)="editProfileData()"
+  />
+  <af-button
+    [label]="'USUŃ KONTO'"
+    iconClassName="pi pi-userData()-minus"
+    (onClick)="removeUser()"
+  />
 </div>

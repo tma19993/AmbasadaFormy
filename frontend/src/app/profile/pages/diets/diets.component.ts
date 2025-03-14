@@ -46,7 +46,6 @@ export class AFDietsComponent {
       .subscribe((val) => {
         if (val) {
           this.message.addSuccesMessage('Dodano dietę');
-          // this.spinnerService.loadingActivation.set(true);
         }
       });
   }

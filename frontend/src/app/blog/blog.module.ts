@@ -35,8 +35,8 @@ import { BlogMockService } from '../shared/mocks/blog.mock.service';
         AFInputTextareaComponent,
         PostComponent
     ],
-    providers: [
-        { provide: BlogService, useClass: BlogMockService }
-    ]
+    // providers: [
+    //     { provide: BlogService, useClass: BlogMockService }
+    // ]
 })
 export class BlogModule { }

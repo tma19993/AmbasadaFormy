@@ -1,48 +1,99 @@
 @import "../../../shared/styles/constants.scss";
 
 .profile__information {
-  height: 100%;
-  display: flex;
-flex-direction: column;
-  justify-content: space-between;
+  height: 90%;
 
-  &--left {
-    h1 {
-      margin-bottom: 10px;
-      font-size: 27px;
-      font-weight: $font-weight-bold;
-    }
+  h2 {
+    margin: 20px 0 0 30px;
+    // margin-bottom: 10px;
+    font-size: 42px;
+    color: $darker-gray;
+    font-weight: $font-weight-bold;
 
-    div {
-      margin-bottom: 20px;
-    }
-
-    h2 {
-      font-weight: $font-weight-bold;
-      font-size: 18px;
-    }
-
-    ul {
-      font-weight: $font-weight-normal;
-      font-size: 18px;
-    }
-
-    li {
-      list-style: none;
+    span {
+      color: $input-main-color;
     }
   }
 
-  .profile__information--right {
-    display: flex;
-    align-items: flex-start;
-    gap: 40px;
-    padding-top: 80px;
+  &--left {
+    margin-top: 20px;
+    width: 100%;
+    max-height: 90%;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: 1fr 6fr 6fr;
+    gap: 20px;
 
+    section af-tile ::ng-deep section div {
+      padding: 10px;
 
-    af-button {
-      font-size: 18px;
-      font-weight: $font-weight-bold;
+      span {
+        color: $input-main-color;
+        font-weight: $font-weight-bold;
+      }
     }
+
+    section:nth-of-type(1) {
+      grid-column: span 4;
+      grid-row: 1;
+    }
+
+    section:nth-of-type(2) {
+      grid-column: span 4;
+      grid-row: 1;
+
+      af-tile ::ng-deep section div p {
+        display: grid;
+        place-items: center;
+        height: 50%;
+
+        span {
+          font-size: 28px;
+        }
+      }
+    }
+
+    section:nth-of-type(3) {
+      grid-column: span 3;
+      grid-row: 2;
+    }
+
+    section:nth-of-type(4) {
+      grid-column: span 2;
+      margin-bottom: 20px;
+      grid-row-start: 2;
+      grid-row-end: span 3;
+    }
+
+    section:nth-of-type(5) {
+      grid-column: span 3;
+      grid-row: 2;
+    }
+
+    section:nth-of-type(6) {
+      grid-column: span 3;
+      grid-row: 3;
+    }
+
+    section:nth-of-type(7) {
+      grid-column: span 3;
+      grid-row: 3;
+    }
+
+
+    // h2 {
+    //   font-weight: $font-weight-bold;
+    //   font-size: 18px;
+    // }
+
+    // ul {
+    //   font-weight: $font-weight-normal;
+    //   font-size: 18px;
+    // }
+
+    // li {
+    //   list-style: none;
+    // }
   }
 }
 
@@ -51,11 +102,13 @@ flex-direction: column;
   gap: 20px;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 20px;
+  height: 10%;
 }
 
 .validoation__container {
   position: fixed;
   top: 50px;
-  right:20px;
+  right: 20px;
   z-index: 10001;
-  }
+}

@@ -4,8 +4,9 @@ import { AfMessageService, ProfileService } from 'src/app/core/services';
 import { dialogConfig } from 'src/app/shared/constants';
 import { userDataModel } from 'src/app/shared/models';
 import { AFAddTrainingComponent } from './dialogs/add-training/add-training.component';
-import { delay, tap, } from 'rxjs';
+import { delay, finalize, tap, } from 'rxjs';
 import { TrainingModel } from 'src/app/shared/models/training.model';
+import { SpinnerService } from 'src/app/core/services/spinner/spinner.service';
 
 @Component({
   selector: 'af-personal-trainer',
@@ -13,10 +14,10 @@ import { TrainingModel } from 'src/app/shared/models/training.model';
   styleUrls: ['./personal-trainer.component.scss']
 })
 export class AFPersonalTrainerComponent {
-  private profileService: ProfileService = inject(ProfileService);
-  private dialogService: DialogService = inject(DialogService);
-  private message: AfMessageService = inject(AfMessageService);
-
+  private profileService = inject(ProfileService);
+  private dialogService = inject(DialogService);
+  private message = inject(AfMessageService);
+  private spinnerService = inject(SpinnerService);
   private ref: DynamicDialogRef;
 
 
@@ -27,7 +28,7 @@ export class AFPersonalTrainerComponent {
   public get isTrainingMarkedForDelete(): boolean {
     return !this.userData.trainings?.some(training => training.forDelete === true)!;
   }
-  public removalMode: boolean = false;
+  public removalMode = false;
 
   public addWorkout(): void {
     this.ref = this.dialogService.open(AFAddTrainingComponent, {
@@ -54,6 +55,7 @@ export class AFPersonalTrainerComponent {
   }
 
   public removeWorkouts(): void {
+    this.spinnerService.loadingActivation.set(false);
     const dataToDelete = this.userData.trainings?.filter(val => !val.forDelete && val.forDelete === false);
     this.profileService.updateUserData({ trainings: dataToDelete }).pipe(
       delay(1000),
@@ -61,6 +63,9 @@ export class AFPersonalTrainerComponent {
         this.message.addSuccesMessage("usunieto trening");
         this.profileService.getUserData();
         this.removalMode = false;
+      }),
+      finalize(() => {
+        this.spinnerService.loadingActivation.set(true);
       })).subscribe();
 
   }
