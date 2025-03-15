@@ -27,9 +27,12 @@
     section af-tile ::ng-deep section div {
       padding: 10px;
 
-      span {
+      .active-pass span {
         color: $input-main-color;
         font-weight: $font-weight-bold;
+        &.no-active {
+          color: red;
+        }
       }
     }
 
@@ -79,7 +82,6 @@
       grid-column: span 3;
       grid-row: 3;
     }
-
 
     // h2 {
     //   font-weight: $font-weight-bold;

@@ -4,17 +4,17 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'af-profile-menu',
   templateUrl: './profile-menu.component.html',
-  styleUrls: ['./profile-menu.component.scss']
+  styleUrls: ['./profile-menu.component.scss'],
 })
 export class AFProfileMenuComponent {
   @Output() BackEmmiter: EventEmitter<void> = new EventEmitter();
   @Input() isAdmin: boolean = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   public logout(): void {
     sessionStorage.clear();
-    this.router.navigate(["/welcome-page"]);
+    this.router.navigate(['']);
   }
 
   public navigateWithData(route: string): void {

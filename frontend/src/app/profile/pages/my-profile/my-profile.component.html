@@ -37,7 +37,8 @@
                 "gymPass." + userData().gympassName + "Pass" + ".header"
                   | translate
               }}
-              } @else{ no active gym pass }
+              } @else{
+              <span class="no-active">no active gym pass</span> }
             </span>
           </p>
         </div>
@@ -85,7 +86,7 @@
       <h2>Moje dane:</h2>
       <ul>
         <li>
-          <strong>Imie Nazwisko:</strong> 
+          <strong>Imie Nazwisko:</strong>
         </li>
         <li><strong>Login:</strong></li>
         <li><strong>Email:</strong> {{ userData().email }}</li>
