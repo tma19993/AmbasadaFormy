@@ -19,7 +19,12 @@
             'removal-mode': removalMode
           }"
         >
-          <h2>{{ id + 1 }}. {{ training.title }}</h2>
+          <h2 [ngClass]="{ active: training.active }">
+            {{ id + 1 }}. {{ training.title }}
+            @if(training.active){
+            <span class="active"> - Active</span>
+            }
+          </h2>
           <h3>{{ training.description }}</h3>
           @for(exercise of training.exercises; track exercise){
           <li>{{ exercise }}</li>
