@@ -6,16 +6,32 @@ import { AFTileComponent } from 'src/app/shared/components/tile/tile.component';
 import { AFLanguageChangerComponent } from '../shared/components/language-changer/language-changer.component';
 import { AFProfileMenuComponent } from './components/profile-menu/profile-menu.component';
 import { SharedModule } from '../shared/shared.module';
-import { AFAdminPageComponent, AFDietsComponent, AFGymPassesComponent, AFMyProfileComponent, AFPersonalTrainerComponent } from './pages';
+import {
+  AFAdminPageComponent,
+  AFDietsComponent,
+  AFGymPassesComponent,
+  AFMyProfileComponent,
+  AFPersonalTrainerComponent,
+} from './pages';
 import { AFButtonComponent } from '../shared/components/button/button.component';
 import { AFPhotoUploaderComponent } from '../shared/components/photo-uploader/photo-uploader.component';
 
 import { AFKnobComponent } from '../shared/components/knob/knob.component';
 import { TransformStatisticTimePipe } from '../shared/pipes/transform-statistic-time.pipe';
 import { PrimengModule } from '../shared/modules/primeng/primeng.module';
-import { AFEditPermissionsComponent, AFEditGymPassesComponent, AFEditBlogComponent, AFEditUserDataComponent, AFChangeUserPasswordComponent, AFGymPassRequestsComponent } from './pages/admin-page/dialogs';
+import {
+  AFEditPermissionsComponent,
+  AFEditGymPassesComponent,
+  AFEditBlogComponent,
+  AFEditUserDataComponent,
+  AFChangeUserPasswordComponent,
+  AFGymPassRequestsComponent,
+} from './pages/admin-page/dialogs';
 import { AFAddDietComponent } from './pages/diets/dialogs/add-diet/add-diet.component';
-import { PasswordChangerComponent, ProfileDataEditorComponent } from './pages/my-profile/dialogs';
+import {
+  PasswordChangerComponent,
+  ProfileDataEditorComponent,
+} from './pages/my-profile/dialogs';
 import { AFAddTrainingComponent } from './pages/personal-trainer/dialogs/add-training/add-training.component';
 import { AFCheckboxComponent } from '../shared/components/checkbox/checkbox.component';
 import { AFMessagesComponent } from '../shared/components/messages/messages.component';
@@ -25,11 +41,11 @@ import { AFPasswordComponent } from '../shared/components/password/password.comp
 import { OrderGymPassComponent } from './pages/gym-passes/dialogs/order-gym-pass/order-gym-pass.component';
 import { AFGymPassCardComponent } from '../gym-pass/components';
 import { AFInputTextareaComponent } from '../shared/components/inputTextarea/inputtextarea.component';
-
-
+import { ActiveStatusPipe } from '../shared/pipes/active-status/active-status.pipe';
 
 @NgModule({
-  declarations: [ProfileComponent,
+  declarations: [
+    ProfileComponent,
     AFPersonalTrainerComponent,
     AFMyProfileComponent,
     AFGymPassesComponent,
@@ -46,7 +62,7 @@ import { AFInputTextareaComponent } from '../shared/components/inputTextarea/inp
     AFChangeUserPasswordComponent,
     AFGymPassRequestsComponent,
     OrderGymPassComponent,
-    AFProfileMenuComponent
+    AFProfileMenuComponent,
   ],
   imports: [
     SharedModule,
@@ -64,9 +80,9 @@ import { AFInputTextareaComponent } from '../shared/components/inputTextarea/inp
     AFInputComponent,
     AFTableComponent,
     AFPasswordComponent,
-    AFInputTextareaComponent
+    AFInputTextareaComponent,
+    ActiveStatusPipe,
   ],
-  exports: [
-  ]
+  exports: [],
 })
-export class ProfileModule { }
+export class ProfileModule {}

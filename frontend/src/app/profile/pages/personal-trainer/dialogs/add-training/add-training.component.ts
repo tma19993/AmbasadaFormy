@@ -16,7 +16,7 @@ export class AFAddTrainingComponent implements OnInit {
   private dialogRef: DynamicDialogRef = inject(DynamicDialogRef);
 
   public form: FormGroup = this.fb.group({
-    name: this.fb.control("", Validators.required),
+    title: this.fb.control("", Validators.required),
     description: this.fb.control("", Validators.required),
     exercises: this.fb.array([]),
   })

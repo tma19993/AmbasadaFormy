@@ -1,7 +1,8 @@
 export type TrainingModel = {
-    name: string;
-    description: string;
-    exercises: string[];
-    createdAt: Date;
-    forDelete?: boolean;
-}
+  title: string;
+  description: string;
+  exercises: string[];
+  createdAt: Date;
+  forDelete?: boolean;
+  active: boolean;
+};

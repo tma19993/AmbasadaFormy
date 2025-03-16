@@ -1,15 +1,24 @@
 <form [formGroup]="form">
- <div class="container">
-    <af-input formControlName="name" placeholderText="Name" />
+  <div class="container">
+    <af-input formControlName="title" placeholderText="Title" />
     <af-input formControlName="description" placeholderText="description" />
     <div formArrayName="exercises" class="exercises">
       <h2>Exercises</h2>
       @for(execise of exercises.controls; track execise; let id = $index){
       <label for="exercise-{{ id }}"></label>
-      <af-input [formControlName]="id" id="exercise-{{ id }}" [placeholderText]="'Exercise ' + (id + 1) " />
+      <af-input
+        [formControlName]="id"
+        id="exercise-{{ id }}"
+        [placeholderText]="'Exercise ' + (id + 1)"
+      />
       }
-      <af-button label="Add Execise" (onClick)="addExercise()" [fontSize]="15"  [whiteButton]="true"/>
+      <af-button
+        label="Add Execise"
+        (onClick)="addExercise()"
+        [fontSize]="15"
+        [whiteButton]="true"
+      />
     </div>
-    <af-button type="submit" label="Add Training" [disabled]="form.invalid"/>
- </div>
+    <af-button type="submit" label="Add Training" [disabled]="form.invalid" />
+  </div>
 </form>
