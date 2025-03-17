@@ -5,4 +5,5 @@ export type DietModel = {
   createdAt: Date;
   forDelete?: boolean;
   active?: boolean;
+  disabled?: boolean
 };

@@ -42,6 +42,7 @@ import { OrderGymPassComponent } from './pages/gym-passes/dialogs/order-gym-pass
 import { AFGymPassCardComponent } from '../gym-pass/components';
 import { AFInputTextareaComponent } from '../shared/components/inputTextarea/inputtextarea.component';
 import { ActiveStatusPipe } from '../shared/pipes/active-status/active-status.pipe';
+import { DietTileComponent } from "./pages/diets/components/diet-tile/diet-tile/diet-tile.component";
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import { ActiveStatusPipe } from '../shared/pipes/active-status/active-status.pi
     AFPasswordComponent,
     AFInputTextareaComponent,
     ActiveStatusPipe,
+    DietTileComponent
   ],
   exports: [],
 })
-export class ProfileModule {}
+export class ProfileModule { }

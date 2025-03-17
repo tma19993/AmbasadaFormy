@@ -45,19 +45,19 @@
       </af-tile>
     </section>
     <section>
-      <af-tile [darkMode]="true">
-        <div class="diet">
-          <h3>Active Diet</h3>
-          <div *ngIf="userData().diets! | activeStatus as activeDiet">
-            <p >{{ activeDiet.title }}</p>
-          </div>
+      <af-tile>
+        <div class="trainer">
+          <h3>My trainer</h3>
         </div>
       </af-tile>
     </section>
     <section>
-      <af-tile>
-        <div class="progress">
-          <h3>Progress</h3>
+      <af-tile [darkMode]="true">
+        <div class="diet">
+          <h3>Active Diet</h3>
+          <div *ngIf="userData().diets! | activeStatus as activeDiet">
+            <p>{{ activeDiet.title }}</p>
+          </div>
         </div>
       </af-tile>
     </section>
@@ -69,16 +69,9 @@
       </af-tile>
     </section>
     <section>
-      <af-tile [darkMode]="true">
-        <div class="trainer">
-          <h3>My trainer</h3>
-        </div>
-      </af-tile>
-    </section>
-    <section>
-      <af-tile [darkMode]="true">
-        <div class="note">
-          <h3>note</h3>
+      <af-tile>
+        <div class="progress">
+          <h3>Progress</h3>
         </div>
       </af-tile>
     </section>

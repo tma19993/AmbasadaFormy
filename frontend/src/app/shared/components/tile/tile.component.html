@@ -1,3 +1,7 @@
-<section class="tile_container" [ngClass]="darkMode ? 'tile_container--dark': 'tile_container--light'">
+<section
+  class="tile_container"
+  [ngClass]="darkMode ? 'tile_container--dark' : 'tile_container--light'"
+  [class.disabled]="disabled"
+>
   <ng-content></ng-content>
 </section>

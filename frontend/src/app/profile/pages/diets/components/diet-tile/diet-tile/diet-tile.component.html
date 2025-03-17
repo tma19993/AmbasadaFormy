@@ -1,0 +1,40 @@
+<div class="diets">
+  @if(!userData().diets || userData().diets?.length == 0){
+  <div class="empty">
+    <h2>There is no diets to show</h2>
+  </div>
+  } @else {
+  <div class="diets-container">
+    @if(!!userData().diets){ @for (diet of userData().diets!;
+    track diet.title; let id = $index){
+    <af-tile
+      [disabled]="!diet.active && activationMode()! && isDietMarkedForActive"
+      [darkMode]="
+        !(
+          (diet.forDelete && removalMode()) ||
+          (diet.active && activationMode())
+        )
+      "
+      (click)="selectForAction(diet)">
+      <div
+        class="diets-container--single"
+        [ngClass]="{
+          'for-delete': diet.forDelete && removalMode(),
+          'removal-mode': removalMode(),
+          'activation-mode': activationMode(),
+          'for-active': diet.active && activationMode()
+        }">
+        <h2 [ngClass]="{ active: diet.active }">
+          {{ id + 1 }}. {{ diet.title }} @if(diet.active){
+          <span class="active"> - Active</span>
+          }
+        </h2>
+        <h3>{{ diet.subtitle }}</h3>
+        <i>{{ diet.createdAt | date : "dd/MM/yyyy" }}</i>
+        <p>{{ diet.description }}</p>
+      </div>
+    </af-tile>
+    } }
+  </div>
+  }
+</div>

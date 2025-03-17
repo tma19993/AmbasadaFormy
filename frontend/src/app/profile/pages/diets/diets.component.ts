@@ -19,9 +19,13 @@ export class AFDietsComponent {
   private spinnerService: SpinnerService = inject(SpinnerService);
   public userData: Signal<userDataModel> = this.profileService.userDataSignal;
   public removalMode: boolean = false;
+  public activationMode: boolean = false;
 
   public get isDietMarkedForDelete(): boolean {
     return !this.userData().diets?.some((diet) => diet.forDelete === true)!;
+  }
+  public get isDietMarkedForActive(): boolean {
+    return !this.userData().diets?.some((diet) => diet.active === true)!;
   }
 
   private ref: DynamicDialogRef;
@@ -50,9 +54,10 @@ export class AFDietsComponent {
       });
   }
 
-  public selectForDeletion(diet: DietModel): void {
-    if (this.removalMode) diet.forDelete = !diet.forDelete;
-  }
+  // public selectForAction(diet: DietModel): void {
+  //   if (this.removalMode) diet.forDelete = !diet.forDelete;
+  //   if (this.activationMode) diet.active = !diet.active;
+  // }
 
   public activeRemoveMode(): void {
     this.removalMode = !this.removalMode;
@@ -61,16 +66,39 @@ export class AFDietsComponent {
     }
   }
 
-  public removeWorkouts(): void {
+  public removeDiet(): void {
     const dataToDelete = this.userData().diets?.filter(
       (val) => !val.forDelete && val.forDelete === false
     );
+    this.updateUserData(dataToDelete!, "usunieto dietę");
+    this.removalMode = false;
+  }
+
+
+
+  public activeActivationMode(): void {
+    this.activationMode = !this.activationMode;
+    if (this.activationMode == false) {
+      this.userData().diets?.forEach((diet) => (diet.active = false));
+    }
+  }
+
+
+  public activeDiet(): void {
+    const dietToActive = this.userData().diets?.filter(
+      (val) => val.active === true
+    );
+    this.updateUserData(this.userData().diets!, `Actywowano dietę ${dietToActive![0].title}`);
+    this.activationMode = false;
+  }
+
+  private updateUserData(data: DietModel[], message: string): void {
     this.profileService
-      .updateUserData({ diets: dataToDelete })
+      .updateUserData({ diets: data })
       .pipe(
         delay(1000),
         tap(() => {
-          this.message.addSuccesMessage('usunieto dietę');
+          this.message.addSuccesMessage(message);
           this.profileService.getUserData();
           this.removalMode = false;
         })

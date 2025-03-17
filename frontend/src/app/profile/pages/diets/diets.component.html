@@ -1,21 +1,35 @@
 <div class="container">
   <div class="diets">
-    @if(!userData().diets || userData().diets?.length == 0){
+    <!-- @if(!userData().diets || userData().diets?.length == 0){
     <div class="empty">
       <h2>There is no diets to show</h2>
     </div>
     } @else {
-    <div class="diets-container">
-      @for (diet of userData().diets; track diet.title; let id = $index){
+    <div class="diets-container"> -->
+
+    <af-diet-tile
+      [activationMode]="activationMode"
+      [removalMode]="removalMode"
+    />
+
+    <!-- @for (diet of userData().diets; track diet.title; let id = $index){
+   
+      } -->
+
+    <!-- @for (diet of userData().diets; track diet.title; let id = $index){
       <af-tile
-        [darkMode]="!(diet.forDelete && removalMode)"
-        (click)="selectForDeletion(diet)"
+        [darkMode]="
+          !((diet.forDelete && removalMode) || (diet.active && activationMode))
+        "
+        (click)="selectForAction(diet)"
       >
         <div
           class="diets-container--single"
           [ngClass]="{
             'for-delete': diet.forDelete && removalMode,
-            'removal-mode': removalMode
+            'removal-mode': removalMode,
+            'activation-mode': activationMode,
+            'for-active': diet.active && activationMode
           }"
         >
           <h2>{{ id + 1 }}. {{ diet.title }}</h2>
@@ -24,9 +38,7 @@
           <p>{{ diet.description }}</p>
         </div>
       </af-tile>
-      }
-    </div>
-    }
+      } -->
   </div>
   <div class="menu">
     <af-button label="Add diet" (onClick)="addDiet()" />
@@ -36,11 +48,22 @@
       (click)="activeRemoveMode()"
       [whiteButton]="removalMode"
     />
+    <af-button
+      label="Active diet"
+      (click)="activeActivationMode()"
+      [whiteButton]="activationMode"
+    />
     } @if(removalMode){
     <af-button
       label="Remove"
-      (click)="removeWorkouts()"
+      (click)="removeDiet()"
       [disabled]="isDietMarkedForDelete"
+    />
+    } @if(activationMode){
+    <af-button
+      label="Active diet"
+      (click)="activeDiet()"
+      [disabled]="isDietMarkedForActive"
     />
     }
   </div>

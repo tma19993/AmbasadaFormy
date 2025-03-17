@@ -6,10 +6,11 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './tile.component.html',
   styleUrls: ['./tile.component.scss'],
   standalone: true,
-  imports:[ CommonModule]
+  imports: [CommonModule]
 })
 export class AFTileComponent {
-  @Input() public darkMode:boolean = false;
-constructor(){}
+  @Input() public darkMode: boolean = false;
+  @Input() public disabled: boolean = false;
+  constructor() { }
 
 }
