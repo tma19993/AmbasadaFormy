@@ -11,7 +11,7 @@ import {
   AFDietsComponent,
   AFGymPassesComponent,
   AFMyProfileComponent,
-  AFPersonalTrainerComponent,
+  AFPersonalTrainingComponent,
 } from './pages';
 import { AFButtonComponent } from '../shared/components/button/button.component';
 import { AFPhotoUploaderComponent } from '../shared/components/photo-uploader/photo-uploader.component';
@@ -43,11 +43,12 @@ import { AFGymPassCardComponent } from '../gym-pass/components';
 import { AFInputTextareaComponent } from '../shared/components/inputTextarea/inputtextarea.component';
 import { ActiveStatusPipe } from '../shared/pipes/active-status/active-status.pipe';
 import { DietTileComponent } from "./pages/diets/components/diet-tile/diet-tile/diet-tile.component";
+import { TrainingTileComponent } from './pages/personal-trainer/components/training-tile/training-tile.component';
 
 @NgModule({
   declarations: [
     ProfileComponent,
-    AFPersonalTrainerComponent,
+    AFPersonalTrainingComponent,
     AFMyProfileComponent,
     AFGymPassesComponent,
     AFDietsComponent,
@@ -83,7 +84,8 @@ import { DietTileComponent } from "./pages/diets/components/diet-tile/diet-tile/
     AFPasswordComponent,
     AFInputTextareaComponent,
     ActiveStatusPipe,
-    DietTileComponent
+    DietTileComponent,
+    TrainingTileComponent
   ],
   exports: [],
 })

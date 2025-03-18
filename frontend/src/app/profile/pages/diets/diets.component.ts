@@ -54,11 +54,6 @@ export class AFDietsComponent {
       });
   }
 
-  // public selectForAction(diet: DietModel): void {
-  //   if (this.removalMode) diet.forDelete = !diet.forDelete;
-  //   if (this.activationMode) diet.active = !diet.active;
-  // }
-
   public activeRemoveMode(): void {
     this.removalMode = !this.removalMode;
     if (this.removalMode == false) {
@@ -88,11 +83,17 @@ export class AFDietsComponent {
     const dietToActive = this.userData().diets?.filter(
       (val) => val.active === true
     );
-    this.updateUserData(this.userData().diets!, `Actywowano dietę ${dietToActive![0].title}`);
+    if (dietToActive?.length != 0) {
+      this.updateUserData(this.userData().diets!, `Aktywowano dietę ${dietToActive![0].title}`);
+    }
+    else {
+      this.updateUserData(this.userData().diets!, `Deaktywowano dietę`);
+    }
     this.activationMode = false;
   }
 
   private updateUserData(data: DietModel[], message: string): void {
+    this.spinnerService.loadingActivation.set(false);
     this.profileService
       .updateUserData({ diets: data })
       .pipe(
@@ -101,6 +102,9 @@ export class AFDietsComponent {
           this.message.addSuccesMessage(message);
           this.profileService.getUserData();
           this.removalMode = false;
+        }),
+        finalize(() => {
+          this.spinnerService.loadingActivation.set(true);
         })
       )
       .subscribe();

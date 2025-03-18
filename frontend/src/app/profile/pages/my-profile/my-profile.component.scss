@@ -27,6 +27,11 @@
     section af-tile ::ng-deep section div {
       padding: 10px;
 
+
+      &.accout {
+        font-size: 14px;
+      }
+
       p span {
         color: $input-main-color;
         font-weight: $font-weight-bold;

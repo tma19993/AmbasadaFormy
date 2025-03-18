@@ -34,8 +34,8 @@
             <span>
               @if(userData().activeGymPass){
               {{
-                "gymPass." + userData().gympassName + "Pass" + ".header"
-                  | translate
+              "gymPass." + userData().gympassName + "Pass" + ".header"
+              | translate
               }}
               } @else{
               <span class="no-active">no active gym pass</span> }
@@ -65,6 +65,9 @@
       <af-tile [darkMode]="true">
         <div class="training">
           <h3>Active Training</h3>
+          <div *ngIf="userData().trainings! | activeStatus as activeTraining">
+            <p>{{ activeTraining.title }}</p>
+          </div>
         </div>
       </af-tile>
     </section>
@@ -76,61 +79,22 @@
       </af-tile>
     </section>
   </section>
-
-  <!-- <h1>Mój profil</h1>
-    <div>
-      <h2>Moje dane:</h2>
-      <ul>
-        <li>
-          <strong>Imie Nazwisko:</strong>
-        </li>
-        <li><strong>Login:</strong></li>
-        <li><strong>Email:</strong> {{ userData().email }}</li>
-      </ul>
-    </div>
-    <div>
-      <h2>Dane kontaktowe:</h2>
-      <ul>
-        <li>
-          <strong>Imie Nazwisko:</strong> {{ userData().firstName }}
-          {{ userData().lastName }}
-        </li>
-        <li><strong>adres:</strong> {{ userData().address }}</li>
-        <li><strong>tel:</strong> {{ userData().phoneNumber }}</li>
-      </ul>
-    </div>
-    <div>
-      <h2>Dane do faktury:</h2>
-      <ul>
-        <li>
-          <strong>Imie Nazwisko:</strong> {{ userData().firstName }}
-          {{ userData().lastName }}
-        </li>
-        <li><strong>adres:</strong> {{ userData().address }}</li>
-        <li><strong>tel:</strong> {{ userData().phoneNumber }}</li>
-        <li><strong>email:</strong> {{ userData().email }}</li>
-      </ul>
-    </div> -->
 </main>
 <div class="my-profile__menu">
   <af-photo-uploader
     (uploadHandler)="onUpload($event)"
     [customUpload]="true"
-    [fontSize]="20"
-  />
+    [fontSize]="20" />
   <af-button
     [label]="'Zmień hasło'"
     iconClassName="pi pi-unlock"
-    (onClick)="changePassword()"
-  />
+    (onClick)="changePassword()" />
   <af-button
     [label]="'Edytuj'"
     iconClassName="pi pi-userData()-edit"
-    (onClick)="editProfileData()"
-  />
+    (onClick)="editProfileData()" />
   <af-button
     [label]="'USUŃ KONTO'"
     iconClassName="pi pi-userData()-minus"
-    (onClick)="removeUser()"
-  />
+    (onClick)="removeUser()" />
 </div>

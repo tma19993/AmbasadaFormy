@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AFPersonalTrainerComponent } from './personal-trainer.component';
+import { AFPersonalTrainingComponent } from './personal-training.component';
 
 describe('PersonalTrainerComponent', () => {
-  let component: AFPersonalTrainerComponent;
-  let fixture: ComponentFixture<AFPersonalTrainerComponent>;
+  let component: AFPersonalTrainingComponent;
+  let fixture: ComponentFixture<AFPersonalTrainingComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AFPersonalTrainerComponent ]
+      declarations: [AFPersonalTrainingComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
-    fixture = TestBed.createComponent(AFPersonalTrainerComponent);
+    fixture = TestBed.createComponent(AFPersonalTrainingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

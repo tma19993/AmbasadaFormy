@@ -1,27 +1,28 @@
-import { Component, inject, input, output, Signal } from '@angular/core';
+import { Component, inject, input, Signal } from '@angular/core';
 import { ProfileService } from 'src/app/core/services';
 import { AFTileComponent } from 'src/app/shared/components/tile/tile.component';
-import { DietModel, userDataModel } from 'src/app/shared/models';
+import { userDataModel } from 'src/app/shared/models';
+import { TrainingModel } from 'src/app/shared/models/training.model';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @Component({
-  selector: 'af-diet-tile',
+  selector: 'af-training-tile',
   standalone: true,
-  imports: [AFTileComponent, SharedModule],
-  templateUrl: './diet-tile.component.html',
-  styleUrl: './diet-tile.component.scss'
+  imports: [AFTileComponent, SharedModule,],
+  templateUrl: './training-tile.component.html',
+  styleUrl: './training-tile.component.scss'
 })
-export class DietTileComponent {
-  private profileService: ProfileService = inject(ProfileService);
+export class TrainingTileComponent {
+  private profileService = inject(ProfileService);
   public activationMode = input.required<boolean>();
   public removalMode = input.required<boolean>();
   public userData: Signal<userDataModel> = this.profileService.userDataSignal;
 
   public get isDietMarkedForActive(): boolean {
-    return this.userData().diets?.some((diet) => diet.active === true)!;
+    return this.userData().trainings?.some((training) => training.active === true)!;
   }
 
-  public selectForAction(diet: DietModel): void {
+  public selectForAction(diet: TrainingModel): void {
     if (this.isDietMarkedForActive && !diet.active && this.activationMode()) {
       return;
     }
