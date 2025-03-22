@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit, Signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ProfileService } from 'src/app/core/services';
@@ -10,22 +10,20 @@ import { userDataModel } from 'src/app/shared/models';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
-  constructor(
-    private profileService: ProfileService,
-    private router: Router,
-    private translate: TranslateService) {
-  }
+  private profileService: ProfileService = inject(ProfileService);
+  private router: Router = inject(Router);
+  private translate: TranslateService = inject(TranslateService);
+  public userData: Signal<userDataModel> = this.profileService.userDataSignal;
+
+
 
   public ngOnInit(): void {
     this.profileService.getUserData();
     this.translate.use(sessionStorage.getItem("language")!);
   }
-  
+
   public undo(): void {
     this.router.navigate(['/home']);
   }
 
-  public get userData(): userDataModel {
-    return this.profileService.userData;
-  }
 }

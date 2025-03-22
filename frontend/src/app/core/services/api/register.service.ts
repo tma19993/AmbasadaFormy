@@ -21,6 +21,7 @@ export class RegisterService {
       this.setUserId(res.authToken)
     }));
   }
+
   private setToken(token: string) {
     sessionStorage.setItem('authToken', token);
   }

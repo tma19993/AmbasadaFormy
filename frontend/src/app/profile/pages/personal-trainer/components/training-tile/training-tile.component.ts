@@ -1,4 +1,4 @@
-import { Component, inject, input, Signal } from '@angular/core';
+import { Component, computed, inject, input, Signal } from '@angular/core';
 import { ProfileService } from 'src/app/core/services';
 import { AFTileComponent } from 'src/app/shared/components/tile/tile.component';
 import { userDataModel } from 'src/app/shared/models';
@@ -18,12 +18,15 @@ export class TrainingTileComponent {
   public removalMode = input.required<boolean>();
   public userData: Signal<userDataModel> = this.profileService.userDataSignal;
 
-  public get isDietMarkedForActive(): boolean {
-    return this.userData().trainings?.some((training) => training.active === true)!;
-  }
+  public trainingStatus = computed(() => {
+    const diets = this.userData().diets ?? [];
+    return {
+      active: !diets.some((diet) => diet.active === true),
+    };
+  })
 
   public selectForAction(diet: TrainingModel): void {
-    if (this.isDietMarkedForActive && !diet.active && this.activationMode()) {
+    if (this.trainingStatus().active && !diet.active && this.activationMode()) {
       return;
     }
     if (this.removalMode()) diet.forDelete = !diet.forDelete;

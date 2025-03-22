@@ -28,12 +28,13 @@
     <af-button
       label="Remove"
       (click)="removeWorkouts()"
-      [disabled]="isTrainingMarkedForDelete" />
+      [disabled]="userData().trainings! | trainingStatus: 'forDelete'" />
     }
     @if(activationMode){
     <af-button
       label="Update"
-      (click)="activeTraining()" />
+      (click)="activeTraining()"
+      [disabled]="userData().trainings! | trainingStatus: 'active'" />
 
     }
   </div>

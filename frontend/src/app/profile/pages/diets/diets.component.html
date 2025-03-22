@@ -27,11 +27,12 @@
     <af-button
       label="Remove"
       (click)="removeDiet()"
-      [disabled]="isDietMarkedForDelete" />
+      [disabled]="userData().diets! | dietStatus:'forDelete' " />
     } @if(activationMode){
     <af-button
       label="Update"
-      (click)="activeDiet()" />
+      (click)="activeDiet()"
+      [disabled]="userData().diets! | dietStatus:'active' " />
     }
   </div>
 </div>

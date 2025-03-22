@@ -8,7 +8,7 @@
     @if(!!userData().diets){ @for (diet of userData().diets!;
     track diet.title; let id = $index){
     <af-tile
-      [disabled]="!diet.active && activationMode()! && isDietMarkedForActive"
+      [disabled]="!diet.active && activationMode()! && dietStatus().active"
       [darkMode]="
         !(
           (diet.forDelete && removalMode()) ||

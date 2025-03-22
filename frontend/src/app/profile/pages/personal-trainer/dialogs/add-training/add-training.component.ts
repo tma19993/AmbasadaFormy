@@ -21,10 +21,6 @@ export class AFAddTrainingComponent implements OnInit {
     exercises: this.fb.array([]),
   })
 
-  public get exercises(): FormArray {
-    return this.form.get("exercises") as FormArray;
-  }
-
   private ref: DynamicDialogRef;
 
   public ngOnInit(): void {
@@ -43,11 +39,11 @@ export class AFAddTrainingComponent implements OnInit {
   }
 
   public addExercise(): void {
-    this.exercises.push(this.fb.control('', Validators.required));
+    (this.form.get("exercises") as FormArray).push(this.fb.control('', Validators.required));
   }
 
   public removeExercise(index: number): void {
-    this.exercises.removeAt(index);
+    (this.form.get("exercises") as FormArray).removeAt(index);
   }
 
   private onSubmit(): void {

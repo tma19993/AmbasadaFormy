@@ -10,7 +10,6 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class ProfileService {
-  private LoginService: LoginService = inject(LoginService);
   public userDataSignal: WritableSignal<userDataModel> = signal<userDataModel>({});
   private url: string = environment.apiUrl;
 
@@ -37,10 +36,6 @@ export class ProfileService {
     const formData = new FormData();
     formData.append('photo', file);
     return this.http.put<any>(this.url + '/uploadPhoto/' + sessionStorage.getItem('id'), formData);
-  }
-
-  public get userData(): userDataModel {
-    return this.userDataSignal();
   }
 
 }

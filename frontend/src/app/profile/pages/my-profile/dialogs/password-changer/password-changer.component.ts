@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, Signal } from '@angular/core';
 import { FormGroup, FormSubmittedEvent, NonNullableFormBuilder, Validators } from '@angular/forms';
 
 import { TranslateService } from '@ngx-translate/core';
@@ -45,16 +45,12 @@ export class PasswordChangerComponent implements OnInit {
     }
   }
 
-  public get userData(): userDataModel {
-    return this.profileService.userData;
-  }
-
   private checkPasswords(oldPassword: string, newPassword: string, repeatedNewPassword: string): boolean {
     if (newPassword != repeatedNewPassword) {
       this.message.addErrorMessage(this.translate.instant("profile.myProfile.changePassword.checkPassword"))
       return false;
     }
-    else if (oldPassword != this.userData.password) {
+    else if (oldPassword != this.profileService.userDataSignal().password) {
       this.message.addErrorMessage(this.translate.instant("profile.myProfile.changePassword.incorrectPassword"))
       return false;
     }

@@ -21,13 +21,6 @@ export class AFDietsComponent {
   public removalMode: boolean = false;
   public activationMode: boolean = false;
 
-  public get isDietMarkedForDelete(): boolean {
-    return !this.userData().diets?.some((diet) => diet.forDelete === true)!;
-  }
-  public get isDietMarkedForActive(): boolean {
-    return !this.userData().diets?.some((diet) => diet.active === true)!;
-  }
-
   private ref: DynamicDialogRef;
 
   public addDiet(): void {

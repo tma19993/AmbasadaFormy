@@ -23,15 +23,6 @@ export class AFPersonalTrainingComponent {
   public activationMode: boolean = false;
   public userData: Signal<userDataModel> = this.profileService.userDataSignal;
 
-  public get isTrainingMarkedForDelete(): boolean {
-    return !this.userData().trainings?.some(training => training.forDelete === true)!;
-  }
-
-  public get isDietMarkedForActive(): boolean {
-    return !this.userData().trainings?.some((training) => training.active === true)!;
-  }
-
-
   public addWorkout(): void {
     this.ref = this.dialogService.open(AFAddTrainingComponent, {
       ...dialogConfig,

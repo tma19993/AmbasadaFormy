@@ -44,6 +44,8 @@ import { AFInputTextareaComponent } from '../shared/components/inputTextarea/inp
 import { ActiveStatusPipe } from '../shared/pipes/active-status/active-status.pipe';
 import { DietTileComponent } from "./pages/diets/components/diet-tile/diet-tile/diet-tile.component";
 import { TrainingTileComponent } from './pages/personal-trainer/components/training-tile/training-tile.component';
+import { DietStatusPipe } from '../shared/pipes/diet-status/diet-status.pipe';
+import { TrainingStatusPipe } from '../shared/pipes/training-status/training-status.pipe';
 
 @NgModule({
   declarations: [
@@ -85,7 +87,9 @@ import { TrainingTileComponent } from './pages/personal-trainer/components/train
     AFInputTextareaComponent,
     ActiveStatusPipe,
     DietTileComponent,
-    TrainingTileComponent
+    TrainingTileComponent,
+    DietStatusPipe,
+    TrainingStatusPipe
   ],
   exports: [],
 })
