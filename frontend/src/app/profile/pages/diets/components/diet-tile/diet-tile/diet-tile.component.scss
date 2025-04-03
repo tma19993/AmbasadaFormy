@@ -37,6 +37,10 @@
                 cursor: pointer;
             }
 
+            &.activation-mode {
+                cursor: pointer;
+            }
+
             &.for-delete {
                 color: $input-text-dark;
             }

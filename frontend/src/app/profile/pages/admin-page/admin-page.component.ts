@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, Type, WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit, Type, WritableSignal } from '@angular/core';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { AfMessageService, DashboardService, ProfileService } from 'src/app/core/services';
 import { dialogConfig } from 'src/app/shared/constants';
@@ -20,7 +20,8 @@ type SelectModel = { name: string, code: LastTimeKeys }
 @Component({
   selector: 'af-admin-page',
   templateUrl: './admin-page.component.html',
-  styleUrls: ['./admin-page.component.scss']
+  styleUrls: ['./admin-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AFAdminPageComponent implements OnInit {
 

@@ -1,32 +1,38 @@
 @import "../../../shared/styles/constants.scss";
 
-.active-pass{
+.active-pass {
     height: 90%;
     display: flex;
     flex-direction: column;
     gap: 50px;
+
     &-label {
         color: $input-text-dark;
         font-weight: $font-weight-bold;
         font-size: 42px;
         text-align: center;
-        margin-bottom:30px ;
-        .active-pass-name{
+        margin-bottom: 30px;
+
+        .active-pass-name {
             color: $input-main-color;
         }
 
     }
-    &-inactive{
-        color: red;
+
+    &-inactive {
+        color: $deactive-color;
     }
+
     .gym-pass-cards {
         display: flex;
         justify-content: space-around;
         width: 100%;
-       .gym-pass-card {
-        width: 29%;
-       }
+
+        .gym-pass-card {
+            width: 29%;
+        }
     }
+
     .deactive-pass {
         color: $input-text-dark;
         font-weight: $font-weight-bold;
@@ -40,10 +46,12 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
+
     p {
         font-size: 54px;
         font-weight: $font-weight-bold;
-        &.change-gyp-pass-button{
+
+        &.change-gyp-pass-button {
             cursor: pointer;
             color: $input-text-dark;
             font-weight: $font-weight-bold;
@@ -51,7 +59,8 @@
     }
 
 }
-.deactive-pass{
+
+.deactive-pass {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,6 +70,6 @@
 .validoation__container {
     position: fixed;
     top: 50px;
-    right:20px;
+    right: 20px;
     z-index: 10001;
-    }
+}

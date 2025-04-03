@@ -1,7 +1,6 @@
-import { Component, computed, inject, input, output, Signal } from '@angular/core';
-import { ProfileService } from 'src/app/core/services';
+import { Component, Input, input } from '@angular/core';
 import { AFTileComponent } from 'src/app/shared/components/tile/tile.component';
-import { DietModel, userDataModel } from 'src/app/shared/models';
+import { DietModel } from 'src/app/shared/models';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @Component({
@@ -12,25 +11,32 @@ import { SharedModule } from 'src/app/shared/shared.module';
   styleUrl: './diet-tile.component.scss'
 })
 export class DietTileComponent {
-  private profileService: ProfileService = inject(ProfileService);
+  @Input() public diets: DietModel[] = [];
   public activationMode = input.required<boolean>();
   public removalMode = input.required<boolean>();
-  public userData: Signal<userDataModel> = this.profileService.userDataSignal;
+  private initialDiets: DietModel[];
 
-
-  public dietStatus = computed(() => {
-    const diets = this.userData().diets ?? [];
-    return {
-      active: !diets.some((diet) => diet.active === true),
-    };
-  })
 
   public selectForAction(diet: DietModel): void {
-    if (this.dietStatus().active && !diet.active && this.activationMode()) {
+    if (this.removalMode()) diet.forDelete = !diet.forDelete;
+    if (diet.disabled === true) {
       return;
     }
-    if (this.removalMode()) diet.forDelete = !diet.forDelete;
-    if (this.activationMode()) diet.active = !diet.active;
+    if (this.activationMode()) {
+      diet.active = !diet.active;
+      const activeDiet = this.diets?.filter(diet => diet.active == true);
 
+      this.diets?.forEach(loopDiet => {
+        if (activeDiet?.length !== 0) {
+          if (loopDiet.active === false) {
+            loopDiet.disabled = true;
+          }
+        }
+        else {
+          loopDiet.disabled = false
+        }
+      })
+    };
   }
+
 }

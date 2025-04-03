@@ -1,4 +1,4 @@
-import { Component, inject, Signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, Signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { GymPassesService } from 'src/app/core/services';
 import { GymPassModel } from 'src/app/shared/models';
@@ -6,7 +6,8 @@ import { GymPassModel } from 'src/app/shared/models';
 @Component({
   selector: 'af-gym-pass',
   templateUrl: './gym-pass.component.html',
-  styleUrls: ['./gym-pass.component.scss']
+  styleUrls: ['./gym-pass.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GymPassComponent {
   private gymPassesService: GymPassesService = inject(GymPassesService);

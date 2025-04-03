@@ -12,7 +12,8 @@ import { inputIconConfig } from 'src/app/shared/models';
 @Component({
   selector: 'af-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent implements OnInit {
   @Input() public remember: boolean;

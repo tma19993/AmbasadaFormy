@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'af-welcome-page',
   templateUrl: './welcome-page.component.html',
-  styleUrls: ['./welcome-page.component.scss']
+  styleUrls: ['./welcome-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WelcomePageComponent {
   constructor(private router: Router, private translateService: TranslateService) {

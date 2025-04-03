@@ -27,6 +27,10 @@
     .active-diet-name {
       color: $input-main-color;
       font-weight: $font-weight-bold;
+
+      .deactive {
+        color: $deactive-color;
+      }
     }
   }
 }

@@ -1,4 +1,4 @@
-import { Component, inject, OnDestroy, Signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnDestroy, Signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { userDataModel } from 'src/app/shared/models';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
@@ -15,6 +15,7 @@ import { dialogConfig } from 'src/app/shared/constants';
   selector: 'af-profile',
   templateUrl: './my-profile.component.html',
   styleUrls: ['./my-profile.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class AFMyProfileComponent implements OnDestroy {

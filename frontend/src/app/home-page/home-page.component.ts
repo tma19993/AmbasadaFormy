@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -6,6 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
   selector: 'af-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomePageComponent {
   constructor(

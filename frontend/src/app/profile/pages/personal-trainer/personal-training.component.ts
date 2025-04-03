@@ -1,4 +1,4 @@
-import { Component, inject, Signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, Signal } from '@angular/core';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { AfMessageService, ProfileService } from 'src/app/core/services';
 import { dialogConfig } from 'src/app/shared/constants';
@@ -11,7 +11,8 @@ import { SpinnerService } from 'src/app/core/services/spinner/spinner.service';
 @Component({
   selector: 'af-personal-training',
   templateUrl: './personal-training.component.html',
-  styleUrls: ['./personal-training.component.scss']
+  styleUrls: ['./personal-training.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AFPersonalTrainingComponent {
   private profileService = inject(ProfileService);

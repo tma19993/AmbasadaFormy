@@ -1,4 +1,4 @@
-import { Component, inject, OnDestroy, OnInit, Signal, WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit, Signal, WritableSignal } from '@angular/core';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { delay } from 'rxjs';
 import { AfMessageService, GymPassesService, ProfileService } from 'src/app/core/services';

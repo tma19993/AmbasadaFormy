@@ -27,7 +27,8 @@ export class AFButtonComponent {
   constructor() {
   }
   public click(): void {
-    this.onClick.emit();
+    if (!this.disabled) {
+      this.onClick.emit();
+    }
   }
-
 }

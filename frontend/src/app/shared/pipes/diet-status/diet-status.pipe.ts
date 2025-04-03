@@ -8,7 +8,7 @@ import { DietModel } from '../../models';
 export class DietStatusPipe implements PipeTransform {
 
   transform(diets: DietModel[], status: 'forDelete' | 'active'): boolean {
-    return !diets.some(diet => diet[status] === true);
+    return diets.some(diet => diet[status] === true);
   }
 
 }

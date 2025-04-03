@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -13,6 +13,7 @@ import { genderKey, GenderModel, inputIconConfig, userDataModel } from 'src/app/
   selector: 'af-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RegisterComponent implements OnInit {
 

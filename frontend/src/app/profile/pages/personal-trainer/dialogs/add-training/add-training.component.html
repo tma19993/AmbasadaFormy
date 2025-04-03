@@ -9,15 +9,13 @@
       <af-input
         [formControlName]="id"
         id="exercise-{{ id }}"
-        [placeholderText]="'Exercise ' + (id + 1)"
-      />
+        [placeholderText]="'Exercise ' + (id + 1)" />
       }
       <af-button
         label="Add Execise"
         (onClick)="addExercise()"
         [fontSize]="15"
-        [whiteButton]="true"
-      />
+        [whiteButton]="true" />
     </div>
     <af-button type="submit" label="Add Training" [disabled]="form.invalid" />
   </div>

@@ -1,4 +1,4 @@
-import { Component, inject, OnDestroy, OnInit, signal, WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit, signal, WritableSignal } from '@angular/core';
 import { FormGroup, FormResetEvent, FormSubmittedEvent, NonNullableFormBuilder } from '@angular/forms';
 import { ApiPostsModel } from 'src/app/shared/models';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
@@ -13,7 +13,8 @@ import { NewPostFormComponent } from './dialogs';
 @Component({
   selector: 'af-blog',
   templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.scss']
+  styleUrls: ['./blog.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BlogComponent implements OnInit, OnDestroy {
   private fb = inject(NonNullableFormBuilder)

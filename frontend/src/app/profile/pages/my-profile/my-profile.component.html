@@ -48,6 +48,7 @@
       <af-tile>
         <div class="trainer">
           <h3>My trainer</h3>
+          <p>It will be availble in future</p>
         </div>
       </af-tile>
     </section>
@@ -55,9 +56,9 @@
       <af-tile [darkMode]="true">
         <div class="diet">
           <h3>Active Diet</h3>
-          <div *ngIf="userData().diets! | activeStatus as activeDiet">
+          <ng-container *ngIf="userData().diets! | activeStatus as activeDiet">
             <p>{{ activeDiet.title }}</p>
-          </div>
+          </ng-container>
         </div>
       </af-tile>
     </section>
@@ -65,16 +66,18 @@
       <af-tile [darkMode]="true">
         <div class="training">
           <h3>Active Training</h3>
-          <div *ngIf="userData().trainings! | activeStatus as activeTraining">
+          <ng-container
+            *ngIf="userData().trainings! | activeStatus as activeTraining">
             <p>{{ activeTraining.title }}</p>
-          </div>
+          </ng-container>
         </div>
       </af-tile>
     </section>
     <section>
       <af-tile>
         <div class="progress">
-          <h3>Progress</h3>
+          <h3>Note, Progress, etc.</h3>
+          <p>It will be availble in future </p>
         </div>
       </af-tile>
     </section>
