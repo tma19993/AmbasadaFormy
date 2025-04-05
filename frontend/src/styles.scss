@@ -1,7 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./app/shared/styles/constants.scss";
 
-body, * {
+// html {
+//   scroll-behavior: smooth;
+// }
+
+body,
+* {
   margin: 0;
   padding: 0;
   font-family: $font-family;
@@ -9,7 +14,7 @@ body, * {
 
 .p-dialog {
   border: 2px solid $input-text-accent;
-border-radius: 22px;
+  border-radius: 22px;
 
   .p-dialog-header {
     border-top-left-radius: 20px;
@@ -20,13 +25,16 @@ border-radius: 22px;
 
   .p-dialog-content {
     padding: 20px;
-    &:last-of-type{
-        border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+
+    &:last-of-type {
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
     }
+
     background: rgba(255, 255, 255, 0.9);
   }
-  .p-dialog-footer{
+
+  .p-dialog-footer {
     padding: 0 20px 20px 20px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;

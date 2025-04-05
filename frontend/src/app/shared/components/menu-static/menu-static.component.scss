@@ -29,6 +29,7 @@
       width: 100%;
       text-align: center;
       transition: 0.5s;
+
       &--active {
         left: 0;
       }
@@ -41,6 +42,7 @@
 
       &--details {
         display: none;
+
         p {
           color: $input-text-light;
           padding-right: 10px;
@@ -105,8 +107,9 @@
       width: 133px;
       cursor: pointer;
       transition: 0.2s;
+
       &:hover {
-        color: $input-text-accent;
+        color: $input-main-color;
       }
     }
   }
@@ -163,7 +166,12 @@
 
   &__item {
     margin-left: 1px;
-    cursor: default;
+    cursor: pointer;
+    transition: 0.2s;
+
+    p:hover {
+      color: $input-main-color;
+    }
   }
 
   &__profile {
@@ -173,10 +181,12 @@
     width: 100%;
     display: flex;
     justify-content: end;
+
     div {
       p {
         cursor: pointer;
         transition: 0.2s;
+
         &:hover {
           color: $input-text-accent;
         }
@@ -202,6 +212,7 @@
 @media (max-width: 1024px) {
   .navigation_container {
     justify-content: space-between;
+
     &__hamburger {
       display: block;
 
@@ -239,10 +250,12 @@
 
     .navigation_fetures {
       margin-left: 15px;
+
       &--detail {
         i {
           display: none;
         }
+
         &__language {
           display: block;
         }
@@ -258,6 +271,7 @@
 @media (max-width: 942px) {
   .navigation_container {
     height: 70px;
+
     &__hamburger {
       &__options {
         height: 10000px;
@@ -270,9 +284,11 @@
 @media (max-width: 768px) {
   .navigation_container {
     height: 65px;
+
     &__hamburger {
       &__options {
         top: 65px;
+
         p {
           font-size: 24px;
         }

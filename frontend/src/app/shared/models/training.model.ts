@@ -5,4 +5,5 @@ export type TrainingModel = {
   createdAt: Date;
   forDelete?: boolean;
   active: boolean;
+  disabled: boolean
 };

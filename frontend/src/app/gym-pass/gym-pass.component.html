@@ -25,8 +25,7 @@
               [price]="gymPass.price + 'zł'"
               [name]="gymPass.name"
               [buttonId]="gymPass.name"
-              (OrderGymPass)="orderGymPass()"
-            >
+              (OrderGymPass)="orderGymPass()">
             </af-gym-pass-card>
           </div>
         </ng-container>
@@ -35,14 +34,14 @@
     <div class="gym-pass__container--gym-pass">
       <ng-container *ngFor="let gymPass of gymPasses()">
         <af-gym-pass-info
+          [id]="gymPass.name"
           [title]="
             'gymPass.' + gymPass.name + 'Pass' + '.labelHeader' | translate
           "
           [price]="gymPass.price"
           [buttonId]="gymPass.name"
           [label1]="'gymPass.' + gymPass.name + 'Pass' + '.label1' | translate"
-          [label2]="'gymPass.' + gymPass.name + 'Pass' + '.label2' | translate"
-        ></af-gym-pass-info>
+          [label2]="'gymPass.' + gymPass.name + 'Pass' + '.label2' | translate"></af-gym-pass-info>
       </ng-container>
     </div>
   </section>

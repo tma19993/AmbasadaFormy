@@ -1,4 +1,4 @@
-<div class="gym-pass">
+<div class="gym-pass" [id]="id">
   <h2>{{title }}</h2>
   <div class="gym-pass__info">
     <af-tile>
@@ -14,8 +14,10 @@
     </af-tile>
     <af-tile [darkMode]="true"></af-tile>
     <af-tile [darkMode]="true">
-      <div style="display: grid; place-items: center; height: 100%;" class="">
-        <af-button [label]="'button.orderonline' | translate " [buttonId]="buttonId+'info'" [fontSize]="52" (onClick)="routeToGymPasses()"></af-button>
+      <div style="display: grid; place-items: center; height: 100%;" class>
+        <af-button [label]="'button.orderonline' | translate "
+          [buttonId]="buttonId+'info'" [fontSize]="52"
+          (onClick)="routeToGymPasses()"></af-button>
       </div>
     </af-tile>
   </div>

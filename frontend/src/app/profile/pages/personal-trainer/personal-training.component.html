@@ -1,21 +1,22 @@
 <div class="container">
   <div class="tiles">
     <af-training-tile
+      [trainings]="trainings()"
       [activationMode]="activationMode"
       [removalMode]="removalMode" />
   </div>
 
   <div class="menu">
     <p class="active-training-name">
-      @if(userData().trainings! | activeStatus){
-      Active Training is: {{(userData().trainings! | activeStatus).title}}
+      @if(trainings() | activeStatus){
+      Active Training is: {{(trainings() | activeStatus).title}}
       }
       @else {
       <span class="deactive">There is no active training</span>
       }
     </p>
     <af-button label="Add Training" (click)="addWorkout()" />
-    @if(userData().trainings || userData().trainings != null){
+    @if(trainings() || trainings() != null){
     <af-button
       label="Remove Training"
       (click)="activeRemoveMode()"
@@ -27,15 +28,12 @@
     } @if(removalMode){
     <af-button
       label="Remove"
-      (click)="removeWorkouts()"
-      [disabled]="userData().trainings! | trainingStatus: 'forDelete'" />
+      (click)="removeWorkouts()" />
     }
     @if(activationMode){
     <af-button
       label="Update"
-      (click)="activeTraining()"
-      [disabled]="userData().trainings! | trainingStatus: 'active'" />
-
+      (click)="activeTraining()" />
     }
   </div>
 </div>

@@ -4,64 +4,108 @@
       <i class="pi pi-bars"></i>
     </div>
     <div class="navigation_container__wrapper">
-      <div class="navigation_container__hamburger__options" [class]="isMenuOpen ? 'navigation_container__hamburger__options--active':''">
-        <p (click)="profileRouter()" [ngClass]="{'active': activeOption === 'profile'}">{{"MenuPage.profile"| translate}}</p>
-        <p (click)="startRouter()" [ngClass]="{'active': activeOption === 'home'}">{{"MenuPage.start"| translate}}</p>
-        <p (click)="gymPassRouter()" [ngClass]="{'active': activeOption === 'gyp-pass'}">{{"MenuPage.passes"| translate}}</p>
-        <p (click)="workoutsRouter()" [ngClass]="{'active': activeOption === 'trainers'}">{{"MenuPage.trainers"| translate}}</p>
-        <p (click)="blogRouter()" [ngClass]="{'active': activeOption === 'blog'}">{{"MenuPage.blog"| translate}}</p>
+      <div class="navigation_container__hamburger__options"
+        [class]="isMenuOpen ? 'navigation_container__hamburger__options--active':''">
+        <p (click)="profileRouter()"
+          [ngClass]="{'active': activeOption === 'profile'}">{{"MenuPage.profile"|
+          translate}}</p>
+        <p (click)="startRouter()"
+          [ngClass]="{'active': activeOption === 'home'}">{{"MenuPage.start"|
+          translate}}</p>
+        <p (click)="gymPassRouter()"
+          [ngClass]="{'active': activeOption === 'gyp-pass'}">{{"MenuPage.passes"|
+          translate}}</p>
+        <p (click)="workoutsRouter()"
+          [ngClass]="{'active': activeOption === 'trainers'}">{{"MenuPage.trainers"|
+          translate}}</p>
+        <p (click)="blogRouter()"
+          [ngClass]="{'active': activeOption === 'blog'}">{{"MenuPage.blog"|
+          translate}}</p>
       </div>
     </div>
 
-      <div class="navigation_container--logo" (click)="startRouter()">
-          <div class="navigation_container--logo__brand">
-              <a class="navigation_container--logo__brand__link">
-                  <img src="../../../assets/logo/logoLight.svg" alt="Ambasada Formy" class="navigation_container--logo__brand__link__photo">
-              </a>
-          </div>
-          <div class="navigation_container--logo__header">
-              <h2>
-                {{"footer.header"| translate}}
-              </h2>
-          </div>
-        </div>
+    <div class="navigation_container--logo" (click)="startRouter()">
+      <div class="navigation_container--logo__brand">
+        <a class="navigation_container--logo__brand__link">
+          <img src="../../../assets/logo/logoLight.svg" alt="Ambasada Formy"
+            class="navigation_container--logo__brand__link__photo">
+        </a>
       </div>
-     <div class="navigation_content">
-        <p (click)="startRouter()">{{"MenuPage.start"| translate}}</p>
-        <p (click)="gymPassRouter()">{{"MenuPage.passes"| translate}}</p>
-        <p (click)="workoutsRouter()">{{"MenuPage.workouts"| translate}}</p>
-        <p (click)="blogRouter()">{{"MenuPage.blog"| translate}}</p>
+      <div class="navigation_container--logo__header">
+        <h2>
+          {{"footer.header"| translate}}
+        </h2>
+      </div>
+    </div>
+  </div>
+  <div class="navigation_content">
+    <p (click)="startRouter()">{{"MenuPage.start"| translate}}</p>
+    <p (click)="gymPassRouter()">{{"MenuPage.passes"| translate}}</p>
+    <p (click)="workoutsRouter()">{{"MenuPage.workouts"| translate}}</p>
+    <p (click)="blogRouter()">{{"MenuPage.blog"| translate}}</p>
 
-     </div>
-     <div class="navigation_fetures">
-        <div class="navigation_fetures--detail">
-            <i class="pi pi-language"></i>
+  </div>
+  <div class="navigation_fetures">
+    <div class="navigation_fetures--detail">
+      <i class="pi pi-language"></i>
+    </div>
+    <div class="navigation_fetures--detail">
+      <i class="pi pi-user"></i>
+    </div>
+  </div>
+  <div class="navigation_container--details">
+    <div class="navigation_container--details__item">
+      <p>
+        <span
+          [routerLink]="['/home']"
+          fragment="gym-passes">
+          {{"MenuPage.showpasses"| translate}}
+        </span>
+      </p>
+      <p>
+        <span
+          [routerLink]="['/home']"
+          fragment="trainers">
+          {{"MenuPage.showtrainers"| translate}}
+        </span>
+      </p>
+    </div>
+    <div class="navigation_container--details__item">
+      <p>
+        <span
+          [routerLink]="['/gym-pass']"
+          [fragment]="'development'">
+          {{"MenuPage.passdevelopment" | translate}}
+        </span>
+      </p>
+      <p>
+        <span
+          [routerLink]="['/gym-pass']"
+          fragment="fun">
+          {{"MenuPage.passfun"| translate}}
+        </span>
+      </p>
+      <p>
+        <span
+          [routerLink]="['/gym-pass']"
+          fragment="health">
+          {{"MenuPage.passhealth"| translate}}
+        </span>
+      </p>
+    </div>
+    <div class="navigation_container--details__profile">
+      <div>
+        <p (click)="profileRouter()">{{"MenuPage.profile"| translate}}</p>
+        <div class="navigation_container--details__language">
+          <button (click)="changeLanguage('pl')"><img
+              src="../../../assets/backgrounds/flags/pl.png" alt="pl"></button>
+          <button (click)="changeLanguage('en')"><img
+              src="../../../assets/backgrounds/flags/en.png" alt="en"></button>
         </div>
-        <div class="navigation_fetures--detail">
-            <i class="pi pi-user"></i>
-        </div>
-     </div>
-     <div class="navigation_container--details">
-        <div class="navigation_container--details__item">
-            <p>{{"MenuPage.showpasses"| translate}}</p>
-            <p>{{"MenuPage.showtrainers"| translate}}</p>
-         </div>
-         <div class="navigation_container--details__item">
-            <p>{{"MenuPage.passdevelopment"| translate}}</p>
-            <p>{{"MenuPage.passfun"| translate}}</p>
-            <p>{{"MenuPage.passhealth"| translate}}</p>
-         </div>
-         <div class="navigation_container--details__profile">
-           <div>
-            <p (click)="profileRouter()">{{"MenuPage.profile"| translate}}</p>
-            <div class="navigation_container--details__language">
-                <button (click)="changeLanguage('pl')"><img src="../../../assets/backgrounds/flags/pl.png" alt="pl"></button>
-                <button (click)="changeLanguage('en')"><img src="../../../assets/backgrounds/flags/en.png" alt="en"></button>
-            </div>
-            <p (click)="logoutEmit()">{{"MenuPage.logout"| translate}}</p>
-           </div>
-         </div>
+        <p (click)="logoutEmit()">{{"MenuPage.logout"| translate}}</p>
+      </div>
+    </div>
 
-     </div>
+  </div>
 
 </section>

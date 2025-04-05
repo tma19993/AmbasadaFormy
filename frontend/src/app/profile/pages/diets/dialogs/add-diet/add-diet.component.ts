@@ -34,7 +34,9 @@ export class AFAddDietComponent implements OnInit {
       ...this.form.value,
       createAt: new Date(),
       forDelete: false,
-      active: false
+      active: false,
+      disabled: false,
+
     }
     let submitedData: userDataModel;
     if (!initialData) { submitedData = { diets: [dataToAdd] } }

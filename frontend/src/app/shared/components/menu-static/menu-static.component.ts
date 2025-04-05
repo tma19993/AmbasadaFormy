@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
@@ -8,7 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
   templateUrl: './menu-static.component.html',
   styleUrls: ['./menu-static.component.scss'],
   standalone: true,
-  imports: [CommonModule, TranslateModule]
+  imports: [CommonModule, TranslateModule, RouterModule]
 
 })
 export class AFMenuStaticComponent {

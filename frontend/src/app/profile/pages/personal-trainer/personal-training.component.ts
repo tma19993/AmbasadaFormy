@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, Signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, inject, Signal } from '@angular/core';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { AfMessageService, ProfileService } from 'src/app/core/services';
 import { dialogConfig } from 'src/app/shared/constants';
@@ -7,6 +7,7 @@ import { AFAddTrainingComponent } from './dialogs/add-training/add-training.comp
 import { delay, finalize, tap, } from 'rxjs';
 import { TrainingModel } from 'src/app/shared/models/training.model';
 import { SpinnerService } from 'src/app/core/services/spinner/spinner.service';
+import { areArraysEqual } from 'src/app/shared/utils';
 
 @Component({
   selector: 'af-personal-training',
@@ -22,7 +23,14 @@ export class AFPersonalTrainingComponent {
   private ref: DynamicDialogRef;
   public removalMode: boolean = false;
   public activationMode: boolean = false;
-  public userData: Signal<userDataModel> = this.profileService.userDataSignal;
+  public trainings: Signal<TrainingModel[]> = computed(() => this.profileService.userDataSignal().trainings!);
+  private initialTrainigs: TrainingModel[] = [];
+
+  constructor() {
+    effect(() => {
+      if (this.trainings()) this.initialTrainigs = JSON.parse(JSON.stringify(this.trainings()));
+    })
+  }
 
   public addWorkout(): void {
     this.ref = this.dialogService.open(AFAddTrainingComponent, {
@@ -44,20 +52,24 @@ export class AFPersonalTrainingComponent {
   public activeActivationMode(): void {
     this.activationMode = !this.activationMode;
     if (this.activationMode == false) {
-      this.userData().trainings?.forEach((trainings) => (trainings.active = false));
+      if (!areArraysEqual<TrainingModel>(this.initialTrainigs, this.trainings())) {
+        this.profileService.userDataSignal.update(userData => ({ ...userData, trainings: this.initialTrainigs }))
+      }
+      this.trainings().forEach((training) => {
+        training.disabled = false;
+      });
     }
   }
 
   public activeTraining(): void {
-    const dietToActive = this.userData().diets?.filter(
+    const trainingsToActive = this.trainings()?.filter(
       (val) => val.active === true
     );
-    console.log(dietToActive);
-    if (dietToActive?.length != 0) {
-      this.updateUserData(this.userData().trainings!, `Aktywowano dietę ${dietToActive![0].title}`);
+    if (trainingsToActive?.length != 0) {
+      this.updateUserData(this.trainings(), `Aktywowano dietę ${trainingsToActive![0].title}`);
     }
     else {
-      this.updateUserData(this.userData().trainings!, `Deaktywowano dietę`);
+      this.updateUserData(this.trainings(), `Deaktywowano dietę`);
     }
     this.activationMode = false;
   }
@@ -66,14 +78,12 @@ export class AFPersonalTrainingComponent {
   public activeRemoveMode(): void {
     this.removalMode = !this.removalMode;
     if (this.removalMode == false) {
-      this.userData().trainings?.forEach(training => training.forDelete = false)
+      this.trainings().forEach(training => training.forDelete = false)
     }
   }
 
   public removeWorkouts(): void {
-    this.spinnerService.loadingActivation.set(false);
-    const dataToDelete = this.userData().trainings?.filter(val => !val.forDelete && val.forDelete === false);
-
+    const dataToDelete = this.trainings().filter(val => !val.forDelete && val.forDelete === false);
     this.updateUserData(dataToDelete!, "usunieto trening")
   }
 
@@ -83,6 +93,7 @@ export class AFPersonalTrainingComponent {
 
 
   private updateUserData(data: TrainingModel[], message: string): void {
+    this.spinnerService.loadingActivation.set(false);
     this.profileService.updateUserData({ trainings: data }).pipe(
       delay(1000),
       tap(() => {

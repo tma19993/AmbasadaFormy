@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { AFButtonComponent } from 'src/app/shared/components/button/button.component';
 import { AFTileComponent } from 'src/app/shared/components/tile/tile.component';
@@ -11,6 +11,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
   styleUrls: ['./gym-pass-card.component.scss'],
   standalone: true,
   imports: [SharedModule, AFTileComponent, AFButtonComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush
 
 })
 export class AFGymPassCardComponent implements OnInit {

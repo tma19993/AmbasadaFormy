@@ -1,4 +1,4 @@
-import { Component, computed, inject, input, Signal } from '@angular/core';
+import { Component, computed, inject, Input, input, Signal } from '@angular/core';
 import { ProfileService } from 'src/app/core/services';
 import { AFTileComponent } from 'src/app/shared/components/tile/tile.component';
 import { userDataModel } from 'src/app/shared/models';
@@ -13,24 +13,26 @@ import { SharedModule } from 'src/app/shared/shared.module';
   styleUrl: './training-tile.component.scss'
 })
 export class TrainingTileComponent {
-  private profileService = inject(ProfileService);
+  @Input() public trainings: TrainingModel[] = [];
   public activationMode = input.required<boolean>();
   public removalMode = input.required<boolean>();
-  public userData: Signal<userDataModel> = this.profileService.userDataSignal;
 
-  public trainingStatus = computed(() => {
-    const diets = this.userData().diets ?? [];
-    return {
-      active: !diets.some((diet) => diet.active === true),
+  public selectForAction(ClickedTraining: TrainingModel): void {
+    if (this.removalMode()) ClickedTraining.forDelete = !ClickedTraining.forDelete;
+    if (ClickedTraining.forDelete === true) return;
+    if (this.activationMode()) {
+      ClickedTraining.active = !ClickedTraining.active;
+      const activeTraining = this.trainings.filter((training) => training.active == true);
+      this.trainings.forEach(training => {
+        if (activeTraining?.length == 0) {
+          if (training.active === false) training.disabled = true;
+        }
+        else {
+          training.disabled = false;
+        }
+      })
+
     };
-  })
-
-  public selectForAction(diet: TrainingModel): void {
-    if (this.trainingStatus().active && !diet.active && this.activationMode()) {
-      return;
-    }
-    if (this.removalMode()) diet.forDelete = !diet.forDelete;
-    if (this.activationMode()) diet.active = !diet.active;
 
   }
 }

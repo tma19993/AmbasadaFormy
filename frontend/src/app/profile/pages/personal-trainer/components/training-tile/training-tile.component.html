@@ -1,11 +1,11 @@
 <div class="trainings">
-    @if(!userData().trainings || userData().trainings == null){
+    @if(!trainings || trainings == null){
     <div class="empty">
         <h2>There is no training to show</h2>
     </div>
     } @else {
     <div class="trainings-container">
-        @for (training of userData().trainings; track training.title; let id =
+        @for (training of trainings; track training.title; let id =
         $index){
         <af-tile
             [darkMode]="!((training.forDelete && removalMode()) || (training.active && activationMode()))"

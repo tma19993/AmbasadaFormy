@@ -1,4 +1,4 @@
-import { Component, computed, effect, inject, Signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, inject, Signal } from '@angular/core';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { AfMessageService, ProfileService } from 'src/app/core/services';
 import { DietModel } from 'src/app/shared/models';
@@ -6,11 +6,13 @@ import { AFAddDietComponent } from './dialogs/add-diet/add-diet.component';
 import { dialogConfig } from 'src/app/shared/constants';
 import { delay, finalize, tap } from 'rxjs';
 import { SpinnerService } from 'src/app/core/services/spinner/spinner.service';
+import { areArraysEqual } from 'src/app/shared/utils';
 
 @Component({
   selector: 'af-diets',
   templateUrl: './diets.component.html',
   styleUrls: ['./diets.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AFDietsComponent {
   private dialogService: DialogService = inject(DialogService);
@@ -25,7 +27,7 @@ export class AFDietsComponent {
 
   constructor() {
     effect(() => {
-      this.initialDiets = JSON.parse(JSON.stringify(this.diets()));
+      if (this.diets()) this.initialDiets = JSON.parse(JSON.stringify(this.diets()));
     });
   }
 
@@ -71,10 +73,8 @@ export class AFDietsComponent {
   public activeActivationMode(): void {
     this.activationMode = !this.activationMode;
     if (this.activationMode == false) {
-      console.log(this.areArraysEqual(this.initialDiets, this.diets()));
-      if (!this.areArraysEqual(this.initialDiets, this.diets())) {
+      if (!areArraysEqual<DietModel>(this.initialDiets, this.diets())) {
         this.profileService.userDataSignal.update(userData => ({ ...userData, diets: this.initialDiets }))
-        console.log("not equal");
       }
       this.diets().forEach((diet) => {
         diet.disabled = false;
@@ -87,7 +87,6 @@ export class AFDietsComponent {
       (val) => val.active === true
     );
     if (dietToActive?.length != 0) {
-      console.log(this.diets());
       this.updateUserData(this.diets(), `Aktywowano dietę ${dietToActive![0].title}`);
     }
     else {
@@ -114,9 +113,9 @@ export class AFDietsComponent {
       .subscribe();
   }
 
-  private areArraysEqual(arr1: DietModel[], arr2: DietModel[]): boolean {
-    return arr1.length === arr2.length && arr1.every((item, index) =>
-      JSON.stringify(item) === JSON.stringify(arr2[index])
-    );
-  }
+  // private areArraysEqual(arr1: DietModel[], arr2: DietModel[]): boolean {
+  //   return arr1.length === arr2.length && arr1.every((item, index) =>
+  //     JSON.stringify(item) === JSON.stringify(arr2[index])
+  //   );
+  // }
 }

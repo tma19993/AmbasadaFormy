@@ -49,7 +49,6 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/home']);
       },
       error: err => {
-        console.log("object");
         this.message.addErrorMessage('Błędny login lub hasło', 'Błąd');
         console.log(err);
       }

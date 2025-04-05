@@ -22,7 +22,7 @@ export class AFAddTrainingComponent implements OnInit {
   })
 
   public get exercises(): FormArray {
-    return this.exercises as FormArray;
+    return this.form.controls["exercises"] as FormArray;
   }
 
   private ref: DynamicDialogRef;
@@ -56,7 +56,9 @@ export class AFAddTrainingComponent implements OnInit {
     const dataToAdd: TrainingModel = {
       ...this.form.value,
       createAt: new Date(),
-      forDelete: false
+      forDelete: false,
+      active: false,
+      disabled: false
     }
 
     let submitedData: userDataModel;
