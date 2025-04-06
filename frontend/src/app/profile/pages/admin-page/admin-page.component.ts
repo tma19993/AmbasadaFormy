@@ -6,6 +6,7 @@ import { delay, tap } from 'rxjs';
 
 import { AFChangeUserPasswordComponent, AFEditGymPassesComponent, AFEditPermissionsComponent, AFEditUserDataComponent, AFGymPassRequestsComponent, AFEditBlogComponent } from './dialogs';
 import { DashboardModel, LastTimeKeys } from 'src/app/shared/models';
+import { SpinnerService } from 'src/app/core/services/spinner/spinner.service';
 
 const AdminDialogMap: Record<string, Type<any>> = {
   gymPassRequests: AFGymPassRequestsComponent,
@@ -26,6 +27,7 @@ type SelectModel = { name: string, code: LastTimeKeys }
 export class AFAdminPageComponent implements OnInit {
 
   private dialogService: DialogService = inject(DialogService);
+  private spinnerService: SpinnerService = inject(SpinnerService);
   private profileService: ProfileService = inject(ProfileService);
   private message: AfMessageService = inject(AfMessageService);
   private dashboardService: DashboardService = inject(DashboardService);
@@ -45,6 +47,7 @@ export class AFAdminPageComponent implements OnInit {
 
 
   public openDialog(myComponent: string, header: string): void {
+    this.spinnerService.loadingActivation.set(false);
     const componentType = AdminDialogMap[myComponent];
     if (!componentType) {
       this.message.addErrorMessage("Błąd wczytania")
@@ -65,6 +68,7 @@ export class AFAdminPageComponent implements OnInit {
       })).subscribe((val) => {
         if (val) {
           this.message.addSuccesMessage("Wprowadzono zmiany");
+          this.spinnerService.loadingActivation.set(true);
         }
       })
   }

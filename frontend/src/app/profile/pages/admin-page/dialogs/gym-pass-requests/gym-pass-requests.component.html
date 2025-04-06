@@ -1,11 +1,2 @@
-<af-table
-  [columns]="columns"
-  [values]="requestsData()"
-  [rows]="5"
-  [paginator]="true"
-  [editable]="false"
-  (deleteRow)="deleteRow($event)"
-  (editRow)="editRow($event)"
-  dataKey="requestDate"
-  sortField="requestDate"
-  [sortOrder]="-1" />
+<af-requests-table
+  [values]="requestsData()" />

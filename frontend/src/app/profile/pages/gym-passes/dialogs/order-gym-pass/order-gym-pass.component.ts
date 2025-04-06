@@ -44,9 +44,7 @@ export class OrderGymPassComponent implements OnInit {
       status: "pending"
     }
 
-    this.requestService.addRequest(requestsData).subscribe(val => {
-      console.log(val);
-    })
+    this.requestService.addRequest(requestsData).subscribe()
     this.dialogRef.close(requestsData);
     this.dialogRef.destroy();
   }

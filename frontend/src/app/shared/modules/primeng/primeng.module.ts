@@ -44,7 +44,8 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     RadioButtonModule,
     RatingModule,
     TableModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    SelectButtonModule
   ]
 })
 export class PrimengModule { }

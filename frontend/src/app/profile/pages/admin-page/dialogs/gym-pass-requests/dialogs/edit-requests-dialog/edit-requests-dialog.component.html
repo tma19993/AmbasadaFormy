@@ -1,0 +1,9 @@
+<section class="container">
+    <div class="data">
+        <p>{{data.userName}} chce aktywować {{data.gymPassNameToActive}}</p>
+    </div>
+    <div class="buttons">
+        <af-button (onClick)="approve()" label="Active Pass" [fontSize]="14" />
+    <af-button (onClick)="reject()" label="Reject Pass" [fontSize]="14"/>
+    </div>
+</section>

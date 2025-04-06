@@ -32,7 +32,7 @@ import {
   PasswordChangerComponent,
   ProfileDataEditorComponent,
 } from './pages/my-profile/dialogs';
-import { AFAddTrainingComponent } from './pages/personal-trainer/dialogs/add-training/add-training.component';
+import { AFAddTrainingComponent } from './pages/personal-training/dialogs/add-training/add-training.component';
 import { AFCheckboxComponent } from '../shared/components/checkbox/checkbox.component';
 import { AFMessagesComponent } from '../shared/components/messages/messages.component';
 import { AFInputComponent } from '../shared/components/input/input.component';
@@ -43,9 +43,10 @@ import { AFGymPassCardComponent } from '../gym-pass/components';
 import { AFInputTextareaComponent } from '../shared/components/inputTextarea/inputtextarea.component';
 import { ActiveStatusPipe } from '../shared/pipes/active-status/active-status.pipe';
 import { DietTileComponent } from "./pages/diets/components/diet-tile/diet-tile/diet-tile.component";
-import { TrainingTileComponent } from './pages/personal-trainer/components/training-tile/training-tile.component';
+import { TrainingTileComponent } from './pages/personal-training/components/training-tile/training-tile.component';
 import { DietStatusPipe } from '../shared/pipes/diet-status/diet-status.pipe';
 import { TrainingStatusPipe } from '../shared/pipes/training-status/training-status.pipe';
+import { RequestsTableComponent } from './pages/admin-page/dialogs/gym-pass-requests/requests-table/requess-table/requests-table.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +90,8 @@ import { TrainingStatusPipe } from '../shared/pipes/training-status/training-sta
     DietTileComponent,
     TrainingTileComponent,
     DietStatusPipe,
-    TrainingStatusPipe
+    TrainingStatusPipe,
+    RequestsTableComponent
   ],
   exports: [],
 })

@@ -1,0 +1,87 @@
+@import "../../../../../../../shared/styles/constants.scss";
+
+.header-template {
+    background-color: $background-dark;
+    color: $input-text-accent;
+    font-weight: $font-weight-bold;
+    font-size: 12px;
+    padding: 10px;
+    text-align: center;
+
+    &:nth-last-of-type(1) {
+        border-top-right-radius: 20px;
+    }
+
+    &:nth-of-type(1) {
+        border-top-left-radius: 20px;
+    }
+}
+
+.row {
+    background-color: $background-white-opacity;
+
+    &:nth-last-of-type(1) .border-bottom-row {
+        border-bottom: none;
+    }
+
+    &-template {
+        border: none;
+        padding: 20px 10px;
+        color: $background-dark;
+        text-align: center;
+    }
+
+}
+
+.action-buttons {
+    display: flex;
+
+    af-button ::ng-deep .button__container {
+        margin-bottom: 10px;
+    }
+}
+
+.edit {
+    width: 10%;
+}
+
+
+::ng-deep .p-datatable-tbody>tr {
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 5px;
+        width: calc(100% - 10px);
+        height: 1px;
+        background-color: rgba(red($background-dark), green($background-dark), blue($background-dark), 0.2);
+    }
+
+    &:nth-last-of-type(1)::after {
+        height: 0;
+    }
+}
+
+::ng-deep .p-paginator {
+    background-color: $background-white-opacity;
+    border-bottom: none;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+    button {
+        font-weight: $font-weight-bold;
+        color: $background-dark;
+        transition: .2s;
+
+        &.p-highlight {
+            background-color: $background-accent;
+        }
+
+        &:hover {
+            background-color: $background-dark;
+            color: $background-accent;
+        }
+    }
+}

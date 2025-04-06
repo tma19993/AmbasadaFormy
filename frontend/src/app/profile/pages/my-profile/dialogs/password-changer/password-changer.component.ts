@@ -39,7 +39,7 @@ export class PasswordChangerComponent implements OnInit {
       const updatedPassword: userDataModel = {
         password: newPassword
       }
-      this.profileService.updateUserData(updatedPassword).subscribe(val => { console.log(val) });
+      this.profileService.updateUserData(updatedPassword).subscribe();
       this.dialogRef.close(updatedPassword);
       this.dialogRef.destroy();
     }

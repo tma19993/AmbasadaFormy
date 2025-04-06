@@ -1,0 +1,15 @@
+.container {
+
+    .data {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .button {
+        width: 100%;
+        display: grid;
+        place-items: center;
+    }
+}

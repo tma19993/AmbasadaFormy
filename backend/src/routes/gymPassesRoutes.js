@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { mapDataFromCollection, catchError } = require("../untils/exports.js");
 
-module.exports = function (gymPasses) {
+module.exports = function (gymPasses, users) {
   router.get("/AmbasadaFormy/gym-passes", async (req, res) => {
     const gymPassesData = await mapDataFromCollection(gymPasses);
     res.status(200).json(gymPassesData);
@@ -14,7 +14,7 @@ module.exports = function (gymPasses) {
     const { activeGymPass, gympassName } = req.body;
     try {
       const result = await users.updateOne(
-        { userId: userId },
+        { userId },
         { $set: { activeGymPass, gympassName } }
       );
 
