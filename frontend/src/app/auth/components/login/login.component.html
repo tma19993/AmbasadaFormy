@@ -19,8 +19,7 @@
             [fontSize]="10"
             [iconSize]="18"
             [transparentButton]="true"
-            (click)="backToWelcomePage()"
-          ></af-button>
+            (click)="backToWelcomePage()"></af-button>
         </div>
         <div class="login-section__justify">
           <form [formGroup]="myForm">
@@ -28,35 +27,24 @@
               formControlName="login"
               iconClassName="pi-user"
               [floatLabel]="true"
-              [floatLabelText]="'registerLogin.login' | translate"
-            ></af-input>
+              [floatLabelText]="'registerLogin.login' | translate"></af-input>
             <af-password
               formControlName="password"
-              [floatLabelText]="'registerLogin.password' | translate"
-            ></af-password>
+              [floatLabelText]="'registerLogin.password' | translate"></af-password>
             <div class="box-forgot">
-              <div class="box-forgot__checkbox">
-                <af-checkbox
-                  (checkedToggler)="getRemeberPassword($event)"
-                  [label]="'registerLogin.safePassword' | translate"
-                ></af-checkbox>
-              </div>
-              <div class="box-forgot__forgot">
-                <p>
-                  {{ "registerLogin.dontRememberPassword" | translate }}
-                  <a href="#" class="form-group__forgot-password">{{
-                    "registerLogin.RemindPassword" | translate
+              <p>
+                {{ "registerLogin.dontRememberPassword" | translate }}
+                <a href="#" class="form-group__forgot-password">{{
+                  "registerLogin.RemindPassword" | translate
                   }}</a>
-                </p>
-              </div>
+              </p>
             </div>
             <div class="button__mid">
               <af-button
                 [label]="'registerLogin.log_in' | translate"
                 buttonId="login"
                 [fontSize]="30"
-                (click)="submitLogin()"
-              ></af-button>
+                (click)="submitLogin()"></af-button>
             </div>
           </form>
           <div class="account-dont-exist">
@@ -64,7 +52,7 @@
               {{ "registerLogin.dontHaveAccount" | translate }}
               <a routerLink="/register">{{
                 "registerLogin.registerNow" | translate
-              }}</a>
+                }}</a>
             </p>
           </div>
         </div>

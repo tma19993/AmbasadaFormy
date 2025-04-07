@@ -1,6 +1,7 @@
-@import "../../../shared/styles/constants.scss";;
+@import "../../../shared/styles/constants.scss";
+;
 
-.bg-img{
+.bg-img {
   background: url('../../../../assets/backgrounds/background-loginPage.jpg');
   background-size: 100%;
   background-position: center;
@@ -8,7 +9,7 @@
   background-repeat: no-repeat;
   overflow: hidden;
   height: 100vh;
-  color:$darker-gray;
+  color: $darker-gray;
 }
 
 .login-container {
@@ -19,47 +20,49 @@
   grid-template-rows: 0.5fr 1fr 1fr;
   gap: 20px 0px;
   grid-template-areas:
-  "logo-section logo-section logo-section"
-  "login-section login-section login-section";
+    "logo-section logo-section logo-section"
+    "login-section login-section login-section";
   justify-items: center;
   align-items: stretch;
   height: 100vh;
-  
-  .logo-section {
-  grid-area: logo-section;
 
-    &__af{
+  .logo-section {
+    grid-area: logo-section;
+
+    &__af {
       padding: 50px;
     }
-    img{
+
+    img {
       width: 350px;
       filter: invert(1);
     }
   }
 
   .login-section {
-  grid-area: login-section;
-  margin: 5px;
-  width: 1000px;
+    grid-area: login-section;
+    margin: 5px;
+    width: 1000px;
 
     &__justify {
-    padding: 40px 200px;
-    width: 100%;
-    form{
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-      margin-bottom: 20px;
+      padding: 40px 200px;
+      width: 100%;
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+        margin-bottom: 20px;
+      }
     }
   }
-}
 
 
-  af-tile{
+  af-tile {
     position: relative;
   }
 
-  .button__language{
+  .button__language {
     position: absolute;
     top: 20px;
     left: 20px;
@@ -73,33 +76,21 @@
 
   .button__mid {
     display: flex;
-    justify-content:center;
+    justify-content: center;
   }
 
 
   a {
-  margin-top: 20px;
-  color: rgb(0, 173, 181);
-}
+    margin-top: 20px;
+    color: rgb(0, 173, 181);
+  }
 }
 
-.box-forgot{
+.box-forgot {
   width: 100%;
   display: flex;
+  justify-content: end;
 
-  &__checkbox{
-    width:25%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-  }
-
-  &__forgot{
-    width: 75%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-  }
 }
 
 .account-dont-exist {
@@ -108,8 +99,8 @@
   justify-content: center;
 }
 
-.validoation__container{
+.validoation__container {
   position: absolute;
   top: 20px;
-  right:20px;
-  }
+  right: 20px;
+}

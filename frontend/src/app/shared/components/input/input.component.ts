@@ -4,6 +4,7 @@ import { EnumIconFloat } from '../../enums';
 
 import { PrimengModule } from '../../modules/primeng/primeng.module';
 import { SharedModule } from '../../shared.module';
+import { FloatLabelModule } from 'primeng/floatlabel';
 
 @Component({
   selector: 'af-input',
@@ -17,7 +18,7 @@ import { SharedModule } from '../../shared.module';
     },
   ],
   standalone: true,
-  imports: [SharedModule, PrimengModule],
+  imports: [SharedModule, FloatLabelModule],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AFInputComponent implements ControlValueAccessor {

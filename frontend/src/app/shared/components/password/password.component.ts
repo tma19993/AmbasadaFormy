@@ -21,7 +21,6 @@ import { PrimengModule } from '../../modules/primeng/primeng.module';
 export class AFPasswordComponent implements OnInit, ControlValueAccessor {
   @Input() public floatLabelText: string = '';
   @Input() public feedback: boolean = false;
-
   @Input() public disabledPassword: boolean = false;
   @Input() public maxLength: number = 255;
   @Output() public inputValue: EventEmitter<string> = new EventEmitter();

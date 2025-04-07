@@ -56,11 +56,7 @@ export class LoginComponent implements OnInit {
   }
 
   public backToWelcomePage(): void {
-    this.router.navigate(['']);
-  }
-
-  public getRemeberPassword(event: any): void {
-    console.log(event);
+    // this.router.navigate(['']);
   }
 
 }
