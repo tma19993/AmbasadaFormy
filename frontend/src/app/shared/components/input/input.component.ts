@@ -18,7 +18,7 @@ import { FloatLabelModule } from 'primeng/floatlabel';
     },
   ],
   standalone: true,
-  imports: [SharedModule, FloatLabelModule],
+  imports: [SharedModule, PrimengModule],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AFInputComponent implements ControlValueAccessor {

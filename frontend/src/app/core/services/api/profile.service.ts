@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ProfileService {
   public userDataSignal: WritableSignal<userDataModel> = signal<userDataModel>({});
+  public usersSignal: WritableSignal<userDataModel[]> = signal<userDataModel[]>([]);
   private url: string = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
@@ -21,6 +22,12 @@ export class ProfileService {
       .subscribe((val) => {
         this.userDataSignal.set(val);
       });
+  }
+
+  public getUsers(): void {
+    this.http.get<userDataModel[]>(this.url + '/getUsers').subscribe((val) => {
+      this.usersSignal.set(val);  
+    });
   }
 
   public updateUserData(data: userDataModel): Observable<userDataModel> {

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit, Type, WritableSignal } from '@angular/core';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { AfMessageService, DashboardService, ProfileService } from 'src/app/core/services';
+import { AfMessageService, DashboardService, GymPassesService, ProfileService } from 'src/app/core/services';
 import { dialogConfig } from 'src/app/shared/constants';
 import { delay, tap } from 'rxjs';
 
@@ -28,6 +28,7 @@ export class AFAdminPageComponent implements OnInit {
 
   private dialogService: DialogService = inject(DialogService);
   private spinnerService: SpinnerService = inject(SpinnerService);
+  private gymPassService: GymPassesService = inject(GymPassesService);
   private profileService: ProfileService = inject(ProfileService);
   private message: AfMessageService = inject(AfMessageService);
   private dashboardService: DashboardService = inject(DashboardService);
@@ -42,6 +43,8 @@ export class AFAdminPageComponent implements OnInit {
   public selectedTime: SelectModel = { name: "24h", code: "last24Hours" };
 
   public ngOnInit(): void {
+    this.gymPassService.getGymPasses();
+    this.profileService.getUsers();
     this.dashboardService.getDashboardData();
   }
 

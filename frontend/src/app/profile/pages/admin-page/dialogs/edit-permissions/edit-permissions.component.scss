@@ -1,0 +1,8 @@
+@import "../../../../../shared/styles/constants.scss";
+.user-card{
+    margin: 20px;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid $input-text-light;
+}

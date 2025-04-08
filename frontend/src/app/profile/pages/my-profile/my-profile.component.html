@@ -58,6 +58,7 @@
           <h3>Active Diet</h3>
           <ng-container *ngIf="userData().diets! | activeStatus as activeDiet">
             <p>{{ activeDiet.title }}</p>
+            <a [routerLink]="['/profile/diets']">Go to Diets</a>
           </ng-container>
         </div>
       </af-tile>
@@ -69,6 +70,7 @@
           <ng-container
             *ngIf="userData().trainings! | activeStatus as activeTraining">
             <p>{{ activeTraining.title }}</p>
+            <a [routerLink]="['/profile/personal-training']">Go to Personal Trainings</a>
           </ng-container>
         </div>
       </af-tile>

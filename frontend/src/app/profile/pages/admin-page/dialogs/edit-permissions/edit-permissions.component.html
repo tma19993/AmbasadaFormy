@@ -1,1 +1,9 @@
-<p>edit-permissions works!</p>
+@for (item of users; track $index) {
+    <div class="user-card">
+       <div>
+        <h3>{{ item.login }}</h3>
+        <p>Email: {{ item.email }}</p>
+       </div>
+        <af-button (onClick)="openChangePerrmisionDialog(item)" label="Change Perrmision"  [fontSize]="16"/>
+    </div>
+}

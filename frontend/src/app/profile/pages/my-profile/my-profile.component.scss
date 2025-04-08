@@ -5,7 +5,6 @@
 
   h2 {
     margin: 20px 0 0 30px;
-    // margin-bottom: 10px;
     font-size: 42px;
     color: $darker-gray;
     font-weight: $font-weight-bold;
@@ -72,7 +71,7 @@
     section:nth-of-type(4) {
       grid-column: span 3;
       grid-row: 2;
-
+      
     }
 
     section:nth-of-type(5) {
@@ -104,7 +103,20 @@
 
   }
 }
-
+.diet, .training{
+  a{
+    display: block;
+    text-align: right;
+    color: $input-main-color;
+    font-size: 16px;
+    margin-right: 10px;
+    transition: .2s;
+    &:hover
+    {
+      color: $input-background-color;
+    }
+  }
+}
 .my-profile__menu {
   display: flex;
   gap: 20px;

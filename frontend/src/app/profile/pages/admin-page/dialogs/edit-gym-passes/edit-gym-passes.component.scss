@@ -1,0 +1,10 @@
+.gympass-card{
+    margin: 20px;
+    padding: 10px 0;
+    display: flex;
+ justify-content: space-between;
+ .gympass-actions{
+    display: flex;
+    gap: 10px;
+ }
+}
