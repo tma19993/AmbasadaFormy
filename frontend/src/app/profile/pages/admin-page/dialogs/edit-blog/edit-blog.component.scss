@@ -1,3 +1,15 @@
-.content{
+.container {
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  .content {
     padding: 30px;
+    .post-content {
+      max-width: 50%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
 }

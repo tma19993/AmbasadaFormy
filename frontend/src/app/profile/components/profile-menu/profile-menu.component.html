@@ -1,21 +1,34 @@
 <ul class="profile-menu">
-        <li class="navi-item" (click)="navigateWithData('my-profile')">
-          <i class="fa-solid fa-user" style="font-size: 2rem"></i> {{"profile.menu.myProfile" | translate}}
-        </li>
-        <li class="navi-item" (click)="navigateWithData('gym-pass')">
-          <i class="fa-solid fa-ticket"  style="font-size: 2rem"></i> {{"profile.menu.myGymPass" | translate}}
-        </li>
-        <li class="navi-item" (click)="navigateWithData('personal-trainers')">
-          <i class="fa-solid fa-dumbbell"  style="font-size: 2rem"></i> {{"profile.menu.myTrainings" | translate}}
-        </li>
-        <li class="navi-item" (click)="navigateWithData('diets')">
-          <i class="fa-solid fa-utensils" style="font-size: 2rem"></i> {{"profile.menu.myDiets" | translate}}
-        </li>
-        <li *ngIf="isAdmin" class="navi-item" (click)="navigateWithData('admin')">
-          <i class="fa-solid fa-screwdriver-wrench" style="font-size: 2rem"></i> {{"profile.menu.admin" | translate}}
-        </li>
-        <li class="navi-item--bottom">
-            <af-button iconClassName="pi-undo" [label]="'button.back' | translate" (onClick)="undo()"></af-button>
-            <af-button iconClassName="pi-sign-out"[label]="'button.logout' | translate" (onClick)="logout()"></af-button>
-        </li>
-    </ul>
+  <li class="navi-item" (click)="navigateWithData('my-profile')">
+    <i class="fa-solid fa-user" style="font-size: 2rem"></i>
+    {{ "profile.menu.myProfile" | translate }}
+  </li>
+  <li class="navi-item" (click)="navigateWithData('gym-pass')">
+    <i class="fa-solid fa-ticket" style="font-size: 2rem"></i>
+    {{ "profile.menu.myGymPass" | translate }}
+  </li>
+  <li class="navi-item" (click)="navigateWithData('personal-training')">
+    <i class="fa-solid fa-dumbbell" style="font-size: 2rem"></i>
+    {{ "profile.menu.myTrainings" | translate }}
+  </li>
+  <li class="navi-item" (click)="navigateWithData('diets')">
+    <i class="fa-solid fa-utensils" style="font-size: 2rem"></i>
+    {{ "profile.menu.myDiets" | translate }}
+  </li>
+  <li *ngIf="isAdmin" class="navi-item" (click)="navigateWithData('admin')">
+    <i class="fa-solid fa-screwdriver-wrench" style="font-size: 2rem"></i>
+    {{ "profile.menu.admin" | translate }}
+  </li>
+  <li class="navi-item--bottom">
+    <af-button
+      iconClassName="pi-undo"
+      [label]="'button.back' | translate"
+      (onClick)="undo()"
+    ></af-button>
+    <af-button
+      iconClassName="pi-sign-out"
+      [label]="'button.logout' | translate"
+      (onClick)="logout()"
+    ></af-button>
+  </li>
+</ul>
