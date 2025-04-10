@@ -10,12 +10,12 @@ module.exports = function (gymPasses, users) {
 
   //pewnie do poprawy, jeśli nie to catchError do dodania
   router.put("/AmbasadaFormy/updateGymPass/:id", async (req, res) => {
-    const userId = req.params.id;
-    const { activeGymPass, gympassName } = req.body;
+    const gymPassId = req.params.id;
+    const { price, name } = req.body;
     try {
-      const result = await users.updateOne(
-        { userId },
-        { $set: { activeGymPass, gympassName } }
+      const result = await gymPasses.updateOne(
+        { gymPassId },
+        { $set: { price, name } }
       );
 
       if (result.modifiedCount === 1) {
@@ -30,5 +30,32 @@ module.exports = function (gymPasses, users) {
         .send("Wystąpił błąd podczas aktualizacji danych użytkownika.");
     }
   });
+
+  router.delete("/AmbasadaFormy/deleteGymPass/:id", async (req, res) => {
+    const gymPassId = req.params.id;
+      const [error, result] = await catchError(
+        users.deleteOne({
+          _id: gymPassId,
+        })
+      );
+      if (error) {
+        console.error("Error deleting user:", err);
+        res.status(500).send({
+          message: "Error deleting user.",
+        });
+      } else {
+        const userId = new ObjectId(req.params.userId);
+        if (result.deletedCount === 1) {
+          res.status(200).send({
+            message: `User with ID ${userId} has been deleted.`,
+          });
+        } else {
+          res.status(404).send({
+            message: `User with ID ${userId} not found.`,
+          });
+        }
+      }
+    });
+
   return router;
 };

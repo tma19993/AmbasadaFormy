@@ -19,6 +19,7 @@ private gymPassService: GymPassesService = inject(GymPassesService);
 
   public editGymPass(gymPass: GymPassModel): void {
     console.log(gymPass);
+    
   }
   public deleteGymPass(id: string): void {
     console.log(id);
