@@ -1,14 +1,21 @@
 <section class="container">
   <h2>Total posts: {{ posts().totalRecords }}</h2>
   @for (post of posts().posts; track post.createdAt) {
-  <af-tile [darkMode]="true">
-    <ng-container (click)="openPost(post)">
-      <div class="content">
-        <h3>{{ post.title }}</h3>
-        <p class="post-content">{{ post.content }}</p>
-      </div>
-    </ng-container>
-  </af-tile>
+
+  <section class="content">
+    <div class="post">
+      <h3>{{ post.title }}</h3>
+      <p class="post-content">{{ post.content }}</p>
+    </div>
+    <div class="post-actions">
+      <af-button (onClick)="editPost(post)" label="edit post" [fontSize]="16" />
+      <af-button
+        (onClick)="deletePost(post)"
+        label="delete post"
+        [fontSize]="16"
+      />
+    </div>
+  </section>
 
   }
 </section>

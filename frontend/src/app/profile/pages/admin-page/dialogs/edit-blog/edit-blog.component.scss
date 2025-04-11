@@ -4,12 +4,20 @@
   flex-direction: column;
   gap: 20px;
   .content {
-    padding: 30px;
-    .post-content {
+    display: flex;
+    justify-content: space-between;
+    .post {
       max-width: 50%;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      &-content {
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+    .post-actions {
+      display: flex;
+      gap: 20px;
     }
   }
 }
