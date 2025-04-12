@@ -1,1 +1,10 @@
-<p>delete-post-dialog works!</p>
+<div class="delete-post-dialog">
+    <div>
+        <p>Are you sure to delete Post: {{post.title}},</p>
+    <p>created by: {{post.userName}}</p>
+    </div>
+    <af-button
+        (click)="deletePost()"
+        label="Delete Post"
+        [fontSize]="16" />
+</div>

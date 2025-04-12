@@ -61,4 +61,8 @@ export class BlogService {
 
   }
 
+  public deletePost(id:string): Observable<PostModel> {
+    return this.http.delete<PostModel>(this.url + "/deletePost/" + id);
+  }
+
 }

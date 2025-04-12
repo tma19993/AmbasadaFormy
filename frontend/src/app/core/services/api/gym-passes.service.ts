@@ -16,8 +16,15 @@ export class GymPassesService {
   constructor(private http: HttpClient) { }
 
   public getGymPasses(): void {
-    this.http.get<GymPassModel[]>(`${this.url}/gym-passes`).subscribe(data => this.gymPassesSignal.set(data));
+    this.http.get<GymPassModel[]>(`${this.url}/getGymPasses`).subscribe(data => this.gymPassesSignal.set(data));
   }
+  public addGymPass(newGymPass: GymPassModel): Observable<GymPassModel> {
+    const gymPass = JSON.stringify({
+      ...newGymPass
+    });
+    return this.http.post<GymPassModel>(`${this.url}/getGymPasses`, gymPass);
+  }
+
   public updateGymPass(gymPass: GymPassModel): Observable<GymPassModel> {
    return this.http.put<GymPassModel>(`${this.url}/updateGymPass/${gymPass._id}`, gymPass);
   }

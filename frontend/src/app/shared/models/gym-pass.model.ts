@@ -1,5 +1,5 @@
 export type GymPassModel = {
-    _id: string,
+    _id?: string,
     price: number,
     name: string
 }

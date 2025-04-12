@@ -1,3 +1,7 @@
+<div class="add-gym-pass">
+    <h2>Add Gym Pass</h2>
+    <af-button (click)="openAddGymPassDialog()" [fontSize]="16" label="Add Gym Pass" />
+</div>
 @for(gympass of gymPasses; track $index) {
 <div class="gympass-card">
     <div>
@@ -6,7 +10,7 @@
     </div>
     <div class="gympass-actions">
         <af-button (click)="editGymPass(gympass)" [fontSize]="16" label="Edit" />
-        <af-button (click)="deleteGymPass(gympass._id)" [fontSize]="16" label="Delete" />
+        <af-button (click)="deleteGymPass(gympass._id!)" [fontSize]="16" label="Delete" />
     </div>
 </div>
 }

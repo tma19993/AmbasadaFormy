@@ -5,6 +5,7 @@ const {
   findUserName,
   lastPostFinder,
 } = require("../untils/exports.js");
+const { ObjectId } = require("mongodb");
 const router = express.Router();
 const multer = require("multer");
 
@@ -79,6 +80,22 @@ module.exports = function (blog, users) {
       res.status(500).send(error);
     } else {
       res.status(200).json(responseData);
+    }
+  });
+
+  router.delete("/AmbasadaFormy/deletePost/:id", async (req, res) => {
+    const postId = req.params.id;
+    console.log(postId);
+    const [error, result] = await catchError(
+      blog.deleteOne({
+        _id:  new ObjectId(postId),
+      })
+    );
+    if(error){
+      res.status(500).send(error);
+    }
+    else{
+      res.status(200).json(result);
     }
   });
 

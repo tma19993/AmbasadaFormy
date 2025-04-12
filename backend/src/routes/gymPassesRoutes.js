@@ -3,9 +3,21 @@ const router = express.Router();
 const { mapDataFromCollection, catchError } = require("../untils/exports.js");
 
 module.exports = function (gymPasses, users) {
-  router.get("/AmbasadaFormy/gym-passes", async (req, res) => {
+  router.get("/AmbasadaFormy/getGymPasses", async (req, res) => {
     const gymPassesData = await mapDataFromCollection(gymPasses);
     res.status(200).json(gymPassesData);
+  });
+
+  router.post("/AmbasadaFormy/addGymPass", async (req, res) => {
+    const newGymPass = {
+      ...req.body,
+    };
+    const [error, result] = await catchError(gymPasses.insertOne(newGymPass));
+    if (error) {
+      res.status(500).send(error);
+    }else{
+      res.status(200).json(result);
+    }
   });
 
   //pewnie do poprawy, jeśli nie to catchError do dodania
@@ -34,7 +46,7 @@ module.exports = function (gymPasses, users) {
   router.delete("/AmbasadaFormy/deleteGymPass/:id", async (req, res) => {
     const gymPassId = req.params.id;
       const [error, result] = await catchError(
-        users.deleteOne({
+        gymPasses.deleteOne({
           _id: gymPassId,
         })
       );
