@@ -10,7 +10,7 @@ import { PrimengModule } from '../../modules/primeng/primeng.module';
   standalone: true,
   imports: [SharedModule, PrimengModule],
 })
-export class RadioButtonsComponent {
+export class AFRadioButtonsComponent {
   @Input() categories: Categories[] = [];
   @Input() disabled: boolean = false;
   @Input() selectedCategory: Categories | null = null;

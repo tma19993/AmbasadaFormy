@@ -1,0 +1,28 @@
+<form [formGroup]="dynamicForm" >
+    @for (formControl of formGroup; track formControl) {
+        @switch(formControl.type){
+
+            @case ("text") {
+                <af-input />
+            }
+            @case ("password") {
+                <af-password />
+            }
+            @case ("checkbox") {
+                <af-checkbox />
+            }
+            @case ("radio-group") {
+                <af-radio-buttons />
+            }
+            @case ("textarea") {
+                <af-textarea />
+            }
+            @case ("date") {
+                <af-calendar />
+            }
+        }
+
+
+    }
+    <af-button type="submit" [label]="submitButtonLabel" />
+</form>

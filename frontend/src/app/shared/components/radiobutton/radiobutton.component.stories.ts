@@ -1,13 +1,13 @@
 import { Meta, moduleMetadata, StoryObj } from "@storybook/angular";
 import { DEFAULT_VIEWPORT } from "@storybook/addon-viewport";
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from "@angular/core";
-import { RadioButtonsComponent } from "./radiobutton.component";
+import { AFRadioButtonsComponent } from "./radiobutton.component";
 import { SharedModule } from "primeng/api";
 import { PrimengModule } from "../../modules/primeng/primeng.module";
 
-const meta: Meta<RadioButtonsComponent> = {
+const meta: Meta<AFRadioButtonsComponent> = {
   title: "Core/RadioButton",
-  component: RadioButtonsComponent,
+  component: AFRadioButtonsComponent,
   decorators: [
     moduleMetadata({
       imports: [SharedModule, PrimengModule],
@@ -21,7 +21,7 @@ const meta: Meta<RadioButtonsComponent> = {
 
 export default meta;
 
-type Story = StoryObj<RadioButtonsComponent>;
+type Story = StoryObj<AFRadioButtonsComponent>;
 
 const Template: Story = {
   render: (args) => ({
