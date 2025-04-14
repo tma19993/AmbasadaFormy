@@ -1,6 +1,6 @@
 import { ValidatorFn } from "@angular/forms";
 
-export type FormFieldType = 'text' | 'password' | 'checkbox' | "radio-group"  | 'textarea' | 'date';
+export type FormFieldType = 'text' | 'password' | 'checkbox' | "radioButtons"  | 'textarea' | 'calendar';
 
 export interface FormFieldOption {
   label: string;
@@ -18,4 +18,13 @@ export interface FormField {
   placeholder?: string;
   options?: FormFieldOption[]; 
   validators?: ValidatorFn[]; 
+}
+
+export interface FormFieldGroup {
+  name: string;
+  label: string;
+  fields: FormField[];
+  submitButton: boolean;
+  cancelButton: boolean;
+  resetButton: boolean;
 }

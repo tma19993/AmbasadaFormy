@@ -22,6 +22,7 @@ export class FormBuliderComponent implements OnInit {
 @Input() formGroup: FormField[];
 @Input() submitButtonLabel: string = 'Submit';
 @Input() cancelButtonLabel: string = 'Cancel';
+@Input() resetButtonLabel: string = 'Reset';
 
 public  dynamicForm!: FormGroup;
 

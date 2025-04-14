@@ -1,4 +1,5 @@
 <form [formGroup]="dynamicForm" >
+    <div class="form-control-renderer">
     @for (formControl of formGroup; track formControl) {
         @switch(formControl.type){
 
@@ -11,18 +12,21 @@
             @case ("checkbox") {
                 <af-checkbox />
             }
-            @case ("radio-group") {
-                <af-radio-buttons />
+            @case ("radioButtons") {
+                <!-- <af-radio-buttons [categories]="formControl.options"/> -->
             }
             @case ("textarea") {
                 <af-textarea />
             }
-            @case ("date") {
+            <!-- @case ("calendar") {
                 <af-calendar />
-            }
+            } -->
         }
-
-
     }
-    <af-button type="submit" [label]="submitButtonLabel" />
+</div>
+   <div class="form-button-renderer">
+    <af-button type="submit" [label]="submitButtonLabel" [fontSize]="16"/>
+    <af-button  [label]="cancelButtonLabel" [fontSize]="16"/>
+    <af-button  [label]="resetButtonLabel" [fontSize]="16"/>
+   </div>
 </form>
